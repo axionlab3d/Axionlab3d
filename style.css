@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'Joseph Sophia';
-  src: url('fonts/JosephSophia.otf') format('otf'),
-       url('fonts/JosephSophia.tff') format('tff');
-  font-weight: normal;
-  font-style: normal;
-  
+
 }body {
   font-family: 'Poppins', sans-serif; /* Fonte moderna do Google Fonts */
   margin: 0;
@@ -13,6 +7,15 @@
   background: linear-gradient(135deg, #4facfe, #00f2fe);
   color: #fff;
 }
+
+@font-face {
+  font-family: 'Joseph Sophia';
+  src: url('fonts/JosephSophia.otf') format('otf'),
+       url('fonts/JosephSophia.tff') format('tff');
+  font-weight: normal;
+  font-style: normal;
+  }
+
 
 header {
   background-color: black;  /* Fundo preto para toda a banda */

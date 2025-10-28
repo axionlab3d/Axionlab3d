@@ -2,7 +2,7 @@ body {
   font-family: 'Joseph Sophia', cursive; /* Fonte personalizada */
   margin: 0;
   padding: 0;
-  text-align: gauche;
+  text-align: center;
   background: linear-gradient(135deg, #4facfe, #00f2fe); /* Fundo gradiente azul */
   color: white;
 }
@@ -20,7 +20,7 @@ header {
   background-color: black;  /* Fundo preto para toda a banda */
   color: white;             /* Texto branco */
   padding: 2em;             /* Espaço interno */
-  text-align: center;
+  text-align: gauche;
 }
 
 header h1 {

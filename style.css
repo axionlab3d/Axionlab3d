@@ -13,6 +13,7 @@ body {
        url('fonts/JosephSophia.otf') format('truetype').;
   font-weight: normal;
   font-style: normal;
+  text-align: gauche;
   }
 
 
@@ -25,7 +26,6 @@ header {
 
 header h1 {
   margin: 0;                /* Remove margens extras do título */
-  text-align: gauche;
 }
 
 header nav a {

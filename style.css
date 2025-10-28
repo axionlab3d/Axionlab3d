@@ -10,8 +10,8 @@
 
 @font-face {
   font-family: 'Joseph Sophia';
-  src: url('fonts/JosephSophia.otf') format('otf'),
-       url('fonts/JosephSophia.tff') format('tff');
+  src: url('fonts/JosephSophia.ttf') format('truetype').,
+       url('fonts/JosephSophia.otf') format('truetype').;
   font-weight: normal;
   font-style: normal;
   }

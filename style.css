@@ -1,4 +1,11 @@
-body {
+@font-face {
+  font-family: 'Joseph Sophia';
+  src: url('fonts/JosephSophia.otf') format('otf'),
+       url('fonts/JosephSophia.tff') format('tff');
+  font-weight: normal;
+  font-style: normal;
+  
+}body {
   font-family: 'Poppins', sans-serif; /* Fonte moderna do Google Fonts */
   margin: 0;
   padding: 0;

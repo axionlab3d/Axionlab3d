@@ -8,10 +8,20 @@ body {
 }
 
 header {
-  padding: 2em;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background-color: black;  /* Fundo preto para toda a banda */
+  color: white;             /* Texto branco */
+  padding: 2em;             /* Espaço interno */
+  text-align: center;
 }
+
+header h1 {
+  margin: 0;                /* Remove margens extras do título */
+}
+
+header nav a {
+  color: white;             /* Links também em branco */
+}
+
 
 nav a {
   color: #fff;

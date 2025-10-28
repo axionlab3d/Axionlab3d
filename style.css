@@ -35,3 +35,11 @@ footer {
   background: rgba(0,0,0,0.3);
   font-size: 0.9em;
 }
+
+h1 {
+  color: white;           /* Texto branco */
+  background-color: black; /* Fundo preto */
+  display: inline-block;   /* Para que o fundo envolva só o texto */
+  padding: 0.2em 0.5em;    /* Espaço interno para ficar bonito */
+  border-radius: 5px;      /* Cantos arredondados (opcional) */
+}

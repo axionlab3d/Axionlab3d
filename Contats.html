@@ -1,1 +1,41 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contats</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Meu Site</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">Sobre</a>
+      <a href="contacts.html">Contats</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <h2>Contats</h2>
+    <p>Envoie votre message dans formulaire en bas:</p>
+
+    <form action="https://formspree.io/f/seu-email" method="POST">
+      <input type="text" name="name" placeholder="Nome" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2025 AxionLab3d. Touts droits reserves.</p>
+  </footer>
+
+</body>
+</html>

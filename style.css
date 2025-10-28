@@ -20,11 +20,12 @@ header {
   background-color: black;  /* Fundo preto para toda a banda */
   color: white;             /* Texto branco */
   padding: 2em;             /* Espaço interno */
-  text-align: gauche;
+  text-align: center;
 }
 
 header h1 {
   margin: 0;                /* Remove margens extras do título */
+  text-align: gauche;
 }
 
 header nav a {

@@ -18,7 +18,7 @@
 
 /* ================= CORPO GERAL ================= */
 body {
-  background: linear-gradient(135deg, #4facfe, #00f2fe); /* Fundo azul */
+  background-color: #000000; /* 🔹 Preto sólido em todo o fundo */
   margin: 0;
   font-family: 'Joseph Sophia', cursive;
   text-align: center;
@@ -36,4 +36,44 @@ header {
 h1 {
   color: white;              /* Texto branco */
   font-family: 'Joseph Sophia', cursive;
-  font-weight: no
+  font-weight: normal;
+  font-size: 3em;            /* 🔹 Tamanho do título principal */
+  margin: 0;
+}
+
+/* ================= MENU ================= */
+nav {
+  margin-top: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1.5em;
+  font-weight: bold;
+  font-size: 1.3em;          /* 🔹 Tamanho das letras do menu */
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffdd57;
+  text-decoration: underline;
+}
+
+/* ================= CONTEÚDO PRINCIPAL ================= */
+main {
+  padding: 3em 1em;
+}
+
+p {
+  font-size: 1.2em;          /* 🔹 Tamanho do texto normal */
+  line-height: 1.6em;        /* Espaçamento entre linhas */
+}
+
+/* ================= RODAPÉ ================= */
+footer {
+  padding: 1em;
+  background-color: #000000; /* Preto sólido, igual ao resto */
+  font-size: 1.1em;          /* 🔹 Tamanho do texto do rodapé */
+  color: white;
+}

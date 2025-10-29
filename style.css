@@ -1,16 +1,12 @@
-/* =============================== */
-/* LOGO                            */
-/* =============================== */
+/* ================= LOGO ================= */
 .logo {
-  width: 180px;   /* Tamanho da imagem da logo */
+  width: 180px;   /* tamanho médio */
   height: auto;
   display: block;
-  margin: 20px auto; /* Centraliza no topo */
+  margin: 20px auto; /* centraliza no topo */
 }
 
-/* =============================== */
-/* FONTE PERSONALIZADA             */
-/* =============================== */
+/* ================= FONTE PERSONALIZADA ================= */
 @font-face {
   font-family: 'Joseph Sophia';
   src: url('fonts/JosephSophia.woff2') format('woff2'),
@@ -20,69 +16,24 @@
   font-style: normal;
 }
 
-/* =============================== */
-/* CORPO DA PÁGINA                 */
-/* =============================== */
+/* ================= CORPO GERAL ================= */
 body {
-  background-color: #000; /* Fundo preto */
-  color: white;
+  background: linear-gradient(135deg, #4facfe, #00f2fe); /* Fundo azul */
+  margin: 0;
+  font-family: 'Joseph Sophia', cursive;
   text-align: center;
-  font-family: 'Joseph Sophia', cursive;
-}
-
-/* =============================== */
-/* MENU                            */
-/* =============================== */
-nav a {
   color: white;
-  text-decoration: none;
-  margin: 0 1em;
-  font-weight: bold;
-  transition: 0.3s;
 }
 
-nav a:hover {
-  color: #ffdd57;
-  text-decoration: underline;
+/* ================= CABEÇALHO ================= */
+header {
+  background-color: #000000; /* Preto sólido em toda a largura */
+  padding: 2em 0;            /* Altura da faixa preta */
+  text-align: center;
 }
 
-/* =============================== */
-/* CONTEÚDO PRINCIPAL              */
-/* =============================== */
-main {
-  padding: 3em 1em;
-}
-
-/* =============================== */
-/* RODAPÉ                          */
-/* =============================== */
-footer {
-  padding: 1em;
-  background: rgba(0,0,0,0.3);
-  font-size: 1em;
-}
-
-/* =============================== */
-/* TÍTULOS                         */
-/* =============================== */
+/* ================= TÍTULO ================= */
 h1 {
-  color: white;             /* Texto branco */
-  background-color: black;  /* Fundo preto */
-  display: inline-block;    /* Fundo só atrás do texto */
-  padding: 0.2em 0.5em;     /* Espaço interno */
-  border-radius: 5px;       /* Cantos arredondados */
-  font-size: 48px;          /* 🔹 AQUI ALTERAS O TAMANHO DO TÍTULO PRINCIPAL */
-}
-
-h2 {
-  font-size: 32px;          /* 🔹 AQUI ALTERAS O TAMANHO DO SUBTÍTULO */
-}
-
-h3 {
-  font-size: 24px;          /* 🔹 AQUI ALTERAS O TAMANHO DE TÍTULOS MENORES */
-}
-
-/* Aplica a fonte manuscrita a todos os títulos */
-h1, h2, h3 {
+  color: white;              /* Texto branco */
   font-family: 'Joseph Sophia', cursive;
-}
+  font-weight: norma

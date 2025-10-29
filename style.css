@@ -87,11 +87,12 @@ h1 {
 }
 h1, h2, h3 {
   font-family: 'Joseph Sophia', cursive;
+ }
   h1 {
   font-size: 5em;
-}
+    }
 
-}
+
 
 .logo {
   width: 180px;   /* tamanho médio */

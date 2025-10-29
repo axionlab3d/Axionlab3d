@@ -11,7 +11,7 @@ body {
 /* Cabeçalho */
 header {
   background-color: #111; /* Preto ligeiramente diferente */
-  padding: 80px 0;
+  padding: 800px 0;
 }
 
 /* Conteúdo do cabeçalho */
@@ -23,7 +23,7 @@ header {
 
 /* Logotipo */
 .logo {
-  width: 180px; /* tamanho médio */
+  width: 1800px; /* tamanho médio */
   height: auto;
   margin-bottom: 40px;
 }
@@ -46,7 +46,7 @@ body {
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 40px;
+  margin: 0 400px;
   font-weight: bold;
 }
 
@@ -59,7 +59,7 @@ nav a {
   color: #fff;
   margin: 0 1em;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 8000;
   transition: 0.3s;
 }
 

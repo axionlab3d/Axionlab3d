@@ -1,11 +1,14 @@
 body {
-  font-family: 'Joseph Sophia', cursive; /* Fonte personalizada */
+  font-family: 'Joseph Sophia', cursive;
   margin: 0;
   padding: 0;
-  text-align: gauche;
-  background: linear-gradient(135deg, #4facfe, #00f2fe); /* Fundo gradiente azul */
-  color: white;
+  text-align: center;
+  background-color: #000; /* fundo preto */
+  color: white; /* texto branco */
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+
 }
+
 
 @font-face {
   font-family: 'Joseph Sophia';
@@ -14,6 +17,8 @@ body {
   font-weight: normal;
   font-style: normal;
   }
+
+
 
 
 header {

@@ -70,3 +70,10 @@ h1 {
 h1, h2, h3 {
   font-family: 'Joseph Sophia', cursive;
 }
+
+.logo {
+  width: 180px;   /* tamanho médio */
+  height: auto;
+  display: block;
+  margin: 20px auto; /* centraliza no topo */
+}

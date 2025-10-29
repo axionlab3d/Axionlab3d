@@ -1,39 +1,43 @@
+/* Fundo geral da página */
 body {
+  background-color: #000; /* Preto sólido */
+  color: white;
   font-family: 'Joseph Sophia', cursive;
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: #000; /* fundo preto */
-  color: white; /* texto branco */
-  background: linear-gradient(135deg, #000000, #1a1a1a);
-
 }
 
-
-@font-face {
-  font-family: 'Joseph Sophia';
-  src: url('fonts/JosephSophia.ttf') format('truetype').,
-       url('fonts/JosephSophia.otf') format('truetype').;
-  font-weight: normal;
-  font-style: normal;
-  }
-
-
-
-
+/* Cabeçalho */
 header {
-  background-color: black;  /* Fundo preto para toda a banda */
-  color: white;             /* Texto branco */
-  padding: 2em;             /* Espaço interno */
-  text-align: center;
+  background-color: #111; /* Preto ligeiramente diferente */
+  padding: 20px 0;
 }
 
-header h1 {
-  margin: 0;                /* Remove margens extras do título */
+/* Conteúdo do cabeçalho */
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-header nav a {
-  color: white;             /* Links também em branco */
+/* Logotipo */
+.logo {
+  width: 180px; /* tamanho médio */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Menu */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 

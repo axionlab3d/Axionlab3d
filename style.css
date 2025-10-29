@@ -28,6 +28,20 @@ header {
   margin-bottom: 10px;
 }
 
+/* Fonte personalizada */
+@font-face {
+  font-family: 'Joseph Sophia';
+  src: url('fonts/JosephSophia.woff2') format('woff2'),
+       url('fonts/JosephSophia.woff') format('woff'),
+       url('fonts/JosephSophia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Corpo geral da página */
+body {
+  background-color: #000; /* Preto de fundo */
+
 /* Menu */
 nav a {
   color: white;

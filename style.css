@@ -40,7 +40,7 @@ position: relative;
 
 
 .left-logo, .right-logo {
-width: 160px;
+width: 200px;
 height: auto;
 display: inline-block;
 vertical-align: middle;
@@ -50,7 +50,7 @@ margin: 0 10px;
 
 .title-nav h1 {
 font-family: 'Joseph Sophia', cursive;
-font-size: 5em;
+font-size: 7em;
 margin: 0;
 background-color: black;
 color: white;
@@ -70,7 +70,7 @@ color: white;
 text-decoration: none;
 margin: 0 10px;
 font-weight: bold;
-font-size: 2.5em;
+font-size: 4em;
 transition: 0.3s;
 }
 

@@ -93,16 +93,16 @@ footer {
 }
 
 .logo {
-  width: 120px;        /* tamanho dos logos */
+  width: 150px;        /* tamanho dos logos */
   height: auto;
 }
 
 .left-logo {
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .right-logo {
-  margin-left: 20px;
+  margin-left: 50px;
 }
 
 header h1 {

@@ -43,7 +43,7 @@ header {
 
 /* ================= TÍTULO ================= */
 .title-nav h1 {
-  font-size: 7em;
+  font-size: 5em;
   color: white;
   background-color: black;
   display: inline-block;
@@ -94,6 +94,11 @@ main p {
   line-height: 1.6em;
   letter-spacing: 1px;
 }
+
+.page-bio .title-nav h1 {
+  font-size: 6em; /* novo tamanho do título */
+}
+
 
 
 

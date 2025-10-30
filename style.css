@@ -1,133 +1,91 @@
-/* ================= LOGO ================= */
-.logo {
-  width: 80px;   /* tamanho inicial */
-  height: auto;
-}
 
-/* ================= FONTE PERSONALIZADA ================= */
+
+/* ================= CSS COMPLETO ================= */
+
+
+/* ================= FONTE ================= */
 @font-face {
-  font-family: 'Joseph Sophia';
-  src: url('fonts/JosephSophia.woff2') format('woff2'),
-       url('fonts/JosephSophia.woff') format('woff'),
-       url('fonts/JosephSophia.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+font-family: 'Joseph Sophia';
+src: url('fonts/JosephSophia.woff2') format('woff2'),
+url('fonts/JosephSophia.woff') format('woff'),
+url('fonts/JosephSophia.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
 }
 
-/* ================= CORPO GERAL ================= */
+
+/* ================= CORPO ================= */
 body {
-  background-color: #000000; /* 🔹 Preto sólido em todo o fundo */
-  margin: 0;
-  font-family: 'Joseph Sophia', cursive;
-  text-align: center;
-  color: white;
+margin: 0;
+font-family: 'Joseph Sophia', cursive;
+background-color: #000000;
+color: white;
+text-align: center;
 }
 
-/* ================= CABEÇALHO ================= */
+
+/* ================= HEADER ================= */
 header {
-  background-color: #000000; /* Preto sólido em toda a largura */
-  padding: 2em 0;
-  position: relative;        /* necessário para logos posicionados */
+background-color: #000000;
+padding: 2em 0;
 }
 
-/* ===== HEADER E LOGOS ===== */
+
 .header-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
 }
 
-.title-nav {
-  text-align: center;
-  z-index: 1;               /* mantém o título acima dos logos */
-}
 
-/* Logos ao lado do título */
 .left-logo, .right-logo {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 80px;
-  height: auto;
+width: 80px;
+height: auto;
+display: inline-block;
+vertical-align: middle;
+margin: 0 10px;
 }
 
-.left-logo {
-  left: 20px;
+
+.title-nav h1 {
+font-family: 'Joseph Sophia', cursive;
+font-size: 5em;
+margin: 0;
+background-color: black;
+color: white;
+padding: 0.2em 0.5em;
+border-radius: 5px;
+text-align: center;
 }
 
-.right-logo {
-  right: 20px;
-}
 
-/* ================= TÍTULO PRINCIPAL ================= */
-h1 {
-  color: white;
-  background-color: black;
-  display: inline-block;
-  padding: 0.2em 0.5em;
-  border-radius: 5px;
-  font-family: 'Joseph Sophia', cursive;
-  font-weight: normal;
-  font-size: 5em;
-  margin: 0;
-}
-
-/* ================= MENU ================= */
 nav {
-  margin-top: 10px;
+margin-top: 10px;
 }
+
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-  font-size: 2em;
-  transition: 0.3s;
+color: white;
+text-decoration: none;
+margin: 0 10px;
+font-weight: bold;
+font-size: 2em;
+transition: 0.3s;
 }
 
+
 nav a:hover {
-  color: #ffdd57;
-  text-decoration: underline;
+color: #ffdd57;
+text-decoration: underline;
 }
+
 
 /* ================= CONTEÚDO PRINCIPAL ================= */
 main {
-  padding: 3em 1em;
+padding: 3em 1em;
 }
+
 
 p {
-  font-size: 1.5em;
-  line-height: 1.6em;
-}
-
-/* ================= RODAPÉ ================= */
-footer {
-  padding: 1em;
-  background-color: #000000;
-  font-size: 1em;
-  color: white;
-}
-
-/* ===== RESPONSIVO ===== */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column; /* empilha título e menu */
-  }
-
-  .left-logo, .right-logo {
-    position: relative;    /* empilha acima/abaixo do título */
-    transform: none;
-    width: 60px;
-    margin: 5px 0;
-  }
-
-  nav a {
-    margin: 0 5px;
-  }
-
-  h1 {
-    font-size: 3em;        /* ajusta título em telemóvel */
-  }
 }

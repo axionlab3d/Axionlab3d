@@ -84,6 +84,7 @@ main p {
   font-size: 2em;
   line-height: 1.6em;
    letter-spacing: 2px; /* 🔹 acrescenta esta linha */
+   font-family: 'Arial', sans-serif; /* 🔹 aqui mudas a fonte */
 }
 
 /* ================= FOOTER ================= */

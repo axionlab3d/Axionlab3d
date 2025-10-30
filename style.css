@@ -1,85 +1,104 @@
-/* ================= LOGOS ================= */
-.left-logo, .right-logo {
-  width: 80px;       /* tamanho desktop */
-  height: auto;
-}
+<header>
+<img src="imagens/logo.jpg" alt="Logo esquerdo" class="logo left-logo">
+<div class="title-nav">
+<h1>Bem-vindo ao Meu Site</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">Sobre</a>
+<a href="contacts.html">Contato</a>
+</nav>
+</div>
+<img src="imagens/logo.jpg" alt="Logo direito" class="logo right-logo">
+</div>
+</header>
 
-/* ================= CABEÇALHO ================= */
-header {
-  background-color: #000000;
-  padding: 20px;
-}
 
+<style>
 .header-content {
-  display: flex;
-  justify-content: center;     /* centraliza o título */
-  align-items: center;
-  position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
 }
+
+
+.left-logo, .right-logo {
+width: 80px;
+height: auto;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+}
+
 
 .left-logo {
-  position: absolute;
-  left: 20px;                  /* encosta à esquerda */
-  top: 50%;
-  transform: translateY(-50%);
+left: 20px;
+}
+.right-logo {
+right: 20px;
 }
 
-.right-logo {
-  position: absolute;
-  right: 20px;                 /* encosta à direita */
-  top: 50%;
-  transform: translateY(-50%);
+
+.title-nav {
+text-align: center;
 }
+
 
 .title-nav h1 {
-  color: white;
-  background-color: black;
-  display: inline-block;
-  padding: 0.2em 0.5em;
-  border-radius: 5px;
-  font-family: 'Joseph Sophia', cursive;
-  font-size: 5em;
-  margin: 0;
-  text-align: center;
+background-color: black;
+color: white;
+display: inline-block;
+padding: 0.2em 0.5em;
+border-radius: 5px;
+font-family: 'Joseph Sophia', cursive;
+font-size: 5em;
+margin: 0;
 }
+
 
 nav {
-  margin-top: 10px;
+margin-top: 10px;
 }
+
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-  font-size: 2em;
+color: white;
+text-decoration: none;
+margin: 0 10px;
+font-weight: bold;
+font-size: 2em;
+transition: 0.3s;
 }
+
 
 nav a:hover {
-  color: #ffdd57;
-  text-decoration: underline;
+color: #ffdd57;
+text-decoration: underline;
 }
 
-/* ================= RESPONSIVO ================= */
+
 @media (max-width: 768px) {
-  .left-logo, .right-logo {
-    position: relative;
-    top: auto;
-    transform: none;
-    width: 60px;
-    margin: 5px 0;
-  }
-
-  header h1 {
-    font-size: 3em;
-  }
-
-  nav a {
-    margin: 0 5px;
-  }
-
-  .header-content {
-    flex-direction: column;  /* empilha título e logos */
-  }
+.header-content {
+flex-direction: column;
 }
 
+
+.left-logo, .right-logo {
+position: relative;
+top: auto;
+transform: none;
+width: 60px;
+margin: 5px 0;
+}
+
+
+.title-nav h1 {
+font-size: 3em;
+}
+
+
+nav a {
+margin: 0 5px;
+}
+}
+</style>

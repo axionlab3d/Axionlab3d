@@ -1,90 +1,142 @@
-/* ================= CSS SUBSTITUTO SEGURO ================= */
-background-color: #000000; /* mantém preto */
-color: white;
-text-align: center;
+/* ================= FONTE ================= */
+@font-face {
+  font-family: 'Joseph Sophia';
+  src: url('fonts/JosephSophia.woff2') format('woff2'),
+       url('fonts/JosephSophia.woff') format('woff'),
+       url('fonts/JosephSophia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
+/* ================= CORPO ================= */
+body {
+  margin: 0;
+  font-family: 'Joseph Sophia', cursive;
+  background-color: #000;
+  color: white;
+  text-align: center;
+}
 
-/* Header */
+/* ================= HEADER ================= */
 header {
-background-color: #000000; /* mantém preto */
-padding: 2em 0;
+  background-color: #000;
+  padding: 1.5em 0;
 }
 
-
-/* Header content: centra título; logos ficam ao lado via inline */
 .header-content {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 8px; /* espaço pequeno entre logo e título */
-flex-wrap: wrap; /* evita overflow em ecrãs muito pequenos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-
-/* Logos (mantém visuais existentes) */
-.left-logo, .right-logo, .logo {
-width: 180px; /* tamanho desktop padrão: se quiseres diminuir, altera aqui */
-height: auto;
-display: inline-block;
-vertical-align: middle;
-margin: 0 5px; /* aproxima o logo do título */
+/* ================= LOGOS ================= */
+.logo {
+  width: 180px;
+  height: auto;
+  margin: 0 15px;
 }
 
+.left-logo, .right-logo {
+  flex: 0 0 auto;
+}
 
-/* Título (mantém estilo) */
+/* ================= TÍTULO ================= */
 .title-nav h1 {
-font-family: 'Joseph Sophia', cursive;
-font-size: 6em; /* desktop - ajusta se estiver muito grande */
-margin: 0;
-background-color: black;
-color: white;
-padding: 0.2em 0.5em;
-border-radius: 3px;
-text-align: center;
+  font-size: 5em;
+  color: white;
+  background-color: black;
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 5px;
+  margin: 0;
 }
 
-
-/* Menu (mantém estilo) */
+/* ================= MENU ================= */
 nav {
-margin-top: 10px;
+  margin-top: 10px;
 }
+
 nav a {
-color: white;
-text-decoration: none;
-margin: 0 10px;
-font-weight: bold;
-font-size: 2em;
-transition: 0.3s;
+  color: white;
+  text-decoration: none;
+  margin: 0 1.2em;
+  font-weight: bold;
+  font-size: 2em;
+  transition: 0.3s;
 }
-nav a:hover { color:#ffdd57; text-decoration: underline; }
 
+nav a:hover {
+  color: #ffdd57;
+  text-decoration: underline;
+}
 
-/* Conteúdo e rodapé (mantém o que tens) */
-main { padding: 3em 1em; }
-footer { padding:1em; background-color:#000000; color:white; }
+/* ================= CONTEÚDO ================= */
+main {
+  padding: 3em 1em;
+}
 
+main h2 {
+  font-size: 3em;
+}
 
-/* ===== Ajustes responsivos suaves ===== */
+main p {
+  font-size: 1.5em;
+  line-height: 1.6em;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background-color: #000;
+  color: white;
+  padding: 1.5em;
+  font-size: 1.2em;
+}
+
+/* ================= RESPONSIVIDADE ================= */
+
 /* Tablets e portáteis pequenos */
 @media (max-width: 992px) {
-.title-nav h1 { font-size: 4em; }
-nav a { font-size: 1.8em; }
-.left-logo, .right-logo, .logo { width: 140px; }
+  .title-nav h1 {
+    font-size: 3.5em;
+  }
+
+  nav a {
+    font-size: 1.5em;
+    margin: 0 0.8em;
+  }
+
+  .logo {
+    width: 140px;
+  }
 }
 
+/* Telemóveis (retrato e paisagem) */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+  }
 
-/* Telemóveis - portrait */
-@media (max-width: 768px) and (orientation: portrait) {
-.title-nav h1 { font-size: 3.2em !important; }
-nav a { font-size: 1.5em !important; }
-.left-logo, .right-logo, .logo { width: 100px !important; margin: 4px !important; }
-}
+  .logo {
+    width: 100px;
+    margin: 10px 0;
+  }
 
+  .title-nav h1 {
+    font-size: 2.2em;
+  }
 
-/* Telemóveis pequenos ou landscape */
-@media (max-width: 600px) {
-.title-nav h1 { font-size: 2.6em !important; }
-nav a { font-size: 1.3em !important; }
-.left-logo, .right-logo, .logo { width: 80px !important; }
+  nav a {
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 1.2em;
+  }
+
+  main h2 {
+    font-size: 2em;
+  }
+
+  main p {
+    font-size: 1.1em;
+  }
 }

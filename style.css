@@ -9,7 +9,7 @@
 }
 
 /* ================= CORPO ================= */
-body.page-bio {
+body {
   margin: 0;
   font-family: 'Joseph Sophia', cursive;
   background-color: #000;
@@ -41,49 +41,53 @@ header {
   flex: 0 0 auto;
 }
 
-/* ================= TÍTULO SOMENTE QUI SOMMES-NOUS ================= */
-.page-bio .title-nav h1 {
-  font-size: 9em !important; /* título grande na página */
+/* ================= TÍTULO ================= */
+.title-nav h1 {
+  font-size: 5em;
   color: white;
   background-color: black;
   display: inline-block;
   padding: 0.2em 0.6em;
   border-radius: 5px;
   margin: 0;
-  letter-spacing: 2px; /* espaçamento entre letras */
 }
 
 /* ================= MENU ================= */
-.page-bio nav {
+nav {
   margin-top: 10px;
 }
 
-.page-bio nav a {
+nav a {
   color: white;
   text-decoration: none;
   margin: 0 1.2em;
   font-weight: bold;
   font-size: 2em;
-  letter-spacing: 1px;
   transition: 0.3s;
 }
 
-.page-bio nav a:hover {
+nav a:hover {
   color: #ffdd57;
   text-decoration: underline;
 }
 
 /* ================= CONTEÚDO ================= */
-.page-bio main {
+main {
   padding: 3em 1em;
 }
 
-.page-bio main h2 {
+main h2 {
   font-size: 3em;
 }
 
+main p {
+  font-size: 2em;
+  line-height: 1.6em;
+   letter-spacing: 2px; /* 🔹 acrescenta esta linha */
+}
+
 .page-bio .bio p {
-  font-family: "Italianno", cursive; /* fonte especial só na biografia */
+  font-family: "Italianno", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 2em;
@@ -91,8 +95,15 @@ header {
   letter-spacing: 1px;
 }
 
+.page-bio .title-nav h1 {
+  font-size: 9em !important; /* novo tamanho do título */
+}
+
+
+
+
 /* ================= FOOTER ================= */
-.page-bio footer {
+footer {
   background-color: #000;
   color: white;
   padding: 1.5em;
@@ -103,55 +114,54 @@ header {
 
 /* Tablets e portáteis pequenos */
 @media (max-width: 992px) {
-  .page-bio .title-nav h1 {
-    font-size: 6em;
+  .title-nav h1 {
+    font-size: 3.5em;
   }
 
-  .page-bio nav a {
+  nav a {
     font-size: 1.5em;
     margin: 0 0.8em;
   }
 
-  .page-bio .logo {
+  .logo {
     width: 140px;
   }
 }
 
 /* Telemóveis (retrato e paisagem) */
 @media (max-width: 768px) {
-  .page-bio .header-content {
-    flex-direction: row;
+  .header-content {
+    flex-direction: row; /* mantém logos ao lado do título */
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
   }
 
-  .page-bio .logo {
-    width: 90px;
-    margin: 0 5px;
+  .logo {
+    width: 90px; /* tamanho menor para caber */
+    margin: 0 5px; /* pouca margem lateral */
   }
 
-  .page-bio .title-nav h1 {
-    font-size: 3em;
+  .title-nav h1 {
+    font-size: 1.8em; /* título menor mas visível */
     margin: 0 8px;
   }
 
-  .page-bio nav {
+  nav {
     margin-top: 8px;
   }
 
-  .page-bio nav a {
+  nav a {
     display: inline-block;
     margin: 4px 6px;
     font-size: 1em;
   }
 
-  .page-bio main h2 {
+  main h2 {
     font-size: 1.6em;
   }
 
-  .page-bio .bio p {
+  main p {
     font-size: 1em;
-    letter-spacing: 0.5px;
   }
 }

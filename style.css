@@ -1,70 +1,54 @@
-
-
-/* ================= CSS COMPLETO ================= */
-
-
-/* ================= FONTE ================= */
-@font-face {
-font-family: 'Joseph Sophia';
-src: url('fonts/JosephSophia.woff2') format('woff2'),
-url('fonts/JosephSophia.woff') format('woff'),
-url('fonts/JosephSophia.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
-}
-
-
-/* ================= CORPO ================= */
-body {
-margin: 0;
-font-family: 'Joseph Sophia', cursive;
-background-color: #000000;
+/* ================= CSS SUBSTITUTO SEGURO ================= */
+background-color: #000000; /* mantém preto */
 color: white;
 text-align: center;
 }
 
 
-/* ================= HEADER ================= */
+/* Header */
 header {
-background-color: #000000;
+background-color: #000000; /* mantém preto */
 padding: 2em 0;
 }
 
 
+/* Header content: centra título; logos ficam ao lado via inline */
 .header-content {
 display: flex;
 align-items: center;
 justify-content: center;
-position: relative;
+gap: 8px; /* espaço pequeno entre logo e título */
+flex-wrap: wrap; /* evita overflow em ecrãs muito pequenos */
 }
 
 
-.left-logo, .right-logo {
-width: 200px;
+/* Logos (mantém visuais existentes) */
+.left-logo, .right-logo, .logo {
+width: 180px; /* tamanho desktop padrão: se quiseres diminuir, altera aqui */
 height: auto;
 display: inline-block;
 vertical-align: middle;
-margin: 0 10px;
+margin: 0 5px; /* aproxima o logo do título */
 }
 
 
+/* Título (mantém estilo) */
 .title-nav h1 {
 font-family: 'Joseph Sophia', cursive;
-font-size: 7em;
+font-size: 6em; /* desktop - ajusta se estiver muito grande */
 margin: 0;
 background-color: black;
 color: white;
 padding: 0.2em 0.5em;
-border-radius: 2.5px;
+border-radius: 3px;
 text-align: center;
 }
 
 
+/* Menu (mantém estilo) */
 nav {
 margin-top: 10px;
 }
-
-
 nav a {
 color: white;
 text-decoration: none;
@@ -73,82 +57,34 @@ font-weight: bold;
 font-size: 2em;
 transition: 0.3s;
 }
+nav a:hover { color:#ffdd57; text-decoration: underline; }
 
 
-nav a:hover {
-color: #ffdd57;
-text-decoration: underline;
-}
+/* Conteúdo e rodapé (mantém o que tens) */
+main { padding: 3em 1em; }
+footer { padding:1em; background-color:#000000; color:white; }
 
 
-/* ================= CONTEÚDO PRINCIPAL ================= */
-main {
-padding: 3em 1em;
-}
-
-
-p {
-}
-
-/* ===== AJUSTES RESPONSIVOS ===== */
-
-
+/* ===== Ajustes responsivos suaves ===== */
 /* Tablets e portáteis pequenos */
 @media (max-width: 992px) {
-h1 {
-font-size: 3em; /* título um pouco menor */
+.title-nav h1 { font-size: 4em; }
+nav a { font-size: 1.8em; }
+.left-logo, .right-logo, .logo { width: 140px; }
 }
 
 
-nav a {
-font-size: 1.5em; /* menu ligeiramente menor */
-}
-}
-
-
-/* Telemóveis */
-@media (max-width: 600px) {
-h1 {
-font-size: 0.2em; /* título reduzido */
-}
-
-
-nav a {
-font-size: 0.25em; /* menu compacto */
-}
-}
-
+/* Telemóveis - portrait */
 @media (max-width: 768px) and (orientation: portrait) {
-h1 {
-font-size: 1em;
-}
-nav a {
-font-size: 0.5em;
-}
-}
-
-/* ===== CONFIGURAÇÃO BASE ===== */
-.logo {
-width: 200px; /* tamanho padrão */
-height: auto;
-margin: 0 10px;
-display: inline-block;
+.title-nav h1 { font-size: 3.2em !important; }
+nav a { font-size: 1.5em !important; }
+.left-logo, .right-logo, .logo { width: 100px !important; margin: 4px !important; }
 }
 
 
-/* ===== AJUSTES PARA TELEFONE ===== */
-@media (max-width: 768px) {
-.logo {
-width: 80px; /* reduz um pouco o tamanho */
-margin: 5px; /* menos espaço lateral */
-display: inline-block; /* garante que continua visível */
-}
-}
-
-
+/* Telemóveis pequenos ou landscape */
 @media (max-width: 600px) {
-.logo {
-width: 70px;
-display: inline-block; /* assegura visibilidade */
-}
+.title-nav h1 { font-size: 2.6em !important; }
+nav a { font-size: 1.3em !important; }
+.left-logo, .right-logo, .logo { width: 80px !important; }
 }

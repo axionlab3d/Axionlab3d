@@ -164,4 +164,21 @@ footer {
   main p {
     font-size: 1em;
   }
+
+  /* Media queries para Qui sommes-nous ? */
+@media (max-width: 992px) {
+  .page-bio .title-nav h1 { font-size: 6em; }
+}
+@media (max-width: 768px) {
+  .page-bio .title-nav h1 { font-size: 3em; }
+}
+
+/* ================= PÁGINA ACCUEIL ================= */
+.page-accueil .title-nav h1 { font-size: 5em; }
+@media (max-width: 992px) {
+  .page-accueil .title-nav h1 { font-size: 3.5em; }
+}
+@media (max-width: 768px) {
+  .page-accueil .title-nav h1 { font-size: 1.8em; }
+}
 }

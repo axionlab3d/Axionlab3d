@@ -1,50 +1,34 @@
-/* ================= LOGO ================= */
-.logo {
-  width: 80px;   /* tamanho inicial */
+/* ================= LOGOS ================= */
+.left-logo, .right-logo {
+  width: 80px;       /* tamanho desktop */
   height: auto;
-}
-
-/* ================= FONTE PERSONALIZADA ================= */
-@font-face {
-  font-family: 'Joseph Sophia';
-  src: url('fonts/JosephSophia.woff2') format('woff2'),
-       url('fonts/JosephSophia.woff') format('woff'),
-       url('fonts/JosephSophia.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* ================= CORPO GERAL ================= */
-body {
-  background-color: #000000; /* Preto sólido */
-  margin: 0;
-  font-family: 'Joseph Sophia', cursive;
-  text-align: center;
-  color: white;
 }
 
 /* ================= CABEÇALHO ================= */
 header {
   background-color: #000000;
-  padding: 2em 0;
+  padding: 20px;
 }
 
-/* ===== HEADER COM LOGOS E TÍTULO ===== */
 .header-content {
   display: flex;
-  flex-direction: column; /* coluna principal: título + menu */
+  justify-content: center;     /* centraliza o título */
   align-items: center;
+  position: relative;
 }
 
-.header-logos {
-  display: flex;           /* linha com logos e título */
-  align-items: center;
-  justify-content: center;
+.left-logo {
+  position: absolute;
+  left: 20px;                  /* encosta à esquerda */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.header-logos .logo {
-  width: 80px;             /* tamanho do logo */
-  margin: 0 10px;          /* pequena distância do título */
+.right-logo {
+  position: absolute;
+  right: 20px;                 /* encosta à direita */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .title-nav h1 {
@@ -54,12 +38,11 @@ header {
   padding: 0.2em 0.5em;
   border-radius: 5px;
   font-family: 'Joseph Sophia', cursive;
-  font-weight: normal;
   font-size: 5em;
   margin: 0;
+  text-align: center;
 }
 
-/* ================= MENU ================= */
 nav {
   margin-top: 10px;
 }
@@ -70,7 +53,6 @@ nav a {
   margin: 0 10px;
   font-weight: bold;
   font-size: 2em;
-  transition: 0.3s;
 }
 
 nav a:hover {
@@ -78,4 +60,26 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ================*
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+  .left-logo, .right-logo {
+    position: relative;
+    top: auto;
+    transform: none;
+    width: 60px;
+    margin: 5px 0;
+  }
+
+  header h1 {
+    font-size: 3em;
+  }
+
+  nav a {
+    margin: 0 5px;
+  }
+
+  .header-content {
+    flex-direction: column;  /* empilha título e logos */
+  }
+}
+

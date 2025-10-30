@@ -109,20 +109,20 @@ font-size: 1.5em; /* menu ligeiramente menor */
 /* Telemóveis */
 @media (max-width: 600px) {
 h1 {
-font-size: 0.5em; /* título reduzido */
+font-size: 1em; /* título reduzido */
 }
 
 
 nav a {
-font-size: 0.25em; /* menu compacto */
+font-size: 0.5em; /* menu compacto */
 }
 }
 
 @media (max-width: 768px) and (orientation: portrait) {
 h1 {
-font-size: 1em;
+font-size: 2em;
 }
 nav a {
-font-size: 0.5em;
+font-size: 1em;
 }
 }

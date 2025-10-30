@@ -129,7 +129,7 @@ font-size: 0.5em;
 
 /* ===== CONFIGURAÇÃO BASE ===== */
 .logo {
-width: 100px; /* tamanho padrão */
+width: 200px; /* tamanho padrão */
 height: auto;
 margin: 0 10px;
 display: inline-block;

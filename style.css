@@ -81,7 +81,7 @@ main h2 {
 }
 
 main p {
-  font-size: 3em;
+  font-size: 4em;
   line-height: 1.6em;
    letter-spacing: 2px; /* 🔹 acrescenta esta linha */
 }

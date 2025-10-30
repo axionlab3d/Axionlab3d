@@ -16,7 +16,7 @@
 
 /* ================= CORPO GERAL ================= */
 body {
-  background-color: #000000; /* 🔹 Preto sólido em todo o fundo */
+  background-color: #000000; /* Preto sólido */
   margin: 0;
   font-family: 'Joseph Sophia', cursive;
   text-align: center;
@@ -25,43 +25,29 @@ body {
 
 /* ================= CABEÇALHO ================= */
 header {
-  background-color: #000000; /* Preto sólido em toda a largura */
+  background-color: #000000;
   padding: 2em 0;
-  position: relative;        /* necessário para logos posicionados */
 }
 
-/* ===== HEADER E LOGOS ===== */
+/* ===== HEADER COM LOGOS E TÍTULO ===== */
 .header-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* coluna principal: título + menu */
   align-items: center;
-  position: relative;
 }
 
-.title-nav {
-  text-align: center;
-  z-index: 1;               /* mantém o título acima dos logos */
+.header-logos {
+  display: flex;           /* linha com logos e título */
+  align-items: center;
+  justify-content: center;
 }
 
-/* Logos ao lado do título */
-.left-logo, .right-logo {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 80px;
-  height: auto;
+.header-logos .logo {
+  width: 80px;             /* tamanho do logo */
+  margin: 0 10px;          /* pequena distância do título */
 }
 
-.left-logo {
-  left: 20px;
-}
-
-.right-logo {
-  right: 20px;
-}
-
-/* ================= TÍTULO PRINCIPAL ================= */
-h1 {
+.title-nav h1 {
   color: white;
   background-color: black;
   display: inline-block;
@@ -92,42 +78,4 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ================= CONTEÚDO PRINCIPAL ================= */
-main {
-  padding: 3em 1em;
-}
-
-p {
-  font-size: 1.5em;
-  line-height: 1.6em;
-}
-
-/* ================= RODAPÉ ================= */
-footer {
-  padding: 1em;
-  background-color: #000000;
-  font-size: 1em;
-  color: white;
-}
-
-/* ===== RESPONSIVO ===== */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column; /* empilha título e menu */
-  }
-
-  .left-logo, .right-logo {
-    position: relative;    /* empilha acima/abaixo do título */
-    transform: none;
-    width: 60px;
-    margin: 5px 0;
-  }
-
-  nav a {
-    margin: 0 5px;
-  }
-
-  h1 {
-    font-size: 3em;        /* ajusta título em telemóvel */
-  }
-}
+/* ================*

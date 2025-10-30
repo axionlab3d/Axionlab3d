@@ -82,29 +82,24 @@ footer {
 /* ===== HEADER E LOGOS ===== */
 .header-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centraliza a div do título */
   align-items: center;
-  padding: 20px 40px;
+  padding: 10px 20px; /* reduz espaçamento geral */
+  flex-wrap: wrap; /* permite quebrar em telemóveis */
 }
 
 .title-nav {
   text-align: center;
-  flex: 1;
+  flex: 1 1 auto; /* ocupa espaço flexível */
 }
 
 .logo {
-  width: 250px;        /* tamanho dos logos */
+  width: 80px; /* tamanho menor para telemóvel */
   height: auto;
+  margin: 0 10px; /* pouca margem à esquerda e direita */
 }
 
-.left-logo {
-  margin-right: 20px;
-}
-
-.right-logo {
-  margin-left: 20px;
-}
-
+/* Garante que o título continua centralizado */
 header h1 {
   color: white;
   background-color: black;
@@ -112,17 +107,18 @@ header h1 {
   padding: 0.2em 0.5em;
   border-radius: 5px;
   font-family: 'Joseph Sophia', cursive;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
+/* Menu por baixo do título */
 nav {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 15px;
+  margin: 0 10px;
   font-weight: bold;
   transition: 0.3s;
 }
@@ -130,4 +126,21 @@ nav a {
 nav a:hover {
   color: #ffdd57;
   text-decoration: underline;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column; /* empilha verticalmente em telemóveis */
+    justify-content: center;
+  }
+
+  .logo {
+    width: 60px; /* reduz tamanho no telemóvel */
+    margin: 5px; /* menos margem */
+  }
+
+  nav a {
+    margin: 0 5px; /* menu mais compacto */
+  }
 }

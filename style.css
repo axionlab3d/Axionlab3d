@@ -114,29 +114,37 @@ footer {
 /* Telemóveis (retrato e paisagem) */
 @media (max-width: 768px) {
   .header-content {
-    flex-direction: column;
+    flex-direction: row; /* mantém logos ao lado do título */
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
   }
 
   .logo {
-    width: 20px;
-    margin: 10px 0;
+    width: 90px; /* tamanho menor para caber */
+    margin: 0 5px; /* pouca margem lateral */
   }
 
   .title-nav h1 {
-    font-size: 2.2em;
+    font-size: 1.8em; /* título menor mas visível */
+    margin: 0 8px;
+  }
+
+  nav {
+    margin-top: 8px;
   }
 
   nav a {
     display: inline-block;
-    margin: 5px 10px;
-    font-size: 1.2em;
+    margin: 4px 6px;
+    font-size: 1em;
   }
 
   main h2 {
-    font-size: 2em;
+    font-size: 1.6em;
   }
 
   main p {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 }

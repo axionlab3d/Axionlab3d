@@ -89,3 +89,31 @@ padding: 3em 1em;
 
 p {
 }
+
+/* ===== AJUSTES RESPONSIVOS ===== */
+
+
+/* Tablets e portáteis pequenos */
+@media (max-width: 992px) {
+h1 {
+font-size: 4em; /* título um pouco menor */
+}
+
+
+nav a {
+font-size: 1.8em; /* menu ligeiramente menor */
+}
+}
+
+
+/* Telemóveis */
+@media (max-width: 600px) {
+h1 {
+font-size: 3em; /* título reduzido */
+}
+
+
+nav a {
+font-size: 1.5em; /* menu compacto */
+}
+}

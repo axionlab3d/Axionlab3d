@@ -78,34 +78,51 @@ footer {
   color: white;
 }
 
-/* ===== HEADER E LOGO ===== */
+
+/* ===== HEADER E LOGOS ===== */
 .header-content {
-  display: flex;                /* coloca logo, título e menu lado a lado */
-  align-items: center;          /* centraliza verticalmente */
-  justify-content: space-between; /* separa o logo da direita */
-  padding: 0 40px;              /* espaçamento lateral */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.title-nav {
+  text-align: center;
+  flex: 1;
 }
 
 .logo {
-  width: 120px;                 /* tamanho do logo (podes ajustar aqui) */
+  width: 120px;        /* tamanho dos logos */
   height: auto;
 }
 
+.left-logo {
+  margin-right: 20px;
+}
+
+.right-logo {
+  margin-left: 20px;
+}
+
 header h1 {
-  flex-grow: 1;                 /* ocupa o espaço central */
-  text-align: center;           /* centraliza o texto */
-  margin: 0;
   color: white;
   background-color: black;
+  display: inline-block;
   padding: 0.2em 0.5em;
   border-radius: 5px;
   font-family: 'Joseph Sophia', cursive;
+  margin-bottom: 10px;
+}
+
+nav {
+  margin-top: 10px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 15px;
   font-weight: bold;
   transition: 0.3s;
 }

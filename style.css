@@ -81,9 +81,9 @@ main h2 {
 }
 
 main p {
-  font-size: 1.5em;
+  font-size: 3em;
   line-height: 1.6em;
-   letter-spacing: 2px; /* 🔹 acrescenta esta linha */
+   letter-spacing: 4px; /* 🔹 acrescenta esta linha */
 }
 
 /* ================= FOOTER ================= */

@@ -1,152 +1,150 @@
-/* ================= CSS COMPLETO ================= */
-
-
 /* ================= FONTE ================= */
 @font-face {
-font-family: 'Joseph Sophia';
-src: url('fonts/JosephSophia.woff2') format('woff2'),
-url('fonts/JosephSophia.woff') format('woff'),
-url('fonts/JosephSophia.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
+  font-family: 'Joseph Sophia';
+  src: url('fonts/JosephSophia.woff2') format('woff2'),
+       url('fonts/JosephSophia.woff') format('woff'),
+       url('fonts/JosephSophia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 /* ================= CORPO ================= */
 body {
-margin: 0;
-font-family: 'Joseph Sophia', cursive;
-background-color: #000000;
-color: white;
-text-align: center;
+  margin: 0;
+  font-family: 'Joseph Sophia', cursive;
+  background-color: #000;
+  color: white;
+  text-align: center;
 }
-
 
 /* ================= HEADER ================= */
 header {
-background-color: #000000;
-padding: 2em 0;
+  background-color: #000;
+  padding: 1.5em 0;
 }
-
 
 .header-content {
-display: flex;
-align-items: center;
-justify-content: center;
-position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+/* ================= LOGOS ================= */
+.logo {
+  width: 180px;
+  height: auto;
+  margin: 0 15px;
+}
 
 .left-logo, .right-logo {
-width: 200px;
-height: auto;
-display: inline-block;
-vertical-align: middle;
-margin: 0 10px;
+  flex: 0 0 auto;
 }
 
-
+/* ================= TÍTULO ================= */
 .title-nav h1 {
-font-family: 'Joseph Sophia', cursive;
-font-size: 7em;
-margin: 0;
-background-color: black;
-color: white;
-padding: 0.2em 0.5em;
-border-radius: 2.5px;
-text-align: center;
+  font-size: 5em;
+  color: white;
+  background-color: black;
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 5px;
+  margin: 0;
 }
 
-
+/* ================= MENU ================= */
 nav {
-margin-top: 10px;
+  margin-top: 10px;
 }
-
 
 nav a {
-color: white;
-text-decoration: none;
-margin: 0 10px;
-font-weight: bold;
-font-size: 2em;
-transition: 0.3s;
+  color: white;
+  text-decoration: none;
+  margin: 0 1.2em;
+  font-weight: bold;
+  font-size: 2em;
+  transition: 0.3s;
 }
-
 
 nav a:hover {
-color: #ffdd57;
-text-decoration: underline;
+  color: #ffdd57;
+  text-decoration: underline;
 }
 
-
-/* ================= CONTEÚDO PRINCIPAL ================= */
+/* ================= CONTEÚDO ================= */
 main {
-padding: 3em 1em;
+  padding: 3em 1em;
 }
 
-
-p {
+main h2 {
+  font-size: 3em;
 }
 
-/* ===== AJUSTES RESPONSIVOS ===== */
+main p {
+  font-size: 1.5em;
+  line-height: 1.6em;
+}
 
+/* ================= FOOTER ================= */
+footer {
+  background-color: #000;
+  color: white;
+  padding: 1.5em;
+  font-size: 1.2em;
+}
+
+/* ================= RESPONSIVIDADE ================= */
 
 /* Tablets e portáteis pequenos */
 @media (max-width: 992px) {
-h1 {
-font-size: 3em; /* título um pouco menor */
+  .title-nav h1 {
+    font-size: 3.5em;
+  }
+
+  nav a {
+    font-size: 1.5em;
+    margin: 0 0.8em;
+  }
+
+  .logo {
+    width: 140px;
+  }
 }
 
-
-nav a {
-font-size: 1.5em; /* menu ligeiramente menor */
-}
-}
-
-
-/* Telemóveis */
-@media (max-width: 600px) {
-h1 {
-font-size: 0.2em; /* título reduzido */
-}
-
-
-nav a {
-font-size: 0.25em; /* menu compacto */
-}
-}
-
-@media (max-width: 768px) and (orientation: portrait) {
-h1 {
-font-size: 1em;
-}
-nav a {
-font-size: 0.5em;
-}
-}
-
-/* ===== CONFIGURAÇÃO BASE ===== */
-.logo {
-width: 200px; /* tamanho padrão */
-height: auto;
-margin: 0 10px;
-display: inline-block;
-}
-
-
-/* ===== AJUSTES PARA TELEFONE ===== */
+/* Telemóveis (retrato e paisagem) */
 @media (max-width: 768px) {
-.logo {
-width: 80px; /* reduz um pouco o tamanho */
-margin: 5px; /* menos espaço lateral */
-display: inline-block; /* garante que continua visível */
-}
-}
+  .header-content {
+    flex-direction: row; /* mantém logos ao lado do título */
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .logo {
+    width: 90px; /* tamanho menor para caber */
+    margin: 0 5px; /* pouca margem lateral */
+  }
 
-@media (max-width: 600px) {
-.logo {
-width: 70px;
-display: inline-block; /* assegura visibilidade */
-}
+  .title-nav h1 {
+    font-size: 1.8em; /* título menor mas visível */
+    margin: 0 8px;
+  }
+
+  nav {
+    margin-top: 8px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 4px 6px;
+    font-size: 1em;
+  }
+
+  main h2 {
+    font-size: 1.6em;
+  }
+
+  main p {
+    font-size: 1em;
+  }
 }

@@ -101,7 +101,7 @@ main p {
 }
 
 .page-accueil footer {
-  font-size: 1em;
+  font-size: 1em; /* tamanho padrão do rodapé */
 }
 
 /* ================= RESPONSIVIDADE ================= */
@@ -110,11 +110,6 @@ main p {
 @media (max-width: 992px) {
   .page-bio .title-nav h1 { font-size: 6em; }
   .page-accueil .title-nav h1 { font-size: 3.5em; }
-
-  .page-bio .footer,
-  .page-accueil footer {
-    font-size: 0.8em;
-  }
 
   .page-bio nav a,
   .page-accueil nav a {
@@ -126,9 +121,23 @@ main p {
 
 /* Telemóveis */
 @media (max-width: 768px) {
+  /* Títulos */
   .page-bio .title-nav h1 { font-size: 3em; }
   .page-accueil .title-nav h1 { font-size: 1.8em; }
 
+  /* Biografia */
   .page-bio .bio p { font-size: 1em; letter-spacing: 0.5px; }
 
+  /* Rodapé Accueil menor */
+  .page-accueil footer { font-size: 0.7em; }
+
+  /* Logos */
   .logo { width: 90px; margin: 0 5px; }
+
+  /* Menu */
+  nav a { font-size: 1em; margin: 4px 6px; }
+
+  /* Conteúdo */
+  main h2 { font-size: 1.6em; }
+  main p { font-size: 1em; }
+}

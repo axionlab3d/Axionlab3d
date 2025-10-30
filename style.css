@@ -1,9 +1,7 @@
 /* ================= LOGO ================= */
 .logo {
-  width: 180px;   /* tamanho médio */
+  width: 80px;   /* tamanho inicial */
   height: auto;
-  display: block;
-  margin: 20px auto; /* centraliza no topo */
 }
 
 /* ================= FONTE PERSONALIZADA ================= */
@@ -28,30 +26,64 @@ body {
 /* ================= CABEÇALHO ================= */
 header {
   background-color: #000000; /* Preto sólido em toda a largura */
-  padding: 2em 0;            /* Altura da faixa preta */
+  padding: 2em 0;
+  position: relative;        /* necessário para logos posicionados */
+}
+
+/* ===== HEADER E LOGOS ===== */
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.title-nav {
   text-align: center;
+  z-index: 1;               /* mantém o título acima dos logos */
+}
+
+/* Logos ao lado do título */
+.left-logo, .right-logo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: auto;
+}
+
+.left-logo {
+  left: 20px;
+}
+
+.right-logo {
+  right: 20px;
 }
 
 /* ================= TÍTULO PRINCIPAL ================= */
 h1 {
-  color: white;              /* Texto branco */
+  color: white;
+  background-color: black;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
   font-family: 'Joseph Sophia', cursive;
   font-weight: normal;
-  font-size: 5em;            /* 🔹 Tamanho do título principal */
+  font-size: 5em;
   margin: 0;
 }
 
 /* ================= MENU ================= */
 nav {
-  margin-top: 1em;
+  margin-top: 10px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 1.5em;
+  margin: 0 10px;
   font-weight: bold;
-  font-size: 2em;          /* 🔹 Tamanho das letras do menu */
+  font-size: 2em;
   transition: 0.3s;
 }
 
@@ -66,81 +98,36 @@ main {
 }
 
 p {
-  font-size: 1.5em;          /* 🔹 Tamanho do texto normal */
-  line-height: 1.6em;        /* Espaçamento entre linhas */
+  font-size: 1.5em;
+  line-height: 1.6em;
 }
 
 /* ================= RODAPÉ ================= */
 footer {
   padding: 1em;
-  background-color: #000000; /* Preto sólido, igual ao resto */
-  font-size: 1em;          /* 🔹 Tamanho do texto do rodapé */
+  background-color: #000000;
+  font-size: 1em;
   color: white;
-}
-
-
-/* ===== HEADER E LOGOS ===== */
-.header-content {
-  display: flex;
-  justify-content: center; /* centraliza a div do título */
-  align-items: center;
-  padding: 10px 20px; /* reduz espaçamento geral */
-  flex-wrap: wrap; /* permite quebrar em telemóveis */
-}
-
-.title-nav {
-  text-align: center;
-  flex: 1 1 auto; /* ocupa espaço flexível */
-}
-
-.logo {
-  width: 80px; /* tamanho menor para telemóvel */
-  height: auto;
-  margin: 0 10px; /* pouca margem à esquerda e direita */
-}
-
-/* Garante que o título continua centralizado */
-header h1 {
-  color: white;
-  background-color: black;
-  display: inline-block;
-  padding: 0.2em 0.5em;
-  border-radius: 5px;
-  font-family: 'Joseph Sophia', cursive;
-  margin-bottom: 5px;
-}
-
-/* Menu por baixo do título */
-nav {
-  margin-top: 5px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #ffdd57;
-  text-decoration: underline;
 }
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
   .header-content {
-    flex-direction: column; /* empilha verticalmente em telemóveis */
-    justify-content: center;
+    flex-direction: column; /* empilha título e menu */
   }
 
-  .logo {
-    width: 60px; /* reduz tamanho no telemóvel */
-    margin: 5px; /* menos margem */
+  .left-logo, .right-logo {
+    position: relative;    /* empilha acima/abaixo do título */
+    transform: none;
+    width: 60px;
+    margin: 5px 0;
   }
 
   nav a {
-    margin: 0 5px; /* menu mais compacto */
+    margin: 0 5px;
+  }
+
+  h1 {
+    font-size: 3em;        /* ajusta título em telemóvel */
   }
 }

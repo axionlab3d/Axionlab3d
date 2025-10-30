@@ -50,7 +50,7 @@ margin: 0 10px;
 
 .title-nav h1 {
 font-family: 'Joseph Sophia', cursive;
-font-size: 2em;
+font-size: 5em;
 margin: 0;
 background-color: black;
 color: white;
@@ -70,7 +70,7 @@ color: white;
 text-decoration: none;
 margin: 0 10px;
 font-weight: bold;
-font-size: 1em;
+font-size: 2.5em;
 transition: 0.3s;
 }
 
@@ -96,12 +96,12 @@ p {
 /* Tablets e portáteis pequenos */
 @media (max-width: 992px) {
 h1 {
-font-size: 4em; /* título um pouco menor */
+font-size: 3em; /* título um pouco menor */
 }
 
 
 nav a {
-font-size: 1.8em; /* menu ligeiramente menor */
+font-size: 1.5em; /* menu ligeiramente menor */
 }
 }
 
@@ -109,11 +109,11 @@ font-size: 1.8em; /* menu ligeiramente menor */
 /* Telemóveis */
 @media (max-width: 600px) {
 h1 {
-font-size: 3em; /* título reduzido */
+font-size: 2em; /* título reduzido */
 }
 
 
 nav a {
-font-size: 1.5em; /* menu compacto */
+font-size: 1em; /* menu compacto */
 }
 }

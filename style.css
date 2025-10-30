@@ -87,11 +87,14 @@ main p {
 }
 
 .page-bio .bio p {
-  font-size: 1.5em;
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2em;
   line-height: 1.6em;
-  letter-spacing: 0.5px;
-  font-family: 'Arial, sans-cherif', cursive; /* fonte apenas aqui */
+  letter-spacing: 1px;
 }
+
 
 
 /* ================= FOOTER ================= */

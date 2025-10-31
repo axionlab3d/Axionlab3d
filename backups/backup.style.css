@@ -37,19 +37,15 @@ header {
   margin: 0 15px;
 }
 
-.left-logo, .right-logo {
-  flex: 0 0 auto;
-}
-
 /* ================= TÍTULO ================= */
 .title-nav h1 {
-  font-size: 5em;
   color: white;
   background-color: black;
   display: inline-block;
   padding: 0.2em 0.6em;
   border-radius: 5px;
   margin: 0;
+  letter-spacing: 2px;
 }
 
 /* ================= MENU ================= */
@@ -83,85 +79,65 @@ main h2 {
 main p {
   font-size: 2em;
   line-height: 1.6em;
-   letter-spacing: 2px; /* 🔹 acrescenta esta linha */
+  letter-spacing: 2px;
+}
+
+/* ================= PÁGINA QUI SOMMES-NOUS ================= */
+.page-bio .title-nav h1 {
+  font-size: 5em !important;
 }
 
 .page-bio .bio p {
   font-family: "Italianno", cursive;
   font-weight: 400;
-  font-style: normal;
   font-size: 2em;
   line-height: 1.6em;
   letter-spacing: 1px;
 }
 
-.page-bio .title-nav h1 {
-  font-size: 9em !important; /* novo tamanho do título */
+/* ================= PÁGINA ACCUEIL ================= */
+.page-accueil .title-nav h1 {
+  font-size: 5em;
 }
 
-
-
-
-/* ================= FOOTER ================= */
-footer {
-  background-color: #000;
-  color: white;
-  padding: 1.5em;
-  font-size: 2em;
+.page-accueil footer {
+  font-size: 1em; /* tamanho padrão do rodapé */
 }
 
 /* ================= RESPONSIVIDADE ================= */
 
-/* Tablets e portáteis pequenos */
+/* Tablets */
 @media (max-width: 992px) {
-  .title-nav h1 {
-    font-size: 3.5em;
-  }
+  .page-bio .title-nav h1 { font-size: 6em; }
+  .page-accueil .title-nav h1 { font-size: 3.5em; }
 
-  nav a {
+  .page-bio nav a,
+  .page-accueil nav a {
     font-size: 1.5em;
-    margin: 0 0.8em;
   }
 
-  .logo {
-    width: 140px;
-  }
+  .logo { width: 140px; }
 }
 
-/* Telemóveis (retrato e paisagem) */
+/* Telemóveis */
 @media (max-width: 768px) {
-  .header-content {
-    flex-direction: row; /* mantém logos ao lado do título */
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-  }
+  /* Títulos */
+  .page-bio .title-nav h1 { font-size: 3em; }
+  .page-accueil .title-nav h1 { font-size: 1.8em; }
 
-  .logo {
-    width: 90px; /* tamanho menor para caber */
-    margin: 0 5px; /* pouca margem lateral */
-  }
+  /* Biografia */
+  .page-bio .bio p { font-size: 1em; letter-spacing: 0.5px; }
 
-  .title-nav h1 {
-    font-size: 1.8em; /* título menor mas visível */
-    margin: 0 8px;
-  }
+  /* Rodapé Accueil menor */
+  .page-accueil footer { font-size: 0.7em; }
 
-  nav {
-    margin-top: 8px;
-  }
+  /* Logos */
+  .logo { width: 90px; margin: 0 5px; }
 
-  nav a {
-    display: inline-block;
-    margin: 4px 6px;
-    font-size: 1em;
-  }
+  /* Menu */
+  nav a { font-size: 1em; margin: 4px 6px; }
 
-  main h2 {
-    font-size: 1.6em;
-  }
-
-  main p {
-    font-size: 1em;
-  }
+  /* Conteúdo */
+  main h2 { font-size: 1.6em; }
+  main p { font-size: 1em; }
 }

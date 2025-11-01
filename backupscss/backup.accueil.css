@@ -1,0 +1,32 @@
+@import url('base.css');
+
+/* ===== especifico accueil ===== */
+.page-accueil .title-nav h1 { font-size: 3em; }
+.page-accueil .logo { width: 180px; }
+
+/* ===== responsividade: mobile, tablet, desktop ===== */
+
+/* 📱 mobile retrato (≤600px) */
+@media (max-width: 600px) and (orientation: portrait) {
+  .page-accueil .logo { width: 60px; margin: 0 5px; }
+  .page-accueil .title-nav h1 { font-size: 1.6em; }
+  .page-accueil nav a { font-size: 1em; margin: 4px 6px; }
+  .page-accueil main h2 { font-size: 1.6em; }
+  .page-accueil main p  { font-size: 1em; }
+}
+
+/* 📱 mobile horizontal (≤900px) */
+@media (max-width: 900px) and (orientation: landscape) {
+  .page-accueil .logo { width: 100px; margin: 0 4px; }
+  .page-accueil .title-nav h1 { font-size: 2em; }
+  .page-accueil nav a { font-size: 0.95em; margin: 3px 4px; }
+  .page-accueil main h2 { font-size: 1.4em; }
+  .page-accueil main p  { font-size: 0.95em; }
+}
+
+/* 💻 tablet (601–1200px) */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .page-accueil .logo { width: 140px; }
+  .page-accueil .title-nav h1 { font-size: 2.4em; }
+  .page-accueil nav a { font-size: 1.4em; }
+}

@@ -151,7 +151,34 @@ main p {
     line-height: 1.2em;
     margin: 0.3em 0;
   }
+  /* ===== TELEMÓVEIS NA HORIZONTAL (LANDSCAPE) ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  
+  /* Header */
+  header {
+    padding: 0.5em 0;
+  }
+
+  .logo {
+    width: 60px; /* logos um pouco menores */
+    margin: 0 4px;
+  }
+
+  /* Título */
+  .page-bio .title-nav h1,
+  .page-accueil .title-nav h1 {
+    font-size: 1.5em !important; /* título reduzido na horizontal */
+    line-height: 1.1em;
+  }
+
+  /* Menu */
+  nav a {
+    font-size: 0.9em; /* texto ligeiramente menor */
+    margin: 3px 4px;
+  }
+}
+
 }
 
 
-}
+

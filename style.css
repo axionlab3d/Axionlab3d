@@ -157,16 +157,16 @@ main p {
   }
 
   /* Logos */
-  .logo { width: 50px; margin: 0 4px; }
+  .logo { width: 100px; margin: 0 4px; }
 
   /* Título "Qui sommes-nous ?" */
   body.page-bio h1.about-title {
-    font-size: 1em;
+    font-size: 2em;
   }
 
   /* Título página inicial */
   body.page-accueil .title-nav h1 {
-    font-size: 1.4em;
+    font-size: 2em;
   }
 
   /* Menu */

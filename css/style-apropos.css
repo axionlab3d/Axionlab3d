@@ -1,8 +1,6 @@
 @import url('base.css');
 
-/* HEADER */
-.page-bio header { background-color: #000; }
-
+/* ===== especifico apropos ===== */
 .page-bio .logo { width: 150px; margin: 0 10px; }
 
 .page-bio .title-nav h1 {
@@ -10,10 +8,7 @@
   margin: 0;
 }
 
-/* MAIN */
-.page-bio main h2 {
-  font-size: 2.5em;
-}
+.page-bio main h2 { font-size: 2.6em; }
 
 .page-bio main p {
   font-size: 1.5em;
@@ -23,18 +18,26 @@
   text-align: justify;
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) and (orientation: portrait) {
+/* ===== responsividade ===== */
+
+/* 📱 mobile retrato (≤600px) */
+@media (max-width: 600px) and (orientation: portrait) {
   .page-bio .logo { width: 70px; }
   .page-bio .title-nav h1 { font-size: 1.8em; }
-  .page-bio main p { font-size: 1em; }
+  .page-bio nav a { font-size: 1em; }
+  .page-bio main h2 { font-size: 1.4em; }
+  .page-bio main p  { font-size: 1em; }
 }
 
-@media (max-width: 1064px) and (orientation: landscape) {
+/* 📱 mobile horizontal (≤900px) */
+@media (max-width: 900px) and (orientation: landscape) {
   .page-bio .logo { width: 100px; }
-  .page-bio main p { font-size: 1.1em; }
+  .page-bio .title-nav h1 { font-size: 2.1em; }
+  .page-bio main p  { font-size: 1.05em; }
 }
 
-@media (min-width: 769px) and (max-width: 1200px) {
+/* 💻 tablet (601–1200px) */
+@media (min-width: 601px) and (max-width: 1200px) {
   .page-bio .title-nav h1 { font-size: 2.3em; }
+  .page-bio nav a { font-size: 1.4em; }
 }

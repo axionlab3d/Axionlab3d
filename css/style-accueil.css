@@ -1,7 +1,7 @@
 @import url('base.css');
 
 /* ===== especifico accueil ===== */
-.page-accueil .title-nav h1 { font-size: 3em; }
+.page-accueil .title-nav h1 { font-size: 5em; }
 .page-accueil .logo { width: 180px; }
 
 /* ===== responsividade: mobile, tablet, desktop ===== */

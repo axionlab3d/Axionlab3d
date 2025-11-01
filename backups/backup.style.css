@@ -84,7 +84,7 @@ main p {
 
 /* ================= PÁGINA QUI SOMMES-NOUS ================= */
 .page-bio .title-nav h1 {
-  font-size: 5em !important;
+  font-size: 5em;
 }
 
 .page-bio .bio p {
@@ -101,7 +101,7 @@ main p {
 }
 
 .page-accueil footer {
-  font-size: 1em; /* tamanho padrão do rodapé */
+  font-size: 1em;
 }
 
 /* ================= RESPONSIVIDADE ================= */
@@ -119,17 +119,19 @@ main p {
   .logo { width: 140px; }
 }
 
-/* Telemóveis */
-@media (max-width: 768px) {
-  /* Títulos */
-  .page-bio .title-nav h1 { font-size: 0.5em; }
-  .page-accueil .title-nav h1 { font-size: 1.8em; }
+/* Telemóveis - retrato */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Título "Qui sommes-nous ?" */
+  body.page-bio h1.about-title {
+    font-size: 1.2em;
+    line-height: 1.1em;
+    margin: 0.3em 0;
+  }
 
-  /* Biografia */
-  .page-bio .bio p { font-size: 1em; letter-spacing: 0.5px; }
-
-  /* Rodapé Accueil menor */
-  .page-accueil footer { font-size: 0.7em; }
+  /* Título página inicial */
+  body.page-accueil .title-nav h1 {
+    font-size: 1.8em;
+  }
 
   /* Logos */
   .logo { width: 60px; margin: 0 5px; }
@@ -141,43 +143,35 @@ main p {
   main h2 { font-size: 1.6em; }
   main p { font-size: 1em; }
 
-  .about-title {
-  font-size: 0.5em; /* reduz tamanho só no telemóvel */
+  /* Biografia */
+  .page-bio .bio p { font-size: 1em; letter-spacing: 0.5px; }
+
+  /* Rodapé */
+  .page-accueil footer { font-size: 0.7em; }
 }
-  /* ===== Ajuste específico do título "Qui sommes-nous ?" para telemóveis ===== */
-@media (max-width: 768px) {
-  .page-bio .title-nav h1 {
-    font-size: 1.7em !important; /* força o tamanho correto */
-    line-height: 1.2em;
-    margin: 0.3em 0;
-  }
-  /* ===== TELEMÓVEIS NA HORIZONTAL (LANDSCAPE) ===== */
-@media (max-width: 768px) and (orientation: landscape) {
-  
-  /* Header */
+
+/* Telemóveis - landscape */
+@media (max-width: 1024px) and (orientation: landscape) {
   header {
     padding: 0.5em 0;
   }
 
-  .logo {
-    width: 60px; /* logos um pouco menores */
-    margin: 0 4px;
+  /* Logos */
+  .logo { width: 50px; margin: 0 4px; }
+
+  /* Título "Qui sommes-nous ?" */
+  body.page-bio h1.about-title {
+    font-size: 1em;
   }
 
-  /* Título */
-  .page-bio .title-nav h1,
-  .page-accueil .title-nav h1 {
-    font-size: 1em !important; /* título reduzido na horizontal */
-    line-height: 1.1em;
+  /* Título página inicial */
+  body.page-accueil .title-nav h1 {
+    font-size: 1.4em;
   }
 
   /* Menu */
-  nav a {
-    font-size: 0.9em; /* texto ligeiramente menor */
-    margin: 3px 4px;
-  }
+  nav a { font-size: 0.9em; margin: 3px 4px; }
 }
-
 
 
 

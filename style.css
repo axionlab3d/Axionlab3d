@@ -146,6 +146,7 @@ main p {
 
 /* Telemóveis (horizontal - landscape) */
 @media (max-width: 768px) and (orientation: landscape) {
+  /* Header */
   header {
     padding: 0.5em 0;
   }
@@ -156,13 +157,13 @@ main p {
   }
 
   /* Título “Qui sommes-nous ?” */
-  .page-bio .title-nav h1 {
-    font-size: 1.2em !important;
+  body.page-bio header .title-nav h1 {
+    font-size: 1em !important; /* força redução */
     line-height: 1.1em;
   }
 
   /* Título da página inicial */
-  .page-accueil .title-nav h1 {
+  body.page-accueil header .title-nav h1 {
     font-size: 1.4em !important;
   }
 
@@ -172,6 +173,8 @@ main p {
     margin: 3px 4px;
   }
 }
+
+
 
 
 

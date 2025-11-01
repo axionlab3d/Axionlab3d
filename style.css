@@ -148,6 +148,27 @@ main p {
 
   /* Rodapé */
   .page-accueil footer { font-size: 0.7em; }
+
+  /* Footer ajustado apenas para telemóvel rodado (landscape) */
+@media (max-width: 768px) and (orientation: landscape) {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* garante que o footer vai para baixo */
+  }
+
+  main {
+    flex: 1; /* faz o conteúdo ocupar o espaço disponível */
+  }
+
+  footer {
+    margin-top: auto; /* empurra o footer para o final da tela */
+    padding: 1em;
+    text-align: center;
+    font-size: 0.9em; /* opcional: diminui levemente a fonte no landscape */
+  }
+}
+
 }
 
 /* Telemóveis - landscape */
@@ -192,5 +213,5 @@ main p {
   }
 }
 
-}
+
 

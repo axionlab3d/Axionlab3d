@@ -150,12 +150,12 @@ main p {
 @media (max-width: 1064px) and (orientation: landscape) {
   /* Título */
   .page-contacts .title-nav h1 {
-    font-size: 1.8em; /* título menor em landscape */
+    font-size: 3em; /* título menor em landscape */
   }
 
   /* Logos */
   .logo {
-    width: 50px;
+    width: 100px;
     margin: 0 4px;
   }
 

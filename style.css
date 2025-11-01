@@ -144,5 +144,14 @@ main p {
   .about-title {
   font-size: 0.5em; /* reduz tamanho só no telemóvel */
 }
+  /* ===== Ajuste específico do título "Qui sommes-nous ?" para telemóveis ===== */
+@media (max-width: 768px) {
+  .page-bio .title-nav h1 {
+    font-size: 1em !important; /* força o tamanho correto */
+    line-height: 1.2em;
+    margin: 0.3em 0;
+  }
+}
+
 
 }

@@ -1,0 +1,71 @@
+/* ================= BASE GLOBAL ================= */
+@font-face {
+  font-family: 'Joseph Sophia';
+  src: url('../fonts/JosephSophia.ttf') format('truetype'),
+       url('../fonts/JosephSophia.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root{
+  --color-bg:#000;
+  --color-fg:#fff;
+  --color-accent:#ffdd57;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: 'Joseph Sophia', cursive;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  text-align: center;
+}
+
+/* ===== header (estrutura comum) ===== */
+header { background-color: var(--color-bg); padding: 1.5em 0; }
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.logo { width: 180px; height: auto; margin: 0 15px; }
+
+.title-nav h1 {
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 5px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* ===== navegação (base) ===== */
+nav { margin-top: 10px; }
+nav a {
+  color: var(--color-fg);
+  text-decoration: none;
+  margin: 0 1.2em;
+  font-weight: bold;
+  font-size: 2em;         /* as páginas podem sobrepor */
+  transition: 0.3s;
+}
+nav a:hover { color: var(--color-accent); text-decoration: underline; }
+
+/* ===== main e tipografia base ===== */
+main { padding: 3em 1em; }
+main h2 { font-size: 3em; }
+main p  { font-size: 2em; line-height: 1.6em; letter-spacing: 2px; }
+
+/* ===== footer ===== */
+footer { padding: 1em 0; font-size: 1em; background: var(--color-bg); }
+
+/* ===== util ===== */
+.italianno-regular { font-family: 'Italianno', cursive; }

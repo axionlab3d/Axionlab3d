@@ -3,7 +3,7 @@
 
 /* ===== específicos da página accueil ===== */
 .page-accueil .title-nav h1 {
-  font-size: 5em; /* ajusta conforme o tamanho desejado */
+  font-size: 10em; /* ajusta conforme o tamanho desejado */
   letter-spacing: 2px;
 }
 

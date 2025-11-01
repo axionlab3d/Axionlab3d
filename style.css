@@ -132,7 +132,7 @@ main p {
   .page-accueil footer { font-size: 0.7em; }
 
   /* Logos */
-  .logo { width: 90px; margin: 0 5px; }
+  .logo { width: 70px; margin: 0 5px; }
 
   /* Menu */
   nav a { font-size: 1em; margin: 4px 6px; }
@@ -147,7 +147,7 @@ main p {
   /* ===== Ajuste específico do título "Qui sommes-nous ?" para telemóveis ===== */
 @media (max-width: 768px) {
   .page-bio .title-nav h1 {
-    font-size: 1em !important; /* força o tamanho correto */
+    font-size: 1.5em !important; /* força o tamanho correto */
     line-height: 1.2em;
     margin: 0.3em 0;
   }

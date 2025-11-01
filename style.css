@@ -1,8 +1,9 @@
 /* ================= FONTE ================= */
 @font-face {
   font-family: 'Joseph Sophia';
-  src: url('fonts/JosephSophia.ttf') format('truetype'),
-       url('fonts/JosephSophia.otf') format('opentype');
+  src: url('fonts/JosephSophia.woff2') format('woff2'),
+       url('fonts/JosephSophia.woff') format('woff'),
+       url('fonts/JosephSophia.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -83,7 +84,7 @@ main p {
 
 /* ================= PÁGINA CONTACTS ================= */
 .page-contacts .title-nav h1 {
-  font-size: 5em;
+  font-size: 5em; /* PC */
 }
 
 .social-icons {
@@ -98,7 +99,7 @@ main p {
 }
 
 .social-icons img {
-  width: 80px;
+  width: 80px; /* tamanho padrão para PC */
   height: auto;
   transition: transform 0.3s;
 }
@@ -111,28 +112,34 @@ main p {
 
 /* Telefone - retrato */
 @media (max-width: 768px) and (orientation: portrait) {
+  /* Título */
   .page-contacts .title-nav h1 {
-    font-size: 2em;
+    font-size: 2em; /* reduz título */
   }
 
+  /* Logos */
   .logo {
     width: 60px;
     margin: 0 5px;
   }
 
+  /* Menu */
   nav a {
     font-size: 1em;
     margin: 4px 6px;
   }
 
+  /* Conteúdo */
   main h2 { font-size: 1.6em; }
   main p { font-size: 1em; }
 
+  /* Ícones sociais */
   .social-icons img {
     width: 50px;
     margin: 5px;
   }
 
+  /* Ícones individuais ajustados */
   .email-icon { width: 45px; }
   .facebook-icon { width: 55px; }
   .instagram-icon { width: 50px; }
@@ -140,28 +147,34 @@ main p {
 }
 
 /* Telefone - landscape */
-@media (max-width: 1064px) and (orientation: landscape) {
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Título */
   .page-contacts .title-nav h1 {
-    font-size: 3em;
+    font-size: 1.8em; /* título menor em landscape */
   }
 
+  /* Logos */
   .logo {
-    width: 100px;
+    width: 50px;
     margin: 0 4px;
   }
 
+  /* Menu */
   nav a {
     font-size: 0.9em;
     margin: 3px 4px;
   }
 
+  /* Conteúdo */
   main h2 { font-size: 1.4em; }
   main p { font-size: 0.9em; }
 
+  /* Ícones sociais */
   .social-icons img {
     margin: 4px;
   }
 
+  /* Ícones individuais */
   .email-icon { width: 35px; }
   .facebook-icon { width: 40px; }
   .instagram-icon { width: 38px; }

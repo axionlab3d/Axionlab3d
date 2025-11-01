@@ -1,1 +1,182 @@
+/* ================= FONTE ================= */
+@font-face {
+  font-family: 'Joseph Sophia';
+  src: url('fonts/JosephSophia.woff2') format('woff2'),
+       url('fonts/JosephSophia.woff') format('woff'),
+       url('fonts/JosephSophia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+/* ================= CORPO ================= */
+body {
+  margin: 0;
+  font-family: 'Joseph Sophia', cursive;
+  background-color: #000;
+  color: white;
+  text-align: center;
+}
+
+/* ================= HEADER ================= */
+header {
+  background-color: #000;
+  padding: 1.5em 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ================= LOGOS ================= */
+.logo {
+  width: 180px;
+  height: auto;
+  margin: 0 15px;
+}
+
+/* ================= TÍTULO ================= */
+.title-nav h1 {
+  color: white;
+  background-color: black;
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 5px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* ================= MENU ================= */
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1.2em;
+  font-weight: bold;
+  font-size: 2em;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffdd57;
+  text-decoration: underline;
+}
+
+/* ================= CONTEÚDO ================= */
+main {
+  padding: 3em 1em;
+}
+
+main h2 {
+  font-size: 3em;
+}
+
+main p {
+  font-size: 2em;
+  line-height: 1.6em;
+  letter-spacing: 2px;
+}
+
+/* ================= PÁGINA CONTACTS ================= */
+.page-contacts .title-nav h1 {
+  font-size: 5em; /* PC */
+}
+
+.social-icons {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  margin: 0 10px;
+}
+
+.social-icons img {
+  width: 80px; /* tamanho padrão para PC */
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* ====== RESPONSIVO PARA TELEFONES ====== */
+
+/* Telefone - retrato */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Título */
+  .page-contacts .title-nav h1 {
+    font-size: 2em; /* reduz título */
+  }
+
+  /* Logos */
+  .logo {
+    width: 60px;
+    margin: 0 5px;
+  }
+
+  /* Menu */
+  nav a {
+    font-size: 1em;
+    margin: 4px 6px;
+  }
+
+  /* Conteúdo */
+  main h2 { font-size: 1.6em; }
+  main p { font-size: 1em; }
+
+  /* Ícones sociais */
+  .social-icons img {
+    width: 50px;
+    margin: 5px;
+  }
+
+  /* Ícones individuais ajustados */
+  .email-icon { width: 45px; }
+  .facebook-icon { width: 55px; }
+  .instagram-icon { width: 50px; }
+  .tiktok-icon { width: 48px; }
+}
+
+/* Telefone - landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Título */
+  .page-contacts .title-nav h1 {
+    font-size: 1.8em; /* título menor em landscape */
+  }
+
+  /* Logos */
+  .logo {
+    width: 50px;
+    margin: 0 4px;
+  }
+
+  /* Menu */
+  nav a {
+    font-size: 0.9em;
+    margin: 3px 4px;
+  }
+
+  /* Conteúdo */
+  main h2 { font-size: 1.4em; }
+  main p { font-size: 0.9em; }
+
+  /* Ícones sociais */
+  .social-icons img {
+    margin: 4px;
+  }
+
+  /* Ícones individuais */
+  .email-icon { width: 35px; }
+  .facebook-icon { width: 40px; }
+  .instagram-icon { width: 38px; }
+  .tiktok-icon { width: 36px; }
+}

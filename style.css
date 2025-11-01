@@ -172,21 +172,74 @@ main p {
   /* Menu */
   nav a { font-size: 0.9em; margin: 3px 4px; }
 
-  ----contacts----
-
-  .social-icons a i {
-  font-size: 2.5em;
+/* ================= PÁGINA CONTACTS ================= */
+.page-contacts .title-nav h1 {
+  font-size: 5em; /* título grande no PC */
   color: white;
+  background-color: black;
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 5px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* Icons sociais */
+.social-icons {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
   margin: 0 10px;
+}
+
+.social-icons img {
+  width: 80px; /* tamanho padrão das imagens */
+  height: auto;
   transition: transform 0.3s;
 }
 
-.social-icons a i:hover {
+.social-icons img:hover {
   transform: scale(1.2);
-  color: #ffdd57;
 }
 
+/* RESPONSIVO PARA TELEFONES (portrait) */
+@media (max-width: 768px) and (orientation: portrait) {
+  .page-contacts .title-nav h1 {
+    font-size: 2em; /* reduz título no telemovel */
+  }
+
+  .social-icons img {
+    width: 50px; /* reduz ícones */
+    margin: 5px;
+  }
+
+  nav a {
+    font-size: 1em;
+    margin: 4px 6px;
+  }
 }
+
+/* RESPONSIVO PARA TELEFONES (landscape) */
+@media (max-width: 768px) and (orientation: landscape) {
+  .page-contacts .title-nav h1 {
+    font-size: 1.8em; /* título menor em landscape */
+  }
+
+  .social-icons img {
+    width: 40px;
+    margin: 4px;
+  }
+
+  nav a {
+    font-size: 0.9em;
+    margin: 3px 4px;
+  }
+}
+
 
 
 

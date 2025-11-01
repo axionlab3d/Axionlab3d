@@ -119,16 +119,16 @@ main p {
   .logo { width: 140px; }
 }
 
-/* Telemóveis - portrait */
-@media (max-width: 768px) {
-  /* Título da página “Qui sommes-nous ?” */
+/* Telemóveis - retrato */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Título "Qui sommes-nous ?" */
   body.page-bio h1.about-title {
     font-size: 1.2em;
     line-height: 1.1em;
     margin: 0.3em 0;
   }
 
-  /* Título da página inicial */
+  /* Título página inicial */
   body.page-accueil .title-nav h1 {
     font-size: 1.8em;
   }
@@ -151,15 +151,15 @@ main p {
 }
 
 /* Telemóveis - landscape */
-@media (max-width: 768px) and (orientation: landscape) {
+@media (max-width: 1024px) and (orientation: landscape) {
   header {
     padding: 0.5em 0;
   }
 
-  /* Logos ainda menores */
+  /* Logos */
   .logo { width: 50px; margin: 0 4px; }
 
-  /* Título da página “Qui sommes-nous ?” */
+  /* Título "Qui sommes-nous ?" */
   body.page-bio h1.about-title {
     font-size: 1em;
   }
@@ -172,3 +172,4 @@ main p {
   /* Menu */
   nav a { font-size: 0.9em; margin: 3px 4px; }
 }
+

@@ -188,7 +188,7 @@ main p {
     margin-top: auto; /* empurra o footer para o final da tela */
     padding: 1em;
     text-align: center;
-    font-size: 0.9em; /* opcional: diminui levemente a fonte no landscape */
+    font-size: 1.2em; /* opcional: diminui levemente a fonte no landscape */
   }
 }
 

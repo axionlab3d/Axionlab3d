@@ -101,7 +101,7 @@ main p {
 }
 
 .page-accueil footer {
-  font-size: 1em; /* tamanho padrão do rodapé */
+  font-size: 1em;
 }
 
 /* ================= RESPONSIVIDADE ================= */
@@ -119,7 +119,7 @@ main p {
   .logo { width: 140px; }
 }
 
-/* Telemóveis */
+/* Telemóveis (vertical) */
 @media (max-width: 768px) {
   /* Títulos */
   .page-bio .title-nav h1 { font-size: 1.7em !important; line-height: 1.2em; margin: 0.3em 0; }
@@ -141,27 +141,29 @@ main p {
   main h2 { font-size: 1.6em; }
   main p { font-size: 1em; }
 
-  .about-title { font-size: 1.7em; } /* reforço para o título */
+  .about-title { font-size: 1.7em; }
 }
 
-/* ===== TELEMÓVEIS NA HORIZONTAL (LANDSCAPE) ===== */
+/* Telemóveis (horizontal - landscape) */
 @media (max-width: 768px) and (orientation: landscape) {
-
-  /* Header */
   header {
     padding: 0.5em 0;
   }
 
   .logo {
-    width: 50px; /* logos menores */
+    width: 50px;
     margin: 0 4px;
   }
 
-  /* Título */
-  .page-bio .title-nav h1,
-  .page-accueil .title-nav h1 {
-    font-size: 1.2em !important; /* reduz título na horizontal */
+  /* Título “Qui sommes-nous ?” */
+  .page-bio .title-nav h1 {
+    font-size: 1.2em !important;
     line-height: 1.1em;
+  }
+
+  /* Título da página inicial */
+  .page-accueil .title-nav h1 {
+    font-size: 1.4em !important;
   }
 
   /* Menu */
@@ -171,8 +173,6 @@ main p {
   }
 }
 
-
-}
 
 
 

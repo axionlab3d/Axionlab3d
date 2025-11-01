@@ -1,0 +1,46 @@
+@import url('base.css');
+
+/* HEADER */
+.page-contacts header {
+  background-color: #000;
+}
+
+.page-contacts .title-nav h1 {
+  font-size: 5em;
+}
+
+/* ÍCONES SOCIAIS */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1em;
+}
+
+.social-icons img {
+  width: 80px;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) and (orientation: portrait) {
+  .page-contacts .title-nav h1 { font-size: 2em; }
+  .logo { width: 60px; }
+  nav a { font-size: 1em; }
+  .social-icons img { width: 50px; }
+}
+
+@media (max-width: 1064px) and (orientation: landscape) {
+  .page-contacts .title-nav h1 { font-size: 3em; }
+  .logo { width: 100px; }
+  .social-icons img { width: 60px; }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .page-contacts .title-nav h1 { font-size: 4em; }
+  .social-icons img { width: 70px; }
+}

@@ -1,0 +1,40 @@
+@import url('base.css');
+
+/* HEADER */
+.page-bio header { background-color: #000; }
+
+.page-bio .logo { width: 150px; margin: 0 10px; }
+
+.page-bio .title-nav h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+/* MAIN */
+.page-bio main h2 {
+  font-size: 2.5em;
+}
+
+.page-bio main p {
+  font-size: 1.5em;
+  line-height: 1.6em;
+  max-width: 900px;
+  margin: 1em auto;
+  text-align: justify;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) and (orientation: portrait) {
+  .page-bio .logo { width: 70px; }
+  .page-bio .title-nav h1 { font-size: 1.8em; }
+  .page-bio main p { font-size: 1em; }
+}
+
+@media (max-width: 1064px) and (orientation: landscape) {
+  .page-bio .logo { width: 100px; }
+  .page-bio main p { font-size: 1.1em; }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .page-bio .title-nav h1 { font-size: 2.3em; }
+}

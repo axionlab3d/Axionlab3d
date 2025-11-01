@@ -1,40 +1,88 @@
-/* ===== importa estilos base ===== */
-@import url('base.css');
+/* ---------------------- DESIGN TOKENS / CONFIG ---------------------- */
+/* ================= BREAKPOINTS E ORIENTAÇÕES ================= */
+/* Desktop (padrão) ≥1200px já coberto pelos estilos acima */
 
-/* ===== específicos da página accueil ===== */
-.page-accueil .title-nav h1 {
-  font-size: 10em; /* ajusta conforme o tamanho desejado */
-  letter-spacing: 2px;
+
+/* Tablet Horizontal: 901–1199px */
+@media (max-width: 1199px) and (min-width: 901px) {
+:root { --max-content: 65em; --scale-hero: 0.98; } /* ligeiro ajuste de largura e escala */
+.logo { width: 10em; } /* logos um pouco menores */
+.hero { grid-template-columns: 1.1fr 0.9fr; } /* reequilibra texto|imagem */
 }
 
-.page-accueil .logo {
-  width: 180px;
-  height: auto;
+
+/* Tablet Vertical: 601–900px */
+@media (max-width: 900px) and (min-width: 601px) {
+:root { --max-content: 54em; --scale-hero: 0.95; }
+.logo { width: 8.75em; } /* logos reduzem */
+.hero { grid-template-columns: 1fr; } /* hero em coluna única */
+.hero-media { order: -1; aspect-ratio: 16/9; } /* imagem antes do texto e 16:9 */
+.features { grid-template-columns: repeat(2, 1fr); } /* 2 colunas de destaques */
+.gallery { grid-template-columns: repeat(3, 1fr); } /* 3 colunas na galeria */
 }
 
-/* ===== responsividade ===== */
 
-/* 📱 mobile retrato (≤600px) */
-@media (max-width: 600px) and (orientation: portrait) {
-  .page-accueil .logo { width: 60px; margin: 0 5px; }
-  .page-accueil .title-nav h1 { font-size: 1.6em; }
-  .page-accueil nav a { font-size: 1em; margin: 4px 6px; }
-  .page-accueil main h2 { font-size: 1.6em; }
-  .page-accueil main p  { font-size: 1em; }
+/* Telemóvel Horizontal: 481–600px */
+@media (max-width: 600px) and (min-width: 481px) {
+:root { --max-content: 35em; --scale-hero: 0.9; --scale-body: 0.95; }
+header { padding: 0.6em 0; } /* header mais compacto */
+.logo { width: 7.5em; } /* logos menores */
+.menu-toggle { display: inline-block; } /* mostra o botão do menu */
+nav { display: none; } /* esconde navegação completa */
+.nav-open nav { display: block; } /* mostra ao abrir o menu (ver JS) */
+nav a { display: block; padding: 0.6em 0; font-size: 1.1em; }
+.footer-inner { grid-template-columns: 1fr; text-align: center; } /* footer empilhado */
 }
 
-/* 📱 mobile horizontal (≤900px) */
-@media (max-width: 900px) and (orientation: landscape) {
-  .page-accueil .logo { width: 100px; margin: 0 4px; }
-  .page-accueil .title-nav h1 { font-size: 2em; }
-  .page-accueil nav a { font-size: 0.95em; margin: 3px 4px; }
-  .page-accueil main h2 { font-size: 1.4em; }
-  .page-accueil main p  { font-size: 0.95em; }
+
+/* Telemóvel Vertical: ≤480px */
+@media (max-width: 480px) {
+:root { --max-content: 26em; --scale-hero: 0.86; --scale-body: 0.95; --gap: 1em; }
+header { padding: 0.5em 0; }
+.logo { width: 6.25em; }
+.menu-toggle { display: inline-block; }
+nav { display: none; }
+.nav-open nav { display: block; }
+nav a { display: block; padding: 0.6em 0; font-size: 1.05em; }
+.hero { grid-template-columns: 1fr; gap: 0.75em; }
+.hero-media { aspect-ratio: 1/1; } /* mais alto, tipo quadrado */
+.features { grid-template-columns: 1fr; gap: 0.75em; }
+.gallery { grid-template-columns: repeat(2, 1fr); gap: 0.5em; }
+.footer-inner { grid-template-columns: 1fr; text-align: center; gap: 0.5em; }
 }
 
-/* 💻 tablet (601–1200px) */
-@media (min-width: 601px) and (max-width: 1200px) {
-  .page-accueil .logo { width: 140px; }
-  .page-accueil .title-nav h1 { font-size: 3em; }
-  .page-accueil nav a { font-size: 1.4em; }
+
+/* Ajustes finos por orientação */
+@media (orientation: landscape) and (max-width: 900px) {
+nav { display: block; } /* em deitado cabe a navegação completa */
+.menu-toggle { display: none; }
+nav a { display: inline-block; padding: 0.5em 0.4em; }
+}
+
+
+@media (orientation: portrait) and (max-width: 900px) {
+.title-nav h1 { font-size: clamp(1.6em, 8vw, 2.5em); } /* título um pouco menor em retrato */
+}
+
+
+/* ================= UTILITÁRIOS ================= */
+.hide-mobile { display: initial; }
+@media (max-width: 600px) { .hide-mobile { display: none !important; } }
+
+
+.show-mobile { display: none; }
+@media (max-width: 600px) { .show-mobile { display: initial !important; } }
+
+
+.center { display: grid; place-items: center; }
+
+
+/* Estado de navegação aberta (adicionado via JS): aplica blur ao header */
+.nav-open header { backdrop-filter: blur(0.25em); }
+
+
+/* Foco visível para acessibilidade em links/botões */
+:where(a, button, .btn):focus-visible {
+outline: 0.1em dashed var(--color-accent);
+outline-offset: 0.1em;
 }

@@ -1,0 +1,57 @@
+@import url('base.css');
+
+/* ===== especifico contacts ===== */
+.page-contacts .title-nav h1 { font-size: 5em; } /* como no teu estilo atual */
+
+.social-icons {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-icons a { margin: 0 10px; }
+
+.social-icons img {
+  width: 80px;               /* desktop default */
+  height: auto;
+  transition: transform 0.3s;
+}
+.social-icons img:hover { transform: scale(1.2); }
+
+/* ===== responsividade ===== */
+
+/* 📱 mobile retrato (≤600px) */
+@media (max-width: 600px) and (orientation: portrait) {
+  .page-contacts .title-nav h1 { font-size: 2em; }
+  .page-contacts .logo { width: 60px; margin: 0 5px; }
+  .page-contacts nav a { font-size: 1em; margin: 4px 6px; }
+  .social-icons img { width: 50px; margin: 5px; }
+
+  /* ajustes finos por ícone (como tinhas) */
+  .email-icon { width: 45px; }
+  .facebook-icon { width: 55px; }
+  .instagram-icon { width: 50px; }
+  .tiktok-icon { width: 48px; }
+}
+
+/* 📱 mobile horizontal (≤900px) */
+@media (max-width: 900px) and (orientation: landscape) {
+  .page-contacts .title-nav h1 { font-size: 3em; }
+  .page-contacts .logo { width: 100px; margin: 0 4px; }
+  .page-contacts nav a { font-size: 0.95em; margin: 3px 4px; }
+  .page-contacts main h2 { font-size: 1.4em; }
+  .page-contacts main p  { font-size: 0.95em; }
+
+  .social-icons img { width: 60px; margin: 4px; }
+  .email-icon { width: 35px; }
+  .facebook-icon { width: 40px; }
+  .instagram-icon { width: 38px; }
+  .tiktok-icon { width: 36px; }
+}
+
+/* 💻 tablet (601–1200px) */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .page-contacts .title-nav h1 { font-size: 4em; }
+  .social-icons img { width: 70px; }
+}

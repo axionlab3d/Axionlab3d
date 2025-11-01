@@ -157,7 +157,7 @@ main p {
   }
 
   /* Logos */
-  .logo { width: 50px; margin: 0 4px; }
+  .logo { width: 150px; margin: 0 4px; }
 
   /* Título "Qui sommes-nous ?" */
   body.page-bio h1.about-title {

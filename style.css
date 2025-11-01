@@ -167,7 +167,7 @@ main p {
   /* Título */
   .page-bio .title-nav h1,
   .page-accueil .title-nav h1 {
-    font-size: 1.5em !important; /* título reduzido na horizontal */
+    font-size: 1em !important; /* título reduzido na horizontal */
     line-height: 1.1em;
   }
 

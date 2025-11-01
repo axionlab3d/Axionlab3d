@@ -1,41 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contats</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <title>Contacts - Axion Lab 3D</title>
 
-  <!-- Cabeçalho -->
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts: Italianno (para o conteúdo se necessário) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome para ícones (opcional) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="page-contacts">
+
+  <!-- ===== HEADER ===== -->
   <header>
-    <h1>Meu Site</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">Sobre</a>
-      <a href="contacts.html">Contats</a>
-    </nav>
+    <div class="header-content">
+      <!-- Logo esquerdo -->
+      <img src="images/logo.jpg" alt="Logo gauche" class="logo left-logo">
+
+      <!-- Título -->
+      <div class="title-nav">
+        <h1 class="contacts-title">Contacts</h1>
+        <nav>
+          <a href="index.html">Accueil</a>
+          <a href="about.html">À propos</a>
+          <a href="contacts.html">Contacts</a>
+        </nav>
+      </div>
+
+      <!-- Logo direito -->
+      <img src="images/logo.jpg" alt="Logo droite" class="logo right-logo">
+    </div>
   </header>
 
-  <!-- Conteúdo principal -->
+  <!-- ===== MAIN ===== -->
   <main>
-    <h2>Contats</h2>
-    <p>Envoie votre message dans formulaire en bas:</p>
+    <section class="contacts-section">
+      <h2>Suivez-nous et contactez-nous</h2>
 
-    <form action="https://formspree.io/f/seu-email" method="POST">
-      <input type="text" name="name" placeholder="Nome" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" placeholder="Mensagem" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+          <img src="images/facebook-icon.png" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <img src="images/instagram-icon.png" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+          <img src="images/tiktok-icon.png" alt="TikTok" class="social-icon">
+        </a>
+        <a href="mailto:contato@axionlab3d.com" aria-label="Email">
+          <img src="images/email-icon.png" alt="Email" class="social-icon">
+        </a>
+      </div>
+    </section>
   </main>
 
-  <!-- Rodapé -->
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 AxionLab3d. Touts droits reserves.</p>
+    <p>© 2025 Axion Lab 3D</p>
   </footer>
 
 </body>
 </html>
+

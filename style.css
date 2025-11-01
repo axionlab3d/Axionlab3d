@@ -84,7 +84,7 @@ main p {
 
 /* ================= PÁGINA QUI SOMMES-NOUS ================= */
 .page-bio .title-nav h1 {
-  font-size: 5em !important;
+  font-size: 5em;
 }
 
 .page-bio .bio p {
@@ -119,27 +119,41 @@ main p {
   .logo { width: 140px; }
 }
 
-/* Telemóveis verticais */
-@media (max-width: 768px) and (orientation: portrait) {
-  /* Títulos */
-  .page-bio .title-nav h1 { font-size: 1.7em !important; line-height: 1.2em; margin: 0.3em 0; }
-  .page-accueil .title-nav h1 { font-size: 1.8em; }
+/* Telemóveis - portrait e landscape geral */
+@media (max-width: 768px) {
+  /* Título da página “Qui sommes-nous ?” */
+  body.page-bio h1.about-title {
+    font-size: 1.2em !important;
+    line-height: 1.1em;
+    margin: 0.3em 0;
+  }
 
-  /* Biografia */
-  .page-bio .bio p { font-size: 1em; letter-spacing: 0.5px; }
-
-  /* Rodapé Accueil menor */
-  .page-accueil footer { font-size: 0.7em; }
+  /* Título da página inicial */
+  body.page-accueil .title-nav h1 {
+    font-size: 1.8em;
+  }
 
   /* Logos */
-  .logo { width: 60px; margin: 0 5px; }
+  .logo {
+    width: 60px;
+    margin: 0 5px;
+  }
 
   /* Menu */
-  nav a { font-size: 1em; margin: 4px 6px; }
+  nav a {
+    font-size: 1em;
+    margin: 4px 6px;
+  }
 
   /* Conteúdo */
   main h2 { font-size: 1.6em; }
   main p { font-size: 1em; }
+
+  /* Biografia */
+  .page-bio .bio p { font-size: 1em; letter-spacing: 0.5px; }
+
+  /* Rodapé */
+  .page-accueil footer { font-size: 0.7em; }
 }
 
 /* Telemóveis horizontais (landscape) */
@@ -148,21 +162,19 @@ main p {
     padding: 0.5em 0;
   }
 
-  /* Logos */
+  /* Logos ainda menores */
   .logo {
     width: 50px;
     margin: 0 4px;
   }
 
-  /* Título “Qui sommes-nous ?” */
-  body.page-bio header .title-nav h1 {
+  /* Título da página “Qui sommes-nous ?” */
+  body.page-bio h1.about-title {
     font-size: 1em !important;
-    line-height: 1.1em;
-    margin: 0.3em 0;
   }
 
-  /* Título da página inicial */
-  body.page-accueil header .title-nav h1 {
+  /* Título página inicial */
+  body.page-accueil .title-nav h1 {
     font-size: 1.4em !important;
   }
 
@@ -172,7 +184,6 @@ main p {
     margin: 3px 4px;
   }
 }
-
 
 
 

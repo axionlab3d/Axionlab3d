@@ -221,7 +221,7 @@ main p {
     font-size: 1em;
     margin: 4px 6px;
   }
-}
+
 
 /* RESPONSIVO PARA TELEFONES (landscape) */
 @media (max-width: 768px) and (orientation: landscape) {

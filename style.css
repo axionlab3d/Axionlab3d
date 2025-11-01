@@ -171,5 +171,9 @@ main p {
 
   /* Menu */
   nav a { font-size: 0.9em; margin: 3px 4px; }
+
+  
+  /* Rodapé */
+  .page-accueil footer { font-size: 1.2em; }
 }
 

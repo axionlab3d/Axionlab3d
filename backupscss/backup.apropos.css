@@ -1,0 +1,43 @@
+@import url('base.css');
+
+/* ===== especifico apropos ===== */
+.page-bio .logo { width: 150px; margin: 0 10px; }
+
+.page-bio .title-nav h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.page-bio main h2 { font-size: 2.6em; }
+
+.page-bio main p {
+  font-size: 1.5em;
+  line-height: 1.6em;
+  max-width: 900px;
+  margin: 1em auto;
+  text-align: justify;
+}
+
+/* ===== responsividade ===== */
+
+/* 📱 mobile retrato (≤600px) */
+@media (max-width: 600px) and (orientation: portrait) {
+  .page-bio .logo { width: 70px; }
+  .page-bio .title-nav h1 { font-size: 1.8em; }
+  .page-bio nav a { font-size: 1em; }
+  .page-bio main h2 { font-size: 1.4em; }
+  .page-bio main p  { font-size: 1em; }
+}
+
+/* 📱 mobile horizontal (≤900px) */
+@media (max-width: 900px) and (orientation: landscape) {
+  .page-bio .logo { width: 100px; }
+  .page-bio .title-nav h1 { font-size: 2.1em; }
+  .page-bio main p  { font-size: 1.05em; }
+}
+
+/* 💻 tablet (601–1200px) */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .page-bio .title-nav h1 { font-size: 2.3em; }
+  .page-bio nav a { font-size: 1.4em; }
+}

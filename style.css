@@ -171,6 +171,21 @@ main p {
 
   /* Menu */
   nav a { font-size: 0.9em; margin: 3px 4px; }
+
+  ----contacts----
+
+  .social-icons a i {
+  font-size: 2.5em;
+  color: white;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons a i:hover {
+  transform: scale(1.2);
+  color: #ffdd57;
+}
+
 }
 
 

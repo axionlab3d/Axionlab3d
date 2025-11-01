@@ -122,7 +122,7 @@ main p {
 /* Telemóveis */
 @media (max-width: 768px) {
   /* Títulos */
-  .page-bio .title-nav h1 { font-size: 3em; }
+  .page-bio .title-nav h1 { font-size: 1em; }
   .page-accueil .title-nav h1 { font-size: 1.8em; }
 
   /* Biografia */

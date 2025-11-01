@@ -35,8 +35,10 @@ header { background-color: var(--color-bg); padding: 1.5em 0; }
   flex-wrap: wrap;
 }
 
+/* logos – valor neutro; páginas podem sobrepor */
 .logo { width: 180px; height: auto; margin: 0 15px; }
 
+/* título – SEM font-size aqui (cada página controla o tamanho) */
 .title-nav h1 {
   color: var(--color-fg);
   background-color: var(--color-bg);
@@ -45,7 +47,6 @@ header { background-color: var(--color-bg); padding: 1.5em 0; }
   border-radius: 5px;
   margin: 0;
   letter-spacing: 2px;
-  
 }
 
 /* ===== navegação (base) ===== */
@@ -55,14 +56,16 @@ nav a {
   text-decoration: none;
   margin: 0 1.2em;
   font-weight: bold;
-  font-size: 2em;         /* as páginas podem sobrepor */
+  font-size: 2em; /* páginas podem sobrepor */
   transition: 0.3s;
 }
 nav a:hover { color: var(--color-accent); text-decoration: underline; }
+/* opcional: destaque do link ativo */
+nav a.active { color: var(--color-accent); }
 
-/* ===== main e tipografia base ===== */
+/* ===== main e tipografia base ===== (sem tamanhos forçados) */
 main { padding: 3em 1em; }
-main h2 { font-size: 3em; }
+main h2 { font-size: 3em; }        /* valor confortável; páginas podem sobrepor */
 main p  { font-size: 2em; line-height: 1.6em; letter-spacing: 2px; }
 
 /* ===== footer ===== */
@@ -70,3 +73,11 @@ footer { padding: 1em 0; font-size: 1em; background: var(--color-bg); }
 
 /* ===== util ===== */
 .italianno-regular { font-family: 'Italianno', cursive; }
+
+/* ===== responsividade neutra (opcional, mínima) ===== */
+/* Mantemos a base neutra; ajustes finos ficam nos CSS por página */
+@media (max-width: 600px) {
+  nav a { font-size: 1.1em; }
+  main h2 { font-size: 1.8em; }
+  main p  { font-size: 1.1em; }
+}

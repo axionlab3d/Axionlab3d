@@ -18,7 +18,7 @@
   --m-hero-p: 1;    /* parágrafo do hero */
   --m-feat-h3: 1;   /* títulos dos destaques */
   --m-feat-p: 1;    /* texto dos destaques */
-  --m-footer: 1;    /* texto do rodapé */
+  --m-footer: 1,5;    /* texto do rodapé */
 
   /* Tamanhos base (raramente precisas mexer) */
   --base-h1: 7em;

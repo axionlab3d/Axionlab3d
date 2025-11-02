@@ -280,8 +280,8 @@ html, body {
 
 /* Telemóvel (≤600px) */
 @media (max-width: 600px) {
-  main { padding-bottom: 0.8em !important; }
-  .main-inner > *:last-child { margin-bottom: 0.4em !important; }
+  main { padding-bottom: 0.6em !important; }
+  .main-inner > *:last-child { margin-bottom: 0.2em !important; }
   .features, .gallery { margin-bottom: 0 !important; }
   .footer-inner { padding-top: 0.5em !important; }
 }
@@ -297,10 +297,10 @@ html, body {
 @media (max-width: 1000px) and (min-width: 601px) {
   /* corta almofada do main */
   body.accueil main,
-  main { padding-bottom: 0.6em !important; }
+  main { padding-bottom: 0.4em !important; }
 
   /* reduz margem do hero no fundo */
-  .hero { margin-block: 1.4em 0.6em !important; }
+  .hero { margin-block: 1.2em 0.4em !important; }
 
   /* secções comuns: não deixam “rabo” de margem */
   .features, .gallery { margin-bottom: 0 !important; }
@@ -316,9 +316,9 @@ html, body {
 /* Telemóvel (≤600px) */
 @media (max-width: 600px) {
   body.accueil main,
-  main { padding-bottom: 0.4em !important; }
+  main { padding-bottom: 0.3em !important; }
 
-  .hero { margin-block: 1.2em 0.4em !important; }
+  .hero { margin-block: 1em 0.2em !important; }
 
   .features, .gallery { margin-top: 1em !important; margin-bottom: 0 !important; }
 

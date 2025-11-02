@@ -187,7 +187,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
     --size-menu: 1.4em;
     --logo-w: 7em;
   }
-  .header-content { gap: 0.4em; }
+  .header-content { gap: 0.2em; }
   /* Menu pode quebrar para 2 linhas pela wrap (já activado em nav) */
 }
 
@@ -198,8 +198,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
     --size-menu: 1.1em;
     --logo-w: 4.5em;
   }
-  .header-content { gap: 0.35em; }
-  header { padding: 0.7em 0; }
+  .header-content { gap: 0.2em; }
+  header { padding: 0.5em 0; }
   /* Menu continua por palavras; se não couber numa linha, quebra */
 }
 

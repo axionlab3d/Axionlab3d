@@ -1,158 +1,253 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accueil — Nome do Site</title>
+/* ================= ACCUEIL (HOME) =================
+   Este ficheiro controla TUDO da página de accueil e inclui
+   comentários para saberes exatamente o que alterar no futuro.
 
-  <!-- CSS base primeiro, depois o da página -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/style-accueil.css">
+   ▶ Guia rápido de ajuste (procura pelas variáveis/linhas citadas):
+   - --max-content: largura máxima do conteúdo (desktop/tablet). Aumenta/diminui para teres linhas mais longas/curtas.
+   - --scale-hero / --scale-body: escalas globais da tipografia. Ajusta 0.9–1.2 conforme precises de mais/menos destaque.
+   - .logo { width: … }: largura do(s) logo(s). Tens valores por breakpoint mais abaixo.
+   - .title-nav h1 font-size: controla o título do cabeçalho (usa clamp). Sobe/baixa os 3 valores conforme precise.
+   - nav a font-size: controla o tamanho dos links do menu (clamp). Ajusta mínimo/médio/máximo.
+   - .hero h2 / .hero p: controla títulos e parágrafos do herói.
+   - .hero .btn: padding/raio/borda das CTAs.
+   - .features grid-template-columns: nº de colunas dos destaques por breakpoint.
+   - .gallery grid-template-columns: nº de colunas da galeria por breakpoint.
+   - Breakpoints (comentados em cada @media):
+       ≥1200px Desktop (default) | 901–1199px Tablet horizontal | 601–900px Tablet vertical
+       481–600px Telemóvel horizontal | ≤480px Telemóvel vertical
 
-  <!-- Favicon opcional -->
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-</head>
-<body class="accueil">
-  <a href="#conteudo" class="sr-only">Saltar para o conteúdo</a>
+   Requisitos: base.css carregado antes deste.
+   Este ficheiro SOBREPÕE estilos da base.
+=================================================== */
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <div class="header-content">
-      <!-- Logo à esquerda -->
-      <a href="index.html" class="logo-left" aria-label="Página inicial">
-        <img class="logo" src="assets/logo-left.svg" alt="Logo da marca esquerda">
-      </a>
+/* ---------------------- DESIGN TOKENS / CONFIG ---------------------- */
+:root {
+  --scale-hero: 1;       /* Escala global para títulos grandes (0.9–1.2) */
+  --scale-body: 1;       /* Escala global para texto corrido/menus (0.9–1.1) */
+  --max-content: 75em;   /* Largura máxima da coluna de conteúdo no desktop */
+  --gap: 1.5em;          /* Espaçamento padrão entre cartões/grades (section gaps) */
+}
 
-      <!-- Título + subtítulo/claim opcional -->
-      <div class="title-nav">
-        <h1>Nome do Site</h1>
-      </div>
+/* ---------------------- LAYOUT GLOBAL ---------------------- */
+.accueil {
+  min-height: 100dvh;               /* ocupa a altura total útil */
+  display: grid;
+  grid-template-rows: auto 1fr auto;/* header | main | footer */
+}
 
-      <!-- Botão menu (aparece em mobile) -->
-      <button class="menu-toggle" id="menuToggle" aria-controls="siteNav" aria-expanded="false">
-        Menu
-      </button>
+/* ================= HEADER ================= */
+header {
+  position: sticky;                    /* fixa no topo ao rolar */
+  top: 0;
+  z-index: 1000;                       /* acima do conteúdo */
+  border-bottom: 0.05em solid rgba(255,255,255,0.08); /* linha subtil */
+}
 
-      <!-- Logo à direita (opcional; esconde em mobile no CSS) -->
-      <a href="#" class="logo-right" aria-label="Parceiro / segunda marca">
-        <img class="logo" src="assets/logo-right.svg" alt="Logo secundária">
-      </a>
+.header-content {
+  max-width: var(--max-content); /* controla largura interna */
+  margin: 0 auto;
+  padding: 0 1em;                /* respiro lateral */
+  gap: 1em;                      /* espaçamento entre elementos no header */
+}
 
-      <!-- Navegação principal -->
-      <nav id="siteNav" aria-label="Navegação principal">
-        <a href="index.html" class="active">Accueil</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="galeria.html">Galeria</a>
-        <a href="contactos.html">Contactos</a>
-      </nav>
-    </div>
-  </header>
+/* Logos – ajusta a largura aqui e nas media queries mais abaixo */
+.logo { width: 11.25em; height: auto; margin: 0; flex: 0 0 auto; }
+.logo-left { order: 0; }
+.logo-right { order: 2; }
 
-  <!-- ================= MAIN ================= -->
-  <main id="conteudo">
-    <div class="main-inner">
-      <!-- HERO -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-text">
-          <h2 id="hero-title">Elegância que ganha vida</h2>
-          <p>
-            Bem-vind@ à nossa maison — design, paixão e cuidado em cada detalhe.
-            Descobre coleções exclusivas e experiências feitas para ti.
-          </p>
-          <div class="cta-group">
-            <a class="btn" href="#destaques">Ver destaques</a>
-            <a class="btn" href="contactos.html">Marcar visita</a>
-          </div>
-        </div>
+/* Título principal do site (no header)
+   clamp(min, preferido, max) → altera estes 3 valores para mais/menos impacto */
+.title-nav h1 {
+  font-size: clamp(1.75em, calc(2.5em * var(--scale-hero)), 4em);
+  letter-spacing: 0.15em; /* espaçamento entre letras do título */
+  line-height: 1.1;       /* altura da linha do título */
+}
 
-        <figure class="hero-media">
-          <img src="assets/hero.jpg" alt="Imagem de destaque da marca ou coleção">
-        </figure>
-      </section>
+/* Navegação principal do topo */
+nav { margin-top: 0.5em; }
+nav a {
+  font-size: clamp(1.1em, calc(1.4em * var(--scale-body)), 1.75em); /* tamanho dos links do menu */
+}
 
-      <!-- FEATURES / DESTAQUES -->
-      <section class="features" id="destaques" aria-label="Destaques">
-        <article class="feature">
-          <h3>Feito à mão</h3>
-          <p>Peças únicas com acabamento artesanal e materiais selecionados.</p>
-        </article>
-        <article class="feature">
-          <h3>Design autoral</h3>
-          <p>Estética contemporânea com assinatura própria e atemporalidade.</p>
-        </article>
-        <article class="feature">
-          <h3>Entrega global</h3>
-          <p>Envios seguros e rastreados para qualquer lugar do mundo.</p>
-        </article>
-      </section>
+/* Botão do menu (aparece em ecrãs pequenos; ver media queries) */
+.menu-toggle {
+  display: none; /* será mostrado no mobile */
+  border: 0.05em solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: var(--color-fg);
+  border-radius: 0.5em;   /* raio de canto do botão do menu */
+  padding: 0.5em 0.75em;  /* área clicável */
+  font-size: 1.1em;       /* tamanho do texto do botão */
+}
 
-      <!-- GALERIA (exemplo rápido) -->
-      <section class="gallery" aria-label="Galeria">
-        <img src="assets/gallery-1.jpg" alt="Peça 1">
-        <img src="assets/gallery-2.jpg" alt="Peça 2">
-        <img src="assets/gallery-3.jpg" alt="Peça 3">
-        <img src="assets/gallery-4.jpg" alt="Peça 4">
-        <img src="assets/gallery-5.jpg" alt="Peça 5">
-        <img src="assets/gallery-6.jpg" alt="Peça 6">
-        <img src="assets/gallery-7.jpg" alt="Peça 7">
-        <img src="assets/gallery-8.jpg" alt="Peça 8">
-      </section>
-    </div>
-  </main>
+/* Grade do header: logos + título + nav em duas linhas responsivas */
+.header-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo L | título | logo R */
+  grid-template-areas:
+    "logoL title logoR"
+    "nav   nav   nav";
+}
+.logo-left { grid-area: logoL; }
+.title-nav { grid-area: title; align-self: center; }
+.logo-right { grid-area: logoR; }
+header nav { grid-area: nav; }
 
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-copy">
-        © <span id="ano"></span> Nome do Site — Todos os direitos reservados.
-      </div>
-      <div class="footer-nav">
-        <a href="privacidade.html">Privacidade</a>
-        <a href="termos.html">Termos</a>
-        <a href="contactos.html">Contacto</a>
-      </div>
-    </div>
-  </footer>
+header nav a { display: inline-block; padding: 0.5em 0.4em; }
 
-  <!-- ================= JS: Menu & utilidades ================= -->
-  <script>
-    // Ano automático no rodapé
-    document.getElementById('ano').textContent = new Date().getFullYear();
+/* ================= MAIN (HERO + SECÇÕES) ================= */
+main {
+  padding: clamp(1.5em, 4vw, 3em) 1em; /* respiro vertical do conteúdo principal */
+}
 
-    // Toggle do menu em telas pequenas
-    (function () {
-      const btn = document.getElementById('menuToggle');
-      const body = document.body;
-      const nav  = document.getElementById('siteNav');
+.main-inner { max-width: var(--max-content); margin: 0 auto; }
 
-      function toggleMenu(forceState) {
-        const abrir = typeof forceState === 'boolean' ? forceState : !body.classList.contains('nav-open');
-        body.classList.toggle('nav-open', abrir);
-        btn.setAttribute('aria-expanded', abrir ? 'true' : 'false');
-      }
+/* HERO – secção de abertura com texto e mídia */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* proporção texto|imagem no desktop */
+  align-items: center;
+  gap: var(--gap);
+  margin-block: clamp(1.5em, 5vw, 4em); /* distância da secção às vizinhas */
+}
+.hero h2 { /* título do hero */
+  font-size: clamp(2.25em, calc(3.5em * var(--scale-hero)), 5.25em);
+  margin: 0 0 0.2em 0;
+}
+.hero p {  /* parágrafo do hero */
+  font-size: clamp(1.1em, calc(1.4em * var(--scale-body)), 1.6em);
+  max-width: 60ch; /* confortável para leitura */
+  margin: 0 0 0.8em 0;
+}
+.hero .cta-group { display: flex; gap: 0.75em; flex-wrap: wrap; }
+.hero .btn { /* botões de chamada à ação */
+  display: inline-block;
+  padding: 0.75em 1em;                   /* controla o "peso" do botão */
+  border-radius: 0.6em;                  /* cantos do botão */
+  border: 0.05em solid rgba(255,255,255,0.2);
+  color: var(--color-bg);
+  background: var(--color-accent);
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s ease;      /* micro-interação ao pairar */
+}
+.hero .btn:hover { transform: translateY(-0.1em); }
+.hero-media { /* recipiente da imagem/vídeo do hero */
+  width: 100%;
+  aspect-ratio: 4/3;                     /* troca para 16/9 se preferires */
+  border-radius: 0.9em;
+  overflow: hidden;
+  border: 0.05em solid rgba(255,255,255,0.12);
+}
+.hero-media img, .hero-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-      btn.addEventListener('click', () => toggleMenu());
+/* FEATURES / DESTAQUES – cartões em grelha */
+.features {
+  margin-top: clamp(1.5em, 5vw, 4em);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* nº de colunas no desktop */
+  gap: var(--gap);
+}
+.feature { /* cartão individual */
+  padding: 1.25em;                                    /* respiro interno do cartão */
+  border: 0.05em solid rgba(255,255,255,0.12);        /* contorno subtil */
+  border-radius: 0.9em;
+  background: rgba(255,255,255,0.02);                 /* leve contraste do fundo */
+}
+.feature h3 { font-size: clamp(1.3em, 3vw, 1.75em); margin: 0 0 0.5em; }
+.feature p  { font-size: clamp(1em, 2.2vw, 1.25em);  margin: 0; }
 
-      // Fecha o menu quando se clica num link (em mobile)
-      nav.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A' && window.matchMedia('(max-width: 600px)').matches) {
-          toggleMenu(false);
-        }
-      });
+/* GALERIA – grelha de imagens com colunas responsivas */
+.gallery { margin-top: clamp(1.5em, 5vw, 4em); display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6em; }
+.gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.6em; }
 
-      // Fecha o menu ao mudar orientação/tamanho para algo maior
-      window.addEventListener('resize', () => {
-        if (window.matchMedia('(min-width: 601px)').matches) {
-          toggleMenu(false);
-        }
-      });
+/* ================= FOOTER ================= */
+footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
+.footer-inner {
+  max-width: var(--max-content); /* mesma largura do conteúdo */
+  margin: 0 auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr auto; /* texto à esquerda, links à direita */
+  gap: 0.75em;
+  align-items: center;
+}
+.footer-nav a { font-size: 1em; margin: 0 0.5em; } /* tamanho/espaçamento dos links do rodapé */
+.footer-copy { font-size: 0.9em; opacity: 0.8; }
 
-      // Fecha com Esc
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') toggleMenu(false);
-      });
-    })();
-  </script>
-</body>
-</html>
+/* ================= BREAKPOINTS E ORIENTAÇÕES ================= */
+/* Desktop (padrão) ≥1200px já coberto pelos estilos acima */
+
+/* Tablet Horizontal: 901–1199px */
+@media (max-width: 1199px) and (min-width: 901px) {
+  :root { --max-content: 65em; --scale-hero: 0.98; } /* ligeiro ajuste de largura e escala */
+  .logo { width: 10em; }                               /* logos um pouco menores */
+  .hero { grid-template-columns: 1.1fr 0.9fr; }       /* reequilibra texto|imagem */
+}
+
+/* Tablet Vertical: 601–900px */
+@media (max-width: 900px) and (min-width: 601px) {
+  :root { --max-content: 54em; --scale-hero: 0.95; }
+  .logo { width: 8.75em; }                             /* logos reduzem */
+  .hero { grid-template-columns: 1fr; }                /* hero em coluna única */
+  .hero-media { order: -1; aspect-ratio: 16/9; }       /* imagem antes do texto e 16:9 */
+  .features { grid-template-columns: repeat(2, 1fr); } /* 2 colunas de destaques */
+  .gallery  { grid-template-columns: repeat(3, 1fr); } /* 3 colunas na galeria */
+}
+
+/* Telemóvel Horizontal: 481–600px */
+@media (max-width: 600px) and (min-width: 481px) {
+  :root { --max-content: 35em; --scale-hero: 0.9; --scale-body: 0.95; }
+  header { padding: 0.6em 0; }        /* header mais compacto */
+  .logo  { width: 7.5em; }            /* logos menores */
+  .menu-toggle { display: inline-block; } /* mostra o botão do menu */
+  nav { display: none; }                   /* esconde navegação completa */
+  .nav-open nav { display: block; }        /* mostra ao abrir o menu (ver JS) */
+  nav a { display: block; padding: 0.6em 0; font-size: 1.1em; }
+  .footer-inner { grid-template-columns: 1fr; text-align: center; } /* footer empilhado */
+}
+
+/* Telemóvel Vertical: ≤480px */
+@media (max-width: 480px) {
+  :root { --max-content: 26em; --scale-hero: 0.86; --scale-body: 0.95; --gap: 1em; }
+  header { padding: 0.5em 0; }
+  .logo  { width: 6.25em; }
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
+  nav a { display: block; padding: 0.6em 0; font-size: 1.05em; }
+  .hero { grid-template-columns: 1fr; gap: 0.75em; }
+  .hero-media { aspect-ratio: 1/1; }          /* mais alto, tipo quadrado */
+  .features { grid-template-columns: 1fr; gap: 0.75em; }
+  .gallery  { grid-template-columns: repeat(2, 1fr); gap: 0.5em; }
+  .footer-inner { grid-template-columns: 1fr; text-align: center; gap: 0.5em; }
+}
+
+/* Ajustes finos por orientação */
+@media (orientation: landscape) and (max-width: 900px) {
+  nav { display: block; }    /* em deitado cabe a navegação completa */
+  .menu-toggle { display: none; }
+  nav a { display: inline-block; padding: 0.5em 0.4em; }
+}
+
+@media (orientation: portrait) and (max-width: 900px) {
+  .title-nav h1 { font-size: clamp(1.6em, 8vw, 2.5em); } /* título um pouco menor em retrato */
+}
+
+/* ================= UTILITÁRIOS ================= */
+.hide-mobile { display: initial; }
+@media (max-width: 600px) { .hide-mobile { display: none !important; } }
+
+.show-mobile { display: none; }
+@media (max-width: 600px) { .show-mobile { display: initial !important; } }
+
+.center { display: grid; place-items: center; }
+
+/* Estado de navegação aberta (adicionado via JS): aplica blur ao header */
+.nav-open header { backdrop-filter: blur(0.25em); }
+
+/* Foco visível para acessibilidade em links/botões */
+:where(a, button, .btn):focus-visible {
+  outline: 0.1em dashed var(--color-accent);
+  outline-offset: 0.1em;
+}

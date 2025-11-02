@@ -1,159 +1,132 @@
+/* ================= BASE GLOBAL =================
+   Este ficheiro define o estilo base comum a todas as páginas.
 
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accueil — Nome do Site</title>
+   ▶ Guia rápido de ajuste:
+   - Fontes: altera @font-face ou body { font-family: … }
+   - Cores: ajusta as variáveis em :root
+   - Tamanhos: usa em para tipografia e espaçamentos
+   - Header / Nav / Footer: estrutura comum; tamanhos e layouts
+     específicos são controlados nos CSS de cada página.
 
-  <!-- CSS base primeiro, depois o da página -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/style-accueil.css">
+   Cada página deve carregar:
+     1. base.css (este)
+     2. style-[pagina].css (sobrepõe este)
+=================================================== */
 
-  <!-- Favicon opcional -->
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-</head>
-<body class="accueil">
-  <a href="#conteudo" class="sr-only">Saltar para o conteúdo</a>
 
-  <!-- ================= HEADER ================= -->
-  <header>
-    <div class="header-content">
-      <!-- Logo à esquerda -->
-      <a href="index.html" class="logo-left" aria-label="Página inicial">
-        <img class="logo" src="assets/logo-left.svg" alt="Logo da marca esquerda">
-      </a>
+/* ---------------------- FONTES ---------------------- */
+@font-face {
+  font-family: 'Joseph Sophia';
+  src: url('../fonts/JosephSophia.ttf') format('truetype'),
+       url('../fonts/JosephSophia.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-      <!-- Título + subtítulo/claim opcional -->
-      <div class="title-nav">
-        <h1>Nome do Site</h1>
-      </div>
+/* ---------------------- VARIÁVEIS GLOBAIS ---------------------- */
+:root {
+  --color-bg: #000;         /* cor de fundo global */
+  --color-fg: #fff;         /* cor de texto padrão */
+  --color-accent: #ffdd57;  /* cor de destaque (links hover, botões, etc.) */
+}
 
-      <!-- Botão menu (aparece em mobile) -->
-      <button class="menu-toggle" id="menuToggle" aria-controls="siteNav" aria-expanded="false">
-        Menu
-      </button>
+/* ---------------------- RESET BÁSICO ---------------------- */
+* { box-sizing: border-box; }
 
-      <!-- Logo à direita (opcional; esconde em mobile no CSS) -->
-      <a href="#" class="logo-right" aria-label="Parceiro / segunda marca">
-        <img class="logo" src="assets/logo-right.svg" alt="Logo secundária">
-      </a>
+html, body { height: 100%; }
 
-      <!-- Navegação principal -->
-      <nav id="siteNav" aria-label="Navegação principal">
-        <a href="index.html" class="active">Accueil</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="galeria.html">Galeria</a>
-        <a href="contactos.html">Contactos</a>
-      </nav>
-    </div>
-  </header>
+body {
+  margin: 0;
+  font-family: 'Joseph Sophia', cursive;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1em; /* tamanho base da tipografia */
+}
 
-  <!-- ================= MAIN ================= -->
-  <main id="conteudo">
-    <div class="main-inner">
-      <!-- HERO -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-text">
-          <h2 id="hero-title">Elegância que ganha vida</h2>
-          <p>
-            Bem-vind@ à nossa maison — design, paixão e cuidado em cada detalhe.
-            Descobre coleções exclusivas e experiências feitas para ti.
-          </p>
-          <div class="cta-group">
-            <a class="btn" href="#destaques">Ver destaques</a>
-            <a class="btn" href="contactos.html">Marcar visita</a>
-          </div>
-        </div>
+/* ---------------------- HEADER COMUM ---------------------- */
+header {
+  background-color: var(--color-bg);
+  padding: 1.5em 0;
+}
 
-        <figure class="hero-media">
-          <img src="assets/hero.jpg" alt="Imagem de destaque da marca ou coleção">
-        </figure>
-      </section>
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-      <!-- FEATURES / DESTAQUES -->
-      <section class="features" id="destaques" aria-label="Destaques">
-        <article class="feature">
-          <h3>Feito à mão</h3>
-          <p>Peças únicas com acabamento artesanal e materiais selecionados.</p>
-        </article>
-        <article class="feature">
-          <h3>Design autoral</h3>
-          <p>Estética contemporânea com assinatura própria e atemporalidade.</p>
-        </article>
-        <article class="feature">
-          <h3>Entrega global</h3>
-          <p>Envios seguros e rastreados para qualquer lugar do mundo.</p>
-        </article>
-      </section>
+/* Logos – valor neutro; páginas podem sobrepor */
+.logo {
+  width: 11.25em; /* ~180px */
+  height: auto;
+  margin: 0 1em;
+}
 
-      <!-- GALERIA (exemplo rápido) -->
-      <section class="gallery" aria-label="Galeria">
-        <img src="assets/gallery-1.jpg" alt="Peça 1">
-        <img src="assets/gallery-2.jpg" alt="Peça 2">
-        <img src="assets/gallery-3.jpg" alt="Peça 3">
-        <img src="assets/gallery-4.jpg" alt="Peça 4">
-        <img src="assets/gallery-5.jpg" alt="Peça 5">
-        <img src="assets/gallery-6.jpg" alt="Peça 6">
-        <img src="assets/gallery-7.jpg" alt="Peça 7">
-        <img src="assets/gallery-8.jpg" alt="Peça 8">
-      </section>
-    </div>
-  </main>
+/* Título – sem font-size fixo; controlado nas páginas */
+.title-nav h1 {
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 0.3em;
+  margin: 0;
+  letter-spacing: 0.15em;
+}
 
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-copy">
-        © <span id="ano"></span> Nome do Site — Todos os direitos reservados.
-      </div>
-      <div class="footer-nav">
-        <a href="privacidade.html">Privacidade</a>
-        <a href="termos.html">Termos</a>
-        <a href="contactos.html">Contacto</a>
-      </div>
-    </div>
-  </footer>
+/* ---------------------- NAVEGAÇÃO ---------------------- */
+nav { margin-top: 0.6em; }
 
-  <!-- ================= JS: Menu & utilidades ================= -->
-  <script>
-    // Ano automático no rodapé
-    document.getElementById('ano').textContent = new Date().getFullYear();
+nav a {
+  color: var(--color-fg);
+  text-decoration: none;
+  margin: 0 1.2em;
+  font-weight: bold;
+  font-size: 2em; /* sobreponível nas páginas */
+  transition: 0.3s;
+}
 
-    // Toggle do menu em telas pequenas
-    (function () {
-      const btn = document.getElementById('menuToggle');
-      const body = document.body;
-      const nav  = document.getElementById('siteNav');
+nav a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
 
-      function toggleMenu(forceState) {
-        const abrir = typeof forceState === 'boolean' ? forceState : !body.classList.contains('nav-open');
-        body.classList.toggle('nav-open', abrir);
-        btn.setAttribute('aria-expanded', abrir ? 'true' : 'false');
-      }
+/* opcional: destaque do link ativo */
+nav a.active { color: var(--color-accent); }
 
-      btn.addEventListener('click', () => toggleMenu());
+/* ---------------------- MAIN / TIPOGRAFIA BASE ---------------------- */
+main { padding: 3em 1em; }
 
-      // Fecha o menu quando se clica num link (em mobile)
-      nav.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A' && window.matchMedia('(max-width: 600px)').matches) {
-          toggleMenu(false);
-        }
-      });
+main h2 {
+  font-size: 3em; /* valor neutro; sobrepor em cada página */
+}
 
-      // Fecha o menu ao mudar orientação/tamanho para algo maior
-      window.addEventListener('resize', () => {
-        if (window.matchMedia('(min-width: 601px)').matches) {
-          toggleMenu(false);
-        }
-      });
+main p {
+  font-size: 2em;
+  line-height: 1.6em;
+  letter-spacing: 0.12em;
+}
 
-      // Fecha com Esc
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') toggleMenu(false);
-      });
-    })();
-  </script>
-</body>
-</html>
+/* ---------------------- FOOTER ---------------------- */
+footer {
+  padding: 1em 0;
+  font-size: 1em;
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+/* ---------------------- UTILITÁRIOS ---------------------- */
+.italianno-regular {
+  font-family: 'Italianno', cursive;
+}
+
+/* ---------------------- RESPONSIVIDADE BASE ----------------------
+   Mantém-se mínima; ajustes finos devem ser feitos nos CSS das páginas
+-------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  nav a { font-size: 1.1em; }
+  main h2 { font-size: 1.8em; }
+  main p  { font-size: 1.1em; }
+}

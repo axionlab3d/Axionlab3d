@@ -1,89 +1,84 @@
-/* ================= ACCUEIL (HOME) — VARIÁVEIS FIXAS EM EM =================
-   Versão equivalente à de controlo mestre (sem --scale).
-   - Tamanhos totalmente em em (não há multiplicadores nem cálculos).
-   - Visual idêntico ao original.
-   - Responsividade por variáveis nos breakpoints.
-   Requer base.css carregado antes.
-==================================================================== */
-
-/* ===== CONTROLO PRINCIPAL (Desktop por defeito) ===== */
+/* ======== VARIÁVEIS PRINCIPAIS (DESKTOP) ======== */
+/* Altera aqui se quiseres modificar tamanhos no ecrã de PC */
 :root {
-  /* Tipografia principal */
-  --size-h1: 6em;         /* título do site no header */
-  --size-menu: 2em;       /* links do menu */
-  --size-hero-h2: 3em;      /* título do hero */
-  --size-hero-p: 1.3em;     /* parágrafo do hero */
-  --size-feature-h3: 1.5em; /* títulos dos destaques */
-  --size-feature-p: 1.1em;  /* texto dos destaques */
-  --size-footer-text: 1.5em;  /* texto do rodapé */
+  /* --- Tipografia geral --- */
+  --size-h1: 6em;          /* título principal no topo */
+  --size-menu: 2em;        /* tamanho das letras do menu */
+  --size-hero-h2: 3em;     /* título grande da secção hero */
+  --size-hero-p: 1.3em;    /* texto/parágrafo do hero */
+  --size-feature-h3: 1.5em;/* título dos cartões de destaques */
+  --size-feature-p: 1.1em; /* texto dos cartões */
+  --size-footer-text: 1.5em; /* texto do rodapé */
 
-  /* Layout e espaçamentos */
-  --logo-w: 12em;           /* largura dos logos */
-  --gap: 1em;             /* espaçamento geral */
-  --gap-menu-x: 0.5em;      /* padding horizontal do menu */
-  --max-content: 80em;      /* largura máxima do conteúdo */
+  /* --- Dimensões e espaçamentos --- */
+  --logo-w: 12em;          /* largura dos logótipos */
+  --gap: 1em;              /* espaçamento entre blocos / cartões */
+  --gap-menu-x: 0.5em;     /* espaçamento lateral entre links do menu */
+  --max-content: 80em;     /* largura máxima do conteúdo central */
 
-  /* Estrutura */
-  --grid-features: 3;       /* colunas dos destaques */
-  --grid-gallery: 4;        /* colunas da galeria */
+  /* --- Estrutura das grelhas --- */
+  --grid-features: 3;       /* número de colunas dos destaques */
+  --grid-gallery: 4;        /* número de colunas da galeria */
 }
 
-/* ===== LAYOUT GLOBAL ===== */
+/* ======== LAYOUT GLOBAL ======== */
 .accueil {
-  min-height: 100dvh;
+  min-height: 100dvh;                     /* ocupa toda a altura do ecrã */
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;      /* header | main | footer */
 }
 
-/* ===== HEADER ===== */
+/* ======== HEADER (cabeçalho) ======== */
 header {
-  position: sticky;
+  position: sticky;                       /* fixa no topo ao fazer scroll */
   top: 0;
   z-index: 1000;
   border-bottom: 0.05em solid rgba(255,255,255,0.08);
-  padding: 1.2em 0;
+  padding: 1.2em 0;                       /* altura do cabeçalho */
 }
 
+/* --- Estrutura interna do header --- */
 .header-content {
-  max-width: var(--max-content);
+  max-width: var(--max-content);          /* limite da largura do conteúdo */
   margin: 0 auto;
   padding: 0 1em;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto;   /* logo esquerda | título | logo direita */
   grid-template-areas:
     "logoL title logoR"
-    "nav nav nav";
-  gap: 0.5em; /* menor = logos mais próximos do título */
+    "nav   nav   nav";
+  gap: 0.5em;                             /* distância entre logos e título */
 }
 
+/* --- Logos --- */
 .logo { width: var(--logo-w); height: auto; margin: 0; }
 .logo-left  { grid-area: logoL; }
 .logo-right { grid-area: logoR; }
 
+/* --- Título do site --- */
 .title-nav { grid-area: title; align-self: center; }
 .title-nav h1 {
-  font-size: var(--size-h1);
-  letter-spacing: 0.12em;
+  font-size: var(--size-h1);              /* tamanho do título principal */
+  letter-spacing: 0.12em;                 /* espaçamento entre letras */
   line-height: 1.1;
   margin: 0;
 }
 
-/* ===== MENU ===== */
+/* --- MENU DE NAVEGAÇÃO --- */
 nav { grid-area: nav; margin-top: 0.6em; }
 nav a {
   display: inline-block;
-  font-size: var(--size-menu);
-  padding: 0.5em var(--gap-menu-x);
+  font-size: var(--size-menu);            /* tamanho das letras do menu */
+  padding: 0.5em var(--gap-menu-x);       /* altura e espaçamento lateral */
   color: var(--color-fg);
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
 }
 nav a:hover { color: var(--color-accent); text-decoration: underline; }
-/* link ativo neutro */
-nav a.active { color: var(--color-fg); }
+nav a.active { color: var(--color-fg); }  /* link ativo sem amarelo */
 
-/* botão menu */
+/* --- Botão menu (aparece em mobile/tablet) --- */
 .menu-toggle {
   display: none;
   border: 0.05em solid rgba(255,255,255,0.2);
@@ -94,14 +89,14 @@ nav a.active { color: var(--color-fg); }
   font-size: 1.1em;
 }
 
-/* ===== MAIN ===== */
-main { padding: 2.5em 1em; }
+/* ======== MAIN (conteúdo principal) ======== */
+main { padding: 2.5em 1em; }              /* margem interna do conteúdo */
 .main-inner { max-width: var(--max-content); margin: 0 auto; }
 
-/* ===== HERO ===== */
+/* --- HERO (secção de destaque inicial) --- */
 .hero {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1.3fr 0.7fr;     /* proporção texto | imagem */
   align-items: center;
   gap: var(--gap);
   margin-block: 2.5em;
@@ -109,25 +104,13 @@ main { padding: 2.5em 1em; }
 .hero h2 { font-size: var(--size-hero-h2); margin: 0 0 0.3em; }
 .hero p  {
   font-size: var(--size-hero-p);
-  max-width: 60ch;
+  max-width: 60ch;                        /* largura máxima do texto */
   margin: 0 0 0.9em;
   line-height: 1.6;
   letter-spacing: 0.06em;
 }
-.hero .cta-group { display: none; }
 
-.hero-media {
-  width: 100%;
-  aspect-ratio: 4/3;
-  border-radius: 0.9em;
-  overflow: hidden;
-  border: 0.05em solid rgba(255,255,255,0.12);
-}
-.hero-media img, .hero-media video {
-  width: 100%; height: 100%; object-fit: cover;
-}
-
-/* ===== DESTAQUES ===== */
+/* ======== DESTAQUES (features/cards) ======== */
 .features {
   margin-top: 2.5em;
   display: grid;
@@ -143,7 +126,7 @@ main { padding: 2.5em 1em; }
 .feature h3 { font-size: var(--size-feature-h3); margin: 0 0 0.5em; }
 .feature p  { font-size: var(--size-feature-p); }
 
-/* ===== GALERIA ===== */
+/* ======== GALERIA ======== */
 .gallery {
   margin-top: 2.5em;
   display: grid;
@@ -152,7 +135,7 @@ main { padding: 2.5em 1em; }
 }
 .gallery img { width: 100%; border-radius: 0.6em; object-fit: cover; }
 
-/* ===== FOOTER ===== */
+/* ======== FOOTER (rodapé) ======== */
 footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 .footer-inner {
   max-width: var(--max-content);
@@ -164,69 +147,30 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   align-items: center;
 }
 .footer-nav a { font-size: var(--size-footer-text); margin: 0 0.5em; }
-.footer-copy   { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
+.footer-copy { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
 
-/* ================= BREAKPOINTS ================= */
+/* ======== LIMPEZA VISUAL ======== */
+header, footer { border: 0 !important; }
+.hero-media, .feature, .gallery img { border: 0 !important; }
+nav a, nav a:hover { text-decoration: none !important; }
 
-/* Desktop Largo ≥1600px */
-@media (min-width: 1600px)  and (min-width: 1000px) {
-  :root {
-    --size-h1: 6em;
-    --size-menu: 2em;
-    --size-hero-h2: 3.4em;
-    --size-hero-p: 1.35em;
-    --size-feature-h3: 1.6em;
-    --size-feature-p: 1.5em;
-    --size-footer-text: 1.05em;
+/* ============================================================
+   ESCALA AUTOMÁTICA POR DISPOSITIVO
+   Basta alterar os percentuais do font-size abaixo se quiseres
+   que reduza mais ou menos em cada tipo de ecrã.
+============================================================ */
 
-    --logo-w: 13em;
-    --max-content: 90em;
-    --grid-features: 4;
-    --grid-gallery: 5;
-    --gap: 1.5em;
-    --gap-menu-x: 0.8em;
-  }
+/* Desktop ≥1281px (PC normal) */
+html { font-size: 100%; } /* base original */
+
+/* Laptop (até 1280px) */
+@media (max-width: 1280px) and (min-width: 769px) {
+  html { font-size: 90%; } /* 10% menor */
 }
 
-/* Tablet Horizontal 901–1199px */
-@media (max-width: 1200px) and (min-width: 900px) {
-  :root {
-    --size-h1: 6em;
-    --size-menu: 2em;
-    --size-hero-h2: 2.8em;
-    --size-hero-p: 1.25em;
-    --size-feature-h3: 1.45em;
-    --size-feature-p: 1.05em;
-    --size-footer-text: 1em;
-
-    --logo-w: 10em;
-    --max-content: 65em;
-    --gap-menu-x: 0.7em;
-    --grid-features: 3;
-    --grid-gallery: 4;
-  }
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-}
-
-/* Tablet Vertical 601–900px */
-@media (max-width: 900px) and (min-width: 601px) {
-  :root {
-    --size-h1: 3em;
-    --size-menu: 2em;
-    --size-hero-h2: 2.4em;
-    --size-hero-p: 1.2em;
-    --size-feature-h3: 1.35em;
-    --size-feature-p: 1.05em;
-    --size-footer-text: 0.95em;
-
-    --logo-w: 8.75em;
-    --max-content: 54em;
-    --grid-features: 2;
-    --grid-gallery: 3;
-    --gap: 1.2em;
-  }
+/* Tablet (até 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  html { font-size: 80%; } /* 20% menor */
   .hero { grid-template-columns: 1fr; }
   .hero-media { order: -1; aspect-ratio: 16/9; }
   .menu-toggle { display: inline-block; }
@@ -234,44 +178,9 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .nav-open nav { display: block; }
 }
 
-/* Telemóvel Horizontal 481–800px */
-@media (max-width: 800px) and (min-width: 500px) {
-  :root {
-    --size-h1: 3em;
-    --size-menu: 0,8em;
-    --size-hero-h2: 2.1em;
-    --size-hero-p: 1.1em;
-    --size-feature-h3: 1.25em;
-    --size-feature-p: 1.02em;
-    --size-footer-text: 0.95em;
-
-    --logo-w: 7.5em;
-    --max-content: 35em;
-    --gap: 1em;
-  }
-  header { padding: 0.6em 0; }
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-  nav a { display: block; }
-  .footer-inner { grid-template-columns: 1fr; text-align: center; }
-}
-
-/* Telemóvel Vertical ≤480px */
-@media (max-width: 499px) {
-  :root {
-    --size-h1: 1.9em;
-    --size-menu: 1.1em;
-    --size-hero-h2: 1.9em;
-    --size-hero-p: 1.05em;
-    --size-feature-h3: 1.15em;
-    --size-feature-p: 1em;
-    --size-footer-text: 0.9em;
-
-    --logo-w: 6.25em;
-    --max-content: 26em;
-    --gap: 1em;
-  }
+/* Telemóvel (até 480px) */
+@media (max-width: 480px) {
+  html { font-size: 65%; } /* 35% menor */
   header { padding: 0.5em 0; }
   .hero { grid-template-columns: 1fr; gap: 0.75em; }
   .hero-media { aspect-ratio: 1/1; }
@@ -281,33 +190,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .nav-open nav { display: block; }
 }
 
-/* ================= ORIENTAÇÃO ================= */
-@media (orientation: landscape) and (max-width: 900px) {
-  nav { display: block; }
-  .menu-toggle { display: none; }
-  nav a { display: inline-block; }
-}
-
-/* ================= UTILITÁRIOS ================= */
-.hide-mobile { display: initial; }
-@media (max-width: 600px) { .hide-mobile { display: none !important; } }
-
-.show-mobile { display: none; }
-@media (max-width: 600px) { .show-mobile { display: initial !important; } }
-
-.center { display: grid; place-items: center; }
-
-:where(a, button, .btn):focus-visible {
-  outline: 0.1em dashed var(--color-accent);
-  outline-offset: 0.1em;
-}
-
-/* ===== Limpeza visual ===== */
-header, footer { border: 0 !important; }
-.hero-media, .feature, .gallery img { border: 0 !important; }
-nav a, nav a:hover { text-decoration: none !important; }
-:where(a, button, .btn):focus-visible {
-  outline: none !important;
-  box-shadow: 0 0 0 0.15em rgba(255,221,87,0.25);
-  border-radius: 0.3em;
+/* Monitores grandes ≥1600px (4K) */
+@media (min-width: 1600px) {
+  html { font-size: 105%; } /* 5% maior */
 }

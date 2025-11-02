@@ -26,6 +26,10 @@
   --logo-w: 12em;            /* largura dos logos */
   --gap: 1.5em;              /* gap geral entre colunas/cartões */
   --max-content: 80em;       /* largura máxima da coluna central */
+
+   /footer
+   --size-footer-text: 2em;
+
 }
 
 /* ===== LAYOUT GLOBAL ===== */

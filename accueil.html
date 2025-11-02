@@ -1,45 +1,112 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Axion Lab 3D</title>
- <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style-accueil.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Axion Lab 3D — Accueil</title>
 
+  <!-- CSS: base primeiro, depois a página -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/style-accueil.css" />
 </head>
-<body>
+
+<!-- Usa a classe .accueil para ativar o layout dessa página -->
+<body class="accueil">
 
   <!-- ====== HEADER ====== -->
   <header>
     <div class="header-content">
       <!-- Logo esquerdo -->
-      <img src="images/logo.jpg" alt="Logo gauche" class="logo left-logo">
+      <img src="images/logo.jpg" alt="Logo Axion Lab 3D" class="logo logo-left" />
 
+      <!-- Título (fica na área 'title') -->
       <div class="title-nav">
         <h1>Axion Lab 3D</h1>
-        <nav>
-          <a href="accueil.html">Accueil</a>
-          <a href="apropos.html">À propos</a>
-          <a href="contacts.html">Contact</a>
-        </nav>
       </div>
 
       <!-- Logo direito -->
-      <img src="images/logo.jpg" alt="Logo droite" class="logo right-logo">
+      <img src="images/logo.jpg" alt="Logo Axion Lab 3D" class="logo logo-right" />
+
+      <!-- Botão de menu (aparece em tablet/telemóvel conforme CSS) -->
+      <button id="menuToggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-controls="primaryNav" aria-expanded="false">
+        ☰ Menu
+      </button>
+
+      <!-- Navegação (oculta/mostra consoante largura e .nav-open no <body>) -->
+      <nav id="primaryNav" aria-label="Navigation principale">
+        <a href="accueil.html" class="active">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contacts.html">Contact</a>
+      </nav>
     </div>
   </header>
 
   <!-- ====== MAIN ====== -->
   <main>
-    <h2>Découvrez notre contenu</h2>
-    <p>Bienvenue sur le site officiel d’Axion Lab 3D — exploration, innovation et design en impression 3D.</p>
+    <div class="main-inner">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-content">
+          <h2 id="heroTitle">Découvrez notre contenu</h2>
+          <p>Bienvenue sur le site officiel d’Axion Lab 3D — exploration, innovation et design en impression 3D.</p>
+          <div class="cta-group">
+            <a href="apropos.html" class="btn">En savoir plus</a>
+            <a href="contacts.html" class="btn btn--ghost">Nous contacter</a>
+          </div>
+        </div>
+
+        <figure class="hero-media">
+          <img src="images/hero.jpg" alt="Impression 3D en action" />
+        </figure>
+      </section>
+
+      <!-- DESTAQUES / FEATURES (exemple) -->
+      <section class="features" aria-label="Points forts">
+        <article class="feature">
+          <h3>Prototypage rapide</h3>
+          <p>Du concept au modèle physique en un temps record.</p>
+        </article>
+        <article class="feature">
+          <h3>Matériaux avancés</h3>
+          <p>PLA, PETG, nylon, composites — nous maîtrisons.</p>
+        </article>
+        <article class="feature">
+          <h3>Design sur mesure</h3>
+          <p>Pièces uniques adaptées à vos besoins.</p>
+        </article>
+      </section>
+
+      <!-- GALERIE (exemple) -->
+      <section class="gallery" aria-label="Galerie de projets">
+        <img src="images/gal-1.jpg" alt="Projet 1" />
+        <img src="images/gal-2.jpg" alt="Projet 2" />
+        <img src="images/gal-3.jpg" alt="Projet 3" />
+        <img src="images/gal-4.jpg" alt="Projet 4" />
+      </section>
+    </div>
   </main>
 
   <!-- ====== FOOTER ====== -->
   <footer>
-    <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2025 Axion Lab 3D. Tous droits réservés.</div>
+      <div class="footer-nav">
+        <a href="accueil.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contacts.html">Contact</a>
+      </div>
+    </div>
   </footer>
 
+  <!-- ====== MENU TOGGLE (necessário para o hambúrguer) ====== -->
+  <script>
+    const btn = document.getElementById('menuToggle');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', document.body.classList.contains('nav-open'));
+      });
+    }
+  </script>
 </body>
 </html>

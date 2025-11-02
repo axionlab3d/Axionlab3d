@@ -74,7 +74,7 @@ header {
 /* Mostramos o menu com palavras em todos os tamanhos */
 nav { 
   grid-area: nav; 
-  margin-top: 0.6em;
+  margin-top: 0.4em;
 
   /* linha com wrap: mantém “como PC”, mas quebra para 2 linhas se faltar espaço */
   display: flex;
@@ -183,9 +183,9 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Tablet VERTICAL (601–1000px) */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 3em;
+    --size-h1: 2.5em;
     --size-menu: 0.8em;
-    --logo-w: 7em;
+    --logo-w: 5em;
   }
   .header-content { gap: 0.2em; }
   /* Menu pode quebrar para 2 linhas pela wrap (já activado em nav) */

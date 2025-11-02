@@ -57,7 +57,7 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0,8em;
+  gap: 0,5em;
 }
 
 .logo { width: var(--logo-w); height: auto; margin: 0; flex: 0 0 auto; }
@@ -179,8 +179,6 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   gap: 0.75em;
   align-items: center;
 }
-.footer-nav a { font-size: 1.05em; margin: 0 0.5em; }
-.footer-copy   { font-size: 0.95em; opacity: 0.8; }
 
 /* ================= BREAKPOINTS (apenas variáveis) ================= */
 

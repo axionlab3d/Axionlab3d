@@ -1,84 +1,89 @@
-/* ======== VARIÁVEIS PRINCIPAIS (DESKTOP) ======== */
-/* Altera aqui se quiseres modificar tamanhos no ecrã de PC */
+/* ==========================================================
+   ACCUEIL (HOME)
+   Estrutura limpa e fácil de ajustar:
+   - Desktop mantém o aspeto atual.
+   - Tablet e Telemóvel ajustam automaticamente tamanhos.
+   - Tamanhos em em para máxima coerência visual.
+   ========================================================== */
+
+/* ===== VARIÁVEIS BASE (Desktop padrão ≥901px) ===== */
 :root {
-  /* --- Tipografia geral --- */
-  --size-h1: 6em;          /* título principal no topo */
-  --size-menu: 2em;        /* tamanho das letras do menu */
-  --size-hero-h2: 3em;     /* título grande da secção hero */
-  --size-hero-p: 1.3em;    /* texto/parágrafo do hero */
-  --size-feature-h3: 1.5em;/* título dos cartões de destaques */
-  --size-feature-p: 1.1em; /* texto dos cartões */
+  /* Tipografia principal */
+  --size-h1: 6em;         /* título do site no header */
+  --size-menu: 2em;       /* tamanho dos links do menu */
+  --size-hero-h2: 3em;    /* título do hero */
+  --size-hero-p: 1.3em;   /* parágrafo do hero */
+  --size-feature-h3: 1.5em; /* títulos dos destaques */
+  --size-feature-p: 1.1em;  /* texto dos destaques */
   --size-footer-text: 1.5em; /* texto do rodapé */
 
-  /* --- Dimensões e espaçamentos --- */
-  --logo-w: 12em;          /* largura dos logótipos */
-  --gap: 1em;              /* espaçamento entre blocos / cartões */
-  --gap-menu-x: 0.5em;     /* espaçamento lateral entre links do menu */
-  --max-content: 80em;     /* largura máxima do conteúdo central */
+  /* Layout e espaçamentos */
+  --logo-w: 12em;         /* largura dos logos */
+  --gap: 1em;             /* espaçamento geral */
+  --gap-menu-x: 0.5em;    /* padding horizontal dos links do menu */
+  --max-content: 80em;    /* largura máxima da área central */
 
-  /* --- Estrutura das grelhas --- */
-  --grid-features: 3;       /* número de colunas dos destaques */
-  --grid-gallery: 4;        /* número de colunas da galeria */
+  /* Grelhas */
+  --grid-features: 3;
+  --grid-gallery: 4;
 }
 
-/* ======== LAYOUT GLOBAL ======== */
+/* ===== LAYOUT GLOBAL ===== */
 .accueil {
-  min-height: 100dvh;                     /* ocupa toda a altura do ecrã */
+  min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr auto;      /* header | main | footer */
+  grid-template-rows: auto 1fr auto; /* header | main | footer */
 }
 
-/* ======== HEADER (cabeçalho) ======== */
+/* ===== HEADER ===== */
 header {
-  position: sticky;                       /* fixa no topo ao fazer scroll */
+  position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 0.05em solid rgba(255,255,255,0.08);
-  padding: 1.2em 0;                       /* altura do cabeçalho */
+  padding: 1.2em 0;
 }
 
-/* --- Estrutura interna do header --- */
 .header-content {
-  max-width: var(--max-content);          /* limite da largura do conteúdo */
+  max-width: var(--max-content);
   margin: 0 auto;
   padding: 0 1em;
   display: grid;
-  grid-template-columns: auto 1fr auto;   /* logo esquerda | título | logo direita */
+  grid-template-columns: auto 1fr auto;
   grid-template-areas:
     "logoL title logoR"
-    "nav   nav   nav";
-  gap: 0.5em;                             /* distância entre logos e título */
+    "nav nav nav";
+  gap: 0.5em; /* menor = logos mais perto do título */
 }
 
-/* --- Logos --- */
 .logo { width: var(--logo-w); height: auto; margin: 0; }
 .logo-left  { grid-area: logoL; }
 .logo-right { grid-area: logoR; }
 
-/* --- Título do site --- */
 .title-nav { grid-area: title; align-self: center; }
 .title-nav h1 {
-  font-size: var(--size-h1);              /* tamanho do título principal */
-  letter-spacing: 0.12em;                 /* espaçamento entre letras */
+  font-size: var(--size-h1);
+  letter-spacing: 0.12em;
   line-height: 1.1;
   margin: 0;
 }
 
-/* --- MENU DE NAVEGAÇÃO --- */
+/* ===== MENU ===== */
 nav { grid-area: nav; margin-top: 0.6em; }
 nav a {
   display: inline-block;
-  font-size: var(--size-menu);            /* tamanho das letras do menu */
-  padding: 0.5em var(--gap-menu-x);       /* altura e espaçamento lateral */
+  font-size: var(--size-menu);
+  padding: 0.5em var(--gap-menu-x);
   color: var(--color-fg);
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
 }
 nav a:hover { color: var(--color-accent); text-decoration: underline; }
-nav a.active { color: var(--color-fg); }  /* link ativo sem amarelo */
+/* link ativo neutro */
+nav a.active { color: var(--color-fg); }
 
-/* --- Botão menu (aparece em mobile/tablet) --- */
+/* Botão menu (visível só em mobile/tablet) */
 .menu-toggle {
   display: none;
   border: 0.05em solid rgba(255,255,255,0.2);
@@ -89,28 +94,40 @@ nav a.active { color: var(--color-fg); }  /* link ativo sem amarelo */
   font-size: 1.1em;
 }
 
-/* ======== MAIN (conteúdo principal) ======== */
-main { padding: 2.5em 1em; }              /* margem interna do conteúdo */
+/* ===== MAIN ===== */
+main { padding: 2.5em 1em; }
 .main-inner { max-width: var(--max-content); margin: 0 auto; }
 
-/* --- HERO (secção de destaque inicial) --- */
+/* ===== HERO ===== */
 .hero {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;     /* proporção texto | imagem */
+  grid-template-columns: 1.3fr 0.7fr;
   align-items: center;
   gap: var(--gap);
   margin-block: 2.5em;
 }
 .hero h2 { font-size: var(--size-hero-h2); margin: 0 0 0.3em; }
-.hero p  {
+.hero p {
   font-size: var(--size-hero-p);
-  max-width: 60ch;                        /* largura máxima do texto */
+  max-width: 60ch;
   margin: 0 0 0.9em;
   line-height: 1.6;
   letter-spacing: 0.06em;
 }
+.hero .cta-group { display: none; } /* removido conforme pedido */
 
-/* ======== DESTAQUES (features/cards) ======== */
+.hero-media {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 0.9em;
+  overflow: hidden;
+  border: 0.05em solid rgba(255,255,255,0.12);
+}
+.hero-media img, .hero-media video {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+/* ===== DESTAQUES ===== */
 .features {
   margin-top: 2.5em;
   display: grid;
@@ -126,7 +143,7 @@ main { padding: 2.5em 1em; }              /* margem interna do conteúdo */
 .feature h3 { font-size: var(--size-feature-h3); margin: 0 0 0.5em; }
 .feature p  { font-size: var(--size-feature-p); }
 
-/* ======== GALERIA ======== */
+/* ===== GALERIA ===== */
 .gallery {
   margin-top: 2.5em;
   display: grid;
@@ -135,7 +152,7 @@ main { padding: 2.5em 1em; }              /* margem interna do conteúdo */
 }
 .gallery img { width: 100%; border-radius: 0.6em; object-fit: cover; }
 
-/* ======== FOOTER (rodapé) ======== */
+/* ===== FOOTER ===== */
 footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 .footer-inner {
   max-width: var(--max-content);
@@ -149,48 +166,56 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 .footer-nav a { font-size: var(--size-footer-text); margin: 0 0.5em; }
 .footer-copy { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
 
-/* ======== LIMPEZA VISUAL ======== */
+/* ==========================================================
+   RESPONSIVIDADE — Ajustes automáticos (não alteram o PC)
+   ========================================================== */
+
+/* Tablet vertical (601–900px) */
+@media (max-width: 900px) and (min-width: 601px) {
+  :root {
+    --size-h1: 4.2em;     /* título menor */
+    --size-menu: 1.4em;   /* menu mais equilibrado */
+    --logo-w: 9em;        /* logos reduzidos */
+  }
+  .header-content { gap: 0.4em; }
+  .menu-toggle { display: inline-block; } /* ativa botão de menu */
+  nav { display: none; }
+  .nav-open nav { display: block; }
+}
+
+/* Telemóvel horizontal e vertical (≤600px) */
+@media (max-width: 600px) {
+  :root {
+    --size-h1: 3em;       /* título mais pequeno */
+    --size-menu: 1.1em;   /* menu ajustado */
+    --logo-w: 7.5em;      /* logos menores */
+  }
+  .header-content { gap: 0.35em; }
+  header { padding: 0.7em 0; }
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
+}
+
+/* ==========================================================
+   ORIENTAÇÃO — em paisagem, mostrar o menu completo
+   ========================================================== */
+@media (orientation: landscape) and (max-width: 900px) {
+  nav { display: block; }
+  .menu-toggle { display: none; }
+  nav a { display: inline-block; }
+}
+
+/* ==========================================================
+   DETALHES VISUAIS / ACESSIBILIDADE
+   ========================================================== */
+:where(a, button, .btn):focus-visible {
+  outline: 0.1em dashed var(--color-accent);
+  outline-offset: 0.1em;
+}
+
+/* Remover linhas e contornos desnecessários */
 header, footer { border: 0 !important; }
 .hero-media, .feature, .gallery img { border: 0 !important; }
 nav a, nav a:hover { text-decoration: none !important; }
 
-/* ============================================================
-   ESCALA AUTOMÁTICA POR DISPOSITIVO
-   Basta alterar os percentuais do font-size abaixo se quiseres
-   que reduza mais ou menos em cada tipo de ecrã.
-============================================================ */
-
-/* Desktop ≥1281px (PC normal) */
-html { font-size: 100%; } /* base original */
-
-/* Laptop (até 1280px) */
-@media (max-width: 1280px) and (min-width: 769px) {
-  html { font-size: 90%; } /* 10% menor */
-}
-
-/* Tablet (até 768px) */
-@media (max-width: 768px) and (min-width: 481px) {
-  html { font-size: 80%; } /* 20% menor */
-  .hero { grid-template-columns: 1fr; }
-  .hero-media { order: -1; aspect-ratio: 16/9; }
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-}
-
-/* Telemóvel (até 480px) */
-@media (max-width: 480px) {
-  html { font-size: 65%; } /* 35% menor */
-  header { padding: 0.5em 0; }
-  .hero { grid-template-columns: 1fr; gap: 0.75em; }
-  .hero-media { aspect-ratio: 1/1; }
-  .footer-inner { grid-template-columns: 1fr; text-align: center; }
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-}
-
-/* Monitores grandes ≥1600px (4K) */
-@media (min-width: 1600px) {
-  html { font-size: 105%; } /* 5% maior */
-}

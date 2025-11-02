@@ -170,8 +170,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
    RESPONSIVIDADE — Ajustes de tamanho (menu SEMPRE visível)
    ========================================================== */
 
-/* Tablet HORIZONTAL (901–1200px) */
-@media (max-width: 1200px) and (min-width: 901px) {
+/* Tablet HORIZONTAL (1000–1200px) */
+@media (max-width: 1200px) and (min-width: 1000px) {
   :root {
     --size-h1: 4.5em;
     --size-menu: 1.4em;
@@ -180,8 +180,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .header-content { gap: 0.4em; }
 }
 
-/* Tablet VERTICAL (601–900px) */
-@media (max-width: 900px) and (min-width: 601px) {
+/* Tablet VERTICAL (601–1000px) */
+@media (max-width: 1000px) and (min-width: 601px) {
   :root {
     --size-h1: 3.5em;
     --size-menu: 1em;
@@ -254,7 +254,7 @@ html, body {
 
 /* 4) Se o wrapper .accueil estiver a forçar grelha com altura de viewport,
       libertamos em ecrãs pequenos para rolar tudo junto (sem mexer no desktop) */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .accueil {
     min-height: auto !important;
     height: auto !important;
@@ -264,7 +264,7 @@ html, body {
    /* ===== Aproximar o rodapé do conteúdo (tablet + telemóvel) ===== */
 
 /* Tablet (retratro e horizontal) */
-@media (max-width: 900px) and (min-width: 601px) {
+@media (max-width: 1000px) and (min-width: 601px) {
   /* menos almofada no fundo do main */
   main { padding-bottom: 1em !important; }
 
@@ -291,6 +291,42 @@ html, body {
 .main-inner :where(h1,h2,h3,p,section,div,ul,ol,figure,article):last-child {
   margin-bottom: 0 !important;
 }
+/* ===== Aproximar o rodapé do conteúdo em tablet e telemóvel ===== */
 
+/* Tablet (601–900px) */
+@media (max-width: 1000px) and (min-width: 601px) {
+  /* corta almofada do main */
+  body.accueil main,
+  main { padding-bottom: 0.6em !important; }
 
+  /* reduz margem do hero no fundo */
+  .hero { margin-block: 1.4em 0.6em !important; }
+
+  /* secções comuns: não deixam “rabo” de margem */
+  .features, .gallery { margin-bottom: 0 !important; }
+
+  /* o ÚLTIMO elemento dentro do main não pode empurrar o footer */
+  body.accueil main > *:last-child,
+  main > *:last-child { margin-bottom: 0 !important; }
+
+  /* rodapé com menos respiro por cima */
+  .footer-inner { padding-top: 0.6em !important; }
 }
+
+/* Telemóvel (≤600px) */
+@media (max-width: 600px) {
+  body.accueil main,
+  main { padding-bottom: 0.4em !important; }
+
+  .hero { margin-block: 1.2em 0.4em !important; }
+
+  .features, .gallery { margin-top: 1em !important; margin-bottom: 0 !important; }
+
+  body.accueil main > *:last-child,
+  main > *:last-child { margin-bottom: 0 !important; }
+
+  .footer-inner { padding-top: 0.4em !important; }
+}
+
+
+

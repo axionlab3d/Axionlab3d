@@ -260,4 +260,30 @@ html, body {
     height: auto !important;
     overflow: visible !important;
   }
+
+   /* ===== Aproximar o rodapé do conteúdo (tablet + telemóvel) ===== */
+
+/* Tablet (retratro e horizontal) */
+@media (max-width: 900px) and (min-width: 601px) {
+  /* menos almofada no fundo do main */
+  main { padding-bottom: 1em !important; }
+
+  /* elimina “buraco” do último bloco dentro da coluna central */
+  .main-inner > *:last-child { margin-bottom: 0.5em !important; }
+
+  /* secções que normalmente têm margem extra */
+  .features, .gallery { margin-bottom: 0 !important; }
+
+  /* rodapé com menos top-padding */
+  .footer-inner { padding-top: 0.6em !important; }
+}
+
+/* Telemóvel (≤600px) */
+@media (max-width: 600px) {
+  main { padding-bottom: 0.8em !important; }
+  .main-inner > *:last-child { margin-bottom: 0.4em !important; }
+  .features, .gallery { margin-bottom: 0 !important; }
+  .footer-inner { padding-top: 0.5em !important; }
+}
+
 }

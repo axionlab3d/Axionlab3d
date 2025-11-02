@@ -26,9 +26,14 @@
       <!-- Logo direito -->
       <img src="images/logo.jpg" alt="Logo Axion Lab 3D" class="logo logo-right" />
 
+      <!-- Botão de menu (aparece em tablet/telemóvel, CSS controla visibilidade) -->
+      <button id="menuToggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-controls="primaryNav" aria-expanded="false">
+        ☰ Menu
+      </button>
+
       <!-- Navegação -->
-      <nav aria-label="Navigation principale">
-        <a href="accueil.html">Accueil</a>
+      <nav id="primaryNav" aria-label="Navigation principale">
+        <a href="accueil.html" class="active">Accueil</a>
         <a href="apropos.html">À propos</a>
         <a href="contacts.html">Contact</a>
       </nav>
@@ -38,8 +43,7 @@
   <!-- ====== MAIN ====== -->
   <main>
     <div class="main-inner">
-
-      <!-- HERO -->
+      <!-- HERO (sem botões) -->
       <section class="hero" aria-labelledby="heroTitle">
         <div class="hero-content">
           <h2 id="heroTitle">Découvrez notre contenu</h2>
@@ -74,7 +78,6 @@
         <img src="images/gal-3.jpg" alt="Projet 3" />
         <img src="images/gal-4.jpg" alt="Projet 4" />
       </section>
-
     </div>
   </main>
 
@@ -90,5 +93,16 @@
     </div>
   </footer>
 
+  <!-- ====== MENU TOGGLE (necessário para o hambúrguer) ====== -->
+  <script>
+    (function () {
+      var btn = document.getElementById('menuToggle');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        document.body.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', document.body.classList.contains('nav-open'));
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -1,7 +1,74 @@
 /* ---------------------- DESIGN TOKENS / CONFIG ---------------------- */
 /* ================= BREAKPOINTS E ORIENTAÇÕES ================= */
 /* Desktop (padrão) ≥1200px já coberto pelos estilos acima */
+@media (min-width: 1200px) {
+  :root {
+    --max-content: 80em;   /* largura máx. da coluna central no desktop */
+    --scale-hero: 1;       /* escala dos títulos grandes (0.9–1.1) */
+    --scale-body: 1;       /* escala do corpo/menus (0.95–1.05) */
+    --gap: 1.5em;          /* espaçamento padrão entre cartões/grelhas */
+  }
 
+  /* HEADER */
+  header { padding: 1.2em 0; }            /* altura do header no desktop */
+  .logo { width: 12em; }                  /* tamanho dos logos no desktop */
+
+  /* TÍTULO E NAV */
+  .title-nav h1 {
+    font-size: clamp(2.2em, calc(3em * var(--scale-hero)), 4.5em); /* título do site */
+    letter-spacing: 0.12em;                  /* densidade do título */
+  }
+  nav a {
+    font-size: clamp(1.2em, calc(1.5em * var(--scale-body)), 1.9em); /* links do menu */
+    padding: 0.5em 0.6em;                    /* hit-area confortável */
+  }
+
+  /* HERO (texto + imagem) */
+  .hero {
+    grid-template-columns: 1.3fr 0.7fr;      /* proporção texto|imagem */
+    gap: var(--gap);                         /* espaço entre colunas */
+    margin-block: clamp(2em, 5vw, 4.5em);    /* respiro vertical do hero */
+  }
+  .hero .cta-group { gap: 0.9em; }           /* espaço entre botões */
+  .hero-media { aspect-ratio: 4/3; }         /* formato da imagem/vídeo */
+
+  /* DESTAQUES (features) */
+  .features {
+    grid-template-columns: repeat(3, 1fr);   /* nº de colunas dos cartões */
+    gap: var(--gap);
+  }
+  /* Dica: se preferires 4 colunas, troca por repeat(4, 1fr) */
+
+  /* GALERIA */
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);   /* nº de colunas da galeria */
+    gap: 0.8em;                               /* espaço entre imagens */
+  }
+  /* Dica: para mais densidade, usa repeat(5, 1fr) */
+
+  /* FOOTER */
+  .footer-inner { 
+    grid-template-columns: 1fr auto;          /* texto à esquerda, links à direita */
+    align-items: center;
+  }
+  .footer-nav a { font-size: 1.05em; }        /* tamanho dos links do rodapé */
+}
+
+/* ====== Desktop Largo ≥1600px — ajustes finos ======
+   Para monitores grandes/4K. Aumenta densidade e respiro.
+*/
+@media (min-width: 1600px) {
+  :root { --max-content: 90em; --gap: 1.8em; } /* mais largura e respiro */
+  .logo { width: 13em; }                        /* logos ligeiramente maiores */
+  .title-nav h1 { 
+    font-size: clamp(2.4em, calc(3.4em * var(--scale-hero)), 5em); /* título maior */
+  }
+  nav a { 
+    font-size: clamp(1.3em, calc(1.6em * var(--scale-body)), 2em); /* menu maior */
+  }
+  .features { grid-template-columns: repeat(4, 1fr); } /* mais colunas de destaques */
+  .gallery  { grid-template-columns: repeat(5, 1fr); gap: 1em; }   /* galeria mais densa */
+}
 
 /* Tablet Horizontal: 901–1199px */
 @media (max-width: 1199px) and (min-width: 901px) {

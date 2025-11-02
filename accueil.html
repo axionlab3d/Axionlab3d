@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/style-accueil.css" />
 </head>
 
-<!-- Usa a classe .accueil para ativar o layout dessa página -->
 <body class="accueil">
 
   <!-- ====== HEADER ====== -->
@@ -19,7 +18,7 @@
       <!-- Logo esquerdo -->
       <img src="images/logo.jpg" alt="Logo Axion Lab 3D" class="logo logo-left" />
 
-      <!-- Título (fica na área 'title') -->
+      <!-- Título -->
       <div class="title-nav">
         <h1>Axion Lab 3D</h1>
       </div>
@@ -27,14 +26,9 @@
       <!-- Logo direito -->
       <img src="images/logo.jpg" alt="Logo Axion Lab 3D" class="logo logo-right" />
 
-      <!-- Botão de menu (aparece em tablet/telemóvel conforme CSS) -->
-      <button id="menuToggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-controls="primaryNav" aria-expanded="false">
-        ☰ Menu
-      </button>
-
-      <!-- Navegação (oculta/mostra consoante largura e .nav-open no <body>) -->
-      <nav id="primaryNav" aria-label="Navigation principale">
-        <a href="accueil.html" class="active">Accueil</a>
+      <!-- Navegação -->
+      <nav aria-label="Navigation principale">
+        <a href="accueil.html">Accueil</a>
         <a href="apropos.html">À propos</a>
         <a href="contacts.html">Contact</a>
       </nav>
@@ -44,15 +38,12 @@
   <!-- ====== MAIN ====== -->
   <main>
     <div class="main-inner">
+
       <!-- HERO -->
       <section class="hero" aria-labelledby="heroTitle">
         <div class="hero-content">
           <h2 id="heroTitle">Découvrez notre contenu</h2>
           <p>Bienvenue sur le site officiel d’Axion Lab 3D — exploration, innovation et design en impression 3D.</p>
-          <div class="cta-group">
-            <a href="apropos.html" class="btn">En savoir plus</a>
-            <a href="contacts.html" class="btn btn--ghost">Nous contacter</a>
-          </div>
         </div>
 
         <figure class="hero-media">
@@ -60,7 +51,7 @@
         </figure>
       </section>
 
-      <!-- DESTAQUES / FEATURES (exemple) -->
+      <!-- DESTAQUES -->
       <section class="features" aria-label="Points forts">
         <article class="feature">
           <h3>Prototypage rapide</h3>
@@ -76,13 +67,14 @@
         </article>
       </section>
 
-      <!-- GALERIE (exemple) -->
+      <!-- GALERIE -->
       <section class="gallery" aria-label="Galerie de projets">
         <img src="images/gal-1.jpg" alt="Projet 1" />
         <img src="images/gal-2.jpg" alt="Projet 2" />
         <img src="images/gal-3.jpg" alt="Projet 3" />
         <img src="images/gal-4.jpg" alt="Projet 4" />
       </section>
+
     </div>
   </main>
 
@@ -98,15 +90,5 @@
     </div>
   </footer>
 
-  <!-- ====== MENU TOGGLE (necessário para o hambúrguer) ====== -->
-  <script>
-    const btn = document.getElementById('menuToggle');
-    if (btn) {
-      btn.addEventListener('click', () => {
-        document.body.classList.toggle('nav-open');
-        btn.setAttribute('aria-expanded', document.body.classList.contains('nav-open'));
-      });
-    }
-  </script>
 </body>
 </html>

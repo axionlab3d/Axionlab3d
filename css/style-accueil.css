@@ -1,35 +1,52 @@
-/* ================= ACCUEIL (HOME) — SIMPLIFICADO =================
-   Controla TUDO da página de accueil com variáveis fáceis de ajustar.
-   - Altera apenas o bloco ":root" (e os :root dos breakpoints).
-   - Tamanhos em em; grelhas e espaçamentos por variáveis.
+/* ================= ACCUEIL (HOME) — CONTROLO MESTRE =================
+   Estrutura simplificada: ajusta APENAS variáveis no :root e nos breakpoints.
+   - Um valor global (--scale) aumenta/diminui tudo.
+   - Multiplicadores por secção para ajustes finos (ex.: --m-menu).
+   - Tamanhos em em; grelhas/espaçamentos via variáveis.
    Requer base.css carregado antes.
-=================================================================== */
+==================================================================== */
 
-/* ====== CONTROLO RÁPIDO (Desktop por defeito) ====== */
+/* ===== CONTROLO MESTRE (Desktop por defeito) ===== */
 :root {
-  /* Tipografia principal */
-  --size-h1: 6em;          /* título do site no header */
-  --size-menu: 2em;        /* tamanho dos links do menu */
-  --gap-menu-x: 0.2em;       /* espaçamento horizontal dentro de cada link do menu */
+  /* Escala global (1 = base). Aumenta/diminui e tudo acompanha. */
+  --scale: 1;
 
-  /* Hero */
-  --size-hero-h2: 3.2em;     /* título do hero */
-  --size-hero-p: 1.3em;      /* parágrafo do hero */
+  /* Multiplicadores por secção (1 por defeito) */
+  --m-h1: 1;        /* título do site no header */
+  --m-menu: 1;      /* links do menu */
+  --m-hero-h2: 1;   /* título do hero */
+  --m-hero-p: 1;    /* parágrafo do hero */
+  --m-feat-h3: 1;   /* títulos dos destaques */
+  --m-feat-p: 1;    /* texto dos destaques */
+  --m-footer: 1;    /* texto do rodapé */
 
-  /* Cartões/galeria */
-  --size-feature-h3: 1.5em;  /* títulos dos destaques */
-  --size-feature-p: 1.1em;   /* texto dos destaques */
-  --grid-features: 3;        /* nº de colunas dos destaques (desktop) */
-  --grid-gallery: 4;         /* nº de colunas da galeria (desktop) */
+  /* Tamanhos base (raramente precisas mexer) */
+  --base-h1: 3.2em;
+  --base-menu: 1.6em;
+  --base-hero-h2: 3.2em;
+  --base-hero-p: 1.3em;
+  --base-feat-h3: 1.5em;
+  --base-feat-p: 1.1em;
+  --base-footer: 1em;
 
-  /* Branding e espaçamentos */
-  --logo-w: 12em;            /* largura dos logos */
-  --gap: 1.5em;              /* gap geral entre colunas/cartões */
-  --max-content: 80em;       /* largura máxima da coluna central */
+  /* Espaços/larguras base */
+  --logo-w: 12em;          /* largura dos logos */
+  --gap: 1.5em;            /* gap geral */
+  --gap-menu-x: 0.8em;     /* padding horizontal dos links do menu */
+  --max-content: 80em;     /* largura máxima da coluna central */
 
-   /footer
-   --size-footer-text: 2em;
+  /* Colunas */
+  --grid-features: 3;      /* nº colunas destaques */
+  --grid-gallery: 4;       /* nº colunas galeria */
 
+  /* ===== Tamanhos calculados (não editar) ===== */
+  --size-h1:           calc(var(--base-h1)      * var(--scale) * var(--m-h1));
+  --size-menu:         calc(var(--base-menu)    * var(--scale) * var(--m-menu));
+  --size-hero-h2:      calc(var(--base-hero-h2) * var(--scale) * var(--m-hero-h2));
+  --size-hero-p:       calc(var(--base-hero-p)  * var(--scale) * var(--m-hero-p));
+  --size-feature-h3:   calc(var(--base-feat-h3) * var(--scale) * var(--m-feat-h3));
+  --size-feature-p:    calc(var(--base-feat-p)  * var(--scale) * var(--m-feat-p));
+  --size-footer-text:  calc(var(--base-footer)  * var(--scale) * var(--m-footer));
 }
 
 /* ===== LAYOUT GLOBAL ===== */
@@ -45,7 +62,7 @@ header {
   top: 0;
   z-index: 1000;
   border-bottom: 0.05em solid rgba(255,255,255,0.08);
-  padding: 1.2em 0; /* podes mexer também, mas tenta via breakpoints */
+  padding: 1.2em 0;
 }
 
 .header-content {
@@ -57,7 +74,7 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0,5em;
+  gap: 0.5em; /* ← aproxima/afasta logos do título */
 }
 
 .logo { width: var(--logo-w); height: auto; margin: 0; flex: 0 0 auto; }
@@ -179,18 +196,17 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   gap: 0.75em;
   align-items: center;
 }
+.footer-nav a { font-size: var(--size-footer-text); margin: 0 0.5em; }
+.footer-copy   { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
 
 /* ================= BREAKPOINTS (apenas variáveis) ================= */
 
-/* ===== Desktop Largo: ≥1600px (opcional) ===== */
+/* Desktop Largo ≥1600px */
 @media (min-width: 1600px) {
   :root {
+    --scale: 1.1;         /* tudo 10% maior */
     --max-content: 90em;
     --logo-w: 13em;
-    --size-h1: 3.6em;
-    --size-menu: 1.8em;
-    --size-hero-h2: 3.6em;
-    --size-hero-p: 1.35em;
     --grid-features: 4;
     --grid-gallery: 5;
     --gap: 1.8em;
@@ -198,30 +214,22 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   }
 }
 
-/* ===== Tablet Horizontal: 901–1199px ===== */
+/* Tablet Horizontal 901–1199px */
 @media (max-width: 1199px) and (min-width: 901px) {
   :root {
+    --scale: 0.95;        /* ligeiro ajuste */
     --max-content: 65em;
     --logo-w: 10em;
-    --size-h1: 2.8em;
-    --size-menu: 1.5em;
-    --size-hero-h2: 3em;
-    --size-hero-p: 1.25em;
-    --grid-features: 3;
-    --grid-gallery: 4;
     --gap-menu-x: 0.8em;
   }
 }
 
-/* ===== Tablet Vertical: 601–900px ===== */
+/* Tablet Vertical 601–900px */
 @media (max-width: 900px) and (min-width: 601px) {
   :root {
+    --scale: 0.9;
     --max-content: 54em;
     --logo-w: 8.75em;
-    --size-h1: 2.4em;
-    --size-menu: 1.4em;
-    --size-hero-h2: 2.6em;
-    --size-hero-p: 1.2em;
     --grid-features: 2;
     --grid-gallery: 3;
     --gap-menu-x: 0.7em;
@@ -230,15 +238,12 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .hero-media { order: -1; aspect-ratio: 16/9; }
 }
 
-/* ===== Telemóvel Horizontal: 481–600px ===== */
+/* Telemóvel Horizontal 481–600px */
 @media (max-width: 600px) and (min-width: 481px) {
   :root {
+    --scale: 0.85;
     --max-content: 35em;
     --logo-w: 7.5em;
-    --size-h1: 2em;
-    --size-menu: 1.2em;
-    --size-hero-h2: 2.2em;
-    --size-hero-p: 1.1em;
     --grid-features: 2;
     --grid-gallery: 2;
     --gap: 1.2em;
@@ -252,15 +257,12 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .footer-inner { grid-template-columns: 1fr; text-align: center; }
 }
 
-/* ===== Telemóvel Vertical: ≤480px ===== */
+/* Telemóvel Vertical ≤480px */
 @media (max-width: 480px) {
   :root {
+    --scale: 0.8;
     --max-content: 26em;
     --logo-w: 6.25em;
-    --size-h1: 1.8em;
-    --size-menu: 1.1em;
-    --size-hero-h2: 2em;
-    --size-hero-p: 1.05em;
     --grid-features: 1;
     --grid-gallery: 2;
     --gap: 1em;
@@ -297,35 +299,12 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   outline-offset: 0.1em;
 }
 
-/* ==== REMOVER LINHAS/SEPARADORES SUAVES ==== */
-/* 1) Sem linhas no header/footer */
+/* ==== REMOVER LINHAS/SEPARADORES SUAVES (opcional) ==== */
 header, footer { border: 0 !important; }
-
-/* 2) Sem contorno nos cartões e mídia do hero */
-.hero-media,
-.feature,
-.gallery img { border: 0 !important; }
-
-/* 3) Hover do menu sem sublinhado (para não parecer linha) */
-nav a,
-nav a:hover { text-decoration: none !important; }
-
-/* 4) Opcional: foco acessível sem parecer linha sublinhada */
-:where(a, button, .btn):focus-visible {
-  outline: none !important;
-  box-shadow: 0 0 0 0.15em rgba(255,221,87,0.25); /* alternativa ao outline */
-  border-radius: 0.3em;
-}
-
-/* 5) Evitar hairlines entre colunas/linhas de grelha em ecrãs certos */
-.features,
-.gallery { background-color: var(--color-bg); }
-.hero,
-.main-inner { background-color: var(--color-bg); }
-
-/* 6) Para imagens, garante que não “vazam” 1px */
-.hero-media img,
-.gallery img { display: block; }
-
-/* 7) Se alguma linha vier de blur do header aberto, neutraliza */
+.hero-media, .feature, .gallery img { border: 0 !important; }
+nav a, nav a:hover { text-decoration: none !important; }
+:where(a, button, .btn):focus-visible { outline: none !important; box-shadow: 0 0 0 0.15em rgba(255,221,87,0.25); border-radius: 0.3em; }
+.features, .gallery, .hero, .main-inner { background-color: var(--color-bg); }
+.hero-media img, .gallery img { display: block; }
 .nav-open header { backdrop-filter: none; }
+

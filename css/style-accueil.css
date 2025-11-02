@@ -294,3 +294,36 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
+
+/* ==== REMOVER LINHAS/SEPARADORES SUAVES ==== */
+/* 1) Sem linhas no header/footer */
+header, footer { border: 0 !important; }
+
+/* 2) Sem contorno nos cartões e mídia do hero */
+.hero-media,
+.feature,
+.gallery img { border: 0 !important; }
+
+/* 3) Hover do menu sem sublinhado (para não parecer linha) */
+nav a,
+nav a:hover { text-decoration: none !important; }
+
+/* 4) Opcional: foco acessível sem parecer linha sublinhada */
+:where(a, button, .btn):focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 0.15em rgba(255,221,87,0.25); /* alternativa ao outline */
+  border-radius: 0.3em;
+}
+
+/* 5) Evitar hairlines entre colunas/linhas de grelha em ecrãs certos */
+.features,
+.gallery { background-color: var(--color-bg); }
+.hero,
+.main-inner { background-color: var(--color-bg); }
+
+/* 6) Para imagens, garante que não “vazam” 1px */
+.hero-media img,
+.gallery img { display: block; }
+
+/* 7) Se alguma linha vier de blur do header aberto, neutraliza */
+.nav-open header { backdrop-filter: none; }

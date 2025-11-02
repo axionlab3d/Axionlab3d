@@ -173,11 +173,11 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Tablet HORIZONTAL (1000–1200px) */
 @media (max-width: 1200px) and (min-width: 1000px) {
   :root {
-    --size-h1: 4.5em;
-    --size-menu: 1.4em;
+    --size-h1: 4em;
+    --size-menu: 1em;
     --logo-w: 7em;
   }
-  .header-content { gap: 0.4em; }
+  .header-content { gap: 0.2em; }
 }
 
 /* Tablet VERTICAL (601–1000px) */

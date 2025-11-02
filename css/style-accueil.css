@@ -264,5 +264,13 @@ nav a, nav a:hover { text-decoration: none !important; }
   body.nav-open header .header-content nav {
     display: block;
   }
+/* ——— Mapear as classes do HTML para as áreas do grid ——— */
+.left-logo  { grid-area: logoL; }
+.right-logo { grid-area: logoR; }
+
+/* ——— Mostrar o menu com palavras em horizontal (telef. + tablet) ——— */
+@media (orientation: landscape) and (max-width: 1300px) {
+  .header-content nav { display: block !important; }
+  .header-content nav a { display: inline-block !important; }
 }
 

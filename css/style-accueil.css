@@ -238,4 +238,18 @@ nav a, nav a:hover { text-decoration: none !important; }
   nav a { display: inline-block; }          /* itens em linha */
   .menu-toggle { display: none !important; }/* esconde hambúrguer */
 }
+/* ===== Forçar o menu visível em horizontal (telef. + tablet) ===== */
+/* Cobre telemóveis grandes (~932px) e tablets em landscape */
+@media (orientation: landscape) and (max-width: 1024px) {
+  nav { display: block !important; }       /* mostra o menu */
+  nav a { display: inline-block; }         /* itens em linha */
+  .menu-toggle { display: none !important; } /* esconde hambúrguer */
+}
+
+/* Opcional: se o teu tablet em horizontal tiver >1024px, usa isto: */
+@media (orientation: landscape) and (max-width: 1200px) {
+  nav { display: block !important; }
+  nav a { display: inline-block; }
+  .menu-toggle { display: none !important; }
+}
 

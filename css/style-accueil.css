@@ -9,8 +9,8 @@
 /* ===== CONTROLO PRINCIPAL (Desktop por defeito) ===== */
 :root {
   /* Tipografia principal */
-  --size-h1: 3.5em;         /* título do site no header */
-  --size-menu: 1.8em;       /* links do menu */
+  --size-h1: 6em;         /* título do site no header */
+  --size-menu: 2em;       /* links do menu */
   --size-hero-h2: 3em;      /* título do hero */
   --size-hero-p: 1.3em;     /* parágrafo do hero */
   --size-feature-h3: 1.5em; /* títulos dos destaques */
@@ -19,7 +19,7 @@
 
   /* Layout e espaçamentos */
   --logo-w: 12em;           /* largura dos logos */
-  --gap: 1.2em;             /* espaçamento geral */
+  --gap: 1em;             /* espaçamento geral */
   --gap-menu-x: 0.5em;      /* padding horizontal do menu */
   --max-content: 80em;      /* largura máxima do conteúdo */
 
@@ -171,8 +171,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Desktop Largo ≥1600px */
 @media (min-width: 1600px) {
   :root {
-    --size-h1: 3.8em;
-    --size-menu: 1.9em;
+    --size-h1: 6em;
+    --size-menu: 2em;
     --size-hero-h2: 3.4em;
     --size-hero-p: 1.35em;
     --size-feature-h3: 1.6em;
@@ -191,8 +191,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Tablet Horizontal 901–1199px */
 @media (max-width: 1199px) and (min-width: 901px) {
   :root {
-    --size-h1: 3em;
-    --size-menu: 1.5em;
+    --size-h1: 6em;
+    --size-menu: 2em;
     --size-hero-h2: 2.8em;
     --size-hero-p: 1.25em;
     --size-feature-h3: 1.45em;
@@ -213,8 +213,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Tablet Vertical 601–900px */
 @media (max-width: 900px) and (min-width: 601px) {
   :root {
-    --size-h1: 2.6em;
-    --size-menu: 1.35em;
+    --size-h1: 4em;
+    --size-menu: 1.5em;
     --size-hero-h2: 2.4em;
     --size-hero-p: 1.2em;
     --size-feature-h3: 1.35em;
@@ -237,8 +237,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Telemóvel Horizontal 481–600px */
 @media (max-width: 600px) and (min-width: 481px) {
   :root {
-    --size-h1: 2.2em;
-    --size-menu: 1.2em;
+    --size-h1: 3em;
+    --size-menu: 1em;
     --size-hero-h2: 2.1em;
     --size-hero-p: 1.1em;
     --size-feature-h3: 1.25em;

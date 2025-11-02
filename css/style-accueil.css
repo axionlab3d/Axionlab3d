@@ -1,155 +1,296 @@
-/* ---------------------- DESIGN TOKENS / CONFIG ---------------------- */
-/* ================= BREAKPOINTS E ORIENTAÇÕES ================= */
-/* Desktop (padrão) ≥1200px já coberto pelos estilos acima */
-@media (min-width: 1200px) {
-  :root {
-    --max-content: 80em;   /* largura máx. da coluna central no desktop */
-    --scale-hero: 1;       /* escala dos títulos grandes (0.9–1.1) */
-    --scale-body: 1;       /* escala do corpo/menus (0.95–1.05) */
-    --gap: 1.5em;          /* espaçamento padrão entre cartões/grelhas */
-  }
+/* ================= ACCUEIL (HOME) — SIMPLIFICADO =================
+   Controla TUDO da página de accueil com variáveis fáceis de ajustar.
+   - Altera apenas o bloco ":root" (e os :root dos breakpoints).
+   - Tamanhos em em; grelhas e espaçamentos por variáveis.
+   Requer base.css carregado antes.
+=================================================================== */
 
-  /* HEADER */
-  header { padding: 1.2em 0; }            /* altura do header no desktop */
-  .logo { width: 12em; }                  /* tamanho dos logos no desktop */
+/* ====== CONTROLO RÁPIDO (Desktop por defeito) ====== */
+:root {
+  /* Tipografia principal */
+  --size-h1: 3.2em;          /* título do site no header */
+  --size-menu: 1.6em;        /* tamanho dos links do menu */
+  --gap-menu-x: 0.8em;       /* espaçamento horizontal dentro de cada link do menu */
 
-  /* TÍTULO E NAV */
-  .title-nav h1 {
-    font-size: clamp(6em, calc(3em * var(--scale-hero)), 4.5em); /* título do site */
-    letter-spacing: 0.12em;                  /* densidade do título */
-  }
-  nav a {
-    font-size: clamp(4em, calc(2em * var(--scale-body)),2em); /* links do menu */
-    padding: 0.6em 0.9em;                    /* hit-area confortável */
-  }
+  /* Hero */
+  --size-hero-h2: 3.2em;     /* título do hero */
+  --size-hero-p: 1.3em;      /* parágrafo do hero */
 
-  /* HERO (texto + imagem) */
-  .hero {
-    grid-template-columns: 1.3fr 0.7fr;      /* proporção texto|imagem */
-    gap: var(--gap);                         /* espaço entre colunas */
-    margin-block: clamp(2em, 5vw, 4.5em);    /* respiro vertical do hero */
-  }
-  .hero .cta-group { gap: 0.9em; }           /* espaço entre botões */
-  .hero-media { aspect-ratio: 4/3; }         /* formato da imagem/vídeo */
+  /* Cartões/galeria */
+  --size-feature-h3: 1.5em;  /* títulos dos destaques */
+  --size-feature-p: 1.1em;   /* texto dos destaques */
+  --grid-features: 3;        /* nº de colunas dos destaques (desktop) */
+  --grid-gallery: 4;         /* nº de colunas da galeria (desktop) */
 
-  /* DESTAQUES (features) */
-  .features {
-    grid-template-columns: repeat(3, 1fr);   /* nº de colunas dos cartões */
-    gap: var(--gap);
-  }
-  /* Dica: se preferires 4 colunas, troca por repeat(4, 1fr) */
-
-  /* GALERIA */
-  .gallery {
-    grid-template-columns: repeat(4, 1fr);   /* nº de colunas da galeria */
-    gap: 0.8em;                               /* espaço entre imagens */
-  }
-  /* Dica: para mais densidade, usa repeat(5, 1fr) */
-
-  /* FOOTER */
-  .footer-inner { 
-    grid-template-columns: 1fr auto;          /* texto à esquerda, links à direita */
-    align-items: center;
-  }
-  .footer-nav a { font-size: 1.05em; }        /* tamanho dos links do rodapé */
+  /* Branding e espaçamentos */
+  --logo-w: 12em;            /* largura dos logos */
+  --gap: 1.5em;              /* gap geral entre colunas/cartões */
+  --max-content: 80em;       /* largura máxima da coluna central */
 }
 
-/* ====== Desktop Largo ≥1600px — ajustes finos ======
-   Para monitores grandes/4K. Aumenta densidade e respiro.
-*/
+/* ===== LAYOUT GLOBAL ===== */
+.accueil {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header | main | footer */
+}
+
+/* ===== HEADER ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 0.05em solid rgba(255,255,255,0.08);
+  padding: 1.2em 0; /* podes mexer também, mas tenta via breakpoints */
+}
+
+.header-content {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 1em;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "logoL title logoR"
+    "nav   nav   nav";
+  gap: 1em;
+}
+
+.logo { width: var(--logo-w); height: auto; margin: 0; flex: 0 0 auto; }
+.logo-left  { grid-area: logoL; }
+.logo-right { grid-area: logoR; }
+
+.title-nav { grid-area: title; align-self: center; }
+.title-nav h1 {
+  font-size: var(--size-h1);
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* MENU */
+nav { grid-area: nav; margin-top: 0.6em; }
+nav a {
+  display: inline-block;
+  font-size: var(--size-menu);
+  padding: 0.5em var(--gap-menu-x); /* ↑↓ | ←→  */
+  color: var(--color-fg);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+nav a:hover { color: var(--color-accent); text-decoration: underline; }
+nav a.active { color: var(--color-accent); }
+
+/* Botão menu (mostrado nos telemóveis) */
+.menu-toggle {
+  display: none;
+  border: 0.05em solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: var(--color-fg);
+  border-radius: 0.5em;
+  padding: 0.5em 0.75em;
+  font-size: 1.1em;
+}
+
+/* ===== MAIN ===== */
+main { padding: 2.5em 1em; }
+.main-inner { max-width: var(--max-content); margin: 0 auto; }
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr; /* texto | imagem */
+  align-items: center;
+  gap: var(--gap);
+  margin-block: 2.5em;
+}
+.hero h2 { font-size: var(--size-hero-h2); margin: 0 0 0.3em; }
+.hero p  {
+  font-size: var(--size-hero-p);
+  max-width: 60ch;
+  margin: 0 0 0.9em;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+.hero .cta-group { display: flex; gap: 0.9em; flex-wrap: wrap; }
+.hero .btn {
+  display: inline-block;
+  padding: 0.8em 1.1em;
+  border-radius: 0.6em;
+  border: 0.05em solid rgba(255,255,255,0.2);
+  color: var(--color-bg);
+  background: var(--color-accent);
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+.hero .btn:hover { transform: translateY(-0.08em); }
+
+.hero-media {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 0.9em;
+  overflow: hidden;
+  border: 0.05em solid rgba(255,255,255,0.12);
+}
+.hero-media img, .hero-media video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* DESTAQUES */
+.features {
+  margin-top: 2.5em;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-features), 1fr);
+  gap: var(--gap);
+}
+.feature {
+  padding: 1.25em;
+  border: 0.05em solid rgba(255,255,255,0.12);
+  border-radius: 0.9em;
+  background: rgba(255,255,255,0.02);
+  text-align: left;
+}
+.feature h3 { font-size: var(--size-feature-h3); margin: 0 0 0.5em; }
+.feature p  { font-size: var(--size-feature-p);  margin: 0; }
+
+/* GALERIA */
+.gallery {
+  margin-top: 2.5em;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-gallery), 1fr);
+  gap: 0.8em;
+}
+.gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.6em; }
+
+/* ===== FOOTER ===== */
+footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
+.footer-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75em;
+  align-items: center;
+}
+.footer-nav a { font-size: 1.05em; margin: 0 0.5em; }
+.footer-copy   { font-size: 0.95em; opacity: 0.8; }
+
+/* ================= BREAKPOINTS (apenas variáveis) ================= */
+
+/* ===== Desktop Largo: ≥1600px (opcional) ===== */
 @media (min-width: 1600px) {
-  :root { --max-content: 90em; --gap: 1.8em; } /* mais largura e respiro */
-  .logo { width: 13em; }                        /* logos ligeiramente maiores */
-  .title-nav h1 { 
-    font-size: clamp(2.4em, calc(3.4em * var(--scale-hero)), 5em); /* título maior */
+  :root {
+    --max-content: 90em;
+    --logo-w: 13em;
+    --size-h1: 3.6em;
+    --size-menu: 1.8em;
+    --size-hero-h2: 3.6em;
+    --size-hero-p: 1.35em;
+    --grid-features: 4;
+    --grid-gallery: 5;
+    --gap: 1.8em;
+    --gap-menu-x: 1em;
   }
-  nav a { 
-    font-size: clamp(1.3em, calc(1.6em * var(--scale-body)), 2em); /* menu maior */
-  }
-  .features { grid-template-columns: repeat(4, 1fr); } /* mais colunas de destaques */
-  .gallery  { grid-template-columns: repeat(5, 1fr); gap: 1em; }   /* galeria mais densa */
 }
 
-/* Tablet Horizontal: 901–1199px */
+/* ===== Tablet Horizontal: 901–1199px ===== */
 @media (max-width: 1199px) and (min-width: 901px) {
-:root { --max-content: 65em; --scale-hero: 0.98; } /* ligeiro ajuste de largura e escala */
-.logo { width: 10em; } /* logos um pouco menores */
-.hero { grid-template-columns: 1.1fr 0.9fr; } /* reequilibra texto|imagem */
+  :root {
+    --max-content: 65em;
+    --logo-w: 10em;
+    --size-h1: 2.8em;
+    --size-menu: 1.5em;
+    --size-hero-h2: 3em;
+    --size-hero-p: 1.25em;
+    --grid-features: 3;
+    --grid-gallery: 4;
+    --gap-menu-x: 0.8em;
+  }
 }
 
-
-/* Tablet Vertical: 601–900px */
+/* ===== Tablet Vertical: 601–900px ===== */
 @media (max-width: 900px) and (min-width: 601px) {
-:root { --max-content: 54em; --scale-hero: 0.95; }
-.logo { width: 8.75em; } /* logos reduzem */
-.hero { grid-template-columns: 1fr; } /* hero em coluna única */
-.hero-media { order: -1; aspect-ratio: 16/9; } /* imagem antes do texto e 16:9 */
-.features { grid-template-columns: repeat(2, 1fr); } /* 2 colunas de destaques */
-.gallery { grid-template-columns: repeat(3, 1fr); } /* 3 colunas na galeria */
+  :root {
+    --max-content: 54em;
+    --logo-w: 8.75em;
+    --size-h1: 2.4em;
+    --size-menu: 1.4em;
+    --size-hero-h2: 2.6em;
+    --size-hero-p: 1.2em;
+    --grid-features: 2;
+    --grid-gallery: 3;
+    --gap-menu-x: 0.7em;
+  }
+  .hero { grid-template-columns: 1fr; }
+  .hero-media { order: -1; aspect-ratio: 16/9; }
 }
 
-
-/* Telemóvel Horizontal: 481–600px */
+/* ===== Telemóvel Horizontal: 481–600px ===== */
 @media (max-width: 600px) and (min-width: 481px) {
-:root { --max-content: 35em; --scale-hero: 0.9; --scale-body: 0.95; }
-header { padding: 0.6em 0; } /* header mais compacto */
-.logo { width: 7.5em; } /* logos menores */
-.menu-toggle { display: inline-block; } /* mostra o botão do menu */
-nav { display: none; } /* esconde navegação completa */
-.nav-open nav { display: block; } /* mostra ao abrir o menu (ver JS) */
-nav a { display: block; padding: 0.6em 0; font-size: 1.1em; }
-.footer-inner { grid-template-columns: 1fr; text-align: center; } /* footer empilhado */
+  :root {
+    --max-content: 35em;
+    --logo-w: 7.5em;
+    --size-h1: 2em;
+    --size-menu: 1.2em;
+    --size-hero-h2: 2.2em;
+    --size-hero-p: 1.1em;
+    --grid-features: 2;
+    --grid-gallery: 2;
+    --gap: 1.2em;
+    --gap-menu-x: 0.7em;
+  }
+  header { padding: 0.6em 0; }
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
+  nav a { display: block; }
+  .footer-inner { grid-template-columns: 1fr; text-align: center; }
 }
 
-
-/* Telemóvel Vertical: ≤480px */
+/* ===== Telemóvel Vertical: ≤480px ===== */
 @media (max-width: 480px) {
-:root { --max-content: 26em; --scale-hero: 0.86; --scale-body: 0.95; --gap: 1em; }
-header { padding: 0.5em 0; }
-.logo { width: 6.25em; }
-.menu-toggle { display: inline-block; }
-nav { display: none; }
-.nav-open nav { display: block; }
-nav a { display: block; padding: 0.6em 0; font-size: 1.05em; }
-.hero { grid-template-columns: 1fr; gap: 0.75em; }
-.hero-media { aspect-ratio: 1/1; } /* mais alto, tipo quadrado */
-.features { grid-template-columns: 1fr; gap: 0.75em; }
-.gallery { grid-template-columns: repeat(2, 1fr); gap: 0.5em; }
-.footer-inner { grid-template-columns: 1fr; text-align: center; gap: 0.5em; }
+  :root {
+    --max-content: 26em;
+    --logo-w: 6.25em;
+    --size-h1: 1.8em;
+    --size-menu: 1.1em;
+    --size-hero-h2: 2em;
+    --size-hero-p: 1.05em;
+    --grid-features: 1;
+    --grid-gallery: 2;
+    --gap: 1em;
+    --gap-menu-x: 0.6em;
+  }
+  header { padding: 0.5em 0; }
+  .hero { grid-template-columns: 1fr; gap: 0.75em; }
+  .hero-media { aspect-ratio: 1/1; }
+  .footer-inner { grid-template-columns: 1fr; gap: 0.5em; text-align: center; }
 }
 
-
-/* Ajustes finos por orientação */
+/* ================= ORIENTAÇÃO ================= */
 @media (orientation: landscape) and (max-width: 900px) {
-nav { display: block; } /* em deitado cabe a navegação completa */
-.menu-toggle { display: none; }
-nav a { display: inline-block; padding: 0.5em 0.4em; }
+  nav { display: block; }
+  .menu-toggle { display: none; }
+  nav a { display: inline-block; }
 }
-
-
-@media (orientation: portrait) and (max-width: 900px) {
-.title-nav h1 { font-size: clamp(1.6em, 8vw, 2.5em); } /* título um pouco menor em retrato */
-}
-
 
 /* ================= UTILITÁRIOS ================= */
 .hide-mobile { display: initial; }
 @media (max-width: 600px) { .hide-mobile { display: none !important; } }
 
-
 .show-mobile { display: none; }
 @media (max-width: 600px) { .show-mobile { display: initial !important; } }
 
-
 .center { display: grid; place-items: center; }
 
-
-/* Estado de navegação aberta (adicionado via JS): aplica blur ao header */
+/* Estado de navegação aberta (adicionado via JS) */
 .nav-open header { backdrop-filter: blur(0.25em); }
 
-
-/* Foco visível para acessibilidade em links/botões */
+/* Foco acessível */
 :where(a, button, .btn):focus-visible {
-outline: 0.1em dashed var(--color-accent);
-outline-offset: 0.1em;
+  outline: 0.1em dashed var(--color-accent);
+  outline-offset: 0.1em;
 }

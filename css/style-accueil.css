@@ -232,3 +232,10 @@ header, footer { border: 0 !important; }
 .hero-media, .feature, .gallery img { border: 0 !important; }
 nav a, nav a:hover { text-decoration: none !important; }
 
+/* ===== Forçar menu visível em telemóvel/tablet horizontal ===== */
+@media (orientation: landscape) and (max-width: 900px) {
+  nav { display: block !important; }        /* mostra o menu */
+  nav a { display: inline-block; }          /* itens em linha */
+  .menu-toggle { display: none !important; }/* esconde hambúrguer */
+}
+

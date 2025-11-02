@@ -237,8 +237,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Telemóvel Horizontal 481–800px */
 @media (max-width: 800px) and (min-width: 500px) {
   :root {
-    --size-h1: 2em;
-    --size-menu: 0,_em;
+    --size-h1: 3em;
+    --size-menu: 0,8em;
     --size-hero-h2: 2.1em;
     --size-hero-p: 1.1em;
     --size-feature-h3: 1.25em;

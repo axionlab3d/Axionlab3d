@@ -169,6 +169,18 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* ==========================================================
    RESPONSIVIDADE — Ajustes automáticos (não alteram o PC)
    ========================================================== */
+/* Tablet Horizontal (901–1200px) */
+@media (max-width: 900px) and (min-width: 601px) {
+  :root {
+    --size-h1: 4,5em;     /* título menor */
+    --size-menu: 1.4em;   /* menu mais equilibrado */
+    --logo-w: 7em;        /* logos reduzidos */
+  }
+  .header-content { gap: 0.4em; }
+  .menu-toggle { display: inline-block; } /* ativa botão de menu */
+  nav { display: none; }
+  .nav-open nav { display: block; }
+}
 
 /* Tablet vertical (601–900px) */
 @media (max-width: 900px) and (min-width: 601px) {

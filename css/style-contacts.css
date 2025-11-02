@@ -1,57 +1,81 @@
-@import url('base.css');
+/* ---------------------- DESIGN TOKENS ---------------------- */
+.btn--ghost { background: transparent; color: var(--color-fg); }
+.btn:hover { transform: translateY(-0.08em); }
 
-/* ===== especifico contacts ===== */
-.page-contacts .title-nav h1 { font-size: 5em; } /* como no teu estilo atual */
 
-.social-icons {
-  margin-top: 1em;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Painel lateral (opcional): contactos rápidos, redes, morada */
+.sidebar {
+background: var(--c-bg-panel);
+border: 0.05em solid var(--c-bdr);
+border-radius: 0.9em;
+padding: 1.2em;
+}
+.sidebar h4 { font-size: 1.3em; margin: 0 0 0.6em; }
+.sidebar ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4em; }
+.sidebar li { font-size: 1.05em; }
+.sidebar a { color: var(--color-fg); text-decoration: underline; }
+
+
+/* ================= BLOCO: MAPA ================= */
+.contact-map {
+margin-top: clamp(2em, 6vw, 4em); /* separação do formulário */
+}
+.map-wrap {
+position: relative; /* cria contexto para aspect-ratio */
+width: 100%;
+border-radius: 0.9em; /* cantos arredondados do mapa */
+overflow: hidden; /* corta excesso do iframe */
+border: 0.05em solid var(--c-bdr);
+}
+/* Aspect-ratio fluido para iframe do mapa */
+.map-wrap::before { content: ""; display: block; padding-top: 56.25%; } /* 16:9 */
+.map { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+
+/* ================= ACESSIBILIDADE / FOCUS ================= */
+:where(a, button, .btn, .input, .textarea, .select):focus-visible {
+outline: 0.12em dashed var(--color-accent); /* contorno visível para teclado */
+outline-offset: 0.12em;
 }
 
-.social-icons a { margin: 0 10px; }
 
-.social-icons img {
-  width: 80px;               /* desktop default */
-  height: auto;
-  transition: transform 0.3s;
-}
-.social-icons img:hover { transform: scale(1.2); }
+/* ================= BREAKPOINTS ================= */
+/* Desktop padrão ≥1200px → já coberto pelos estilos acima */
 
-/* ===== responsividade ===== */
 
-/* 📱 mobile retrato (≤600px) */
-@media (max-width: 600px) and (orientation: portrait) {
-  .page-contacts .title-nav h1 { font-size: 2em; }
-  .page-contacts .logo { width: 60px; margin: 0 5px; }
-  .page-contacts nav a { font-size: 1em; margin: 4px 6px; }
-  .social-icons img { width: 50px; margin: 5px; }
-
-  /* ajustes finos por ícone (como tinhas) */
-  .email-icon { width: 45px; }
-  .facebook-icon { width: 55px; }
-  .instagram-icon { width: 50px; }
-  .tiktok-icon { width: 48px; }
+/* Tablet Horizontal: 901–1199px */
+@media (max-width: 1199px) and (min-width: 901px) {
+:root { --max-content: 65em; --scale-hero: 0.98; }
+.contact-info { grid-template-columns: repeat(3, 1fr); }
+.contact-form { grid-template-columns: 1fr 1fr; }
 }
 
-/* 📱 mobile horizontal (≤900px) */
-@media (max-width: 900px) and (orientation: landscape) {
-  .page-contacts .title-nav h1 { font-size: 3em; }
-  .page-contacts .logo { width: 100px; margin: 0 4px; }
-  .page-contacts nav a { font-size: 0.95em; margin: 3px 4px; }
-  .page-contacts main h2 { font-size: 1.4em; }
-  .page-contacts main p  { font-size: 0.95em; }
 
-  .social-icons img { width: 60px; margin: 4px; }
-  .email-icon { width: 35px; }
-  .facebook-icon { width: 40px; }
-  .instagram-icon { width: 38px; }
-  .tiktok-icon { width: 36px; }
+/* Tablet Vertical: 601–900px */
+@media (max-width: 900px) and (min-width: 601px) {
+:root { --max-content: 54em; --scale-hero: 0.95; }
+.contact-info { grid-template-columns: repeat(2, 1fr); }
+.contact-form { grid-template-columns: 1fr; } /* formulário ocupa toda a largura */
 }
 
-/* 💻 tablet (601–1200px) */
-@media (min-width: 601px) and (max-width: 1200px) {
-  .page-contacts .title-nav h1 { font-size: 4em; }
-  .social-icons img { width: 70px; }
+
+/* Telemóvel Horizontal: 481–600px */
+@media (max-width: 600px) and (min-width: 481px) {
+:root { --max-content: 35em; --scale-hero: 0.9; --scale-body: 0.95; }
+.contact-info { grid-template-columns: 1fr 1fr; }
+.fields { grid-template-columns: 1fr; } /* campos em uma coluna */
+}
+
+
+/* Telemóvel Vertical: ≤480px */
+@media (max-width: 480px) {
+:root { --max-content: 26em; --scale-hero: 0.86; --scale-body: 0.95; --gap: 1em; }
+.contact-info { grid-template-columns: 1fr; }
+.fields { grid-template-columns: 1fr; }
+}
+
+
+/* Ajustes finos por orientação */
+@media (orientation: landscape) and (max-width: 900px) {
+.contact-info { grid-template-columns: repeat(3, 1fr); }
 }

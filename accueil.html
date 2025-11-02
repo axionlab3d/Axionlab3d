@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Axion Lab 3D</title>
- <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style-accueil.css">
 
+  <!-- CSS base e da página -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/style-accueil.css" />
 </head>
-<body>
-
+<body class="accueil">
   <!-- ====== HEADER ====== -->
   <header>
     <div class="header-content">
       <!-- Logo esquerdo -->
-      <img src="images/logo.jpg" alt="Logo gauche" class="logo left-logo">
+      <img src="images/logo.jpg" alt="Logo gauche" class="logo logo-left" />
 
       <div class="title-nav">
         <h1>Axion Lab 3D</h1>
-        <nav>
+
+        <!-- Navegação principal (sem botão) -->
+        <nav id="primaryNav" aria-label="Navigation principale">
           <a href="accueil.html">Accueil</a>
           <a href="apropos.html">À propos</a>
           <a href="contacts.html">Contact</a>
@@ -26,20 +28,26 @@
       </div>
 
       <!-- Logo direito -->
-      <img src="images/logo.jpg" alt="Logo droite" class="logo right-logo">
+      <img src="images/logo.jpg" alt="Logo droite" class="logo logo-right" />
     </div>
   </header>
 
   <!-- ====== MAIN ====== -->
-  <main>
+  <main class="main-inner">
     <h2>Découvrez notre contenu</h2>
     <p>Bienvenue sur le site officiel d’Axion Lab 3D — exploration, innovation et design en impression 3D.</p>
   </main>
 
   <!-- ====== FOOTER ====== -->
   <footer>
-    <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2025 Axion Lab 3D. Tous droits réservés.</div>
+      <nav class="footer-nav" aria-label="Navigation pied de page">
+        <a href="accueil.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contacts.html">Contact</a>
+      </nav>
+    </div>
   </footer>
-
 </body>
 </html>

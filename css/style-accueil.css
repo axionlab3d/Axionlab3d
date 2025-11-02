@@ -1,362 +1,158 @@
-/* ================= ACCUEIL (HOME) — VARIÁVEIS EM EM =================
-   Mesmo visual da versão anterior, mas com tamanhos explícitos em em.
-   - Desktop: menu visível
-   - Tablet/Telemóvel: hamburguer (nav abre com .nav-open no <body>)
-   - Link ativo sem amarelo
-   Requer base.css carregado antes.
-==================================================================== */
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accueil — Nome do Site</title>
 
-/* ===== CONTROLO RÁPIDO (Desktop por defeito) ===== */
-:root {
-  /* Tipografia principal (em) */
-  --size-h1: 3.5em;          /* título do site (header) */
-  --size-menu: 1.8em;        /* links do menu */
+  <!-- CSS base primeiro, depois o da página -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style-accueil.css">
 
-  /* Hero (em) */
-  --size-hero-h2: 3em;       /* título do hero */
-  --size-hero-p: 1.3em;      /* parágrafo do hero */
+  <!-- Favicon opcional -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body class="accueil">
+  <a href="#conteudo" class="sr-only">Saltar para o conteúdo</a>
 
-  /* Destaques / galeria (em) */
-  --size-feature-h3: 1.5em;  /* título dos cartões de destaques */
-  --size-feature-p: 1.1em;   /* texto dos cartões */
-  --size-footer-text: 1em;   /* tamanho do texto do rodapé */
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="header-content">
+      <!-- Logo à esquerda -->
+      <a href="index.html" class="logo-left" aria-label="Página inicial">
+        <img class="logo" src="assets/logo-left.svg" alt="Logo da marca esquerda">
+      </a>
 
-  /* Layout e espaçamentos */
-  --logo-w: 12em;            /* largura dos logos */
-  --gap: 1.2em;              /* gap geral entre colunas/cartões */
-  --gap-menu-x: 0.6em;       /* padding horizontal de cada link do menu */
-  --max-content: 80em;       /* largura máxima da coluna central */
+      <!-- Título + subtítulo/claim opcional -->
+      <div class="title-nav">
+        <h1>Nome do Site</h1>
+      </div>
 
-  /* Colunas */
-  --grid-features: 3;        /* nº de colunas dos destaques (desktop) */
-  --grid-gallery: 4;         /* nº de colunas da galeria (desktop) */
-}
+      <!-- Botão menu (aparece em mobile) -->
+      <button class="menu-toggle" id="menuToggle" aria-controls="siteNav" aria-expanded="false">
+        Menu
+      </button>
 
-/* ===== LAYOUT GLOBAL ===== */
-.accueil {
-  min-height: 100dvh;
-  display: grid;
-  grid-template-rows: auto 1fr auto; /* header | main | footer */
-}
+      <!-- Logo à direita (opcional; esconde em mobile no CSS) -->
+      <a href="#" class="logo-right" aria-label="Parceiro / segunda marca">
+        <img class="logo" src="assets/logo-right.svg" alt="Logo secundária">
+      </a>
 
-/* ===== HEADER ===== */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 0.05em solid rgba(255,255,255,0.08);
-  padding: 1.2em 0;
-}
+      <!-- Navegação principal -->
+      <nav id="siteNav" aria-label="Navegação principal">
+        <a href="index.html" class="active">Accueil</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="contactos.html">Contactos</a>
+      </nav>
+    </div>
+  </header>
 
-.header-content {
-  max-width: var(--max-content);
-  margin: 0 auto;
-  padding: 0 1em;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas:
-    "logoL title logoR"
-    "nav   nav   nav";
-  gap: 0.5em; /* menor = logos mais perto do título */
-}
+  <!-- ================= MAIN ================= -->
+  <main id="conteudo">
+    <div class="main-inner">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <h2 id="hero-title">Elegância que ganha vida</h2>
+          <p>
+            Bem-vind@ à nossa maison — design, paixão e cuidado em cada detalhe.
+            Descobre coleções exclusivas e experiências feitas para ti.
+          </p>
+          <div class="cta-group">
+            <a class="btn" href="#destaques">Ver destaques</a>
+            <a class="btn" href="contactos.html">Marcar visita</a>
+          </div>
+        </div>
 
-.logo { width: var(--logo-w); height: auto; margin: 0; flex: 0 0 auto; }
-.logo-left  { grid-area: logoL; }
-.logo-right { grid-area: logoR; }
+        <figure class="hero-media">
+          <img src="assets/hero.jpg" alt="Imagem de destaque da marca ou coleção">
+        </figure>
+      </section>
 
-.title-nav { grid-area: title; align-self: center; }
-.title-nav h1 {
-  font-size: var(--size-h1);
-  letter-spacing: 0.12em;
-  line-height: 1.1;
-  margin: 0;
-}
+      <!-- FEATURES / DESTAQUES -->
+      <section class="features" id="destaques" aria-label="Destaques">
+        <article class="feature">
+          <h3>Feito à mão</h3>
+          <p>Peças únicas com acabamento artesanal e materiais selecionados.</p>
+        </article>
+        <article class="feature">
+          <h3>Design autoral</h3>
+          <p>Estética contemporânea com assinatura própria e atemporalidade.</p>
+        </article>
+        <article class="feature">
+          <h3>Entrega global</h3>
+          <p>Envios seguros e rastreados para qualquer lugar do mundo.</p>
+        </article>
+      </section>
 
-/* ===== MENU ===== */
-nav { grid-area: nav; margin-top: 0.6em; }
-nav a {
-  display: inline-block;
-  font-size: var(--size-menu);
-  padding: 0.5em var(--gap-menu-x); /* ↑↓ | ←→  */
-  color: var(--color-fg);
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.2s ease;
-}
-nav a:hover { color: var(--color-accent); text-decoration: underline; }
-/* Link ativo SEM amarelo (mantém cor base) */
-nav a.active { color: var(--color-fg); }
+      <!-- GALERIA (exemplo rápido) -->
+      <section class="gallery" aria-label="Galeria">
+        <img src="assets/gallery-1.jpg" alt="Peça 1">
+        <img src="assets/gallery-2.jpg" alt="Peça 2">
+        <img src="assets/gallery-3.jpg" alt="Peça 3">
+        <img src="assets/gallery-4.jpg" alt="Peça 4">
+        <img src="assets/gallery-5.jpg" alt="Peça 5">
+        <img src="assets/gallery-6.jpg" alt="Peça 6">
+        <img src="assets/gallery-7.jpg" alt="Peça 7">
+        <img src="assets/gallery-8.jpg" alt="Peça 8">
+      </section>
+    </div>
+  </main>
 
-/* Botão menu (mostrado em tablet/telemóvel) */
-.menu-toggle {
-  display: none; /* ativamos nos breakpoints */
-  border: 0.05em solid rgba(255,255,255,0.2);
-  background: transparent;
-  color: var(--color-fg);
-  border-radius: 0.5em;
-  padding: 0.5em 0.75em;
-  font-size: 1.1em;
-}
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">
+        © <span id="ano"></span> Nome do Site — Todos os direitos reservados.
+      </div>
+      <div class="footer-nav">
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos</a>
+        <a href="contactos.html">Contacto</a>
+      </div>
+    </div>
+  </footer>
 
-/* ===== MAIN ===== */
-main { padding: 2.5em 1em; }
-.main-inner { max-width: var(--max-content); margin: 0 auto; }
+  <!-- ================= JS: Menu & utilidades ================= -->
+  <script>
+    // Ano automático no rodapé
+    document.getElementById('ano').textContent = new Date().getFullYear();
 
-/* ===== HERO ===== */
-.hero {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr; /* texto | imagem */
-  align-items: center;
-  gap: var(--gap);
-  margin-block: 2.5em;
-}
-.hero h2 { font-size: var(--size-hero-h2); margin: 0 0 0.3em; }
-.hero p  {
-  font-size: var(--size-hero-p);
-  max-width: 60ch;
-  margin: 0 0 0.9em;
-  line-height: 1.6;
-  letter-spacing: 0.06em;
-}
-.hero .cta-group { display: none; } /* sem botões, como pediste */
+    // Toggle do menu em telas pequenas
+    (function () {
+      const btn = document.getElementById('menuToggle');
+      const body = document.body;
+      const nav  = document.getElementById('siteNav');
 
-/* HERO media */
-.hero-media {
-  width: 100%;
-  aspect-ratio: 4/3;
-  border-radius: 0.9em;
-  overflow: hidden;
-  border: 0.05em solid rgba(255,255,255,0.12);
-}
-.hero-media img, .hero-media video {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-}
+      function toggleMenu(forceState) {
+        const abrir = typeof forceState === 'boolean' ? forceState : !body.classList.contains('nav-open');
+        body.classList.toggle('nav-open', abrir);
+        btn.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+      }
 
-/* ===== DESTAQUES ===== */
-.features {
-  margin-top: 2.5em;
-  display: grid;
-  grid-template-columns: repeat(var(--grid-features), 1fr);
-  gap: var(--gap);
-}
-.feature {
-  padding: 1.25em;
-  border: 0.05em solid rgba(255,255,255,0.12);
-  border-radius: 0.9em;
-  background: rgba(255,255,255,0.02);
-  text-align: left;
-}
-.feature h3 { font-size: var(--size-feature-h3); margin: 0 0 0.5em; }
-.feature p  { font-size: var(--size-feature-p);  margin: 0; }
+      btn.addEventListener('click', () => toggleMenu());
 
-/* ===== GALERIA ===== */
-.gallery {
-  margin-top: 2.5em;
-  display: grid;
-  grid-template-columns: repeat(var(--grid-gallery), 1fr);
-  gap: 0.8em;
-}
-.gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.6em; }
+      // Fecha o menu quando se clica num link (em mobile)
+      nav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' && window.matchMedia('(max-width: 600px)').matches) {
+          toggleMenu(false);
+        }
+      });
 
-/* ===== FOOTER ===== */
-footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
-.footer-inner {
-  max-width: var(--max-content);
-  margin: 0 auto;
-  padding: 1em;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.75em;
-  align-items: center;
-}
-.footer-nav a { font-size: var(--size-footer-text); margin: 0 0.5em; }
-.footer-copy   { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
+      // Fecha o menu ao mudar orientação/tamanho para algo maior
+      window.addEventListener('resize', () => {
+        if (window.matchMedia('(min-width: 601px)').matches) {
+          toggleMenu(false);
+        }
+      });
 
-/* ================= BREAKPOINTS (variáveis em em) ================= */
-
-/* Desktop Largo ≥1600px (mantém proporções) */
-@media (min-width: 1600px) {
-  :root {
-    --max-content: 90em;
-    --logo-w: 13em;
-
-    --size-h1: 3.8em;
-    --size-menu: 1.9em;
-
-    --size-hero-h2: 3.4em;
-    --size-hero-p: 1.35em;
-
-    --size-feature-h3: 1.6em;
-    --size-feature-p: 1.15em;
-
-    --size-footer-text: 1.05em;
-
-    --grid-features: 4;
-    --grid-gallery: 5;
-    --gap: 1.6em;
-    --gap-menu-x: 0.8em;
-  }
-}
-
-/* Tablet Horizontal 901–1199px */
-@media (max-width: 1199px) and (min-width: 901px) {
-  :root {
-    --max-content: 65em;
-    --logo-w: 10em;
-
-    --size-h1: 3em;
-    --size-menu: 1.5em;
-
-    --size-hero-h2: 2.8em;
-    --size-hero-p: 1.25em;
-
-    --size-feature-h3: 1.45em;
-    --size-feature-p: 1.05em;
-
-    --size-footer-text: 1em;
-
-    --grid-features: 3;
-    --grid-gallery: 4;
-
-    --gap: 1.3em;
-    --gap-menu-x: 0.7em;
-  }
-  /* Hamburguer ativo no tablet quando precisares (nav oculto por largura) */
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-}
-
-/* Tablet Vertical 601–900px */
-@media (max-width: 900px) and (min-width: 601px) {
-  :root {
-    --max-content: 54em;
-    --logo-w: 8.75em;
-
-    --size-h1: 2.6em;
-    --size-menu: 1.35em;
-
-    --size-hero-h2: 2.4em;
-    --size-hero-p: 1.2em;
-
-    --size-feature-h3: 1.35em;
-    --size-feature-p: 1.05em;
-
-    --size-footer-text: 0.95em;
-
-    --grid-features: 2;
-    --grid-gallery: 3;
-
-    --gap: 1.2em;
-    --gap-menu-x: 0.6em;
-  }
-  .hero { grid-template-columns: 1fr; }
-  .hero-media { order: -1; aspect-ratio: 16/9; }
-
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-}
-
-/* Telemóvel Horizontal 481–600px */
-@media (max-width: 600px) and (min-width: 481px) {
-  :root {
-    --max-content: 35em;
-    --logo-w: 7.5em;
-
-    --size-h1: 2.2em;
-    --size-menu: 1.2em;
-
-    --size-hero-h2: 2.1em;
-    --size-hero-p: 1.1em;
-
-    --size-feature-h3: 1.25em;
-    --size-feature-p: 1.02em;
-
-    --size-footer-text: 0.95em;
-
-    --grid-features: 2;
-    --grid-gallery: 2;
-
-    --gap: 1.1em;
-    --gap-menu-x: 0.6em;
-  }
-  header { padding: 0.6em 0; }
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-  nav a { display: block; } /* itens do menu em coluna no mobile horiz. */
-  .footer-inner { grid-template-columns: 1fr; text-align: center; }
-}
-
-/* Telemóvel Vertical ≤480px */
-@media (max-width: 480px) {
-  :root {
-    --max-content: 26em;
-    --logo-w: 6.25em;
-
-    --size-h1: 1.9em;
-    --size-menu: 1.1em;
-
-    --size-hero-h2: 1.9em;
-    --size-hero-p: 1.05em;
-
-    --size-feature-h3: 1.15em;
-    --size-feature-p: 1em;
-
-    --size-footer-text: 0.9em;
-
-    --grid-features: 1;
-    --grid-gallery: 2;
-
-    --gap: 1em;
-    --gap-menu-x: 0.55em;
-  }
-  header { padding: 0.5em 0; }
-  .hero { grid-template-columns: 1fr; gap: 0.75em; }
-  .hero-media { aspect-ratio: 1/1; }
-  .footer-inner { grid-template-columns: 1fr; gap: 0.5em; text-align: center; }
-
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-}
-
-/* ================= ORIENTAÇÃO ================= */
-@media (orientation: landscape) and (max-width: 900px) {
-  nav { display: block; }
-  .menu-toggle { display: none; }
-  nav a { display: inline-block; }
-}
-
-/* ================= UTILITÁRIOS ================= */
-.hide-mobile { display: initial; }
-@media (max-width: 600px) { .hide-mobile { display: none !important; } }
-
-.show-mobile { display: none; }
-@media (max-width: 600px) { .show-mobile { display: initial !important; } }
-
-.center { display: grid; place-items: center; }
-
-/* Estado de navegação aberta (se usares hambúrguer) */
-.nav-open header { backdrop-filter: blur(0.25em); }
-
-/* Foco acessível */
-:where(a, button, .btn):focus-visible {
-  outline: 0.1em dashed var(--color-accent);
-  outline-offset: 0.1em;
-}
-
-/* ==== REMOVER LINHAS/SEPARADORES SUAVES (opcional) ==== */
-header, footer { border: 0 !important; }
-.hero-media, .feature, .gallery img { border: 0 !important; }
-nav a, nav a:hover { text-decoration: none !important; }
-:where(a, button, .btn):focus-visible {
-  outline: none !important;
-  box-shadow: 0 0 0 0.15em rgba(255,221,87,0.25);
-  border-radius: 0.3em;
-}
-.features, .gallery, .hero, .main-inner { background-color: var(--color-bg); }
-.hero-media img, .gallery img { display: block; }
-.nav-open header { backdrop-filter: none; }
-
+      // Fecha com Esc
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleMenu(false);
+      });
+    })();
+  </script>
+</body>
+</html>

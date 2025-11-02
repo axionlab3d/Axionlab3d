@@ -8,8 +8,8 @@
 /* ====== CONTROLO RÁPIDO (Desktop por defeito) ====== */
 :root {
   /* Tipografia principal */
-  --size-h1: 3.2em;          /* título do site no header */
-  --size-menu: 1.6em;        /* tamanho dos links do menu */
+  --size-h1: 6em;          /* título do site no header */
+  --size-menu: 2,5em;        /* tamanho dos links do menu */
   --gap-menu-x: 0.8em;       /* espaçamento horizontal dentro de cada link do menu */
 
   /* Hero */

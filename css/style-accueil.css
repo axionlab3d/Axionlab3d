@@ -20,7 +20,7 @@
   }
   nav a {
     font-size: clamp(4em, calc(1,5em * var(--scale-body)),1,5em); /* links do menu */
-    padding: 0.4em 0.6em;                    /* hit-area confortável */
+    padding: 0.6em 0.9em;                    /* hit-area confortável */
   }
 
   /* HERO (texto + imagem) */

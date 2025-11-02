@@ -53,7 +53,7 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 1em;
+  gap: 0,8em;
 }
 
 .logo { width: var(--logo-w); height: auto; margin: 0; flex: 0 0 auto; }

@@ -227,7 +227,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Tablet Vertical 601–900px */
 @media (max-width: 900px) and (min-width: 601px) {
   :root {
-    --scale: 0.3;
+    --scale: 0.7;
     --max-content: 54em;
     --logo-w: 8.75em;
     --grid-features: 2;
@@ -241,7 +241,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Telemóvel Horizontal 481–600px */
 @media (max-width: 600px) and (min-width: 481px) {
   :root {
-    --scale: 0.85;
+    --scale: 0.6;
     --max-content: 35em;
     --logo-w: 7.5em;
     --grid-features: 2;
@@ -260,7 +260,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Telemóvel Vertical ≤480px */
 @media (max-width: 480px) {
   :root {
-    --scale: 0.8;
+    --scale: 0.5;
     --max-content: 26em;
     --logo-w: 6.25em;
     --grid-features: 1;

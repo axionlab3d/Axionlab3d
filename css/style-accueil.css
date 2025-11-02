@@ -31,8 +31,8 @@
 
   /* Espaços/larguras base */
   --logo-w: 12em;          /* largura dos logos */
-  --gap: 1.5em;            /* gap geral */
-  --gap-menu-x: 0.8em;     /* padding horizontal dos links do menu */
+  --gap: 1em;            /* gap geral */
+  --gap-menu-x: 0.5em;     /* padding horizontal dos links do menu */
   --max-content: 80em;     /* largura máxima da coluna central */
 
   /* Colunas */

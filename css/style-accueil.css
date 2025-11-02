@@ -1,237 +1,339 @@
-/* ================= ACCUEIL (HOME) =================
-   Este ficheiro controla TUDO da página de accueil e inclui
-   comentários para saberes exatamente o que alterar no futuro.
+/* ================= ACCUEIL (HOME) — VARIÁVEIS EM EM =================
+   Controla TUDO por variáveis diretas (em) no :root e nos breakpoints.
+   - Sem escalas: cada tamanho é definido explicitamente em em.
+   - Títulos e menu ajustam por dispositivo trocando 2 linhas/variáveis.
+   Requer base.css carregado antes.
+==================================================================== */
 
-   ▶ Guia rápido de ajuste (procura pelas variáveis/linhas citadas):
-   - --max-content: largura máxima do conteúdo (desktop/tablet). Aumenta/diminui para teres linhas mais longas/curtas.
-   - --scale-hero / --scale-body: escalas globais da tipografia. Ajusta 0.9–1.2 conforme precises de mais/menos destaque.
-   - .logo { width: … }: largura do(s) logo(s). Tens valores por breakpoint mais abaixo.
-   - .title-nav h1 font-size: controla o título do cabeçalho (usa clamp). Sobe/baixa os 3 valores conforme precise.
-   - nav a font-size: controla o tamanho dos links do menu (clamp). Ajusta mínimo/médio/máximo.
-   - .hero h2 / .hero p: controla títulos e parágrafos do herói.
-   - .hero .btn: padding/raio/borda das CTAs.
-   - .features grid-template-columns: nº de colunas dos destaques por breakpoint.
-   - .gallery grid-template-columns: nº de colunas da galeria por breakpoint.
-   - Breakpoints (comentados em cada @media):
-       ≥1200px Desktop (default) | 901–1199px Tablet horizontal | 601–900px Tablet vertical
-       481–600px Telemóvel horizontal | ≤480px Telemóvel vertical
-
-   Requisitos: base.css carregado antes deste.
-   Este ficheiro SOBREPÕE estilos da base.
-=================================================== */
-
-/* ---------------------- DESIGN TOKENS / CONFIG ---------------------- */
+/* ===== CONTROLO RÁPIDO (Desktop por defeito) ===== */
 :root {
-  --scale-hero: 1;       /* Escala global para títulos grandes (0.9–1.2) */
-  --scale-body: 1;       /* Escala global para texto corrido/menus (0.9–1.1) */
-  --max-content: 75em;   /* Largura máxima da coluna de conteúdo no desktop */
-  --gap: 1.5em;          /* Espaçamento padrão entre cartões/grades (section gaps) */
+  /* Tipografia principal (em) */
+  --size-h1: 3.5em;          /* título do site (header) */
+  --size-menu: 1.8em;        /* links do menu */
+
+  /* Hero (em) */
+  --size-hero-h2: 3em;       /* título do hero */
+  --size-hero-p: 1.3em;      /* parágrafo do hero */
+
+  /* Destaques / galeria (em) */
+  --size-feature-h3: 1.5em;  /* título dos cartões de destaques */
+  --size-feature-p: 1.1em;   /* texto dos cartões */
+  --size-footer-text: 1em;   /* tamanho do texto do rodapé */
+
+  /* Layout e espaçamentos */
+  --logo-w: 12em;            /* largura dos logos */
+  --gap: 1.2em;              /* gap geral entre colunas/cartões */
+  --gap-menu-x: 0.6em;       /* padding horizontal de cada link do menu */
+  --max-content: 80em;       /* largura máxima da coluna central */
+
+  /* Colunas (não precisam estar em em) */
+  --grid-features: 3;        /* nº de colunas dos destaques (desktop) */
+  --grid-gallery: 4;         /* nº de colunas da galeria (desktop) */
 }
 
-/* ---------------------- LAYOUT GLOBAL ---------------------- */
+/* ===== LAYOUT GLOBAL ===== */
 .accueil {
-  min-height: 100dvh;               /* ocupa a altura total útil */
+  min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr auto;/* header | main | footer */
+  grid-template-rows: auto 1fr auto; /* header | main | footer */
 }
 
-/* ================= HEADER ================= */
+/* ===== HEADER ===== */
 header {
-  position: sticky;                    /* fixa no topo ao rolar */
+  position: sticky;
   top: 0;
-  z-index: 1000;                       /* acima do conteúdo */
-  border-bottom: 0.05em solid rgba(255,255,255,0.08); /* linha subtil */
+  z-index: 1000;
+  border-bottom: 0.05em solid rgba(255,255,255,0.08);
+  padding: 1.2em 0;
 }
 
 .header-content {
-  max-width: var(--max-content); /* controla largura interna */
+  max-width: var(--max-content);
   margin: 0 auto;
-  padding: 0 1em;                /* respiro lateral */
-  gap: 1em;                      /* espaçamento entre elementos no header */
-}
-
-/* Logos – ajusta a largura aqui e nas media queries mais abaixo */
-.logo { width: 11.25em; height: auto; margin: 0; flex: 0 0 auto; }
-.logo-left { order: 0; }
-.logo-right { order: 2; }
-
-/* Título principal do site (no header)
-   clamp(min, preferido, max) → altera estes 3 valores para mais/menos impacto */
-.title-nav h1 {
-  font-size: clamp(1.75em, calc(2.5em * var(--scale-hero)), 4em);
-  letter-spacing: 0.15em; /* espaçamento entre letras do título */
-  line-height: 1.1;       /* altura da linha do título */
-}
-
-/* Navegação principal do topo */
-nav { margin-top: 0.5em; }
-nav a {
-  font-size: clamp(1.1em, calc(1.4em * var(--scale-body)), 1.75em); /* tamanho dos links do menu */
-}
-
-/* Botão do menu (aparece em ecrãs pequenos; ver media queries) */
-.menu-toggle {
-  display: none; /* será mostrado no mobile */
-  border: 0.05em solid rgba(255,255,255,0.2);
-  background: transparent;
-  color: var(--color-fg);
-  border-radius: 0.5em;   /* raio de canto do botão do menu */
-  padding: 0.5em 0.75em;  /* área clicável */
-  font-size: 1.1em;       /* tamanho do texto do botão */
-}
-
-/* Grade do header: logos + título + nav em duas linhas responsivas */
-.header-content {
+  padding: 0 1em;
   display: grid;
-  grid-template-columns: auto 1fr auto; /* logo L | título | logo R */
+  grid-template-columns: auto 1fr auto;
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
+  gap: 0.5em; /* menor = logos mais perto do título */
 }
-.logo-left { grid-area: logoL; }
-.title-nav { grid-area: title; align-self: center; }
+
+.logo { width: var(--logo-w); height: auto; margin: 0; flex: 0 0 auto; }
+.logo-left  { grid-area: logoL; }
 .logo-right { grid-area: logoR; }
-header nav { grid-area: nav; }
 
-header nav a { display: inline-block; padding: 0.5em 0.4em; }
-
-/* ================= MAIN (HERO + SECÇÕES) ================= */
-main {
-  padding: clamp(1.5em, 4vw, 3em) 1em; /* respiro vertical do conteúdo principal */
+.title-nav { grid-area: title; align-self: center; }
+.title-nav h1 {
+  font-size: var(--size-h1);
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  margin: 0;
 }
 
+/* MENU */
+nav { grid-area: nav; margin-top: 0.6em; }
+nav a {
+  display: inline-block;
+  font-size: var(--size-menu);
+  padding: 0.5em var(--gap-menu-x); /* ↑↓ | ←→  */
+  color: var(--color-fg);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+nav a:hover { color: var(--color-accent); text-decoration: underline; }
+nav a.active { color: var(--color-accent); }
+
+/* Botão menu (mostrado em tablet/telemóvel) */
+.menu-toggle {
+  display: none; /* ativamos nos breakpoints */
+  border: 0.05em solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: var(--color-fg);
+  border-radius: 0.5em;
+  padding: 0.5em 0.75em;
+  font-size: 1.1em;
+}
+
+/* ===== MAIN ===== */
+main { padding: 2.5em 1em; }
 .main-inner { max-width: var(--max-content); margin: 0 auto; }
 
-/* HERO – secção de abertura com texto e mídia */
+/* HERO */
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr; /* proporção texto|imagem no desktop */
+  grid-template-columns: 1.3fr 0.7fr; /* texto | imagem */
   align-items: center;
   gap: var(--gap);
-  margin-block: clamp(1.5em, 5vw, 4em); /* distância da secção às vizinhas */
+  margin-block: 2.5em;
 }
-.hero h2 { /* título do hero */
-  font-size: clamp(2.25em, calc(3.5em * var(--scale-hero)), 5.25em);
-  margin: 0 0 0.2em 0;
+.hero h2 { font-size: var(--size-hero-h2); margin: 0 0 0.3em; }
+.hero p  {
+  font-size: var(--size-hero-p);
+  max-width: 60ch;
+  margin: 0 0 0.9em;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
 }
-.hero p {  /* parágrafo do hero */
-  font-size: clamp(1.1em, calc(1.4em * var(--scale-body)), 1.6em);
-  max-width: 60ch; /* confortável para leitura */
-  margin: 0 0 0.8em 0;
-}
-.hero .cta-group { display: flex; gap: 0.75em; flex-wrap: wrap; }
-.hero .btn { /* botões de chamada à ação */
+.hero .cta-group { display: flex; gap: 0.9em; flex-wrap: wrap; }
+.hero .btn {
   display: inline-block;
-  padding: 0.75em 1em;                   /* controla o "peso" do botão */
-  border-radius: 0.6em;                  /* cantos do botão */
+  padding: 0.8em 1.1em;
+  border-radius: 0.6em;
   border: 0.05em solid rgba(255,255,255,0.2);
   color: var(--color-bg);
   background: var(--color-accent);
   font-weight: bold;
   text-decoration: none;
-  transition: transform 0.2s ease;      /* micro-interação ao pairar */
+  transition: transform 0.2s ease;
 }
-.hero .btn:hover { transform: translateY(-0.1em); }
-.hero-media { /* recipiente da imagem/vídeo do hero */
+.hero .btn:hover { transform: translateY(-0.08em); }
+
+.hero-media {
   width: 100%;
-  aspect-ratio: 4/3;                     /* troca para 16/9 se preferires */
+  aspect-ratio: 4/3;
   border-radius: 0.9em;
   overflow: hidden;
   border: 0.05em solid rgba(255,255,255,0.12);
 }
-.hero-media img, .hero-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-media img, .hero-media video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
 
-/* FEATURES / DESTAQUES – cartões em grelha */
+/* DESTAQUES */
 .features {
-  margin-top: clamp(1.5em, 5vw, 4em);
+  margin-top: 2.5em;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* nº de colunas no desktop */
+  grid-template-columns: repeat(var(--grid-features), 1fr);
   gap: var(--gap);
 }
-.feature { /* cartão individual */
-  padding: 1.25em;                                    /* respiro interno do cartão */
-  border: 0.05em solid rgba(255,255,255,0.12);        /* contorno subtil */
+.feature {
+  padding: 1.25em;
+  border: 0.05em solid rgba(255,255,255,0.12);
   border-radius: 0.9em;
-  background: rgba(255,255,255,0.02);                 /* leve contraste do fundo */
+  background: rgba(255,255,255,0.02);
+  text-align: left;
 }
-.feature h3 { font-size: clamp(1.3em, 3vw, 1.75em); margin: 0 0 0.5em; }
-.feature p  { font-size: clamp(1em, 2.2vw, 1.25em);  margin: 0; }
+.feature h3 { font-size: var(--size-feature-h3); margin: 0 0 0.5em; }
+.feature p  { font-size: var(--size-feature-p);  margin: 0; }
 
-/* GALERIA – grelha de imagens com colunas responsivas */
-.gallery { margin-top: clamp(1.5em, 5vw, 4em); display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6em; }
+/* GALERIA */
+.gallery {
+  margin-top: 2.5em;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-gallery), 1fr);
+  gap: 0.8em;
+}
 .gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.6em; }
 
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 .footer-inner {
-  max-width: var(--max-content); /* mesma largura do conteúdo */
+  max-width: var(--max-content);
   margin: 0 auto;
   padding: 1em;
   display: grid;
-  grid-template-columns: 1fr auto; /* texto à esquerda, links à direita */
+  grid-template-columns: 1fr auto;
   gap: 0.75em;
   align-items: center;
 }
-.footer-nav a { font-size: 1em; margin: 0 0.5em; } /* tamanho/espaçamento dos links do rodapé */
-.footer-copy { font-size: 0.9em; opacity: 0.8; }
+.footer-nav a { font-size: var(--size-footer-text); margin: 0 0.5em; }
+.footer-copy   { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
 
-/* ================= BREAKPOINTS E ORIENTAÇÕES ================= */
-/* Desktop (padrão) ≥1200px já coberto pelos estilos acima */
+/* ================= BREAKPOINTS (apenas variáveis em em) ================= */
 
-/* Tablet Horizontal: 901–1199px */
+/* Desktop Largo ≥1600px (opcional) */
+@media (min-width: 1600px) {
+  :root {
+    --max-content: 90em;
+    --logo-w: 13em;
+
+    --size-h1: 3.8em;
+    --size-menu: 1.9em;
+
+    --size-hero-h2: 3.4em;
+    --size-hero-p: 1.35em;
+
+    --size-feature-h3: 1.6em;
+    --size-feature-p: 1.15em;
+
+    --size-footer-text: 1.05em;
+
+    --grid-features: 4;
+    --grid-gallery: 5;
+    --gap: 1.6em;
+    --gap-menu-x: 0.8em;
+  }
+}
+
+/* Tablet Horizontal 901–1199px */
 @media (max-width: 1199px) and (min-width: 901px) {
-  :root { --max-content: 65em; --scale-hero: 0.98; } /* ligeiro ajuste de largura e escala */
-  .logo { width: 10em; }                               /* logos um pouco menores */
-  .hero { grid-template-columns: 1.1fr 0.9fr; }       /* reequilibra texto|imagem */
+  :root {
+    --max-content: 65em;
+    --logo-w: 10em;
+
+    --size-h1: 3em;
+    --size-menu: 1.5em;
+
+    --size-hero-h2: 2.8em;
+    --size-hero-p: 1.25em;
+
+    --size-feature-h3: 1.45em;
+    --size-feature-p: 1.05em;
+
+    --size-footer-text: 1em;
+
+    --grid-features: 3;
+    --grid-gallery: 4;
+
+    --gap: 1.3em;
+    --gap-menu-x: 0.7em;
+  }
 }
 
-/* Tablet Vertical: 601–900px */
+/* Tablet Vertical 601–900px */
 @media (max-width: 900px) and (min-width: 601px) {
-  :root { --max-content: 54em; --scale-hero: 0.95; }
-  .logo { width: 8.75em; }                             /* logos reduzem */
-  .hero { grid-template-columns: 1fr; }                /* hero em coluna única */
-  .hero-media { order: -1; aspect-ratio: 16/9; }       /* imagem antes do texto e 16:9 */
-  .features { grid-template-columns: repeat(2, 1fr); } /* 2 colunas de destaques */
-  .gallery  { grid-template-columns: repeat(3, 1fr); } /* 3 colunas na galeria */
-}
+  :root {
+    --max-content: 54em;
+    --logo-w: 8.75em;
 
-/* Telemóvel Horizontal: 481–600px */
-@media (max-width: 600px) and (min-width: 481px) {
-  :root { --max-content: 35em; --scale-hero: 0.9; --scale-body: 0.95; }
-  header { padding: 0.6em 0; }        /* header mais compacto */
-  .logo  { width: 7.5em; }            /* logos menores */
-  .menu-toggle { display: inline-block; } /* mostra o botão do menu */
-  nav { display: none; }                   /* esconde navegação completa */
-  .nav-open nav { display: block; }        /* mostra ao abrir o menu (ver JS) */
-  nav a { display: block; padding: 0.6em 0; font-size: 1.1em; }
-  .footer-inner { grid-template-columns: 1fr; text-align: center; } /* footer empilhado */
-}
+    --size-h1: 2.6em;
+    --size-menu: 1.35em;
 
-/* Telemóvel Vertical: ≤480px */
-@media (max-width: 480px) {
-  :root { --max-content: 26em; --scale-hero: 0.86; --scale-body: 0.95; --gap: 1em; }
-  header { padding: 0.5em 0; }
-  .logo  { width: 6.25em; }
+    --size-hero-h2: 2.4em;
+    --size-hero-p: 1.2em;
+
+    --size-feature-h3: 1.35em;
+    --size-feature-p: 1.05em;
+
+    --size-footer-text: 0.95em;
+
+    --grid-features: 2;
+    --grid-gallery: 3;
+
+    --gap: 1.2em;
+    --gap-menu-x: 0.6em;
+  }
+  .hero { grid-template-columns: 1fr; }
+  .hero-media { order: -1; aspect-ratio: 16/9; }
+
+  /* Menu colapsado em tablet/portrait: usa hambúrguer */
   .menu-toggle { display: inline-block; }
   nav { display: none; }
   .nav-open nav { display: block; }
-  nav a { display: block; padding: 0.6em 0; font-size: 1.05em; }
+}
+
+/* Telemóvel Horizontal 481–600px */
+@media (max-width: 600px) and (min-width: 481px) {
+  :root {
+    --max-content: 35em;
+    --logo-w: 7.5em;
+
+    --size-h1: 2.2em;
+    --size-menu: 1.2em;
+
+    --size-hero-h2: 2.1em;
+    --size-hero-p: 1.1em;
+
+    --size-feature-h3: 1.25em;
+    --size-feature-p: 1.02em;
+
+    --size-footer-text: 0.95em;
+
+    --grid-features: 2;
+    --grid-gallery: 2;
+
+    --gap: 1.1em;
+    --gap-menu-x: 0.6em;
+  }
+  header { padding: 0.6em 0; }
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
+  nav a { display: block; }
+  .footer-inner { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* Telemóvel Vertical ≤480px */
+@media (max-width: 480px) {
+  :root {
+    --max-content: 26em;
+    --logo-w: 6.25em;
+
+    --size-h1: 1.9em;
+    --size-menu: 1.1em;
+
+    --size-hero-h2: 1.9em;
+    --size-hero-p: 1.05em;
+
+    --size-feature-h3: 1.15em;
+    --size-feature-p: 1em;
+
+    --size-footer-text: 0.9em;
+
+    --grid-features: 1;
+    --grid-gallery: 2;
+
+    --gap: 1em;
+    --gap-menu-x: 0.55em;
+  }
+  header { padding: 0.5em 0; }
   .hero { grid-template-columns: 1fr; gap: 0.75em; }
-  .hero-media { aspect-ratio: 1/1; }          /* mais alto, tipo quadrado */
-  .features { grid-template-columns: 1fr; gap: 0.75em; }
-  .gallery  { grid-template-columns: repeat(2, 1fr); gap: 0.5em; }
-  .footer-inner { grid-template-columns: 1fr; text-align: center; gap: 0.5em; }
+  .hero-media { aspect-ratio: 1/1; }
+  .footer-inner { grid-template-columns: 1fr; gap: 0.5em; text-align: center; }
+
+  /* Menu colapsado em telemóvel */
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
 }
 
-/* Ajustes finos por orientação */
+/* ================= ORIENTAÇÃO ================= */
 @media (orientation: landscape) and (max-width: 900px) {
-  nav { display: block; }    /* em deitado cabe a navegação completa */
+  nav { display: block; }
   .menu-toggle { display: none; }
-  nav a { display: inline-block; padding: 0.5em 0.4em; }
-}
-
-@media (orientation: portrait) and (max-width: 900px) {
-  .title-nav h1 { font-size: clamp(1.6em, 8vw, 2.5em); } /* título um pouco menor em retrato */
+  nav a { display: inline-block; }
 }
 
 /* ================= UTILITÁRIOS ================= */
@@ -243,11 +345,22 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 
 .center { display: grid; place-items: center; }
 
-/* Estado de navegação aberta (adicionado via JS): aplica blur ao header */
+/* Estado de navegação aberta (adicionado via JS) */
 .nav-open header { backdrop-filter: blur(0.25em); }
 
-/* Foco visível para acessibilidade em links/botões */
+/* Foco acessível */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
+}
+
+/* ==== REMOVER LINHAS/SEPARADORES SUAVES (opcional) ==== */
+header, footer { border: 0 !important; }
+.hero-media, .feature, .gallery img { border: 0 !important; }
+nav a, nav a:hover { text-decoration: none !important; }
+:where(a, button, .btn):focus-visible { outline: none !important; box-shadow: 0 0 0 0.15em rgba(255,221,87,0.25); border-radius: 0.3em; }
+.features, .gallery, .hero, .main-inner { background-color: var(--color-bg); }
+.hero-media img, .gallery img { display: block; }
+.nav-open header { backdrop-filter: none; }
+
 }

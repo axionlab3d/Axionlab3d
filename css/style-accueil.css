@@ -186,7 +186,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Telemóvel horizontal e vertical (≤600px) */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 1,8em;       /* título mais pequeno */
+    --size-h1: 2em;       /* título mais pequeno */
     --size-menu: 1.1em;   /* menu ajustado */
     --logo-w: 5.5em;      /* logos menores */
   }

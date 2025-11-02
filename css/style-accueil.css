@@ -225,3 +225,11 @@ header, footer { border: 0 !important; }
 .hero-media, .feature, .gallery img { border: 0 !important; }
 nav a, nav a:hover { text-decoration: none !important; }
 
+/* ==== ROLAGEM DE PÁGINA INTEIRA (sem header preso) ==== */
+header {
+  position: static !important;  /* deixa o header rolar com a página */
+  top: auto !important;
+}
+
+/* (opcional) garante que não há área interna “aprisionada” */
+html, body { height: auto; overflow: auto; }

@@ -19,7 +19,7 @@
     letter-spacing: 0.12em;                  /* densidade do título */
   }
   nav a {
-    font-size: clamp(3em, calc(1em * var(--scale-body)), 0,5em); /* links do menu */
+    font-size: clamp(3em, calc(1em * var(--scale-body)), 0,7em); /* links do menu */
     padding: 0.3em 0.5em;                    /* hit-area confortável */
   }
 

@@ -232,24 +232,37 @@ header, footer { border: 0 !important; }
 .hero-media, .feature, .gallery img { border: 0 !important; }
 nav a, nav a:hover { text-decoration: none !important; }
 
-/* ===== Forçar menu visível em telemóvel/tablet horizontal ===== */
-@media (orientation: landscape) and (max-width: 900px) {
-  nav { display: block !important; }        /* mostra o menu */
-  nav a { display: inline-block; }          /* itens em linha */
-  .menu-toggle { display: none !important; }/* esconde hambúrguer */
-}
-/* ===== Forçar o menu visível em horizontal (telef. + tablet) ===== */
-/* Cobre telemóveis grandes (~932px) e tablets em landscape */
-@media (orientation: landscape) and (max-width: 1024px) {
-  nav { display: block !important; }       /* mostra o menu */
-  nav a { display: inline-block; }         /* itens em linha */
-  .menu-toggle { display: none !important; } /* esconde hambúrguer */
+/* ==========================================================
+   FIX FINAL — Mostrar o menu em telemóveis e tablets horizontais
+   ========================================================== */
+
+/* Mostra o menu completo (como no PC) em modo horizontal até 1300px */
+@media (orientation: landscape) and (max-width: 1300px) {
+  header .header-content nav {
+    display: block !important;         /* mostra o menu */
+  }
+
+  header .header-content nav a {
+    display: inline-block !important;  /* coloca os links lado a lado */
+  }
+
+  header .menu-toggle {
+    display: none !important;          /* esconde o botão hambúrguer */
+  }
 }
 
-/* Opcional: se o teu tablet em horizontal tiver >1024px, usa isto: */
-@media (orientation: landscape) and (max-width: 1200px) {
-  nav { display: block !important; }
-  nav a { display: inline-block; }
-  .menu-toggle { display: none !important; }
+/* Mantém o comportamento normal (menu escondido) em modo vertical */
+@media (orientation: portrait) and (max-width: 900px) {
+  header .header-content nav {
+    display: none;
+  }
+
+  header .menu-toggle {
+    display: inline-block;
+  }
+
+  body.nav-open header .header-content nav {
+    display: block;
+  }
 }
 

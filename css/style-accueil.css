@@ -286,4 +286,11 @@ html, body {
   .footer-inner { padding-top: 0.5em !important; }
 }
 
+   /* garante que NADA depois do último elemento do main cria espaço */
+.main-inner { padding-bottom: 0 !important; }
+.main-inner :where(h1,h2,h3,p,section,div,ul,ol,figure,article):last-child {
+  margin-bottom: 0 !important;
+}
+
+
 }

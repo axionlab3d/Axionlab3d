@@ -1,6 +1,8 @@
 /* ================= ACCUEIL (HOME) — VARIÁVEIS EM EM =================
-   Controla TUDO por variáveis diretas (em) no :root e nos breakpoints.
-   Sem escalas: cada tamanho é definido explicitamente em em.
+   Mesmo visual da versão anterior, mas com tamanhos explícitos em em.
+   - Desktop: menu visível
+   - Tablet/Telemóvel: hamburguer (nav abre com .nav-open no <body>)
+   - Link ativo sem amarelo
    Requer base.css carregado antes.
 ==================================================================== */
 
@@ -70,7 +72,7 @@ header {
   margin: 0;
 }
 
-/* MENU */
+/* ===== MENU ===== */
 nav { grid-area: nav; margin-top: 0.6em; }
 nav a {
   display: inline-block;
@@ -82,14 +84,25 @@ nav a {
   transition: 0.2s ease;
 }
 nav a:hover { color: var(--color-accent); text-decoration: underline; }
-/* NÃO pintar link ativo de amarelo */
+/* Link ativo SEM amarelo (mantém cor base) */
 nav a.active { color: var(--color-fg); }
+
+/* Botão menu (mostrado em tablet/telemóvel) */
+.menu-toggle {
+  display: none; /* ativamos nos breakpoints */
+  border: 0.05em solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: var(--color-fg);
+  border-radius: 0.5em;
+  padding: 0.5em 0.75em;
+  font-size: 1.1em;
+}
 
 /* ===== MAIN ===== */
 main { padding: 2.5em 1em; }
 .main-inner { max-width: var(--max-content); margin: 0 auto; }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr; /* texto | imagem */
@@ -105,6 +118,7 @@ main { padding: 2.5em 1em; }
   line-height: 1.6;
   letter-spacing: 0.06em;
 }
+.hero .cta-group { display: none; } /* sem botões, como pediste */
 
 /* HERO media */
 .hero-media {
@@ -118,7 +132,7 @@ main { padding: 2.5em 1em; }
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
 
-/* DESTAQUES */
+/* ===== DESTAQUES ===== */
 .features {
   margin-top: 2.5em;
   display: grid;
@@ -135,7 +149,7 @@ main { padding: 2.5em 1em; }
 .feature h3 { font-size: var(--size-feature-h3); margin: 0 0 0.5em; }
 .feature p  { font-size: var(--size-feature-p);  margin: 0; }
 
-/* GALERIA */
+/* ===== GALERIA ===== */
 .gallery {
   margin-top: 2.5em;
   display: grid;
@@ -160,7 +174,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 
 /* ================= BREAKPOINTS (variáveis em em) ================= */
 
-/* Desktop Largo ≥1600px (opcional) */
+/* Desktop Largo ≥1600px (mantém proporções) */
 @media (min-width: 1600px) {
   :root {
     --max-content: 90em;
@@ -207,6 +221,10 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
     --gap: 1.3em;
     --gap-menu-x: 0.7em;
   }
+  /* Hamburguer ativo no tablet quando precisares (nav oculto por largura) */
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
 }
 
 /* Tablet Vertical 601–900px */
@@ -235,9 +253,9 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .hero { grid-template-columns: 1fr; }
   .hero-media { order: -1; aspect-ratio: 16/9; }
 
-  /* MENU SEM HAMBÚRGUER no tablet/portrait */
-  nav { display: block; }
-  .menu-toggle { display: none; }
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
 }
 
 /* Telemóvel Horizontal 481–600px */
@@ -264,10 +282,10 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
     --gap-menu-x: 0.6em;
   }
   header { padding: 0.6em 0; }
-  /* MENU sempre visível */
-  nav { display: block; }
-  .menu-toggle { display: none; }
-  nav a { display: inline-block; }
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
+  nav a { display: block; } /* itens do menu em coluna no mobile horiz. */
   .footer-inner { grid-template-columns: 1fr; text-align: center; }
 }
 
@@ -299,9 +317,9 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .hero-media { aspect-ratio: 1/1; }
   .footer-inner { grid-template-columns: 1fr; gap: 0.5em; text-align: center; }
 
-  /* MENU sempre visível */
-  nav { display: block; }
-  .menu-toggle { display: none; }
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
 }
 
 /* ================= ORIENTAÇÃO ================= */
@@ -320,7 +338,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 
 .center { display: grid; place-items: center; }
 
-/* Estado de navegação aberta (se voltares a usar hambúrguer) */
+/* Estado de navegação aberta (se usares hambúrguer) */
 .nav-open header { backdrop-filter: blur(0.25em); }
 
 /* Foco acessível */
@@ -333,7 +351,12 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 header, footer { border: 0 !important; }
 .hero-media, .feature, .gallery img { border: 0 !important; }
 nav a, nav a:hover { text-decoration: none !important; }
-:where(a, button, .btn):focus-visible { outline: none !important; box-shadow: 0 0 0 0.15em rgba(255,221,87,0.25); border-radius: 0.3em; }
+:where(a, button, .btn):focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 0.15em rgba(255,221,87,0.25);
+  border-radius: 0.3em;
+}
 .features, .gallery, .hero, .main-inner { background-color: var(--color-bg); }
 .hero-media img, .gallery img { display: block; }
 .nav-open header { backdrop-filter: none; }
+

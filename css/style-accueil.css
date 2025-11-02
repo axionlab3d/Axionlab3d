@@ -233,3 +233,31 @@ header {
 
 /* (opcional) garante que não há área interna “aprisionada” */
 html, body { height: auto; overflow: auto; }
+
+/* =============== FULL-PAGE SCROLL (restaurar rolagem total) =============== */
+/* 1) Garantir que header/footer não ficam presos */
+header, footer {
+  position: static !important;   /* nada de sticky/fixed */
+  top: auto !important;
+}
+
+/* 2) Evitar “scroll interno” no <main> ou no wrapper */
+main {
+  overflow: visible !important;
+}
+
+/* 3) Evitar wrappers com altura fixa que criam scroll interno */
+html, body {
+  height: auto !important;
+  overflow: auto !important;
+}
+
+/* 4) Se o wrapper .accueil estiver a forçar grelha com altura de viewport,
+      libertamos em ecrãs pequenos para rolar tudo junto (sem mexer no desktop) */
+@media (max-width: 900px) {
+  .accueil {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

@@ -1,7 +1,6 @@
 /* ================= ACCUEIL (HOME) — VARIÁVEIS EM EM =================
    Controla TUDO por variáveis diretas (em) no :root e nos breakpoints.
-   - Sem escalas: cada tamanho é definido explicitamente em em.
-   - Títulos e menu ajustam por dispositivo trocando 2 linhas/variáveis.
+   Sem escalas: cada tamanho é definido explicitamente em em.
    Requer base.css carregado antes.
 ==================================================================== */
 
@@ -26,7 +25,7 @@
   --gap-menu-x: 0.6em;       /* padding horizontal de cada link do menu */
   --max-content: 80em;       /* largura máxima da coluna central */
 
-  /* Colunas (não precisam estar em em) */
+  /* Colunas */
   --grid-features: 3;        /* nº de colunas dos destaques (desktop) */
   --grid-gallery: 4;         /* nº de colunas da galeria (desktop) */
 }
@@ -83,18 +82,8 @@ nav a {
   transition: 0.2s ease;
 }
 nav a:hover { color: var(--color-accent); text-decoration: underline; }
-nav a.active { color: var(--color-accent); }
-
-/* Botão menu (mostrado em tablet/telemóvel) */
-.menu-toggle {
-  display: none; /* ativamos nos breakpoints */
-  border: 0.05em solid rgba(255,255,255,0.2);
-  background: transparent;
-  color: var(--color-fg);
-  border-radius: 0.5em;
-  padding: 0.5em 0.75em;
-  font-size: 1.1em;
-}
+/* NÃO pintar link ativo de amarelo */
+nav a.active { color: var(--color-fg); }
 
 /* ===== MAIN ===== */
 main { padding: 2.5em 1em; }
@@ -116,20 +105,8 @@ main { padding: 2.5em 1em; }
   line-height: 1.6;
   letter-spacing: 0.06em;
 }
-.hero .cta-group { display: flex; gap: 0.9em; flex-wrap: wrap; }
-.hero .btn {
-  display: inline-block;
-  padding: 0.8em 1.1em;
-  border-radius: 0.6em;
-  border: 0.05em solid rgba(255,255,255,0.2);
-  color: var(--color-bg);
-  background: var(--color-accent);
-  font-weight: bold;
-  text-decoration: none;
-  transition: transform 0.2s ease;
-}
-.hero .btn:hover { transform: translateY(-0.08em); }
 
+/* HERO media */
 .hero-media {
   width: 100%;
   aspect-ratio: 4/3;
@@ -181,7 +158,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 .footer-nav a { font-size: var(--size-footer-text); margin: 0 0.5em; }
 .footer-copy   { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
 
-/* ================= BREAKPOINTS (apenas variáveis em em) ================= */
+/* ================= BREAKPOINTS (variáveis em em) ================= */
 
 /* Desktop Largo ≥1600px (opcional) */
 @media (min-width: 1600px) {
@@ -258,10 +235,9 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .hero { grid-template-columns: 1fr; }
   .hero-media { order: -1; aspect-ratio: 16/9; }
 
-  /* Menu colapsado em tablet/portrait: usa hambúrguer */
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
+  /* MENU SEM HAMBÚRGUER no tablet/portrait */
+  nav { display: block; }
+  .menu-toggle { display: none; }
 }
 
 /* Telemóvel Horizontal 481–600px */
@@ -288,10 +264,10 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
     --gap-menu-x: 0.6em;
   }
   header { padding: 0.6em 0; }
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
-  nav a { display: block; }
+  /* MENU sempre visível */
+  nav { display: block; }
+  .menu-toggle { display: none; }
+  nav a { display: inline-block; }
   .footer-inner { grid-template-columns: 1fr; text-align: center; }
 }
 
@@ -323,10 +299,9 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   .hero-media { aspect-ratio: 1/1; }
   .footer-inner { grid-template-columns: 1fr; gap: 0.5em; text-align: center; }
 
-  /* Menu colapsado em telemóvel */
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
+  /* MENU sempre visível */
+  nav { display: block; }
+  .menu-toggle { display: none; }
 }
 
 /* ================= ORIENTAÇÃO ================= */
@@ -345,7 +320,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 
 .center { display: grid; place-items: center; }
 
-/* Estado de navegação aberta (adicionado via JS) */
+/* Estado de navegação aberta (se voltares a usar hambúrguer) */
 .nav-open header { backdrop-filter: blur(0.25em); }
 
 /* Foco acessível */

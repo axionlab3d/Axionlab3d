@@ -15,11 +15,11 @@
 
   /* TÍTULO E NAV */
   .title-nav h1 {
-    font-size: clamp(5em, calc(3em * var(--scale-hero)), 4.5em); /* título do site */
+    font-size: clamp(7em, calc(3em * var(--scale-hero)), 4.5em); /* título do site */
     letter-spacing: 0.12em;                  /* densidade do título */
   }
   nav a {
-    font-size: clamp(1.2em, calc(1.5em * var(--scale-body)), 1.9em); /* links do menu */
+    font-size: clamp(2em, calc(1.5em * var(--scale-body)), 1.9em); /* links do menu */
     padding: 0.5em 0.6em;                    /* hit-area confortável */
   }
 

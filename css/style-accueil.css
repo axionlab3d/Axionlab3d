@@ -9,8 +9,8 @@
 :root {
   /* Tipografia principal */
   --size-h1: 6em;          /* título do site no header */
-  --size-menu: 3em;        /* tamanho dos links do menu */
-  --gap-menu-x: 0.6em;       /* espaçamento horizontal dentro de cada link do menu */
+  --size-menu: 2,5em;        /* tamanho dos links do menu */
+  --gap-menu-x: 0.4em;       /* espaçamento horizontal dentro de cada link do menu */
 
   /* Hero */
   --size-hero-h2: 3.2em;     /* título do hero */

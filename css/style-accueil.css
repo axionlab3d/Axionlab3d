@@ -188,7 +188,7 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   :root {
     --size-h1: 2em;       /* título mais pequeno */
     --size-menu: 1.1em;   /* menu ajustado */
-    --logo-w: 5.5em;      /* logos menores */
+    --logo-w: 4.5em;      /* logos menores */
   }
   .header-content { gap: 0.35em; }
   header { padding: 0.7em 0; }

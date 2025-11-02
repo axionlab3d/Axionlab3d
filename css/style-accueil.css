@@ -1,27 +1,26 @@
 /* ==========================================================
    ACCUEIL (HOME)
-   Estrutura limpa e fácil de ajustar:
    - Desktop mantém o aspeto atual.
-   - Tablet e Telemóvel ajustam automaticamente tamanhos.
-   - Tamanhos em em para máxima coerência visual.
+   - Tablet e Telemóvel ajustam tamanhos.
+   - SEM hambúrguer: menu por palavras SEMPRE visível.
    ========================================================== */
 
-/* ===== VARIÁVEIS BASE (Desktop padrão ≥901px) ===== */
+/* ===== VARIÁVEIS BASE (Desktop) ===== */
 :root {
   /* Tipografia principal */
-  --size-h1: 6em;         /* título do site no header */
-  --size-menu: 2em;       /* tamanho dos links do menu */
-  --size-hero-h2: 3em;    /* título do hero */
-  --size-hero-p: 1.3em;   /* parágrafo do hero */
-  --size-feature-h3: 1.5em; /* títulos dos destaques */
-  --size-feature-p: 1.1em;  /* texto dos destaques */
+  --size-h1: 6em;            /* título do site no header */
+  --size-menu: 2em;          /* tamanho dos links do menu */
+  --size-hero-h2: 3em;       /* título do hero */
+  --size-hero-p: 1.3em;      /* parágrafo do hero */
+  --size-feature-h3: 1.5em;  /* títulos dos destaques */
+  --size-feature-p: 1.1em;   /* texto dos destaques */
   --size-footer-text: 1.5em; /* texto do rodapé */
 
   /* Layout e espaçamentos */
-  --logo-w: 12em;         /* largura dos logos */
-  --gap: 1em;             /* espaçamento geral */
-  --gap-menu-x: 0.5em;    /* padding horizontal dos links do menu */
-  --max-content: 80em;    /* largura máxima da área central */
+  --logo-w: 12em;            /* largura dos logos */
+  --gap: 1em;                /* espaçamento geral */
+  --gap-menu-x: 0.5em;       /* padding/intervalo horizontal do menu */
+  --max-content: 80em;       /* largura máxima da área central */
 
   /* Grelhas */
   --grid-features: 3;
@@ -29,7 +28,8 @@
 }
 
 /* ===== LAYOUT GLOBAL ===== */
-.accueil {
+/* Aplicar mesmo que o <body> não tenha classe .accueil */
+body, .accueil {
   min-height: 100dvh;
   display: grid;
   grid-template-rows: auto 1fr auto; /* header | main | footer */
@@ -52,13 +52,15 @@ header {
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
     "logoL title logoR"
-    "nav nav nav";
+    "nav   nav   nav";
   gap: 0.5em; /* menor = logos mais perto do título */
 }
 
+/* Mapear as classes do HTML para as áreas do grid (mantendo teu HTML) */
+.left-logo  { grid-area: logoL; }
+.right-logo { grid-area: logoR; }
+
 .logo { width: var(--logo-w); height: auto; margin: 0; }
-.logo-left  { grid-area: logoL; }
-.logo-right { grid-area: logoR; }
 
 .title-nav { grid-area: title; align-self: center; }
 .title-nav h1 {
@@ -68,31 +70,29 @@ header {
   margin: 0;
 }
 
-/* ===== MENU ===== */
-nav { grid-area: nav; margin-top: 0.6em; }
+/* ===== MENU — SEMPRE VISÍVEL ===== */
+/* Mostramos o menu com palavras em todos os tamanhos */
+nav { 
+  grid-area: nav; 
+  margin-top: 0.6em;
+
+  /* linha com wrap: mantém “como PC”, mas quebra para 2 linhas se faltar espaço */
+  display: flex;
+  gap: var(--gap-menu-x);
+  flex-wrap: wrap;
+  justify-content: center;
+}
 nav a {
-  display: inline-block;
   font-size: var(--size-menu);
-  padding: 0.5em var(--gap-menu-x);
+  padding: 0.5em 0.3em;     /* altura e leve respiro lateral */
   color: var(--color-fg);
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
 }
 nav a:hover { color: var(--color-accent); text-decoration: underline; }
-/* link ativo neutro */
+/* link ativo neutro (não amarelo) */
 nav a.active { color: var(--color-fg); }
-
-/* Botão menu (visível só em mobile/tablet) */
-.menu-toggle {
-  display: none;
-  border: 0.05em solid rgba(255,255,255,0.2);
-  background: transparent;
-  color: var(--color-fg);
-  border-radius: 0.5em;
-  padding: 0.5em 0.75em;
-  font-size: 1.1em;
-}
 
 /* ===== MAIN ===== */
 main { padding: 2.5em 1em; }
@@ -107,14 +107,14 @@ main { padding: 2.5em 1em; }
   margin-block: 2.5em;
 }
 .hero h2 { font-size: var(--size-hero-h2); margin: 0 0 0.3em; }
-.hero p {
+.hero p  {
   font-size: var(--size-hero-p);
   max-width: 60ch;
   margin: 0 0 0.9em;
   line-height: 1.6;
   letter-spacing: 0.06em;
 }
-.hero .cta-group { display: none; } /* removido conforme pedido */
+.hero .cta-group { display: none; } /* sem botões, conforme pedido */
 
 .hero-media {
   width: 100%;
@@ -167,56 +167,49 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 .footer-copy { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
 
 /* ==========================================================
-   RESPONSIVIDADE — Ajustes automáticos (não alteram o PC)
+   RESPONSIVIDADE — Ajustes de tamanho (menu SEMPRE visível)
    ========================================================== */
 
 /* Tablet HORIZONTAL (901–1200px) */
 @media (max-width: 1200px) and (min-width: 901px) {
   :root {
-    --size-h1: 4.5em;     /* título menor */
-    --size-menu: 1.4em;   /* menu mais equilibrado */
-    --logo-w: 7em;        /* logos reduzidos */
+    --size-h1: 4.5em;
+    --size-menu: 1.4em;
+    --logo-w: 7em;
   }
   .header-content { gap: 0.4em; }
-  .menu-toggle { display: inline-block; } /* ativa botão de menu */
-  nav { display: none; }
-  .nav-open nav { display: block; }
 }
 
 /* Tablet VERTICAL (601–900px) */
 @media (max-width: 900px) and (min-width: 601px) {
   :root {
-    --size-h1: 3.5em;     /* título menor */
-    --size-menu: 1.4em;   /* menu mais equilibrado */
-    --logo-w: 7em;        /* logos reduzidos */
+    --size-h1: 3.5em;
+    --size-menu: 1.4em;
+    --logo-w: 7em;
   }
   .header-content { gap: 0.4em; }
-  .menu-toggle { display: inline-block; } /* ativa botão de menu */
-  nav { display: none; }
-  .nav-open nav { display: block; }
+  /* Menu pode quebrar para 2 linhas pela wrap (já activado em nav) */
 }
 
 /* Telemóvel (≤600px) */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2em;       /* título mais pequeno */
-    --size-menu: 1.1em;   /* menu ajustado */
-    --logo-w: 4.5em;      /* logos menores */
+    --size-h1: 2em;
+    --size-menu: 1.1em;
+    --logo-w: 4.5em;
   }
   .header-content { gap: 0.35em; }
   header { padding: 0.7em 0; }
-  .menu-toggle { display: inline-block; }
-  nav { display: none; }
-  .nav-open nav { display: block; }
+  /* Menu continua por palavras; se não couber numa linha, quebra */
 }
 
 /* ==========================================================
-   ORIENTAÇÃO — em paisagem, mostrar o menu completo
+   ORIENTAÇÃO — nada a esconder/mostrar: menu já é sempre visível
+   (mantemos wrap; apenas garantimos boa leitura)
    ========================================================== */
-@media (orientation: landscape) and (max-width: 900px) {
-  nav { display: block; }
-  .menu-toggle { display: none; }
-  nav a { display: inline-block; }
+@media (orientation: portrait) and (max-width: 600px) {
+  nav { justify-content: center; }
+  nav a { padding: 0.4em 0.25em; }
 }
 
 /* ==========================================================
@@ -227,50 +220,8 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   outline-offset: 0.1em;
 }
 
-/* Remover linhas e contornos desnecessários */
+/* Limpeza visual (sem linhas) */
 header, footer { border: 0 !important; }
 .hero-media, .feature, .gallery img { border: 0 !important; }
 nav a, nav a:hover { text-decoration: none !important; }
-
-/* ==========================================================
-   FIX FINAL — Mostrar o menu em telemóveis e tablets horizontais
-   ========================================================== */
-
-/* Mostra o menu completo (como no PC) em modo horizontal até 1300px */
-@media (orientation: landscape) and (max-width: 1300px) {
-  header .header-content nav {
-    display: block !important;         /* mostra o menu */
-  }
-
-  header .header-content nav a {
-    display: inline-block !important;  /* coloca os links lado a lado */
-  }
-
-  header .menu-toggle {
-    display: none !important;          /* esconde o botão hambúrguer */
-  }
-}
-
-/* Mantém o comportamento normal (menu escondido) em modo vertical */
-@media (orientation: portrait) and (max-width: 900px) {
-  header .header-content nav {
-    display: none;
-  }
-
-  header .menu-toggle {
-    display: inline-block;
-  }
-
-  body.nav-open header .header-content nav {
-    display: block;
-  }
-/* ——— Mapear as classes do HTML para as áreas do grid ——— */
-.left-logo  { grid-area: logoL; }
-.right-logo { grid-area: logoR; }
-
-/* ——— Mostrar o menu com palavras em horizontal (telef. + tablet) ——— */
-@media (orientation: landscape) and (max-width: 1300px) {
-  .header-content nav { display: block !important; }
-  .header-content nav a { display: inline-block !important; }
-}
 

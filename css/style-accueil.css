@@ -1,52 +1,34 @@
-/* ================= ACCUEIL (HOME) — CONTROLO MESTRE =================
-   Estrutura simplificada: ajusta APENAS variáveis no :root e nos breakpoints.
-   - Um valor global (--scale) aumenta/diminui tudo.
-   - Multiplicadores por secção para ajustes finos (ex.: --m-menu).
-   - Tamanhos em em; grelhas/espaçamentos via variáveis.
+/* ================= ACCUEIL (HOME) — VARIÁVEIS EM EM =================
+   Controla TUDO por variáveis diretas (em) no :root e nos breakpoints.
+   - Sem escalas: cada tamanho é definido explicitamente em em.
+   - Títulos e menu ajustam por dispositivo trocando 2 linhas/variáveis.
    Requer base.css carregado antes.
 ==================================================================== */
 
-/* ===== CONTROLO MESTRE (Desktop por defeito) ===== */
+/* ===== CONTROLO RÁPIDO (Desktop por defeito) ===== */
 :root {
-  /* Escala global (1 = base). Aumenta/diminui e tudo acompanha. */
-  --scale: 1;
+  /* Tipografia principal (em) */
+  --size-h1: 3.5em;          /* título do site (header) */
+  --size-menu: 1.8em;        /* links do menu */
 
-  /* Multiplicadores por secção (1 por defeito) */
-  --m-h1: 1;        /* título do site no header */
-  --m-menu: 1;      /* links do menu */
-  --m-hero-h2: 1;   /* título do hero */
-  --m-hero-p: 1;    /* parágrafo do hero */
-  --m-feat-h3: 1;   /* títulos dos destaques */
-  --m-feat-p: 1;    /* texto dos destaques */
-  --m-footer: 1,5;    /* texto do rodapé */
+  /* Hero (em) */
+  --size-hero-h2: 3em;       /* título do hero */
+  --size-hero-p: 1.3em;      /* parágrafo do hero */
 
-  /* Tamanhos base (raramente precisas mexer) */
-  --base-h1: 7em;
-  --base-menu: 2em;
-  --base-hero-h2: 3em;
-  --base-hero-p: 1.3em;
-  --base-feat-h3: 1.5em;
-  --base-feat-p: 1.1em;
-  --base-footer: 1.3em;
+  /* Destaques / galeria (em) */
+  --size-feature-h3: 1.5em;  /* título dos cartões de destaques */
+  --size-feature-p: 1.1em;   /* texto dos cartões */
+  --size-footer-text: 1em;   /* tamanho do texto do rodapé */
 
-  /* Espaços/larguras base */
-  --logo-w: 12em;          /* largura dos logos */
-  --gap: 1em;            /* gap geral */
-  --gap-menu-x: 0.3em;     /* padding horizontal dos links do menu */
-  --max-content: 80em;     /* largura máxima da coluna central */
+  /* Layout e espaçamentos */
+  --logo-w: 12em;            /* largura dos logos */
+  --gap: 1.2em;              /* gap geral entre colunas/cartões */
+  --gap-menu-x: 0.6em;       /* padding horizontal de cada link do menu */
+  --max-content: 80em;       /* largura máxima da coluna central */
 
-  /* Colunas */
-  --grid-features: 3;      /* nº colunas destaques */
-  --grid-gallery: 4;       /* nº colunas galeria */
-
-  /* ===== Tamanhos calculados (não editar) ===== */
-  --size-h1:           calc(var(--base-h1)      * var(--scale) * var(--m-h1));
-  --size-menu:         calc(var(--base-menu)    * var(--scale) * var(--m-menu));
-  --size-hero-h2:      calc(var(--base-hero-h2) * var(--scale) * var(--m-hero-h2));
-  --size-hero-p:       calc(var(--base-hero-p)  * var(--scale) * var(--m-hero-p));
-  --size-feature-h3:   calc(var(--base-feat-h3) * var(--scale) * var(--m-feat-h3));
-  --size-feature-p:    calc(var(--base-feat-p)  * var(--scale) * var(--m-feat-p));
-  --size-footer-text:  calc(var(--base-footer)  * var(--scale) * var(--m-footer));
+  /* Colunas (não precisam estar em em) */
+  --grid-features: 3;        /* nº de colunas dos destaques (desktop) */
+  --grid-gallery: 4;         /* nº de colunas da galeria (desktop) */
 }
 
 /* ===== LAYOUT GLOBAL ===== */
@@ -74,7 +56,7 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.5em; /* ← aproxima/afasta logos do título */
+  gap: 0.5em; /* menor = logos mais perto do título */
 }
 
 .logo { width: var(--logo-w); height: auto; margin: 0; flex: 0 0 auto; }
@@ -103,9 +85,9 @@ nav a {
 nav a:hover { color: var(--color-accent); text-decoration: underline; }
 nav a.active { color: var(--color-accent); }
 
-/* Botão menu (mostrado nos telemóveis) */
+/* Botão menu (mostrado em tablet/telemóvel) */
 .menu-toggle {
-  display: none;
+  display: none; /* ativamos nos breakpoints */
   border: 0.05em solid rgba(255,255,255,0.2);
   background: transparent;
   color: var(--color-fg);
@@ -199,55 +181,111 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 .footer-nav a { font-size: var(--size-footer-text); margin: 0 0.5em; }
 .footer-copy   { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
 
-/* ================= BREAKPOINTS (apenas variáveis) ================= */
+/* ================= BREAKPOINTS (apenas variáveis em em) ================= */
 
-/* Desktop Largo ≥1600px */
+/* Desktop Largo ≥1600px (opcional) */
 @media (min-width: 1600px) {
   :root {
-    --scale: 1.1;         /* tudo 10% maior */
     --max-content: 90em;
     --logo-w: 13em;
+
+    --size-h1: 3.8em;
+    --size-menu: 1.9em;
+
+    --size-hero-h2: 3.4em;
+    --size-hero-p: 1.35em;
+
+    --size-feature-h3: 1.6em;
+    --size-feature-p: 1.15em;
+
+    --size-footer-text: 1.05em;
+
     --grid-features: 4;
     --grid-gallery: 5;
-    --gap: 1.8em;
-    --gap-menu-x: 1em;
+    --gap: 1.6em;
+    --gap-menu-x: 0.8em;
   }
 }
 
 /* Tablet Horizontal 901–1199px */
 @media (max-width: 1199px) and (min-width: 901px) {
   :root {
-    --scale: 0.95;        /* ligeiro ajuste */
     --max-content: 65em;
     --logo-w: 10em;
-    --gap-menu-x: 0.8em;
+
+    --size-h1: 3em;
+    --size-menu: 1.5em;
+
+    --size-hero-h2: 2.8em;
+    --size-hero-p: 1.25em;
+
+    --size-feature-h3: 1.45em;
+    --size-feature-p: 1.05em;
+
+    --size-footer-text: 1em;
+
+    --grid-features: 3;
+    --grid-gallery: 4;
+
+    --gap: 1.3em;
+    --gap-menu-x: 0.7em;
   }
 }
 
 /* Tablet Vertical 601–900px */
 @media (max-width: 900px) and (min-width: 601px) {
   :root {
-    --scale: 0.7;
     --max-content: 54em;
     --logo-w: 8.75em;
+
+    --size-h1: 2.6em;
+    --size-menu: 1.35em;
+
+    --size-hero-h2: 2.4em;
+    --size-hero-p: 1.2em;
+
+    --size-feature-h3: 1.35em;
+    --size-feature-p: 1.05em;
+
+    --size-footer-text: 0.95em;
+
     --grid-features: 2;
     --grid-gallery: 3;
-    --gap-menu-x: 0.7em;
+
+    --gap: 1.2em;
+    --gap-menu-x: 0.6em;
   }
   .hero { grid-template-columns: 1fr; }
   .hero-media { order: -1; aspect-ratio: 16/9; }
+
+  /* Menu colapsado em tablet/portrait: usa hambúrguer */
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
 }
 
 /* Telemóvel Horizontal 481–600px */
 @media (max-width: 600px) and (min-width: 481px) {
   :root {
-    --scale: 0.6;
     --max-content: 35em;
     --logo-w: 7.5em;
+
+    --size-h1: 2.2em;
+    --size-menu: 1.2em;
+
+    --size-hero-h2: 2.1em;
+    --size-hero-p: 1.1em;
+
+    --size-feature-h3: 1.25em;
+    --size-feature-p: 1.02em;
+
+    --size-footer-text: 0.95em;
+
     --grid-features: 2;
     --grid-gallery: 2;
-    --gap: 1.2em;
-    --gap-menu-x: 0.7em;
+
+    --gap: 1.1em;
+    --gap-menu-x: 0.6em;
   }
   header { padding: 0.6em 0; }
   .menu-toggle { display: inline-block; }
@@ -260,18 +298,35 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 /* Telemóvel Vertical ≤480px */
 @media (max-width: 480px) {
   :root {
-    --scale: 0.5;
     --max-content: 26em;
     --logo-w: 6.25em;
+
+    --size-h1: 1.9em;
+    --size-menu: 1.1em;
+
+    --size-hero-h2: 1.9em;
+    --size-hero-p: 1.05em;
+
+    --size-feature-h3: 1.15em;
+    --size-feature-p: 1em;
+
+    --size-footer-text: 0.9em;
+
     --grid-features: 1;
     --grid-gallery: 2;
+
     --gap: 1em;
-    --gap-menu-x: 0.6em;
+    --gap-menu-x: 0.55em;
   }
   header { padding: 0.5em 0; }
   .hero { grid-template-columns: 1fr; gap: 0.75em; }
   .hero-media { aspect-ratio: 1/1; }
   .footer-inner { grid-template-columns: 1fr; gap: 0.5em; text-align: center; }
+
+  /* Menu colapsado em telemóvel */
+  .menu-toggle { display: inline-block; }
+  nav { display: none; }
+  .nav-open nav { display: block; }
 }
 
 /* ================= ORIENTAÇÃO ================= */
@@ -307,4 +362,3 @@ nav a, nav a:hover { text-decoration: none !important; }
 .features, .gallery, .hero, .main-inner { background-color: var(--color-bg); }
 .hero-media img, .gallery img { display: block; }
 .nav-open header { backdrop-filter: none; }
-

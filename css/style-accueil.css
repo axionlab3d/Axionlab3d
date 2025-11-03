@@ -219,7 +219,7 @@ footer p {
 /* Tablet VERTICAL (601–1000px) */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 2.5em;
+    --size-h1: 3.5em;
     --size-menu: 0.9em;
     --logo-w: 5em;
   }
@@ -229,7 +229,7 @@ footer p {
 /* Telemóvel (≤600px) */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2em;
+    --size-h1: 3em;
     --size-menu: 0.85em;
     --logo-w: 4.5em;
   }

@@ -211,7 +211,7 @@ footer p {
   :root {
     --size-h1: 4em;
     --size-menu: 1em;
-    --logo-w: 7em;
+    --logo-w: 8em;
   }
   .header-content { gap: 0.2em; }
 }
@@ -231,7 +231,7 @@ footer p {
   :root {
     --size-h1: 2em;
     --size-menu: 0.85em;
-    --logo-w: 4.5em;
+    --logo-w: 6em;
   }
 
   header {

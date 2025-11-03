@@ -331,12 +331,14 @@ nav a:hover {
    AJUSTE DO SCROLL: footer mais próximo do conteúdo no mobile
    ========================================================== */
 
-/* Em ecrãs pequenos, NÃO usar grid no body → footer cola-se mais ao conteúdo */
-@media (max-width: 600px) {
-  body {
-    display: block !important;
-    min-height: auto !important;
+
+/* Esconder o logo direito só em ecrãs MUITO pequenos (telemóveis estreitos) */
+@media (max-width: 480px) {
+  .right-logo {
+    display: none !important;
   }
+}
+
 }
 
 

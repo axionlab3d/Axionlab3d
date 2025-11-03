@@ -211,39 +211,31 @@ footer p {
   :root {
     --size-h1: 4em;
     --size-menu: 1em;
+    --logo-w: 7em;
+  }
+  .header-content { gap: 0.2em; }
+}
+
+/* Tablet VERTICAL (601–1000px) */
+@media (max-width: 1000px) and (min-width: 601px) {
+  :root {
+    --size-h1: 2.5em;
+    --size-menu: 0.9em;
     --logo-w: 5em;
   }
   .header-content { gap: 0.2em; }
 }
-
-/* Tablet VERTICAL (701–1000px) */
-@media (max-width: 1000px) and (min-width: 701px) {
-  :root {
-    --size-h1: 3em;
-    --size-menu: 0.9em;
-    --logo-w: 3.5em;
-  }
-  .header-content { gap: 0.2em; }
-}
-
-/* Telemóvel (700-600px) */
-@media (max-width: 700px)  and (min-width: 601px) {
-  :root {
-    --size-h1: 2.5em;
-    --size-menu: 0.85em;
-    --logo-w: 3em;
-  }
 
 /* Telemóvel (≤600px) */
 @media (max-width: 600px) {
   :root {
     --size-h1: 2em;
     --size-menu: 0.85em;
-    --logo-w: 2em;
+    --logo-w: 4.5em;
   }
 
   header {
-    padding: 0.3em 0;
+    padding: 0.5em 0;
   }
 
   .header-content {
@@ -264,7 +256,7 @@ footer p {
   }
 
   .title-nav h1 {
-    line-height: 0.9;
+    line-height: 1.1;
   }
 
   nav {
@@ -331,5 +323,3 @@ html, body {
   height: auto !important;
   display: block !important;
 }
-
-

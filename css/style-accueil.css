@@ -7,37 +7,34 @@
 
 /* ===== VARIÁVEIS BASE (Desktop) ===== */
 :root {
-  /* Tipografia principal */
-  --size-h1: 6em;            /* título do site no header */
-  --size-menu: 2em;          /* tamanho dos links do menu */
-  --size-hero-h2: 3em;       /* título do hero */
-  --size-hero-p: 1.3em;      /* parágrafo do hero */
-  --size-feature-h3: 1.5em;  /* títulos dos destaques */
-  --size-feature-p: 1.1em;   /* texto dos destaques */
-  --size-footer-text: 1.5em; /* texto do rodapé */
+  --size-h1: 6em;
+  --size-menu: 2em;
+  --size-hero-h2: 3em;
+  --size-hero-p: 1.3em;
+  --size-feature-h3: 1.5em;
+  --size-feature-p: 1.1em;
+  --size-footer-text: 1.5em;
 
-  /* Layout e espaçamentos */
-  --logo-w: 12em;            /* largura dos logos */
-  --gap: 1em;                /* espaçamento geral */
-  --gap-menu-x: 0.5em;       /* padding/intervalo horizontal do menu */
-  --max-content: 80em;       /* largura máxima da área central */
+  --logo-w: 12em;
+  --gap: 1em;
+  --gap-menu-x: 0.5em;
+  --max-content: 80em;
 
-  /* Grelhas (se usares hero/galeria/destaques depois) */
   --grid-features: 3;
   --grid-gallery: 4;
 }
 
-/* ===== LAYOUT GLOBAL ===== */
-/* Usado aqui para futuros conteúdos da página Accueil com .accueil */
-body, .accueil {
-  min-height: 100dvh;
-  display: grid;
-  grid-template-rows: auto 1fr auto; /* header | main | footer */
+/* ===== LAYOUT GLOBAL (SEM GRID NO BODY) ===== */
+/* Deixamos o fluxo normal: header -> main -> footer */
+body {
+  margin: 0;
 }
+
+/* Se um dia usares .accueil no <body>, não força grid nem altura fixa */
+.accueil {}
 
 /* ===== HEADER ===== */
 header {
-  /* já NÃO é sticky: rola com a página */
   position: static;
   top: auto;
   z-index: 1000;
@@ -54,10 +51,9 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.5em; /* menor = logos mais perto do título */
+  gap: 0.5em;
 }
 
-/* Mapear as classes do HTML para as áreas do grid */
 .left-logo  { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
@@ -79,12 +75,10 @@ header {
   margin: 0;
 }
 
-/* ===== MENU — SEMPRE VISÍVEL ===== */
+/* ===== MENU ===== */
 nav {
   grid-area: nav;
   margin-top: 0.4em;
-
-  /* linha com wrap: mantém “como PC”, mas quebra para 2 linhas se faltar espaço */
   display: flex;
   gap: var(--gap-menu-x);
   flex-wrap: wrap;
@@ -93,7 +87,7 @@ nav {
 
 nav a {
   font-size: var(--size-menu);
-  padding: 0.5em 0.3em;     /* altura e leve respiro lateral */
+  padding: 0.5em 0.3em;
   color: var(--color-fg);
   text-decoration: none;
   font-weight: bold;
@@ -105,7 +99,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* link ativo neutro (não amarelo) */
 nav a.active {
   color: var(--color-fg);
 }
@@ -120,7 +113,7 @@ main {
   margin: 0 auto;
 }
 
-/* ===== HERO (para futuro, se adicionares) ===== */
+/* ===== HERO (para futuras secções) ===== */
 .hero {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
@@ -134,7 +127,7 @@ main {
   margin: 0 0 0.3em;
 }
 
-.hero p  {
+.hero p {
   font-size: var(--size-hero-p);
   max-width: 60ch;
   margin: 0 0 0.9em;
@@ -142,9 +135,7 @@ main {
   letter-spacing: 0.06em;
 }
 
-.hero .cta-group { 
-  display: none; /* sem botões, conforme pedido */
-}
+.hero .cta-group { display: none; }
 
 .hero-media {
   width: 100%;
@@ -181,7 +172,7 @@ main {
   margin: 0 0 0.5em;
 }
 
-.feature p  {
+.feature p {
   font-size: var(--size-feature-p);
 }
 
@@ -204,28 +195,15 @@ footer {
   border-top: 0.05em solid rgba(255,255,255,0.08);
 }
 
-.footer-inner {
+footer p {
   max-width: var(--max-content);
   margin: 0 auto;
   padding: 1em;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.75em;
-  align-items: center;
-}
-
-.footer-nav a {
   font-size: var(--size-footer-text);
-  margin: 0 0.5em;
-}
-
-.footer-copy {
-  font-size: calc(var(--size-footer-text) * 0.9);
-  opacity: 0.8;
 }
 
 /* ==========================================================
-   RESPONSIVIDADE (menu SEMPRE visível, sem hambúrguer)
+   RESPONSIVIDADE
    ========================================================== */
 
 /* Tablet HORIZONTAL (1000–1200px) */
@@ -260,7 +238,22 @@ footer {
     padding: 0.5em 0;
   }
 
- 
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logoL title logoR"
+      "nav   nav   nav";
+    align-items: center;
+    gap: 0.3em;
+  }
+
+  .left-logo {
+    display: block;
+  }
+
+  .right-logo {
+    display: block;
+  }
 
   .title-nav h1 {
     line-height: 1.1;
@@ -287,10 +280,19 @@ footer {
   .gallery {
     margin-top: 1.4em;
   }
+}
 
-  .footer-inner {
-    padding-top: 0.6em;
-    padding-bottom: 0.8em;
+/* Opcional: esconder só o logo direito em telemóveis MUITO estreitos */
+@media (max-width: 480px) {
+  .header-content {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logoL title"
+      "nav   nav";
+  }
+
+  .right-logo {
+    display: none;
   }
 }
 
@@ -302,46 +304,24 @@ footer {
   outline-offset: 0.1em;
 }
 
-/* Limpeza visual (se quiseres sem linhas fortes) */
 .hero-media,
 .feature,
 .gallery img {
   border: 0;
 }
 
-/* Mantém o menu sem sublinhado por defeito */
 nav a,
 nav a:hover {
   text-decoration: none;
 }
 
 /* ==========================================================
-   AJUSTE DO SCROLL: footer mais próximo do conteúdo no mobile
+   RESET FORTE: garantir que NENHUM CSS força o footer ao fundo
    ========================================================== */
-
-
-/* Esconder o logo direito só em ecrãs MUITO pequenos (telemóveis estreitos) */
-@media (max-width: 480px) {
-  .right-logo {
-    display: none !important;
-  }
-}
-
-}
-
-/* ===== Footer natural em mobile e tablet ===== */
-@media (max-width: 1000px) {
-  body {
-    display: block !important;
-    min-height: auto !important;
-  }
-
-  .accueil {
-    display: block !important;
-    min-height: auto !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
+html, body {
+  min-height: auto !important;
+  height: auto !important;
+  display: block !important;
 }
 
 

@@ -211,23 +211,23 @@ footer p {
   :root {
     --size-h1: 4em;
     --size-menu: 1em;
-    --logo-w: 7em;
-  }
-  .header-content { gap: 0.2em; }
-}
-
-/* Tablet VERTICAL (801–1000px) */
-@media (max-width: 1000px) and (min-width: 801px) {
-  :root {
-    --size-h1: 3.5em;
-    --size-menu: 0.9em;
     --logo-w: 5em;
   }
   .header-content { gap: 0.2em; }
 }
 
-/* Telemóvel (8006600px) */
-@media (max-width: 800px)  and (min-width: 601px) {
+/* Tablet VERTICAL (701–1000px) */
+@media (max-width: 1000px) and (min-width: 701px) {
+  :root {
+    --size-h1: 3.5em;
+    --size-menu: 0.9em;
+    --logo-w: 4em;
+  }
+  .header-content { gap: 0.2em; }
+}
+
+/* Telemóvel (700-600px) */
+@media (max-width: 700px)  and (min-width: 601px) {
   :root {
     --size-h1: 3em;
     --size-menu: 0.85em;

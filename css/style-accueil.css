@@ -216,8 +216,8 @@ footer p {
   .header-content { gap: 0.2em; }
 }
 
-/* Tablet VERTICAL (601–1000px) */
-@media (max-width: 1000px) and (min-width: 601px) {
+/* Tablet VERTICAL (801–1000px) */
+@media (max-width: 1000px) and (min-width: 801px) {
   :root {
     --size-h1: 3.5em;
     --size-menu: 0.9em;
@@ -226,12 +226,20 @@ footer p {
   .header-content { gap: 0.2em; }
 }
 
-/* Telemóvel (≤600px) */
-@media (max-width: 600px) {
+/* Telemóvel (8006600px) */
+@media (max-width: 800px)  and (min-width: 601px) {
   :root {
     --size-h1: 3em;
     --size-menu: 0.85em;
-    --logo-w: 6em;
+    --logo-w: 4.5em;
+  }
+
+/* Telemóvel (≤600px) */
+@media (max-width: 600px) {
+  :root {
+    --size-h1: 2.5em;
+    --size-menu: 0.85em;
+    --logo-w: 4em;
   }
 
   header {

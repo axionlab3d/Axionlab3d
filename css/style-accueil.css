@@ -22,13 +22,13 @@
   --gap-menu-x: 0.5em;       /* padding/intervalo horizontal do menu */
   --max-content: 80em;       /* largura máxima da área central */
 
-  /* Grelhas */
+  /* Grelhas (se usares hero/galeria/destaques depois) */
   --grid-features: 3;
   --grid-gallery: 4;
 }
 
 /* ===== LAYOUT GLOBAL ===== */
-/* Aplicar mesmo que o <body> não tenha classe .accueil */
+/* Usado aqui para futuros conteúdos da página Accueil com .accueil */
 body, .accueil {
   min-height: 100dvh;
   display: grid;
@@ -37,8 +37,9 @@ body, .accueil {
 
 /* ===== HEADER ===== */
 header {
-  position: sticky;
-  top: 0;
+  /* já NÃO é sticky: rola com a página */
+  position: static;
+  top: auto;
   z-index: 1000;
   border-bottom: 0.05em solid rgba(255,255,255,0.08);
   padding: 1.2em 0;
@@ -56,13 +57,21 @@ header {
   gap: 0.5em; /* menor = logos mais perto do título */
 }
 
-/* Mapear as classes do HTML para as áreas do grid (mantendo teu HTML) */
+/* Mapear as classes do HTML para as áreas do grid */
 .left-logo  { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
-.logo { width: var(--logo-w); height: auto; margin: 0; }
+.logo {
+  width: var(--logo-w);
+  height: auto;
+  margin: 0;
+}
 
-.title-nav { grid-area: title; align-self: center; }
+.title-nav {
+  grid-area: title;
+  align-self: center;
+}
+
 .title-nav h1 {
   font-size: var(--size-h1);
   letter-spacing: 0.12em;
@@ -71,9 +80,8 @@ header {
 }
 
 /* ===== MENU — SEMPRE VISÍVEL ===== */
-/* Mostramos o menu com palavras em todos os tamanhos */
-nav { 
-  grid-area: nav; 
+nav {
+  grid-area: nav;
   margin-top: 0.4em;
 
   /* linha com wrap: mantém “como PC”, mas quebra para 2 linhas se faltar espaço */
@@ -82,6 +90,7 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 nav a {
   font-size: var(--size-menu);
   padding: 0.5em 0.3em;     /* altura e leve respiro lateral */
@@ -90,15 +99,28 @@ nav a {
   font-weight: bold;
   transition: 0.2s ease;
 }
-nav a:hover { color: var(--color-accent); text-decoration: underline; }
+
+nav a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
 /* link ativo neutro (não amarelo) */
-nav a.active { color: var(--color-fg); }
+nav a.active {
+  color: var(--color-fg);
+}
 
 /* ===== MAIN ===== */
-main { padding: 2.5em 1em; }
-.main-inner { max-width: var(--max-content); margin: 0 auto; }
+main {
+  padding: 2.5em 1em;
+}
 
-/* ===== HERO ===== */
+.main-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+/* ===== HERO (para futuro, se adicionares) ===== */
 .hero {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
@@ -106,7 +128,12 @@ main { padding: 2.5em 1em; }
   gap: var(--gap);
   margin-block: 2.5em;
 }
-.hero h2 { font-size: var(--size-hero-h2); margin: 0 0 0.3em; }
+
+.hero h2 {
+  font-size: var(--size-hero-h2);
+  margin: 0 0 0.3em;
+}
+
 .hero p  {
   font-size: var(--size-hero-p);
   max-width: 60ch;
@@ -114,7 +141,10 @@ main { padding: 2.5em 1em; }
   line-height: 1.6;
   letter-spacing: 0.06em;
 }
-.hero .cta-group { display: none; } /* sem botões, conforme pedido */
+
+.hero .cta-group { 
+  display: none; /* sem botões, conforme pedido */
+}
 
 .hero-media {
   width: 100%;
@@ -123,8 +153,12 @@ main { padding: 2.5em 1em; }
   overflow: hidden;
   border: 0.05em solid rgba(255,255,255,0.12);
 }
-.hero-media img, .hero-media video {
-  width: 100%; height: 100%; object-fit: cover;
+
+.hero-media img,
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ===== DESTAQUES ===== */
@@ -134,14 +168,22 @@ main { padding: 2.5em 1em; }
   grid-template-columns: repeat(var(--grid-features), 1fr);
   gap: var(--gap);
 }
+
 .feature {
   padding: 1.25em;
   border: 0.05em solid rgba(255,255,255,0.12);
   border-radius: 0.9em;
   background: rgba(255,255,255,0.02);
 }
-.feature h3 { font-size: var(--size-feature-h3); margin: 0 0 0.5em; }
-.feature p  { font-size: var(--size-feature-p); }
+
+.feature h3 {
+  font-size: var(--size-feature-h3);
+  margin: 0 0 0.5em;
+}
+
+.feature p  {
+  font-size: var(--size-feature-p);
+}
 
 /* ===== GALERIA ===== */
 .gallery {
@@ -150,10 +192,18 @@ main { padding: 2.5em 1em; }
   grid-template-columns: repeat(var(--grid-gallery), 1fr);
   gap: 0.8em;
 }
-.gallery img { width: 100%; border-radius: 0.6em; object-fit: cover; }
+
+.gallery img {
+  width: 100%;
+  border-radius: 0.6em;
+  object-fit: cover;
+}
 
 /* ===== FOOTER ===== */
-footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
+footer {
+  border-top: 0.05em solid rgba(255,255,255,0.08);
+}
+
 .footer-inner {
   max-width: var(--max-content);
   margin: 0 auto;
@@ -163,11 +213,19 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   gap: 0.75em;
   align-items: center;
 }
-.footer-nav a { font-size: var(--size-footer-text); margin: 0 0.5em; }
-.footer-copy { font-size: calc(var(--size-footer-text) * 0.9); opacity: 0.8; }
+
+.footer-nav a {
+  font-size: var(--size-footer-text);
+  margin: 0 0.5em;
+}
+
+.footer-copy {
+  font-size: calc(var(--size-footer-text) * 0.9);
+  opacity: 0.8;
+}
 
 /* ==========================================================
-   RESPONSIVIDADE — Ajustes de tamanho (menu SEMPRE visível)
+   RESPONSIVIDADE (menu SEMPRE visível, sem hambúrguer)
    ========================================================== */
 
 /* Tablet HORIZONTAL (1000–1200px) */
@@ -184,32 +242,68 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
     --size-h1: 2.5em;
-    --size-menu: 0.8em;
+    --size-menu: 0.9em;
     --logo-w: 5em;
   }
   .header-content { gap: 0.2em; }
-  /* Menu pode quebrar para 2 linhas pela wrap (já activado em nav) */
 }
 
 /* Telemóvel (≤600px) */
 @media (max-width: 600px) {
   :root {
     --size-h1: 2em;
-    --size-menu: 0.8em;
+    --size-menu: 0.85em;
     --logo-w: 4.5em;
   }
-  .header-content { gap: 0.2em; }
-  header { padding: 0.3em 0; }
-  /* Menu continua por palavras; se não couber numa linha, quebra */
-}
 
-/* ==========================================================
-   ORIENTAÇÃO — nada a esconder/mostrar: menu já é sempre visível
-   (mantemos wrap; apenas garantimos boa leitura)
-   ========================================================== */
-@media (orientation: portrait) and (max-width: 600px) {
-  nav { justify-content: center; }
-  nav a { padding: 0.4em 0.25em; }
+  header {
+    padding: 0.5em 0;
+  }
+
+  /* Simplificar o header: esconder logo direito e reorganizar */
+  .header-content {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logoL title"
+      "nav   nav";
+    align-items: center;
+    gap: 0.3em;
+  }
+
+  .right-logo {
+    display: none;
+  }
+
+  .title-nav h1 {
+    line-height: 1.1;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 0.4em 0.25em;
+  }
+
+  main {
+    padding: 1.8em 1em 1.2em;
+  }
+
+  .hero {
+    margin-block: 1.4em 0.8em;
+    grid-template-columns: 1fr;
+  }
+
+  .features,
+  .gallery {
+    margin-top: 1.4em;
+  }
+
+  .footer-inner {
+    padding-top: 0.6em;
+    padding-bottom: 0.8em;
+  }
 }
 
 /* ==========================================================
@@ -220,112 +314,29 @@ footer { border-top: 0.05em solid rgba(255,255,255,0.08); }
   outline-offset: 0.1em;
 }
 
-/* Limpeza visual (sem linhas) */
-header, footer { border: 0 !important; }
-.hero-media, .feature, .gallery img { border: 0 !important; }
-nav a, nav a:hover { text-decoration: none !important; }
-
-/* ==== ROLAGEM DE PÁGINA INTEIRA (sem header preso) ==== */
-header {
-  position: static !important;  /* deixa o header rolar com a página */
-  top: auto !important;
+/* Limpeza visual (se quiseres sem linhas fortes) */
+.hero-media,
+.feature,
+.gallery img {
+  border: 0;
 }
 
-/* (opcional) garante que não há área interna “aprisionada” */
-html, body { height: auto; overflow: auto; }
-
-/* =============== FULL-PAGE SCROLL (restaurar rolagem total) =============== */
-/* 1) Garantir que header/footer não ficam presos */
-header, footer {
-  position: static !important;   /* nada de sticky/fixed */
-  top: auto !important;
+/* Mantém o menu sem sublinhado por defeito */
+nav a,
+nav a:hover {
+  text-decoration: none;
 }
 
-/* 2) Evitar “scroll interno” no <main> ou no wrapper */
-main {
-  overflow: visible !important;
-}
+/* ==========================================================
+   AJUSTE DO SCROLL: footer mais próximo do conteúdo no mobile
+   ========================================================== */
 
-/* 3) Evitar wrappers com altura fixa que criam scroll interno */
-html, body {
-  height: auto !important;
-  overflow: auto !important;
-}
-
-/* 4) Se o wrapper .accueil estiver a forçar grelha com altura de viewport,
-      libertamos em ecrãs pequenos para rolar tudo junto (sem mexer no desktop) */
-@media (max-width: 1000px) {
-  .accueil {
+/* Em ecrãs pequenos, NÃO usar grid no body → footer cola-se mais ao conteúdo */
+@media (max-width: 600px) {
+  body {
+    display: block !important;
     min-height: auto !important;
-    height: auto !important;
-    overflow: visible !important;
   }
-
-   /* ===== Aproximar o rodapé do conteúdo (tablet + telemóvel) ===== */
-
-/* Tablet (retratro e horizontal) */
-@media (max-width: 1000px) and (min-width: 601px) {
-  /* menos almofada no fundo do main */
-  main { padding-bottom: 1em !important; }
-
-  /* elimina “buraco” do último bloco dentro da coluna central */
-  .main-inner > *:last-child { margin-bottom: 0.5em !important; }
-
-  /* secções que normalmente têm margem extra */
-  .features, .gallery { margin-bottom: 0 !important; }
-
-  /* rodapé com menos top-padding */
-  .footer-inner { padding-top: 0.6em !important; }
-}
-
-/* Telemóvel (≤600px) */
-@media (max-width: 600px) {
-  main { padding-bottom: 0.6em !important; }
-  .main-inner > *:last-child { margin-bottom: 0.2em !important; }
-  .features, .gallery { margin-bottom: 0 !important; }
-  .footer-inner { padding-top: 0.5em !important; }
-}
-
-   /* garante que NADA depois do último elemento do main cria espaço */
-.main-inner { padding-bottom: 0 !important; }
-.main-inner :where(h1,h2,h3,p,section,div,ul,ol,figure,article):last-child {
-  margin-bottom: 0 !important;
-}
-/* ===== Aproximar o rodapé do conteúdo em tablet e telemóvel ===== */
-
-/* Tablet (601–900px) */
-@media (max-width: 1000px) and (min-width: 601px) {
-  /* corta almofada do main */
-  body.accueil main,
-  main { padding-bottom: 0.4em !important; }
-
-  /* reduz margem do hero no fundo */
-  .hero { margin-block: 1.2em 0.4em !important; }
-
-  /* secções comuns: não deixam “rabo” de margem */
-  .features, .gallery { margin-bottom: 0 !important; }
-
-  /* o ÚLTIMO elemento dentro do main não pode empurrar o footer */
-  body.accueil main > *:last-child,
-  main > *:last-child { margin-bottom: 0 !important; }
-
-  /* rodapé com menos respiro por cima */
-  .footer-inner { padding-top: 0.6em !important; }
-}
-
-/* Telemóvel (≤600px) */
-@media (max-width: 600px) {
-  body.accueil main,
-  main { padding-bottom: 0.3em !important; }
-
-  .hero { margin-block: 1em 0.2em !important; }
-
-  .features, .gallery { margin-top: 1em !important; margin-bottom: 0 !important; }
-
-  body.accueil main > *:last-child,
-  main > *:last-child { margin-bottom: 0 !important; }
-
-  .footer-inner { padding-top: 0.4em !important; }
 }
 
 

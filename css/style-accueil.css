@@ -260,15 +260,7 @@ footer {
     padding: 0.5em 0;
   }
 
-  /* Simplificar o header: esconder logo direito e reorganizar */
-  .header-content {
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      "logoL title"
-      "nav   nav";
-    align-items: center;
-    gap: 0.3em;
-  }
+ 
 
   .title-nav h1 {
     line-height: 1.1;

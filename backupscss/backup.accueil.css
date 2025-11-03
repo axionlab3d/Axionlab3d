@@ -1,32 +1,345 @@
-@import url('base.css');
+/* ==========================================================
+   ACCUEIL (HOME)
+   - Desktop mantém o aspeto atual.
+   - Tablet e Telemóvel ajustam tamanhos.
+   - SEM hambúrguer: menu por palavras SEMPRE visível.
+   ========================================================== */
 
-/* ===== especifico accueil ===== */
-.page-accueil .title-nav h1 { font-size: 3em; }
-.page-accueil .logo { width: 180px; }
+/* ===== VARIÁVEIS BASE (Desktop) ===== */
+:root {
+  /* Tipografia principal */
+  --size-h1: 6em;            /* título do site no header */
+  --size-menu: 2em;          /* tamanho dos links do menu */
+  --size-hero-h2: 3em;       /* título do hero */
+  --size-hero-p: 1.3em;      /* parágrafo do hero */
+  --size-feature-h3: 1.5em;  /* títulos dos destaques */
+  --size-feature-p: 1.1em;   /* texto dos destaques */
+  --size-footer-text: 1.5em; /* texto do rodapé */
 
-/* ===== responsividade: mobile, tablet, desktop ===== */
+  /* Layout e espaçamentos */
+  --logo-w: 12em;            /* largura dos logos */
+  --gap: 1em;                /* espaçamento geral */
+  --gap-menu-x: 0.5em;       /* padding/intervalo horizontal do menu */
+  --max-content: 80em;       /* largura máxima da área central */
 
-/* 📱 mobile retrato (≤600px) */
-@media (max-width: 600px) and (orientation: portrait) {
-  .page-accueil .logo { width: 60px; margin: 0 5px; }
-  .page-accueil .title-nav h1 { font-size: 1.6em; }
-  .page-accueil nav a { font-size: 1em; margin: 4px 6px; }
-  .page-accueil main h2 { font-size: 1.6em; }
-  .page-accueil main p  { font-size: 1em; }
+  /* Grelhas (se usares hero/galeria/destaques depois) */
+  --grid-features: 3;
+  --grid-gallery: 4;
 }
 
-/* 📱 mobile horizontal (≤900px) */
-@media (max-width: 900px) and (orientation: landscape) {
-  .page-accueil .logo { width: 100px; margin: 0 4px; }
-  .page-accueil .title-nav h1 { font-size: 2em; }
-  .page-accueil nav a { font-size: 0.95em; margin: 3px 4px; }
-  .page-accueil main h2 { font-size: 1.4em; }
-  .page-accueil main p  { font-size: 0.95em; }
+/* ===== LAYOUT GLOBAL ===== */
+/* Usado aqui para futuros conteúdos da página Accueil com .accueil */
+body, .accueil {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header | main | footer */
 }
 
-/* 💻 tablet (601–1200px) */
-@media (min-width: 601px) and (max-width: 1200px) {
-  .page-accueil .logo { width: 140px; }
-  .page-accueil .title-nav h1 { font-size: 2.4em; }
-  .page-accueil nav a { font-size: 1.4em; }
+/* ===== HEADER ===== */
+header {
+  /* já NÃO é sticky: rola com a página */
+  position: static;
+  top: auto;
+  z-index: 1000;
+  border-bottom: 0.05em solid rgba(255,255,255,0.08);
+  padding: 1.2em 0;
+}
+
+.header-content {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 1em;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "logoL title logoR"
+    "nav   nav   nav";
+  gap: 0.5em; /* menor = logos mais perto do título */
+}
+
+/* Mapear as classes do HTML para as áreas do grid */
+.left-logo  { grid-area: logoL; }
+.right-logo { grid-area: logoR; }
+
+.logo {
+  width: var(--logo-w);
+  height: auto;
+  margin: 0;
+}
+
+.title-nav {
+  grid-area: title;
+  align-self: center;
+}
+
+.title-nav h1 {
+  font-size: var(--size-h1);
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* ===== MENU — SEMPRE VISÍVEL ===== */
+nav {
+  grid-area: nav;
+  margin-top: 0.4em;
+
+  /* linha com wrap: mantém “como PC”, mas quebra para 2 linhas se faltar espaço */
+  display: flex;
+  gap: var(--gap-menu-x);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  font-size: var(--size-menu);
+  padding: 0.5em 0.3em;     /* altura e leve respiro lateral */
+  color: var(--color-fg);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* link ativo neutro (não amarelo) */
+nav a.active {
+  color: var(--color-fg);
+}
+
+/* ===== MAIN ===== */
+main {
+  padding: 2.5em 1em;
+}
+
+.main-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+/* ===== HERO (para futuro, se adicionares) ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+  gap: var(--gap);
+  margin-block: 2.5em;
+}
+
+.hero h2 {
+  font-size: var(--size-hero-h2);
+  margin: 0 0 0.3em;
+}
+
+.hero p  {
+  font-size: var(--size-hero-p);
+  max-width: 60ch;
+  margin: 0 0 0.9em;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+
+.hero .cta-group { 
+  display: none; /* sem botões, conforme pedido */
+}
+
+.hero-media {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 0.9em;
+  overflow: hidden;
+  border: 0.05em solid rgba(255,255,255,0.12);
+}
+
+.hero-media img,
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== DESTAQUES ===== */
+.features {
+  margin-top: 2.5em;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-features), 1fr);
+  gap: var(--gap);
+}
+
+.feature {
+  padding: 1.25em;
+  border: 0.05em solid rgba(255,255,255,0.12);
+  border-radius: 0.9em;
+  background: rgba(255,255,255,0.02);
+}
+
+.feature h3 {
+  font-size: var(--size-feature-h3);
+  margin: 0 0 0.5em;
+}
+
+.feature p  {
+  font-size: var(--size-feature-p);
+}
+
+/* ===== GALERIA ===== */
+.gallery {
+  margin-top: 2.5em;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-gallery), 1fr);
+  gap: 0.8em;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 0.6em;
+  object-fit: cover;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  border-top: 0.05em solid rgba(255,255,255,0.08);
+}
+
+.footer-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75em;
+  align-items: center;
+}
+
+.footer-nav a {
+  font-size: var(--size-footer-text);
+  margin: 0 0.5em;
+}
+
+.footer-copy {
+  font-size: calc(var(--size-footer-text) * 0.9);
+  opacity: 0.8;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE (menu SEMPRE visível, sem hambúrguer)
+   ========================================================== */
+
+/* Tablet HORIZONTAL (1000–1200px) */
+@media (max-width: 1200px) and (min-width: 1000px) {
+  :root {
+    --size-h1: 4em;
+    --size-menu: 1em;
+    --logo-w: 7em;
+  }
+  .header-content { gap: 0.2em; }
+}
+
+/* Tablet VERTICAL (601–1000px) */
+@media (max-width: 1000px) and (min-width: 601px) {
+  :root {
+    --size-h1: 2.5em;
+    --size-menu: 0.9em;
+    --logo-w: 5em;
+  }
+  .header-content { gap: 0.2em; }
+}
+
+/* Telemóvel (≤600px) */
+@media (max-width: 600px) {
+  :root {
+    --size-h1: 2em;
+    --size-menu: 0.85em;
+    --logo-w: 4.5em;
+  }
+
+  header {
+    padding: 0.5em 0;
+  }
+
+ 
+
+  .title-nav h1 {
+    line-height: 1.1;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 0.4em 0.25em;
+  }
+
+  main {
+    padding: 1.8em 1em 1.2em;
+  }
+
+  .hero {
+    margin-block: 1.4em 0.8em;
+    grid-template-columns: 1fr;
+  }
+
+  .features,
+  .gallery {
+    margin-top: 1.4em;
+  }
+
+  .footer-inner {
+    padding-top: 0.6em;
+    padding-bottom: 0.8em;
+  }
+}
+
+/* ==========================================================
+   DETALHES VISUAIS / ACESSIBILIDADE
+   ========================================================== */
+:where(a, button, .btn):focus-visible {
+  outline: 0.1em dashed var(--color-accent);
+  outline-offset: 0.1em;
+}
+
+/* Limpeza visual (se quiseres sem linhas fortes) */
+.hero-media,
+.feature,
+.gallery img {
+  border: 0;
+}
+
+/* Mantém o menu sem sublinhado por defeito */
+nav a,
+nav a:hover {
+  text-decoration: none;
+}
+
+/* ==========================================================
+   AJUSTE DO SCROLL: footer mais próximo do conteúdo no mobile
+   ========================================================== */
+
+
+/* Esconder o logo direito só em ecrãs MUITO pequenos (telemóveis estreitos) */
+@media (max-width: 480px) {
+  .right-logo {
+    display: none !important;
+  }
+}
+
+}
+
+/* ===== Footer natural em mobile e tablet ===== */
+@media (max-width: 1000px) {
+  body {
+    display: block !important;
+    min-height: auto !important;
+  }
+
+  .accueil {
+    display: block !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
 }

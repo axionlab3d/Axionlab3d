@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Axion Lab 3D</title>
 
+  <!-- FAVICON igual às outras páginas -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
 
-  <!-- CSS do site -->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style-apropos.css">
-
-  
-  <!-- Google Fonts: Italianno -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style-apropos.css">
 </head>
-<body class="page-bio">
+
+<body class="apropos-page">
 
   <!-- ====== HEADER ====== -->
   <header>
@@ -23,30 +22,25 @@
       <!-- Logo esquerdo -->
       <img src="images/logo.jpg" alt="Logo gauche" class="logo left-logo">
 
-      <!-- Título -->
+      <!-- Título + Menu (IGUAL À ACCUEIL, só muda o active) -->
       <div class="title-nav">
-       <h1 class="apropos-title">Axion Lab 3D</h1>
+        <h1>Axion Lab 3D</h1>
+        <nav>
+          <a href="accueil.html">Accueil</a>
+          <a href="apropos.html" class="active">À propos</a>
+          <a href="contacts.html">Contacts</a>
+        </nav>
       </div>
 
       <!-- Logo direito -->
       <img src="images/logo.jpg" alt="Logo droite" class="logo right-logo">
     </div>
-
-    <!-- MENU -->
-    <nav>
-    
-  <a href="accueil.html">Accueil</a>
-  <a href="apropos.html">À propos</a>
-  <a href="contacts.html">Contacts</a>
-</nav>
-
   </header>
 
   <!-- ====== MAIN ====== -->
   <main>
     <section class="bio">
       <h2>À propos de nous</h2>
-      
       <p class="italianno-regular">
         Bien que notre projet d'impression 3D soit encore petit, il est animé par une grande ambition : 
         offrir des créations uniques et de qualité supérieure tout en plaçant le client au centre de chaque décision. 
@@ -61,7 +55,7 @@
 
   <!-- ====== FOOTER ====== -->
   <footer>
-    <p>© 2025 Axion Lab 3D</p>
+    <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
   </footer>
 
 </body>

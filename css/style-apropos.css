@@ -16,7 +16,7 @@
   --size-h1: 6em;      /* Título "Axion Lab 3D" no header (igual à accueil) */
   --size-menu: 2em;    /* Tamanho do texto do menu */
   --size-h2: 3em;      /* Título principal da página (À propos de nous) */
-  --size-p: 1.3em;     /* Parágrafos */
+  --size-p: 2em;     /* Parágrafos */
 
   /* ===== LOGOS / HEADER ===== */
   --logo-w: 12em;            /* Largura dos logos esquerdo/direito */

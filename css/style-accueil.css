@@ -323,3 +323,14 @@ html, body {
   height: auto !important;
   display: block !important;
 }
+/* Ajuste do menu para 4 palavras em telemóveis na vertical */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.15em !important;          /* aproxima as palavras */
+  }
+
+  header .header-content nav a {
+    padding: 0.25em 0.18em !important; /* menos espaço lateral */
+    font-size: 0.85em !important;      /* ligeiramente menor */
+  }
+}

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style-produits.css">
 
-  <!-- (Opcional) Fonte Italianno se quiseres usar em algum título -->
+  <!-- Fonte (se quiseres usar Italianno em algum título) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 
 <body class="page-produits">
 
-  <!-- ===== HEADER (igual às outras páginas) ===== -->
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="header-content">
       <!-- Logo esquerdo -->
@@ -32,8 +32,8 @@
         <h1>Axion Lab 3D</h1>
         <nav>
           <a href="accueil.html">Accueil</a>
-          <a href="produits.html" class="active">Produits</a>
           <a href="apropos.html">À propos</a>
+          <a href="produits.html" class="active">Produits</a>
           <a href="contacts.html">Contacts</a>
         </nav>
       </div>
@@ -49,7 +49,7 @@
       <h2>Nos produits</h2>
       <p>
         Découvrez nos créations personnalisées, adaptées à vos besoins : cadeaux uniques, solutions industrielles,
-        pièces pour l’automobile et bien plus encore.
+        pièces pour l’automobile et projets sur mesure.
       </p>
 
       <!-- MENU DE CATEGORIAS DENTRO DA PÁGINA -->
@@ -65,30 +65,10 @@
     <section id="cadeaux" class="products-section">
       <h3>Cadeaux</h3>
       <p class="section-desc">
-        Objets personnalisés pour offrir à ceux que vous aimez : décorations, accessoires, pièces uniques.
+        Objets personnalisés pour offrir : porte-clés, décorations, accessoires et petites attentions uniques.
       </p>
-
-      <div class="products-grid">
-        <!-- BLOCOS DE PRODUTO – COPIA E COLA PARA ADICIONAR MAIS -->
-        <article class="product-card">
-          <figure>
-            <img src="images/produits/cadeau1.jpg" alt="Titre du produit 1">
-            <figcaption>
-              <h4>Titre du produit 1</h4>
-              <p>Brève description du cadeau, matériau, couleur ou usage principal.</p>
-            </figcaption>
-          </figure>
-        </article>
-
-        <article class="product-card">
-          <figure>
-            <img src="images/produits/cadeau2.jpg" alt="Titre du produit 2">
-            <figcaption>
-              <h4>Titre du produit 2</h4>
-              <p>Description courte: pièce décorative, personnalisable avec nom ou message.</p>
-            </figcaption>
-          </figure>
-        </article>
+      <div class="products-grid" id="grid-cadeaux">
+        <!-- Produtos de "cadeaux" vão ser injetados aqui via JS -->
       </div>
     </section>
 
@@ -96,19 +76,10 @@
     <section id="industrie" class="products-section">
       <h3>Industrie</h3>
       <p class="section-desc">
-        Pièces fonctionnelles, prototypage et solutions techniques pour projets industriels.
+        Pièces fonctionnelles, prototypage rapide et solutions adaptées aux besoins techniques.
       </p>
-
-      <div class="products-grid">
-        <article class="product-card">
-          <figure>
-            <img src="images/produits/industrie1.jpg" alt="Pièce industrielle 1">
-            <figcaption>
-              <h4>Pièce industrielle 1</h4>
-              <p>Composant technique conçu pour la précision et la résistance.</p>
-            </figcaption>
-          </figure>
-        </article>
+      <div class="products-grid" id="grid-industrie">
+        <!-- Produtos de "industrie" vão ser injetados aqui via JS -->
       </div>
     </section>
 
@@ -116,19 +87,10 @@
     <section id="voitures" class="products-section">
       <h3>Voitures</h3>
       <p class="section-desc">
-        Pièces et accessoires pour l’automobile : esthétiques, fonctionnels ou sur mesure.
+        Accessoires et pièces pour l’automobile : esthétiques, pratiques ou sur mesure.
       </p>
-
-      <div class="products-grid">
-        <article class="product-card">
-          <figure>
-            <img src="images/produits/voiture1.jpg" alt="Accessoire voiture 1">
-            <figcaption>
-              <h4>Accessoire voiture 1</h4>
-              <p>Pièce personnalisée pour l’intérieur ou l’extérieur du véhicule.</p>
-            </figcaption>
-          </figure>
-        </article>
+      <div class="products-grid" id="grid-voitures">
+        <!-- Produtos de "voitures" vão ser injetados aqui via JS -->
       </div>
     </section>
 
@@ -136,19 +98,10 @@
     <section id="autres" class="products-section">
       <h3>Autres projets</h3>
       <p class="section-desc">
-        Objets spéciaux, événements, mariages, décorations et projets sur mesure.
+        Décorations, événements, mariages et tout projet spécial qui mérite une touche unique.
       </p>
-
-      <div class="products-grid">
-        <article class="product-card">
-          <figure>
-            <img src="images/produits/autre1.jpg" alt="Projet spécial 1">
-            <figcaption>
-              <h4>Projet spécial 1</h4>
-              <p>Création sur mesure réalisée en collaboration avec le client.</p>
-            </figcaption>
-          </figure>
-        </article>
+      <div class="products-grid" id="grid-autres">
+        <!-- Produtos de "autres" vão ser injetados aqui via JS -->
       </div>
     </section>
   </main>
@@ -157,6 +110,51 @@
   <footer>
     <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
   </footer>
+
+  <!-- ===== SCRIPT PARA CARREGAR OS PRODUTOS DO JSON ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mapeia categoria -> id da grelha
+      const grids = {
+        cadeaux: document.getElementById('grid-cadeaux'),
+        industrie: document.getElementById('grid-industrie'),
+        voitures: document.getElementById('grid-voitures'),
+        autres: document.getElementById('grid-autres')
+      };
+
+      fetch('produits.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erreur lors du chargement de produits.json');
+          }
+          return response.json();
+        })
+        .then(produits => {
+          produits.forEach(p => {
+            const grid = grids[p.categorie];
+            if (!grid) return; // categoria desconhecida → ignora
+
+            const article = document.createElement('article');
+            article.className = 'product-card';
+
+            article.innerHTML = `
+              <figure>
+                <img src="${p.image}" alt="${p.titre}">
+                <figcaption>
+                  <h4>${p.titre}</h4>
+                  <p>${p.description}</p>
+                </figcaption>
+              </figure>
+            `;
+
+            grid.appendChild(article);
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    });
+  </script>
 
 </body>
 </html>

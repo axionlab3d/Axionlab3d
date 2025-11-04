@@ -144,10 +144,11 @@ main p {
   font-size: var(--size-p);
   line-height: 1.6;
   letter-spacing: 0.05em;
-  margin: 0 0 1em;
-  max-width: none;         /* ocupa a largura do bloco central */
-  text-align: left;
+  margin: 0 auto 1em;   /* auto nas margens laterais centra o bloco */
+  max-width: 70ch;      /* limita ligeiramente a largura para leitura confortável */
+  text-align: justify;  /* alinha o texto nas duas margens */
 }
+
 
 /* Se tiveres listas, mantêm estilo consistente */
 main ul,

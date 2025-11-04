@@ -334,3 +334,18 @@ html, body {
     font-size: 0.85em !important;      /* ligeiramente menor */
   }
 
+   /* ===== CORREÇÃO DO MENU EM TELEMÓVEIS (4 palavras alinhadas) ===== */
+@media (max-width: 600px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.15em !important;            /* reduz espaço entre palavras */
+    justify-content: center !important;
+    flex-wrap: nowrap !important;      /* impede quebra de linha */
+  }
+
+  header .header-content nav a {
+    padding: 0.25em 0.18em !important; /* reduz margem lateral */
+    font-size: 0.85em !important;      /* ligeiramente menor */
+    letter-spacing: 0 !important;      /* texto mais compacto */
+  }
+
+

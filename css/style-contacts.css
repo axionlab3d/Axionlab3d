@@ -10,8 +10,8 @@
   --size-h1: 6em;            /* título "Axion Lab 3D" */
   --size-menu: 2em;          /* tamanho dos links do menu */
   --size-h2: 3em;            /* título "Suivez-nous..." */
-  --size-p: 1.3em;           /* texto dos parágrafos */
-  --size-icon: 2em;        /* tamanho dos ícones de contacto */
+  --size-p:2em;           /* texto dos parágrafos */
+  --size-icon: 3em;        /* tamanho dos ícones de contacto */
 
   --logo-w: 12em;
   --header-padding-y: 1.2em;

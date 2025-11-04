@@ -7,7 +7,8 @@
    ========================================================== */
 
 /* ==========================================================
-   🔧 VARIÁVEIS GERAIS  (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
+   🔧 VARIÁVEIS GERAIS
+   (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
    ========================================================== */
 
 :root {
@@ -20,7 +21,7 @@
   /* ===== LOGOS / HEADER ===== */
   --logo-w: 12em;            /* Largura dos logos esquerdo/direito */
   --header-padding-y: 1.2em; /* Espaço vertical do header */
-  --nav-gap-top: 0.15em;     /* Distância entre o título e o menu (igual às outras) */
+  --nav-gap-top: 0.15em;     /* Distância entre o título e o menu */
 
   /* ===== LAYOUT ===== */
   --max-content: 80em;       /* Largura máx. da área central */
@@ -85,7 +86,7 @@ header {
   font-size: var(--size-h1);
   letter-spacing: 0.1em;
   line-height: 1.1;
-  margin: 0; /* garante que não há espaço extra por baixo/en cima */
+  margin: 0;
 }
 
 /* ===== MENU (sempre visível, sem hambúrguer) ===== */
@@ -133,6 +134,8 @@ main {
   text-align: center;
 }
 
+/* Parágrafo principal da bio
+   → volta a usar a fonte Italianno como tinhas antes */
 .bio p {
   font-size: var(--size-p);
   line-height: 1.6;
@@ -140,7 +143,12 @@ main {
   margin: 0 auto 1em;
   max-width: 100ch;
   text-align: justify;
+
+  font-family: "Italianno", cursive;  /* força a usar a Italianno */
 }
+
+/* Se quiseres aplicar só quando tiver a classe, também podes:
+   .bio p.italianno-regular { ... } */
 
 /* ==========================================================
    FOOTER
@@ -227,8 +235,4 @@ footer {
 nav a,
 nav a:hover {
   text-decoration: none;
-}
-.italianno-regular {
-  font-family: var(--font-main, sans-serif) !important; /* força a fonte principal */
-  font-style: normal !important;
 }

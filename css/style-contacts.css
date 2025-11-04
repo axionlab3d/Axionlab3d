@@ -67,7 +67,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5em;
+  gap: 0.2em;
 }
 
 nav a {

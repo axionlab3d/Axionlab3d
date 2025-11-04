@@ -335,9 +335,9 @@ html, body {
   }
 
    /* ===== CORREÇÃO DO MENU EM TELEMÓVEIS (4 palavras alinhadas) ===== */
-@media (max-width: 600px) and (orientation: portrait) {
+@media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
-    gap: 0.15em !important;            /* reduz espaço entre palavras */
+    gap: 0.1em !important;            /* reduz espaço entre palavras */
     justify-content: center !important;
     flex-wrap: nowrap !important;      /* impede quebra de linha */
   }

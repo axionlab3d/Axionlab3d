@@ -1,57 +1,186 @@
-@import url('base.css');
+/* ==========================================================
+   PAGE : CONTACTS
+   - Igual à ACCUEIL.
+   - Ícones clicáveis (sem texto).
+   - Logo direito escondido no mobile vertical.
+   ========================================================== */
 
-/* ===== especifico contacts ===== */
-.page-contacts .title-nav h1 { font-size: 5em; } /* como no teu estilo atual */
+/* ===== VARIÁVEIS ===== */
+:root {
+  --size-h1: 6em;            /* título "Axion Lab 3D" */
+  --size-menu: 2em;          /* tamanho dos links do menu */
+  --size-h2: 3em;            /* título "Suivez-nous..." */
+  --size-p:2em;           /* texto dos parágrafos */
+  --size-icon: 4em;        /* tamanho dos ícones de contacto */
 
-.social-icons {
-  margin-top: 1em;
+  --logo-w: 12em;
+  --header-padding-y: 1.2em;
+  --nav-gap-top: 0.15em;
+  --gap: 1em;
+  --max-content: 80em;
+
+  --color-border-soft: rgba(255,255,255,0.08);
+}
+
+/* ===== HEADER ===== */
+header {
+  position: static;
+  border-bottom: 0.05em solid var(--color-border-soft);
+  padding: var(--header-padding-y) 0;
+}
+
+.header-content {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 1em;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "logoL title logoR"
+    "nav   nav   nav";
+  gap: 0.5em;
+}
+
+.left-logo { grid-area: logoL; }
+.right-logo { grid-area: logoR; }
+
+.logo {
+  width: var(--logo-w);
+  height: auto;
+  margin: 0;
+}
+
+.title-nav {
+  grid-area: title;
+  align-self: center;
+}
+
+.title-nav h1 {
+  font-size: var(--size-h1);
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+nav {
+  grid-area: nav;
+  margin-top: var(--nav-gap-top);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+nav a {
+  font-size: var(--size-menu);
+  color: var(--color-fg);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+nav a.active {
+  color: var(--color-fg);
+}
+
+/* ===== MAIN ===== */
+main {
+  padding: 2.5em 1em;
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+main h2 {
+  font-size: var(--size-h2);
+  text-align: center;
+  margin-bottom: 0.6em;
+}
+
+main p {
+  font-size: var(--size-p);
+  text-align: justify;
+  line-height: 1.6;
+  margin: 0 auto 1.5em;
+  max-width: 80ch;
+}
+
+/* ===== ÍCONES DE CONTACTO ===== */
+.contacts-icons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 1.5em;
 }
 
-.social-icons a { margin: 0 10px; }
-
-.social-icons img {
-  width: 80px;               /* desktop default */
-  height: auto;
-  transition: transform 0.3s;
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
-.social-icons img:hover { transform: scale(1.2); }
 
-/* ===== responsividade ===== */
+.contact-link:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
 
-/* 📱 mobile retrato (≤600px) */
+.contact-icon {
+  width: var(--size-icon);
+  height: var(--size-icon);
+  object-fit: contain;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  border-top: 0.05em solid var(--color-border-soft);
+  padding: 1em;
+  text-align: center;
+  font-size: calc(var(--size-p) * 0.9);
+  opacity: 0.85;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 1000px) {
+  :root {
+    --size-h1: 3em;
+    --size-menu: 1em;
+    --size-h2: 2em;
+    --size-p: 1.1em;
+    --logo-w: 6em;
+    --size-icon: 3em;
+  }
+  .header-content { gap: 0.3em; }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --size-h1: 2em;
+    --size-menu: 0.85em;
+    --size-h2: 1.6em;
+    --size-p: 1em;
+    --logo-w: 4.5em;
+    --size-icon: 2.5em;
+  }
+
+  header { padding: 0.5em 0; }
+
+  nav a { padding: 0.3em 0.25em; }
+
+  .contacts-icons { gap: 1.5em; }
+}
+
+/* Esconde o logo direito apenas em telemóveis verticais */
 @media (max-width: 600px) and (orientation: portrait) {
-  .page-contacts .title-nav h1 { font-size: 2em; }
-  .page-contacts .logo { width: 60px; margin: 0 5px; }
-  .page-contacts nav a { font-size: 1em; margin: 4px 6px; }
-  .social-icons img { width: 50px; margin: 5px; }
-
-  /* ajustes finos por ícone (como tinhas) */
-  .email-icon { width: 45px; }
-  .facebook-icon { width: 55px; }
-  .instagram-icon { width: 50px; }
-  .tiktok-icon { width: 48px; }
+  .right-logo { display: none; }
 }
 
-/* 📱 mobile horizontal (≤900px) */
-@media (max-width: 900px) and (orientation: landscape) {
-  .page-contacts .title-nav h1 { font-size: 3em; }
-  .page-contacts .logo { width: 100px; margin: 0 4px; }
-  .page-contacts nav a { font-size: 0.95em; margin: 3px 4px; }
-  .page-contacts main h2 { font-size: 1.4em; }
-  .page-contacts main p  { font-size: 0.95em; }
-
-  .social-icons img { width: 60px; margin: 4px; }
-  .email-icon { width: 35px; }
-  .facebook-icon { width: 40px; }
-  .instagram-icon { width: 38px; }
-  .tiktok-icon { width: 36px; }
-}
-
-/* 💻 tablet (601–1200px) */
-@media (min-width: 601px) and (max-width: 1200px) {
-  .page-contacts .title-nav h1 { font-size: 4em; }
-  .social-icons img { width: 70px; }
+/* ===== ACESSIBILIDADE ===== */
+:where(a, button, .btn):focus-visible {
+  outline: 0.1em dashed var(--color-accent);
+  outline-offset: 0.1em;
 }

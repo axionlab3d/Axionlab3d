@@ -1,59 +1,71 @@
 /* ==========================================================
-   ACCUEIL (HOME)
-   - Desktop mantém o aspeto atual.
-   - Tablet e Telemóvel ajustam tamanhos.
-   - SEM hambúrguer: menu por palavras SEMPRE visível.
+   PAGE : À PROPOS
+   - Mesmo estilo base da página ACCUEIL.
+   - Menu sempre visível, sem hambúrguer.
+   - Logo direito escondido em telemóveis na vertical.
+   - Tamanhos fáceis de ajustar via variáveis.
    ========================================================== */
 
-/* ===== VARIÁVEIS BASE (Desktop) ===== */
+/* ==========================================================
+   🔧 VARIÁVEIS GERAIS  (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
+   ========================================================== */
+
 :root {
-  --size-h1: 6em;
-  --size-menu: 2em;
-  --size-hero-h2: 3em;
-  --size-hero-p: 1.3em;
-  --size-feature-h3: 1.5em;
-  --size-feature-p: 1.1em;
-  --size-footer-text: 1.5em;
+  /* ===== TIPOGRAFIA ===== */
+  --size-h1: 6em;      /* Título "Axion Lab 3D" no header (igual à accueil) */
+  --size-menu: 2em;    /* Tamanho do texto do menu */
+  --size-h2: 3em;      /* Título principal da página (À propos de nous) */
+  --size-p: 1.3em;     /* Parágrafos */
 
-  --logo-w: 12em;
-  --gap: 1em;
-  --gap-menu-x: 0.5em;
-  --max-content: 80em;
+  /* ===== LOGOS / HEADER ===== */
+  --logo-w: 12em;            /* Largura dos logos esquerdo/direito */
+  --header-padding-y: 1.2em; /* Espaço vertical do header */
+  --nav-gap-top: 0.15em;     /* Distância entre o título e o menu (igual às outras) */
 
-  --grid-features: 3;
-  --grid-gallery: 4;
+  /* ===== LAYOUT ===== */
+  --max-content: 80em;       /* Largura máx. da área central */
+  --gap: 1em;                /* Espaçamento genérico */
+
+  /* ===== CORES AUXILIARES (herdam de base.css) ===== */
+  --color-border-soft: rgba(255,255,255,0.08); /* linhas discretas */
 }
 
-/* ===== LAYOUT GLOBAL (SEM GRID NO BODY) ===== */
-/* Deixamos o fluxo normal: header -> main -> footer */
-body {
+/* ==========================================================
+   LAYOUT GLOBAL
+   ========================================================== */
+
+body,
+.apropos-page {
   margin: 0;
+  display: block;  /* fluxo normal: header → main → footer */
 }
 
-/* Se um dia usares .accueil no <body>, não força grid nem altura fixa */
-.accueil {}
+/* ==========================================================
+   HEADER + LOGOS + MENU
+   ========================================================== */
 
-/* ===== HEADER ===== */
 header {
-  position: static;
+  position: static; /* rola com a página */
   top: auto;
-  z-index: 1000;
-  border-bottom: 0.05em solid rgba(255,255,255,0.08);
-  padding: 1.2em 0;
+  border-bottom: 0.05em solid var(--color-border-soft);
+  padding: var(--header-padding-y) 0;
 }
 
+/* Grelha do header: logo esquerdo | título/menu | logo direito */
 .header-content {
   max-width: var(--max-content);
   margin: 0 auto;
   padding: 0 1em;
+
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.5em;
+  gap: 0.5em; /* igual à accueil/contacts */
 }
 
+/* Mapeamento das áreas do grid */
 .left-logo  { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
@@ -63,6 +75,7 @@ header {
   margin: 0;
 }
 
+/* Título do site */
 .title-nav {
   grid-area: title;
   align-self: center;
@@ -70,27 +83,27 @@ header {
 
 .title-nav h1 {
   font-size: var(--size-h1);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   line-height: 1.1;
-  margin: 0;
+  margin: 0; /* garante que não há espaço extra por baixo/en cima */
 }
 
-/* ===== MENU ===== */
+/* ===== MENU (sempre visível, sem hambúrguer) ===== */
 nav {
   grid-area: nav;
-  margin-top: 0.4em;
+  margin-top: var(--nav-gap-top);   /* distância entre título e menu */
   display: flex;
-  gap: var(--gap-menu-x);
   flex-wrap: wrap;
   justify-content: center;
+  gap: 0.5em;
 }
 
 nav a {
   font-size: var(--size-menu);
-  padding: 0.5em 0.3em;
+  padding: 0.4em 0.3em;
   color: var(--color-fg);
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
   transition: 0.2s ease;
 }
 
@@ -103,139 +116,77 @@ nav a.active {
   color: var(--color-fg);
 }
 
-/* ===== MAIN ===== */
+/* ==========================================================
+   MAIN — CONTEÚDO DE TEXTO
+   ========================================================== */
+
 main {
   padding: 2.5em 1em;
-}
-
-.main-inner {
   max-width: var(--max-content);
   margin: 0 auto;
 }
 
-/* ===== HERO (para futuras secções) ===== */
-.hero {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  align-items: center;
-  gap: var(--gap);
-  margin-block: 2.5em;
+/* Secção bio */
+.bio h2 {
+  font-size: var(--size-h2);
+  margin: 0 0 0.8em;
+  text-align: center;
 }
 
-.hero h2 {
-  font-size: var(--size-hero-h2);
-  margin: 0 0 0.3em;
-}
-
-.hero p {
-  font-size: var(--size-hero-p);
-  max-width: 60ch;
-  margin: 0 0 0.9em;
+.bio p {
+  font-size: var(--size-p);
   line-height: 1.6;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
+  margin: 0 auto 1em;
+  max-width: 100ch;
+  text-align: justify;
 }
 
-.hero .cta-group { display: none; }
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 
-.hero-media {
-  width: 100%;
-  aspect-ratio: 4/3;
-  border-radius: 0.9em;
-  overflow: hidden;
-  border: 0.05em solid rgba(255,255,255,0.12);
-}
-
-.hero-media img,
-.hero-media video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ===== DESTAQUES ===== */
-.features {
-  margin-top: 2.5em;
-  display: grid;
-  grid-template-columns: repeat(var(--grid-features), 1fr);
-  gap: var(--gap);
-}
-
-.feature {
-  padding: 1.25em;
-  border: 0.05em solid rgba(255,255,255,0.12);
-  border-radius: 0.9em;
-  background: rgba(255,255,255,0.02);
-}
-
-.feature h3 {
-  font-size: var(--size-feature-h3);
-  margin: 0 0 0.5em;
-}
-
-.feature p {
-  font-size: var(--size-feature-p);
-}
-
-/* ===== GALERIA ===== */
-.gallery {
-  margin-top: 2.5em;
-  display: grid;
-  grid-template-columns: repeat(var(--grid-gallery), 1fr);
-  gap: 0.8em;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 0.6em;
-  object-fit: cover;
-}
-
-/* ===== FOOTER ===== */
 footer {
-  border-top: 0.05em solid rgba(255,255,255,0.08);
-}
-
-footer p {
-  max-width: var(--max-content);
-  margin: 0 auto;
+  border-top: 0.05em solid var(--color-border-soft);
   padding: 1em;
-  font-size: var(--size-footer-text);
+  text-align: center;
+  font-size: calc(var(--size-p) * 0.9);
+  opacity: 0.85;
 }
 
 /* ==========================================================
    RESPONSIVIDADE
    ========================================================== */
 
-/* Tablet HORIZONTAL (1000–1200px) */
-@media (max-width: 1200px) and (min-width: 1000px) {
-  :root {
-    --size-h1: 4em;
-    --size-menu: 1em;
-    --logo-w: 8em;
-  }
-  .header-content { gap: 0.2em; }
-}
-
-/* Tablet VERTICAL (601–1000px) */
+/* ===== Tablet (601px – 1000px) ===== */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 4em;
-    --size-menu: 0.9em;
-    --logo-w: 8em;
+    --size-h1: 3em;
+    --size-menu: 1em;
+    --size-h2: 2.2em;
+    --size-p: 1.1em;
+    --logo-w: 6em;
+    --header-padding-y: 0.9em;
   }
-  .header-content { gap: 0.2em; }
+
+  .header-content {
+    gap: 0.25em;
+  }
 }
 
-/* Telemóvel (≤600px) */
+/* ===== Telemóveis (≤ 600px) ===== */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2.5em;
-    --size-menu: 0.85em;
-    --logo-w: 6em;
+    --size-h1: 2em;
+    --size-menu: 0.9em;
+    --size-h2: 1.6em;
+    --size-p: 1em;
+    --logo-w: 4.5em;
+    --header-padding-y: 0.6em;
   }
 
   header {
-    padding: 0.5em 0;
+    padding: var(--header-padding-y) 0;
   }
 
   .header-content {
@@ -243,83 +194,37 @@ footer p {
     grid-template-areas:
       "logoL title logoR"
       "nav   nav   nav";
-    align-items: center;
-    gap: 0.3em;
-  }
-
-  .left-logo {
-    display: block;
-  }
-
-  .right-logo {
-    display: block;
-  }
-
-  .title-nav h1 {
-    line-height: 1.1;
-  }
-
-  nav {
-    justify-content: center;
+    gap: 0.2em;
   }
 
   nav a {
-    padding: 0.4em 0.25em;
+    padding: 0.3em 0.25em;
   }
 
   main {
-    padding: 1.8em 1em 1.2em;
-  }
-
-  .hero {
-    margin-block: 1.4em 0.8em;
-    grid-template-columns: 1fr;
-  }
-
-  .features,
-  .gallery {
-    margin-top: 1.4em;
+    padding: 1.8em 1em;
   }
 }
 
-/* Opcional: esconder só o logo direito em telemóveis MUITO estreitos */
-@media (max-width: 480px) {
-  .header-content {
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      "logoL title"
-      "nav   nav";
-  }
-
+/* ===== Esconder logo direito APENAS em telemóveis na vertical ===== */
+@media (max-width: 600px) and (orientation: portrait) {
   .right-logo {
     display: none;
   }
 }
 
 /* ==========================================================
-   DETALHES VISUAIS / ACESSIBILIDADE
+   ACESSIBILIDADE E DETALHES VISUAIS
    ========================================================== */
+
+/* Foco visível em links/botões */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
 
-.hero-media,
-.feature,
-.gallery img {
-  border: 0;
-}
-
+/* Menu sem sublinhado por defeito, só no hover */
 nav a,
 nav a:hover {
   text-decoration: none;
-}
-
-/* ==========================================================
-   RESET FORTE: garantir que NENHUM CSS força o footer ao fundo
-   ========================================================== */
-html, body {
-  min-height: auto !important;
-  height: auto !important;
-  display: block !important;
 }

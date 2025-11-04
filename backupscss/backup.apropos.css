@@ -7,20 +7,21 @@
    ========================================================== */
 
 /* ==========================================================
-   🔧 VARIÁVEIS GERAIS  (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
+   🔧 VARIÁVEIS GERAIS
+   (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
    ========================================================== */
 
 :root {
   /* ===== TIPOGRAFIA ===== */
-  --size-h1: 5em;      /* Título "Axion Lab 3D" no header */
+  --size-h1: 6em;      /* Título "Axion Lab 3D" no header (igual à accueil) */
   --size-menu: 2em;    /* Tamanho do texto do menu */
-  --size-h2: 4em;      /* Título principal da página (À propos) */
-  --size-p: 2em;       /* Parágrafos */
+  --size-h2: 3em;      /* Título principal da página (À propos de nous) */
+  --size-p: 2em;     /* Parágrafos */
 
   /* ===== LOGOS / HEADER ===== */
   --logo-w: 12em;            /* Largura dos logos esquerdo/direito */
-  --header-padding-y: 1.2em; /* Espaço vertical do header (topo/fundo) */
-  --nav-gap-top: 0.1em;      /* Distância entre o título e o menu */
+  --header-padding-y: 1.2em; /* Espaço vertical do header */
+  --nav-gap-top: 0.15em;     /* Distância entre o título e o menu */
 
   /* ===== LAYOUT ===== */
   --max-content: 80em;       /* Largura máx. da área central */
@@ -35,7 +36,7 @@
    ========================================================== */
 
 body,
-.apropos {
+.apropos-page {
   margin: 0;
   display: block;  /* fluxo normal: header → main → footer */
 }
@@ -62,7 +63,7 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.2em; /* espaçamento global no header (ajustado p/ ficar como accueil) */
+  gap: 0.5em; /* igual à accueil/contacts */
 }
 
 /* Mapeamento das áreas do grid */
@@ -122,41 +123,32 @@ nav a.active {
 
 main {
   padding: 2.5em 1em;
-  max-width: var(--max-content); /* mantém layout centralizado */
+  max-width: var(--max-content);
   margin: 0 auto;
 }
 
-/* Se usares um wrapper .main-inner no HTML */
-.main-inner {
-  max-width: 100%;
-  margin: 0;
-}
-
-/* Títulos de secção (ex: À propos de nous) */
-main h2 {
+/* Secção bio */
+.bio h2 {
   font-size: var(--size-h2);
   margin: 0 0 0.8em;
-  text-align: center;      /* título centrado na largura do conteúdo */
+  text-align: center;
 }
 
-/* Parágrafos */
-main p {
+/* Parágrafo principal da bio
+   → volta a usar a fonte Italianno como tinhas antes */
+.bio p {
   font-size: var(--size-p);
   line-height: 1.6;
   letter-spacing: 0.05em;
-  margin: 0 auto 1em;   /* auto nas margens laterais centra o bloco */
-  max-width: 100ch;     /* largura confortável (aumenta p/ ocupar mais) */
-  text-align: justify;  /* alinha o texto nas duas margens */
+  margin: 0 auto 1em;
+  max-width: 100ch;
+  text-align: justify;
+
+  font-family: "Italianno", cursive;  /* força a usar a Italianno */
 }
 
-/* Se tiveres listas, mantêm estilo consistente */
-main ul,
-main ol {
-  font-size: var(--size-p);
-  line-height: 1.6;
-  letter-spacing: 0.03em;
-  margin-bottom: 1em;
-}
+/* Se quiseres aplicar só quando tiver a classe, também podes:
+   .bio p.italianno-regular { ... } */
 
 /* ==========================================================
    FOOTER
@@ -177,11 +169,11 @@ footer {
 /* ===== Tablet (601px – 1000px) ===== */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 3em;     /* título do site menor */
-    --size-menu: 1em;   /* menu mais compacto */
-    --size-h2: 2.2em;   /* título de secção */
-    --size-p: 1.1em;    /* parágrafos confortáveis */
-    --logo-w: 6em;      /* logos menores */
+    --size-h1: 3em;
+    --size-menu: 1em;
+    --size-h2: 2.2em;
+    --size-p: 1.1em;
+    --logo-w: 6em;
     --header-padding-y: 0.9em;
   }
 

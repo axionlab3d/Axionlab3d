@@ -1,0 +1,16 @@
+{
+  "name": "Axion Lab 3D",
+  "short_name": "Axion 3D",
+  "description": "Exploration, innovation et design en impression 3D.",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "230x257",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/accueil.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}

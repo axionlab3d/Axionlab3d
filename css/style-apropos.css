@@ -1,44 +1,62 @@
 /* ==========================================================
-   À PROPOS (Sobre nós)
-   - Mesmo aspeto e lógica da página Accueil.
-   - Facilmente ajustável via variáveis.
+   PAGE : À PROPOS
+   - Mesmo estilo base da página ACCUEIL.
+   - Menu sempre visível, sem hambúrguer.
+   - Logo direito escondido em telemóveis na vertical.
+   - Tamanhos fáceis de ajustar via variáveis.
    ========================================================== */
 
-/* ===== VARIÁVEIS ===== */
+/* ==========================================================
+   🔧 VARIÁVEIS GERAIS  (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
+   ========================================================== */
+
 :root {
-  /* Tipografia */
-  --size-h1: 5em;            /* título principal */
-  --size-h2: 3em;            /* subtítulos */
-  --size-p: 1.3em;           /* parágrafos */
-  --size-menu: 2em;          /* menu */
+  /* ===== TIPOGRAFIA ===== */
+  --size-h1: 6em;      /* Título "Axion Lab 3D" no header */
+  --size-menu: 2em;    /* Tamanho do texto do menu */
+  --size-h2: 3em;      /* Título principal da página (À propos) */
+  --size-p: 1.3em;     /* Parágrafos */
 
-  /* Logos e espaçamentos */
-  --logo-w: 12em;            /* largura dos logos */
-  --gap: 1em;                /* espaçamento geral */
-  --max-content: 80em;       /* largura máxima do conteúdo */
+  /* ===== LOGOS / HEADER ===== */
+  --logo-w: 12em;           /* Largura dos logos esquerdo/direito */
+  --header-padding-y: 1.2em;/* Espaço vertical do header */
+  --nav-gap-top: 0.15em;    /* Distância entre o título e o menu */
 
-  /* Cores (usam as já definidas em base.css) */
-  --color-border: rgba(255,255,255,0.08);
-  --color-border-soft: rgba(255,255,255,0.12);
+  /* ===== LAYOUT ===== */
+  --max-content: 80em;      /* Largura máx. da área central */
+  --gap: 1em;               /* Espaçamento genérico */
+
+  /* ===== CORES AUXILIARES (herdam de base.css) ===== */
+  --color-border-soft: rgba(255,255,255,0.08); /* linhas discretas */
 }
 
-/* ===== LAYOUT GLOBAL ===== */
-body, .apropos {
+/* ==========================================================
+   LAYOUT GLOBAL
+   ========================================================== */
+
+body,
+.apropos {
   margin: 0;
-  display: block;
+  display: block;  /* fluxo normal: header → main → footer */
 }
 
-/* ===== HEADER ===== */
+/* ==========================================================
+   HEADER + LOGOS + MENU
+   ========================================================== */
+
 header {
-  position: static;
-  border-bottom: 0.05em solid var(--color-border);
-  padding: 1.2em 0;
+  position: static; /* rola com a página */
+  top: auto;
+  border-bottom: 0.05em solid var(--color-border-soft);
+  padding: var(--header-padding-y) 0;
 }
 
+/* Grelha do header: logo esquerdo | título/menu | logo direito */
 .header-content {
   max-width: var(--max-content);
   margin: 0 auto;
   padding: 0 1em;
+
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
@@ -47,7 +65,8 @@ header {
   gap: 0.5em;
 }
 
-.left-logo { grid-area: logoL; }
+/* Mapeamento das áreas do grid */
+.left-logo  { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
 .logo {
@@ -56,6 +75,7 @@ header {
   margin: 0;
 }
 
+/* Título do site */
 .title-nav {
   grid-area: title;
   align-self: center;
@@ -64,13 +84,14 @@ header {
 .title-nav h1 {
   font-size: var(--size-h1);
   letter-spacing: 0.1em;
+  line-height: 1.1;
   margin: 0;
 }
 
-/* ===== MENU ===== */
+/* ===== MENU (sempre visível, sem hambúrguer) ===== */
 nav {
   grid-area: nav;
-  margin-top: 0.4em;
+  margin-top: var(--nav-gap-top);   /* distância entre título e menu */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -95,32 +116,54 @@ nav a.active {
   color: var(--color-fg);
 }
 
-/* ===== MAIN ===== */
+/* ==========================================================
+   MAIN — CONTEÚDO DE TEXTO
+   ========================================================== */
+
 main {
   padding: 2.5em 1em;
-}
-
-.main-inner {
-  max-width: var(--max-content);
+  max-width: var(--max-content); /* mantém layout centralizado */
   margin: 0 auto;
 }
 
-main h2 {
-  font-size: var(--size-h2);
-  margin-bottom: 0.6em;
+/* Se usares um wrapper .main-inner no HTML */
+.main-inner {
+  max-width: 100%;
+  margin: 0;
 }
 
+/* Títulos de secção */
+main h2 {
+  font-size: var(--size-h2);
+  margin: 0 0 0.8em;
+  text-align: center;      /* título centrado na largura do conteúdo */
+}
+
+/* Parágrafos */
 main p {
   font-size: var(--size-p);
   line-height: 1.6;
   letter-spacing: 0.05em;
-  margin-bottom: 1em;
-  max-width: 75ch;
+  margin: 0 0 1em;
+  max-width: none;         /* ocupa a largura do bloco central */
+  text-align: left;
 }
 
-/* ===== FOOTER ===== */
+/* Se tiveres listas, mantêm estilo consistente */
+main ul,
+main ol {
+  font-size: var(--size-p);
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin-bottom: 1em;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
 footer {
-  border-top: 0.05em solid var(--color-border);
+  border-top: 0.05em solid var(--color-border-soft);
   padding: 1em;
   text-align: center;
   font-size: calc(var(--size-p) * 0.9);
@@ -131,57 +174,73 @@ footer {
    RESPONSIVIDADE
    ========================================================== */
 
-/* ===== Tablets (601–1000px) ===== */
+/* ===== Tablet (601px – 1000px) ===== */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 3em;
-    --size-h2: 2em;
-    --size-p: 1.1em;
-    --size-menu: 1em;
-    --logo-w: 6em;
+    --size-h1: 3em;     /* título do site menor */
+    --size-menu: 1em;   /* menu mais compacto */
+    --size-h2: 2.2em;   /* título de secção */
+    --size-p: 1.1em;    /* parágrafos confortáveis */
+    --logo-w: 6em;      /* logos menores */
+    --header-padding-y: 0.9em;
   }
-  .header-content { gap: 0.2em; }
+
+  .header-content {
+    gap: 0.3em;
+  }
 }
 
-/* ===== Telemóveis (≤600px) ===== */
+/* ===== Telemóveis (≤ 600px) ===== */
 @media (max-width: 600px) {
   :root {
     --size-h1: 2em;
+    --size-menu: 0.9em;
     --size-h2: 1.6em;
     --size-p: 1em;
-    --size-menu: 0.85em;
     --logo-w: 4.5em;
+    --header-padding-y: 0.6em;
   }
 
-  header { padding: 0.5em 0; }
+  header {
+    padding: var(--header-padding-y) 0;
+  }
 
   .header-content {
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
       "logoL title logoR"
       "nav   nav   nav";
-    gap: 0.3em;
+    gap: 0.25em;
   }
 
-  /* Esconde o logo direito em telemóveis verticais */
-  @media (orientation: portrait) {
-    .right-logo { display: none; }
+  nav a {
+    padding: 0.3em 0.25em;
   }
 
-  nav a { padding: 0.3em 0.25em; }
-  main { padding: 1.5em 1em; }
+  main {
+    padding: 1.8em 1em;
+  }
 }
 
-/* ===== Limpeza visual ===== */
+/* ===== Esconder logo direito APENAS em telemóveis na vertical ===== */
+@media (max-width: 600px) and (orientation: portrait) {
+  .right-logo {
+    display: none;
+  }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE E DETALHES VISUAIS
+   ========================================================== */
+
+/* Foco visível em links/botões */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
 
-header, footer {
-  border: none;
-}
-
-nav a, nav a:hover {
+/* Menu sem sublinhado por defeito, só no hover */
+nav a,
+nav a:hover {
   text-decoration: none;
 }

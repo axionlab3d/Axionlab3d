@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produits - Axion Lab 3D</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style-produits.css">
+
+  <!-- (Opcional) Fonte Italianno se quiseres usar em algum título -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-produits">
+
+  <!-- ===== HEADER (igual às outras páginas) ===== -->
+  <header>
+    <div class="header-content">
+      <!-- Logo esquerdo -->
+      <img src="images/logo.jpg" alt="Logo gauche" class="logo left-logo">
+
+      <!-- Título + Menu -->
+      <div class="title-nav">
+        <h1>Axion Lab 3D</h1>
+        <nav>
+          <a href="accueil.html">Accueil</a>
+          <a href="apropos.html">À propos</a>
+          <a href="produits.html" class="active">Produits</a>
+          <a href="contacts.html">Contacts</a>
+        </nav>
+      </div>
+
+      <!-- Logo direito -->
+      <img src="images/logo.jpg" alt="Logo droite" class="logo right-logo">
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <section class="products-intro">
+      <h2>Nos produits</h2>
+      <p>
+        Découvrez nos créations personnalisées, adaptées à vos besoins : cadeaux uniques, solutions industrielles,
+        pièces pour l’automobile et bien plus encore.
+      </p>
+
+      <!-- MENU DE CATEGORIAS DENTRO DA PÁGINA -->
+      <nav class="products-nav">
+        <a href="#cadeaux">Cadeaux</a>
+        <a href="#industrie">Industrie</a>
+        <a href="#voitures">Voitures</a>
+        <a href="#autres">Autres</a>
+      </nav>
+    </section>
+
+    <!-- ===== CATEGORIE : CADEAUX ===== -->
+    <section id="cadeaux" class="products-section">
+      <h3>Cadeaux</h3>
+      <p class="section-desc">
+        Objets personnalisés pour offrir à ceux que vous aimez : décorations, accessoires, pièces uniques.
+      </p>
+
+      <div class="products-grid">
+        <!-- BLOCOS DE PRODUTO – COPIA E COLA PARA ADICIONAR MAIS -->
+        <article class="product-card">
+          <figure>
+            <img src="images/produits/cadeau1.jpg" alt="Titre du produit 1">
+            <figcaption>
+              <h4>Titre du produit 1</h4>
+              <p>Brève description du cadeau, matériau, couleur ou usage principal.</p>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="product-card">
+          <figure>
+            <img src="images/produits/cadeau2.jpg" alt="Titre du produit 2">
+            <figcaption>
+              <h4>Titre du produit 2</h4>
+              <p>Description courte: pièce décorative, personnalisable avec nom ou message.</p>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CATEGORIE : INDUSTRIE ===== -->
+    <section id="industrie" class="products-section">
+      <h3>Industrie</h3>
+      <p class="section-desc">
+        Pièces fonctionnelles, prototypage et solutions techniques pour projets industriels.
+      </p>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <figure>
+            <img src="images/produits/industrie1.jpg" alt="Pièce industrielle 1">
+            <figcaption>
+              <h4>Pièce industrielle 1</h4>
+              <p>Composant technique conçu pour la précision et la résistance.</p>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CATEGORIE : VOITURES ===== -->
+    <section id="voitures" class="products-section">
+      <h3>Voitures</h3>
+      <p class="section-desc">
+        Pièces et accessoires pour l’automobile : esthétiques, fonctionnels ou sur mesure.
+      </p>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <figure>
+            <img src="images/produits/voiture1.jpg" alt="Accessoire voiture 1">
+            <figcaption>
+              <h4>Accessoire voiture 1</h4>
+              <p>Pièce personnalisée pour l’intérieur ou l’extérieur du véhicule.</p>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CATEGORIE : AUTRES ===== -->
+    <section id="autres" class="products-section">
+      <h3>Autres projets</h3>
+      <p class="section-desc">
+        Objets spéciaux, événements, mariages, décorations et projets sur mesure.
+      </p>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <figure>
+            <img src="images/produits/autre1.jpg" alt="Projet spécial 1">
+            <figcaption>
+              <h4>Projet spécial 1</h4>
+              <p>Création sur mesure réalisée en collaboration avec le client.</p>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
+  </footer>
+
+</body>
+</html>

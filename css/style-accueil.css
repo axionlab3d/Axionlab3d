@@ -344,7 +344,7 @@ html, body {
 
   header .header-content nav a {
     padding: 0.25em 0.18em !important; /* reduz margem lateral */
-    font-size: 0.85em !important;      /* ligeiramente menor */
+    font-size: 0.8em !important;      /* ligeiramente menor */
     letter-spacing: 0 !important;      /* texto mais compacto */
   }
 

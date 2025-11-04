@@ -1,28 +1,24 @@
 /* ==========================================================
    PAGE : CONTACTS
-   - Mesmo estilo da ACCUEIL.
-   - Ícones horizontais e centrados.
+   - Igual à ACCUEIL.
+   - Ícones clicáveis (sem texto).
    - Logo direito escondido no mobile vertical.
    ========================================================== */
 
 /* ===== VARIÁVEIS ===== */
 :root {
-  /* Tipografia */
   --size-h1: 6em;            /* título "Axion Lab 3D" */
   --size-menu: 2em;          /* tamanho dos links do menu */
   --size-h2: 3em;            /* título "Suivez-nous..." */
   --size-p: 1.3em;           /* texto dos parágrafos */
-  --size-icon: 3.2em;        /* tamanho dos ícones de contacto */
-  --size-label: 1.1em;       /* texto sob os ícones */
+  --size-icon: 2em;        /* tamanho dos ícones de contacto */
 
-  /* Logos e espaçamentos */
   --logo-w: 12em;
   --header-padding-y: 1.2em;
   --nav-gap-top: 0.15em;
   --gap: 1em;
   --max-content: 80em;
 
-  /* Cores */
   --color-border-soft: rgba(255,255,255,0.08);
 }
 
@@ -123,28 +119,20 @@ main p {
 
 .contact-link {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  text-decoration: none;
-  color: var(--color-fg);
-  transition: transform 0.2s ease, color 0.2s ease;
+  justify-content: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .contact-link:hover {
-  color: var(--color-accent);
-  transform: scale(1.05);
+  transform: scale(1.1);
+  opacity: 0.85;
 }
 
 .contact-icon {
-  width: auto;
-  height: var(--size-icon); /* altera este valor para aumentar/reduzir os ícones */
-  margin-bottom: 0.4em;
-}
-
-.contact-link span {
-  font-size: var(--size-label);
-  font-weight: 600;
+  width: var(--size-icon);
+  height: var(--size-icon);
+  object-fit: contain;
 }
 
 /* ===== FOOTER ===== */
@@ -164,7 +152,7 @@ footer {
     --size-h2: 2em;
     --size-p: 1.1em;
     --logo-w: 6em;
-    --size-icon: 2.8em;
+    --size-icon: 3em;
   }
   .header-content { gap: 0.3em; }
 }

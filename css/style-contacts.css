@@ -185,7 +185,7 @@ footer {
   outline-offset: 0.1em;
 }
 /* Ajuste do menu para 4 palavras em telemóveis na vertical */
-@media (max-width: 600px) and (orientation: portrait) {
+@media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
     gap: 0.15em !important;          /* aproxima as palavras */
   }

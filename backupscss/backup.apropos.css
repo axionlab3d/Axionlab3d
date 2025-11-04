@@ -1,232 +1,247 @@
-/* ---------------------- VARIÁVEIS GLOBAIS ----------------------
-   Servem como “pontos de controlo” principais para ajustes rápidos.
------------------------------------------------------------------- */
+/* ==========================================================
+   PAGE : À PROPOS
+   - Mesmo estilo base da página ACCUEIL.
+   - Menu sempre visível, sem hambúrguer.
+   - Logo direito escondido em telemóveis na vertical.
+   - Tamanhos fáceis de ajustar via variáveis.
+   ========================================================== */
+
+/* ==========================================================
+   🔧 VARIÁVEIS GERAIS  (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
+   ========================================================== */
+
 :root {
-  --scale-hero: 1;      /* escala para títulos grandes (0.9–1.2) */
-  --scale-body: 1;      /* escala para texto normal (0.9–1.1) */
-  --max-content: 75em;  /* largura máxima das secções centrais */
-  --gap: 1.5em;         /* espaçamento padrão entre cartões/seções */
+  /* ===== TIPOGRAFIA ===== */
+  --size-h1: 5em;      /* Título "Axion Lab 3D" no header */
+  --size-menu: 2em;    /* Tamanho do texto do menu */
+  --size-h2: 3em;      /* Título principal da página (À propos) */
+  --size-p: 2em;     /* Parágrafos */
+
+  /* ===== LOGOS / HEADER ===== */
+  --logo-w: 12em;           /* Largura dos logos esquerdo/direito */
+  --header-padding-y: 1.2em;/* Espaço vertical do header */
+  --nav-gap-top: 0.15em;    /* Distância entre o título e o menu */
+
+  /* ===== LAYOUT ===== */
+  --max-content: 80em;      /* Largura máx. da área central */
+  --gap: 1em;               /* Espaçamento genérico */
+
+  /* ===== CORES AUXILIARES (herdam de base.css) ===== */
+  --color-border-soft: rgba(255,255,255,0.08); /* linhas discretas */
 }
 
-/* ---------------------- LAYOUT GERAL ----------------------
-   Mantém header | main | footer empilhados verticalmente.
--------------------------------------------------------------- */
+/* ==========================================================
+   LAYOUT GLOBAL
+   ========================================================== */
+
+body,
 .apropos {
-  min-height: 100dvh;                     /* ocupa toda a altura da janela */
-  display: grid;                          /* organiza o layout em grelha */
-  grid-template-rows: auto 1fr auto;      /* 3 linhas: header | main | footer */
+  margin: 0;
+  display: block;  /* fluxo normal: header → main → footer */
 }
 
-/* ================= HEADER =================
-   Herda estrutura do base.css — apenas ajustamos tamanhos e margens.
-================================================ */
-.title-nav h1 {
-  font-size: clamp(1.8em, calc(2.5em * var(--scale-hero)), 4em); /* título “À propos” */
+/* ==========================================================
+   HEADER + LOGOS + MENU
+   ========================================================== */
+
+header {
+  position: static; /* rola com a página */
+  top: auto;
+  border-bottom: 0.05em solid var(--color-border-soft);
+  padding: var(--header-padding-y) 0;
 }
 
-/* ================= MAIN =================
-   Container principal das secções da página.
-================================================ */
-main {
-  padding: clamp(2em, 4vw, 4em) 1em; /* espaço superior/inferior e laterais */
-}
-
-.main-inner {
-  max-width: var(--max-content); /* limita largura máxima do conteúdo */
-  margin: 0 auto;                /* centraliza o conteúdo */
-}
-
-/* ---------------------- HERO SOBRE NÓS ----------------------
-   Primeira secção: imagem + texto introdutório.
--------------------------------------------------------------- */
-.hero-about {
-  display: grid;                         /* organiza texto e imagem lado a lado */
-  grid-template-columns: 1.2fr 0.8fr;    /* proporção texto:imagem */
-  align-items: center;                   /* centraliza verticalmente */
-  gap: var(--gap);                       /* espaçamento entre os blocos */
-  margin-block: clamp(1.5em, 5vw, 4em);  /* margem acima e abaixo do hero */
-}
-
-/* Título principal do hero */
-.hero-about h2 {
-  font-size: clamp(2.2em, calc(3.5em * var(--scale-hero)), 5em);
-  margin: 0 0 0.3em 0;
-}
-
-/* Parágrafo introdutório */
-.hero-about p {
-  font-size: clamp(1.1em, calc(1.4em * var(--scale-body)), 1.6em);
-  max-width: 60ch;                 /* largura confortável de leitura (~60 caracteres) */
-  margin: 0 0 0.8em 0;
-  line-height: 1.6;                /* espaçamento entre linhas */
-  letter-spacing: 0.06em;          /* ligeiro espaçamento entre letras */
-}
-
-/* Imagem da secção hero */
-.hero-about figure {
-  width: 100%;
-  border-radius: 0.9em;            /* cantos arredondados */
-  overflow: hidden;                /* corta qualquer excesso da imagem */
-  border: 0.05em solid rgba(255,255,255,0.12); /* borda leve para separar do fundo */
-}
-
-.hero-about img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;               /* cobre toda a área sem distorcer */
-}
-
-/* ---------------------- MISSÃO / VISÃO ----------------------
-   Secção textual central.
--------------------------------------------------------------- */
-.mission {
-  margin-top: clamp(2em, 6vw, 5em); /* distância da secção anterior */
-}
-
-.mission h3 {
-  font-size: clamp(1.8em, 3vw, 2.5em); /* tamanho do subtítulo */
-  margin-bottom: 0.5em;
-}
-
-.mission p {
-  font-size: clamp(1.1em, 2.2vw, 1.4em); /* tamanho do texto */
-  max-width: 70ch;
+/* Grelha do header: logo esquerdo | título/menu | logo direito */
+.header-content {
+  max-width: var(--max-content);
   margin: 0 auto;
-  line-height: 1.7;
-}
+  padding: 0 1em;
 
-/* ---------------------- EQUIPA ----------------------
-   Mostra membros com foto, nome e função.
------------------------------------------------------- */
-.team {
-  margin-top: clamp(2em, 6vw, 5em);
-}
-
-.team h3 {
-  font-size: clamp(1.8em, 3vw, 2.5em);
-  margin-bottom: 0.8em;
-}
-
-/* Grelha da equipa (3 colunas no desktop) */
-.team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--gap);
-  justify-items: center; /* centraliza os cartões na grelha */
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "logoL title logoR"
+    "nav   nav   nav";
+  gap: 0.5em;
 }
 
-/* Cartão individual de cada membro */
-.member {
-  background: rgba(255,255,255,0.03);
-  border-radius: 0.9em;
-  border: 0.05em solid rgba(255,255,255,0.1);
-  padding: 1.2em;
-  text-align: center;
-  max-width: 20em;
-}
+/* Mapeamento das áreas do grid */
+.left-logo  { grid-area: logoL; }
+.right-logo { grid-area: logoR; }
 
-/* Foto do membro */
-.member img {
-  width: 8em;
-  height: 8em;
-  border-radius: 50%;    /* torna circular */
-  object-fit: cover;
-  margin-bottom: 0.6em;
-}
-
-/* Nome e função */
-.member h4 {
-  font-size: 1.4em;
-  margin: 0.3em 0 0.2em;
-}
-
-.member p {
-  font-size: 1.1em;
-  opacity: 0.8;          /* ligeira transparência */
+.logo {
+  width: var(--logo-w);
+  height: auto;
   margin: 0;
 }
 
-/* ---------------------- HISTÓRIA / LINHA DO TEMPO ----------------------
-   Lista vertical de eventos importantes da empresa.
--------------------------------------------------------------------------- */
-.timeline {
-  margin-top: clamp(2em, 6vw, 5em);
-  border-left: 0.1em solid var(--color-accent); /* linha principal da timeline */
-  padding-left: 1.5em;                         /* espaço entre linha e texto */
+/* Título do site */
+.title-nav {
+  grid-area: title;
+  align-self: center;
 }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 1.5em;
-}
-
-/* Marcador circular na linha */
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -0.7em;
-  top: 0.3em;
-  width: 0.7em;
-  height: 0.7em;
-  background: var(--color-accent);
-  border-radius: 50%;
-}
-
-/* Ano ou título do evento */
-.timeline-item h4 {
-  font-size: 1.4em;
-  margin: 0 0 0.3em;
-}
-
-/* Descrição do evento */
-.timeline-item p {
-  font-size: 1.1em;
+.title-nav h1 {
+  font-size: var(--size-h1);
+  letter-spacing: 0.1em;
+  line-height: 1.1;
   margin: 0;
-  opacity: 0.9;
 }
 
-/* ---------------------- FOOTER ---------------------- */
+/* ===== MENU (sempre visível, sem hambúrguer) ===== */
+nav {
+  grid-area: nav;
+  margin-top: var(--nav-gap-top);   /* distância entre título e menu */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+nav a {
+  font-size: var(--size-menu);
+  padding: 0.4em 0.3em;
+  color: var(--color-fg);
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+nav a.active {
+  color: var(--color-fg);
+}
+
+/* ==========================================================
+   MAIN — CONTEÚDO DE TEXTO
+   ========================================================== */
+
+main {
+  padding: 2.5em 1em;
+  max-width: var(--max-content); /* mantém layout centralizado */
+  margin: 0 auto;
+}
+
+/* Se usares um wrapper .main-inner no HTML */
+.main-inner {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Títulos de secção */
+main h2 {
+  font-size: var(--size-h2);
+  margin: 0 0 0.8em;
+  text-align: center;      /* título centrado na largura do conteúdo */
+}
+
+/* Parágrafos */
+main p {
+  font-size: var(--size-p);
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  margin: 0 auto 1em;   /* auto nas margens laterais centra o bloco */
+  max-width: 100ch;      /* limita ligeiramente a largura para leitura confortável */
+  text-align: justify;  /* alinha o texto nas duas margens */
+}
+
+
+/* Se tiveres listas, mantêm estilo consistente */
+main ul,
+main ol {
+  font-size: var(--size-p);
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin-bottom: 1em;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
 footer {
-  border-top: 0.05em solid rgba(255,255,255,0.08); /* linha separadora superior */
-  padding: 1em 0;                                 /* espaço interno vertical */
+  border-top: 0.05em solid var(--color-border-soft);
+  padding: 1em;
+  text-align: center;
+  font-size: calc(var(--size-p) * 0.9);
+  opacity: 0.85;
 }
 
-/* ================= RESPONSIVIDADE =================
-   Ajustes específicos para cada faixa de ecrã.
-=================================================== */
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
 
-/* Tablet Horizontal (901–1199px) */
-@media (max-width: 1199px) and (min-width: 901px) {
-  :root { --max-content: 65em; --scale-hero: 0.98; } /* ligeiro ajuste da largura */
-  .hero-about { grid-template-columns: 1.1fr 0.9fr; } /* imagem maior */
-  .team-grid { grid-template-columns: repeat(3, 1fr); }
+/* ===== Tablet (601px – 1000px) ===== */
+@media (max-width: 1000px) and (min-width: 601px) {
+  :root {
+    --size-h1: 3em;     /* título do site menor */
+    --size-menu: 1em;   /* menu mais compacto */
+    --size-h2: 2.2em;   /* título de secção */
+    --size-p: 1.1em;    /* parágrafos confortáveis */
+    --logo-w: 6em;      /* logos menores */
+    --header-padding-y: 0.9em;
+  }
+
+  .header-content {
+    gap: 0.3em;
+  }
 }
 
-/* Tablet Vertical (601–900px) */
-@media (max-width: 900px) and (min-width: 601px) {
-  :root { --max-content: 54em; --scale-hero: 0.95; }
-  .hero-about { grid-template-columns: 1fr; }          /* texto e imagem empilhados */
-  .hero-about figure { order: -1; aspect-ratio: 16/9; }/* imagem em cima, 16:9 */
-  .team-grid { grid-template-columns: repeat(2, 1fr); }/* 2 colunas de membros */
+/* ===== Telemóveis (≤ 600px) ===== */
+@media (max-width: 600px) {
+  :root {
+    --size-h1: 2em;
+    --size-menu: 0.9em;
+    --size-h2: 1.6em;
+    --size-p: 1em;
+    --logo-w: 4.5em;
+    --header-padding-y: 0.6em;
+  }
+
+  header {
+    padding: var(--header-padding-y) 0;
+  }
+
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logoL title logoR"
+      "nav   nav   nav";
+    gap: 0.25em;
+  }
+
+  nav a {
+    padding: 0.3em 0.25em;
+  }
+
+  main {
+    padding: 1.8em 1em;
+  }
 }
 
-/* Telemóvel Horizontal (481–600px) */
-@media (max-width: 600px) and (min-width: 481px) {
-  :root { --max-content: 35em; --scale-hero: 0.9; --scale-body: 0.95; }
-  .hero-about { grid-template-columns: 1fr; }
-  .hero-about figure { aspect-ratio: 16/9; }
-  .team-grid { grid-template-columns: 1fr 1fr; }
+/* ===== Esconder logo direito APENAS em telemóveis na vertical ===== */
+@media (max-width: 600px) and (orientation: portrait) {
+  .right-logo {
+    display: none;
+  }
 }
 
-/* Telemóvel Vertical (≤480px) */
-@media (max-width: 480px) {
-  :root { --max-content: 26em; --scale-hero: 0.86; --scale-body: 0.95; --gap: 1em; }
-  .hero-about { grid-template-columns: 1fr; gap: 0.8em; }
-  .hero-about figure { aspect-ratio: 1/1; } /* quadrada para ocupar o espaço */
-  .team-grid { grid-template-columns: 1fr; } /* membros em coluna única */
+/* ==========================================================
+   ACESSIBILIDADE E DETALHES VISUAIS
+   ========================================================== */
+
+/* Foco visível em links/botões */
+:where(a, button, .btn):focus-visible {
+  outline: 0.1em dashed var(--color-accent);
+  outline-offset: 0.1em;
 }
 
-/* Ajustes por orientação (aplicam-se só em tablets/telemóveis) */
-@media (orientation: landscape) and (max-width: 900px) {
-  .team-grid { grid-template-columns: repeat(3, 1fr); } /* mais espaço = mais colunas */
+/* Menu sem sublinhado por defeito, só no hover */
+nav a,
+nav a:hover {
+  text-decoration: none;
 }

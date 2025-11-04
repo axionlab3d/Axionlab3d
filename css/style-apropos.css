@@ -228,3 +228,7 @@ nav a,
 nav a:hover {
   text-decoration: none;
 }
+.italianno-regular {
+  font-family: var(--font-main, sans-serif) !important; /* força a fonte principal */
+  font-style: normal !important;
+}

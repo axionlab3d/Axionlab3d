@@ -15,16 +15,16 @@
   --size-h1: 5em;      /* Título "Axion Lab 3D" no header */
   --size-menu: 2em;    /* Tamanho do texto do menu */
   --size-h2: 4em;      /* Título principal da página (À propos) */
-  --size-p: 2em;     /* Parágrafos */
+  --size-p: 2em;       /* Parágrafos */
 
   /* ===== LOGOS / HEADER ===== */
-  --logo-w: 12em;           /* Largura dos logos esquerdo/direito */
-  --header-padding-y: 1.2em;/* Espaço vertical do header */
-  --nav-gap-top: 0.05em;    /* Distância entre o título e o menu */
+  --logo-w: 12em;            /* Largura dos logos esquerdo/direito */
+  --header-padding-y: 1.2em; /* Espaço vertical do header (topo/fundo) */
+  --nav-gap-top: 0.1em;      /* Distância entre o título e o menu */
 
   /* ===== LAYOUT ===== */
-  --max-content: 80em;      /* Largura máx. da área central */
-  --gap: 1em;               /* Espaçamento genérico */
+  --max-content: 80em;       /* Largura máx. da área central */
+  --gap: 1em;                /* Espaçamento genérico */
 
   /* ===== CORES AUXILIARES (herdam de base.css) ===== */
   --color-border-soft: rgba(255,255,255,0.08); /* linhas discretas */
@@ -62,7 +62,7 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.5em;
+  gap: 0.2em; /* espaçamento global no header (ajustado p/ ficar como accueil) */
 }
 
 /* Mapeamento das áreas do grid */
@@ -132,7 +132,7 @@ main {
   margin: 0;
 }
 
-/* Títulos de secção */
+/* Títulos de secção (ex: À propos de nous) */
 main h2 {
   font-size: var(--size-h2);
   margin: 0 0 0.8em;
@@ -145,10 +145,9 @@ main p {
   line-height: 1.6;
   letter-spacing: 0.05em;
   margin: 0 auto 1em;   /* auto nas margens laterais centra o bloco */
-  max-width: 100ch;      /* limita ligeiramente a largura para leitura confortável */
+  max-width: 100ch;     /* largura confortável (aumenta p/ ocupar mais) */
   text-align: justify;  /* alinha o texto nas duas margens */
 }
-
 
 /* Se tiveres listas, mantêm estilo consistente */
 main ul,
@@ -187,7 +186,7 @@ footer {
   }
 
   .header-content {
-    gap: 0.3em;
+    gap: 0.25em;
   }
 }
 
@@ -211,7 +210,7 @@ footer {
     grid-template-areas:
       "logoL title logoR"
       "nav   nav   nav";
-    gap: 0.25em;
+    gap: 0.2em;
   }
 
   nav a {

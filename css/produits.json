@@ -1,0 +1,32 @@
+[
+  {
+    "categorie": "cadeaux",
+    "image": "images/produits/cadeau1.jpg",
+    "titre": "Porte-clés personnalisé",
+    "description": "Un cadeau unique imprimé en 3D, personnalisable avec un prénom ou un message."
+  },
+  {
+    "categorie": "cadeaux",
+    "image": "images/produits/cadeau2.jpg",
+    "titre": "Petit objet décoratif",
+    "description": "Idéal pour la maison ou le bureau, disponible en plusieurs couleurs."
+  },
+  {
+    "categorie": "industrie",
+    "image": "images/produits/industrie1.jpg",
+    "titre": "Prototype technique",
+    "description": "Pièce de test conçue pour des essais mécaniques et fonctionnels."
+  },
+  {
+    "categorie": "voitures",
+    "image": "images/produits/voiture1.jpg",
+    "titre": "Support de téléphone pour voiture",
+    "description": "Accessoire personnalisé adapté au tableau de bord de votre véhicule."
+  },
+  {
+    "categorie": "autres",
+    "image": "images/produits/autre1.jpg",
+    "titre": "Décoration événementielle",
+    "description": "Création 3D pour mariages, événements ou vitrines."
+  }
+]

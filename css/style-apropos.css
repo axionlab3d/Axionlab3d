@@ -145,7 +145,7 @@ main p {
   line-height: 1.6;
   letter-spacing: 0.05em;
   margin: 0 auto 1em;   /* auto nas margens laterais centra o bloco */
-  max-width: 90ch;      /* limita ligeiramente a largura para leitura confortável */
+  max-width: 100ch;      /* limita ligeiramente a largura para leitura confortável */
   text-align: justify;  /* alinha o texto nas duas margens */
 }
 

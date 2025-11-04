@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacts - Axion Lab 3D</title>
 
-  <!-- CSS do site -->
+  <!-- ===== FAVICON ===== -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style-contacts.css">
+  <link rel="stylesheet" href="css/style-contacts.css">
 
-
-  <!-- Google Fonts: Italianno -->
+  <!-- ===== GOOGLE FONT (Italianno) ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 </head>
-<body class="page-contacts">
+
+<body class="contacts-page">
 
   <!-- ===== HEADER ===== -->
   <header>
@@ -25,11 +29,11 @@
 
       <!-- Título + Menu -->
       <div class="title-nav">
-        <h1 class="contacts-title">Contacts</h1>
+        <h1>Axion Lab 3D</h1>
         <nav>
-          <a href="index.html">Accueil</a>
-          <a href="about.html">À propos</a>
-          <a href="contacts.html">Contacts</a>
+          <a href="accueil.html">Accueil</a>
+          <a href="apropos.html">À propos</a>
+          <a href="contacts.html" class="active">Contacts</a>
         </nav>
       </div>
 
@@ -42,19 +46,24 @@
   <main>
     <section class="contacts-section">
       <h2>Suivez-nous et contactez-nous</h2>
+      <p>Rejoignez Axion Lab 3D sur nos réseaux et entrez en contact avec notre équipe.</p>
 
-      <div class="social-icons">
-        <a href="mailto:axionlab3d@gmail.com" aria-label="Email">
-          <img src="images/mail.png" alt="Email" class="social-icon email-icon">
+      <!-- ===== ICÔNES DE CONTACT ===== -->
+      <div class="contacts-icons">
+        <a href="mailto:axionlab3d@gmail.com" aria-label="Email" class="contact-link">
+          <img src="images/mail.png" alt="Email" class="contact-icon">
         </a>
-        <a href="https://www.facebook.com/share/17ZhNB5WXv/" target="_blank" aria-label="Facebook">
-          <img src="images/facebook.png" alt="Facebook" class="social-icon facebook-icon">
+
+        <a href="https://www.facebook.com/share/17ZhNB5WXv/" target="_blank" aria-label="Facebook" class="contact-link">
+          <img src="images/facebook.png" alt="Facebook" class="contact-icon">
         </a>
-        <a href="https://www.instagram.com/axion3d.lab?igsh=MXZhaHRwbmw0dnpvcA==" target="_blank" aria-label="Instagram">
-          <img src="images/instagram.png" alt="Instagram" class="social-icon instagram-icon">
+
+        <a href="https://www.instagram.com/axion3d.lab?igsh=MXZhaHRwbmw0dnpvcA==" target="_blank" aria-label="Instagram" class="contact-link">
+          <img src="images/instagram.png" alt="Instagram" class="contact-icon">
         </a>
-        <a href="https://www.tiktok.com/@axion.3d.lab?_r=1&_t=ZG-91280r5CDEu" target="_blank" aria-label="TikTok">
-          <img src="images/tik-tok.png" alt="TikTok" class="social-icon tiktok-icon">
+
+        <a href="https://www.tiktok.com/@axion.3d.lab?_r=1&_t=ZG-91280r5CDEu" target="_blank" aria-label="TikTok" class="contact-link">
+          <img src="images/tik-tok.png" alt="TikTok" class="contact-icon">
         </a>
       </div>
     </section>
@@ -62,7 +71,7 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Axion Lab 3D</p>
+    <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
   </footer>
 
 </body>

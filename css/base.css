@@ -131,14 +131,5 @@ footer {
   main p  { font-size: 1.1em; }
 }
 
-@media (max-width: 800px) and (orientation: portrait) {
-  nav {
-    gap: 0.15em !important; /* aproxima os links */
-  }
 
-  nav a {
-    padding: 0.3em 0.2em !important; /* reduz o espaço lateral */
-    font-size: 0.85em !important;    /* ligeiramente menor para caber tudo */
-  }
-}
 

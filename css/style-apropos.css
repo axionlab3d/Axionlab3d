@@ -7,7 +7,7 @@
 /* ===== VARIÁVEIS ===== */
 :root {
   /* Tipografia */
-  --size-h1: 6em;            /* título principal */
+  --size-h1: 5em;            /* título principal */
   --size-h2: 3em;            /* subtítulos */
   --size-p: 1.3em;           /* parágrafos */
   --size-menu: 2em;          /* menu */

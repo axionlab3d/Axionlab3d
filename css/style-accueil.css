@@ -23,19 +23,16 @@
   --grid-features: 3;
   --grid-gallery: 4;
 
-  /* NOVO: fonte para menu + títulos (exceto h1) */
+  /* Fonte para menu + títulos (exceto h1) */
   --font-heading-menu: "Amatic SC", cursive;
 }
 
-/* ===== LAYOUT GLOBAL (SEM GRID NO BODY) ===== */
+/* ===== LAYOUT GLOBAL ===== */
 body {
   margin: 0;
 }
 
-/* Se um dia usares .accueil no <body>, não força grid nem altura fixa */
-.accueil {}
-
-/* ===== TITULOS (EXCETO H1) USAM A NOVA FONTE ===== */
+/* ===== TITULOS (EXCETO H1) ===== */
 h2, h3, h4, h5, h6 {
   font-family: var(--font-heading-menu);
 }
@@ -43,8 +40,6 @@ h2, h3, h4, h5, h6 {
 /* ===== HEADER ===== */
 header {
   position: static;
-  top: auto;
-  z-index: 1000;
   border-bottom: 0.05em solid rgba(255,255,255,0.08);
   padding: 1.2em 0;
 }
@@ -67,7 +62,6 @@ header {
 .logo {
   width: var(--logo-w);
   height: auto;
-  margin: 0;
 }
 
 .title-nav {
@@ -80,7 +74,6 @@ header {
   letter-spacing: 0.12em;
   line-height: 1.1;
   margin: 0;
-  /* NÃO mexemos na font-family: mantém a fonte original do site */
 }
 
 /* ===== MENU ===== */
@@ -100,8 +93,6 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
-
-  /* NOVO: fonte do menu */
   font-family: var(--font-heading-menu);
 }
 
@@ -110,95 +101,9 @@ nav a:hover {
   text-decoration: underline;
 }
 
-nav a.active {
-  color: var(--color-fg);
-}
-
 /* ===== MAIN ===== */
 main {
   padding: 2.5em 1em;
-}
-
-.main-inner {
-  max-width: var(--max-content);
-  margin: 0 auto;
-}
-
-/* ===== HERO (para futuras secções) ===== */
-.hero {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  align-items: center;
-  gap: var(--gap);
-  margin-block: 2.5em;
-}
-
-.hero h2 {
-  font-size: var(--size-hero-h2);
-  margin: 0 0 0.3em;
-}
-
-.hero p {
-  font-size: var(--size-hero-p);
-  max-width: 60ch;
-  margin: 0 0 0.9em;
-  line-height: 1.6;
-  letter-spacing: 0.06em;
-}
-
-.hero .cta-group { display: none; }
-
-.hero-media {
-  width: 100%;
-  aspect-ratio: 4/3;
-  border-radius: 0.9em;
-  overflow: hidden;
-  border: 0.05em solid rgba(255,255,255,0.12);
-}
-
-.hero-media img,
-.hero-media video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ===== DESTAQUES ===== */
-.features {
-  margin-top: 2.5em;
-  display: grid;
-  grid-template-columns: repeat(var(--grid-features), 1fr);
-  gap: var(--gap);
-}
-
-.feature {
-  padding: 1.25em;
-  border: 0.05em solid rgba(255,255,255,0.12);
-  border-radius: 0.9em;
-  background: rgba(255,255,255,0.02);
-}
-
-.feature h3 {
-  font-size: var(--size-feature-h3);
-  margin: 0 0 0.5em;
-}
-
-.feature p {
-  font-size: var(--size-feature-p);
-}
-
-/* ===== GALERIA ===== */
-.gallery {
-  margin-top: 2.5em;
-  display: grid;
-  grid-template-columns: repeat(var(--grid-gallery), 1fr);
-  gap: 0.8em;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 0.6em;
-  object-fit: cover;
 }
 
 /* ===== FOOTER ===== */
@@ -217,25 +122,27 @@ footer p {
    RESPONSIVIDADE
    ========================================================== */
 
-/* Tablet HORIZONTAL (1000–1200px) */
+/* Tablet horizontal */
 @media (max-width: 1200px) and (min-width: 1000px) {
   :root {
     --size-h1: 4em;
     --size-menu: 1em;
     --logo-w: 8em;
-   .header-content { gap: 0.2em; }
+  }
+  .header-content { gap: 0.2em; }
+}
 
-
-/* Tablet VERTICAL (601–1000px) */
+/* Tablet vertical */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
     --size-h1: 4em;
     --size-menu: 0.9em;
     --logo-w: 8em;
-    .header-content { gap: 0.2em; }
+  }
+  .header-content { gap: 0.2em; }
+}
 
-
-/* Telemóvel (≤600px) */
+/* Telemóvel */
 @media (max-width: 600px) {
   :root {
     --size-h1: 2.5em;
@@ -243,33 +150,14 @@ footer p {
     --logo-w: 6em;
   }
 
-  header {
-    padding: 0.5em 0;
-  }
+  header { padding: 0.5em 0; }
 
   .header-content {
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
       "logoL title logoR"
       "nav   nav   nav";
-    align-items: center;
     gap: 0.3em;
-  }
-
-  .left-logo {
-    display: block;
-  }
-
-  .right-logo {
-    display: block;
-  }
-
-  .title-nav h1 {
-    line-height: 1.1;
-  }
-
-  nav {
-    justify-content: center;
   }
 
   nav a {
@@ -279,19 +167,9 @@ footer p {
   main {
     padding: 1.8em 1em 1.2em;
   }
+}
 
-  .hero {
-    margin-block: 1.4em 0.8em;
-    grid-template-columns: 1fr;
-  }
-
-  .features,
-  .gallery {
-    margin-top: 1.4em;
-  }
-
-
-/* Opcional: esconder só o logo direito em telemóveis MUITO estreitos */
+/* Esconder o logo direito em ecrãs muito estreitos */
 @media (max-width: 480px) {
   .header-content {
     grid-template-columns: auto 1fr;
@@ -299,89 +177,12 @@ footer p {
       "logoL title"
       "nav   nav";
   }
-
-  .right-logo {
-    display: none;
-  }
-
-
-/* ==========================================================
-   DETALHES VISUAIS / ACESSIBILIDADE
-   ========================================================== */
-:where(a, button, .btn):focus-visible {
-  outline: 0.1em dashed var(--color-accent);
-  outline-offset: 0.1em;
-}
-
-.hero-media,
-.feature,
-.gallery img {
-  border: 0;
-}
-
-nav a,
-nav a:hover {
-  text-decoration: none;
+  .right-logo { display: none; }
 }
 
 /* ==========================================================
-   RESET FORTE: garantir que NENHUM CSS força o footer ao fundo
+   FORÇAR H1 IGUAL AO DAS OUTRAS PÁGINAS
    ========================================================== */
-html, body {
-  min-height: auto !important;
-  height: auto !important;
-  display: block !important;
-}
-
-/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.05em !important;            /* quase nenhum espaço entre links */
-    justify-content: center !important;
-    flex-wrap: nowrap !important;      /* impede quebra de linha */
-  }
-
-  header .header-content nav a {
-    padding: 0.2em 0.1em !important;   /* retira espaço interno */
-    font-size: 0.82em !important;      /* corrigido: estava truncado */
-  }
-
-
-/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
-.accueil-page p,
-.accueil-page footer p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-}
-/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.05em !important;            /* quase nenhum espaço entre links */
-    justify-content: center !important;
-    flex-wrap: nowrap !important;      /* impede quebra de linha */
-  }
-
-  header .header-content nav a {
-    padding: 0.2em 0.1em !important;   /* retira espaço interno */
-    font-size: 0.82em !important;      /* aqui estava truncado */
-  }
-
-
-/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
-.accueil-page p,
-.accueil-page footer p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-}
-
-/* ==========================================================
-   FORÇAR H1 DA PÁGINA ACCUEIL IGUAL AO DAS OUTRAS PÁGINAS
-   ========================================================== */
-
 .accueil-page header .title-nav h1,
 body.accueil-page header .title-nav h1,
 html body.accueil-page header .title-nav h1 {
@@ -398,10 +199,11 @@ html body.accueil-page header .title-nav h1 {
   .accueil-page header .title-nav h1 {
     font-size: 4em !important;
   }
+}
 
 /* Mobile */
 @media (max-width: 600px) {
   .accueil-page header .title-nav h1 {
     font-size: 2.5em !important;
   }
-
+}

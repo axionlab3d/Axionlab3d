@@ -3,32 +3,31 @@
    - Mesmo estilo base da página ACCUEIL.
    - Menu sempre visível, sem hambúrguer.
    - Logo direito escondido em telemóveis na vertical.
-   - Tamanhos fáceis de ajustar via variáveis.
    ========================================================== */
 
 /* ==========================================================
    🔧 VARIÁVEIS GERAIS
    ========================================================== */
 :root {
-  /* ===== TIPOGRAFIA ===== */
-  --size-h1: 6em;      /* Título "Axion Lab 3D" */
-  --size-menu: 2em;    /* Tamanho do texto do menu */
-  --size-h2: 3em;      /* Título principal da página */
-  --size-p: 2em;       /* Parágrafos */
+  /* TIPOGRAFIA */
+  --size-h1: 6em;
+  --size-menu: 2em;
+  --size-h2: 3em;
+  --size-p: 2em;
 
-  /* ===== LOGOS / HEADER ===== */
+  /* LOGOS / HEADER */
   --logo-w: 12em;
   --header-padding-y: 1.2em;
   --nav-gap-top: 0.15em;
 
-  /* ===== LAYOUT ===== */
+  /* LAYOUT */
   --max-content: 80em;
   --gap: 1em;
 
-  /* ===== CORES ===== */
+  /* CORES */
   --color-border-soft: rgba(255,255,255,0.08);
 
-  /* ===== FONTES ===== */
+  /* FONTES */
   --font-heading-menu: "Amatic SC", cursive;
 }
 
@@ -86,7 +85,7 @@ header {
   /* Mantém a fonte original */
 }
 
-/* ===== MENU ===== */
+/* MENU */
 nav {
   grid-area: nav;
   margin-top: var(--nav-gap-top);
@@ -104,7 +103,6 @@ nav a {
   text-decoration: none;
   transition: 0.2s ease;
 
-  /* NOVO: aplica Amatic SC */
   font-family: var(--font-heading-menu);
   letter-spacing: 0.05em;
 }
@@ -132,7 +130,6 @@ main {
   margin: 0 0 0.8em;
   text-align: center;
 
-  /* Fonte dos títulos secundários */
   font-family: var(--font-heading-menu);
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -146,7 +143,6 @@ main {
   max-width: 100ch;
   text-align: justify;
 
-  /* Texto com Quicksand Light 300 */
   font-family: "Quicksand", sans-serif;
   font-weight: 300;
 }
@@ -169,7 +165,7 @@ footer {
    RESPONSIVIDADE
    ========================================================== */
 
-/* ===== Tablet (601–1000px) ===== */
+/* Tablet (601–1000px) */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
     --size-h1: 3em;
@@ -185,7 +181,7 @@ footer {
   }
 }
 
-/* ===== Telemóvel (≤600px) ===== */
+/* Telemóveis (≤600px) */
 @media (max-width: 600px) {
   :root {
     --size-h1: 2em;
@@ -217,16 +213,14 @@ footer {
   }
 }
 
-/* ===== Esconde o logo direito em telemóveis verticais ===== */
+/* Esconde o logo direito só em telemóveis verticais */
 @media (max-width: 600px) and (orientation: portrait) {
   .right-logo {
     display: none;
   }
 }
 
-/* ==========================================================
-   MENU AJUSTE PARA 4 PALAVRAS EM TELEMÓVEL VERTICAL
-   ========================================================== */
+/* Menu com 4 palavras em telemóveis na vertical */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
     gap: 0.1em !important;
@@ -242,7 +236,7 @@ footer {
 }
 
 /* ==========================================================
-   ACESSIBILIDADE E DETALHES VISUAIS
+   ACESSIBILIDADE
    ========================================================== */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
@@ -255,7 +249,7 @@ nav a:hover {
 }
 
 /* ==========================================================
-   FONTES GERAIS - IGUAL À CONTACTS E ACCUEIL
+   FONTES GERAIS (GARANTIA)
    ========================================================== */
 .apropos-page header nav a,
 .apropos-page h2,

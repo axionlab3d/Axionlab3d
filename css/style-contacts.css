@@ -1,13 +1,13 @@
 /* ==========================================================
    PAGE : CONTACTS
-   - Igual à ACCUEIL.
+   - Header igual à ACCUEIL.
    - Ícones clicáveis (sem texto).
    - Logo direito escondido no mobile vertical.
    ========================================================== */
 
 /* ===== VARIÁVEIS ===== */
 :root {
-  --size-h1: 6em;            /* título "Axion Lab 3D" (desktop) */
+  --size-h1: 6em;            /* título "Axion Lab 3D" */
   --size-menu: 2em;          /* tamanho dos links do menu */
   --size-h2: 3em;            /* título "Suivez-nous..." */
   --size-p: 2em;             /* texto dos parágrafos */
@@ -60,14 +60,15 @@ header {
 
 .title-nav h1 {
   font-size: var(--size-h1);
-  letter-spacing: 0.12em;  /* 🔹 igual às outras páginas (antes 0.1em) */
-  line-height: 1.1;        /* 🔹 igual às outras páginas */
+  letter-spacing: 0.12em;
+  line-height: 1.1;
   margin: 0;
-  /* Mantém a fonte original do site (definida noutro CSS) */
+  font-family: inherit;  /* mesma fonte base das outras páginas */
+  font-weight: normal;
 }
 
 /* ===== MENU ===== */
-nav {
+header nav {
   grid-area: nav;
   margin-top: var(--nav-gap-top);
   display: flex;
@@ -76,22 +77,24 @@ nav {
   gap: 0.2em;
 }
 
-nav a {
+header nav a {
   font-size: var(--size-menu);
+  padding: 0.4em 0.3em;
   color: var(--color-fg);
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
   transition: 0.2s ease;
+
   font-family: var(--font-heading-menu);
   letter-spacing: 0.05em;
 }
 
-nav a:hover {
+header nav a:hover {
   color: var(--color-accent);
   text-decoration: underline;
 }
 
-nav a.active {
+header nav a.active {
   color: var(--color-fg);
 }
 
@@ -102,7 +105,7 @@ main {
   margin: 0 auto;
 }
 
-main h2 {
+.contacts-section h2 {
   font-size: var(--size-h2);
   text-align: center;
   margin-bottom: 0.6em;
@@ -111,9 +114,7 @@ main h2 {
   letter-spacing: 0.03em;
 }
 
-/* Texto corrido: tamanho e layout;
-   (a fonte em si vamos definir no bloco final em Quicksand 300) */
-main p {
+.contacts-section p {
   font-size: var(--size-p);
   text-align: justify;
   line-height: 1.6;
@@ -157,32 +158,61 @@ footer {
   opacity: 0.85;
 }
 
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 1000px) {
+/* ==========================================================
+   FONTES PARA ESTA PÁGINA
+   ========================================================== */
+
+/* Títulos e menu: Amatic SC */
+.contacts-page header nav a,
+.contacts-page h2,
+.contacts-page h3,
+.contacts-page h4 {
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Texto corrido: Quicksand Light 300 */
+.contacts-page p,
+.contacts-page footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+
+/* Tablet (601–1000px) */
+@media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 4em;        /* 🔹 igual às outras páginas (antes 3em) */
+    --size-h1: 4em;
     --size-menu: 1em;
     --size-h2: 2em;
-    --size-p: 1.1em;
-    --logo-w: 8em;         /* 🔹 igual às outras páginas (antes 6em) */
+    --size-p: 1.2em;
+    --logo-w: 8em;
     --size-icon: 3em;
   }
+
   .header-content { gap: 0.3em; }
 }
 
+/* Telemóveis (≤ 600px) */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2.5em;      /* 🔹 igual às outras páginas (antes 2em) */
+    --size-h1: 2.5em;
     --size-menu: 0.85em;
     --size-h2: 1.6em;
     --size-p: 1em;
-    --logo-w: 6em;         /* 🔹 igual às outras páginas (antes 4.5em) */
+    --logo-w: 6em;
     --size-icon: 2.5em;
   }
 
   header { padding: 0.5em 0; }
 
-  nav a { padding: 0.3em 0.25em; }
+  header nav a { padding: 0.3em 0.25em; }
 
   .contacts-icons { gap: 1.5em; }
 }
@@ -192,7 +222,7 @@ footer {
   .right-logo { display: none; }
 }
 
-/* ===== MENU 4 PALAVRAS (TELEMÓVEL VERTICAL) ===== */
+/* Ajuste do menu para 4 palavras em telemóveis na vertical */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
     gap: 0.1em !important;
@@ -205,48 +235,10 @@ footer {
     font-size: 0.8em !important;
     letter-spacing: 0 !important;
   }
-
+}
 
 /* ===== ACESSIBILIDADE ===== */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
-
-/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
-/* Aplica-se só ao conteúdo textual da página de contactos */
-.contacts-page p,
-.contacts-page footer p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-}
-/* ==========================================================
-   FORÇAR H1 IGUAL AO DA PÁGINA À PROPOS
-   ========================================================== */
-
-.contacts-page header .title-nav h1,
-body.contacts-page header .title-nav h1,
-html body.contacts-page header .title-nav h1 {
-  font-size: 6em !important;        /* mesmo tamanho desktop */
-  letter-spacing: 0.12em !important;
-  line-height: 1.1 !important;
-  margin: 0 !important;
-  font-family: inherit !important;
-  font-weight: normal !important;   /* mais fino */
-}
-
-/* Tablet */
-@media (max-width: 1000px) and (min-width: 601px) {
-  .contacts-page header .title-nav h1 {
-    font-size: 4em !important;
-  }
-
-
-/* Mobile */
-@media (max-width: 600px) {
-  .contacts-page header .title-nav h1 {
-    font-size: 2.5em !important;
-  }
-

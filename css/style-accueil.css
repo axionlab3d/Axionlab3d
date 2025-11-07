@@ -23,7 +23,7 @@
   --grid-features: 3;
   --grid-gallery: 4;
 
-  /* Fonte para menu + títulos (exceto h1) */
+  /* Fonte decorativa para menu + títulos (exceto h1) */
   --font-heading-menu: "Amatic SC", cursive;
 }
 
@@ -32,7 +32,7 @@ body {
   margin: 0;
 }
 
-/* ===== TITULOS (EXCETO H1) ===== */
+/* ===== TÍTULOS (EXCETO H1) ===== */
 h2, h3, h4, h5, h6 {
   font-family: var(--font-heading-menu);
 }
@@ -181,45 +181,18 @@ footer p {
 }
 
 /* ==========================================================
-   FORÇAR H1 IGUAL AO DAS OUTRAS PÁGINAS
-   ========================================================== */
-.accueil-page header .title-nav h1,
-body.accueil-page header .title-nav h1,
-html body.accueil-page header .title-nav h1 {
-  font-size: 6em !important;                 /* Desktop */
-  letter-spacing: 0.12em !important;
-  line-height: 1.1 !important;
-  margin: 0 !important;
-  font-family: "Quicksand", sans-serif !important;
-  font-weight: 300 !important;               /* Fino */
-}
-
-/* Tablet */
-@media (max-width: 1000px) and (min-width: 601px) {
-  .accueil-page header .title-nav h1 {
-    font-size: 4em !important;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .accueil-page header .title-nav h1 {
-    font-size: 2.5em !important;
-  }
-}
-/* ==========================================================
    FORÇAR H1 DA PÁGINA ACCUEIL IGUAL AO DAS OUTRAS PÁGINAS
    ========================================================== */
 
 .accueil header .title-nav h1,
 body.accueil header .title-nav h1,
 html body.accueil header .title-nav h1 {
-  font-size: 6em !important;                 /* Desktop */
+  font-size: 6em !important;         /* Desktop */
   letter-spacing: 0.12em !important;
   line-height: 1.1 !important;
   margin: 0 !important;
-  font-family: "Quicksand", sans-serif !important;
-  font-weight: 300 !important;               /* Fino, como nas outras */
+  font-family: inherit !important;   /* mesma fonte das outras páginas */
+  font-weight: normal !important;    /* mesmo peso */
 }
 
 /* Tablet */

@@ -16,30 +16,30 @@
   <!-- ===== GOOGLE FONTS ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-  href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Quicksand:wght@400;500;600&display=swap"
-  rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Quicksand:wght@300;400&display=swap"
+    rel="stylesheet">
 
-  <!-- ===== APLICAÇÃO DA NOVA FONTE ===== -->
+  <!-- ===== FONTES ESPECÍFICAS PARA ESTA PÁGINA ===== -->
   <style>
-    /* MENU (links dentro do header) */
-    header nav a {
+    /* MENU E TÍTULOS SECUNDÁRIOS (Amatic SC) */
+    header nav a,
+    h2, h3, h4, h5, h6 {
       font-family: "Amatic SC", cursive !important;
-      font-weight: 700 !important;
+      font-weight: 700;
       letter-spacing: 0.05em;
     }
 
-    /* TÍTULOS SECUNDÁRIOS EM TODA A PÁGINA */
-    h2, h3, h4, h5, h6 {
-      font-family: "Amatic SC", cursive !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.03em;
+    /* TEXTO CORRIDO (Quicksand Light 300) */
+    body.contacts-page p,
+    body.contacts-page footer p {
+      font-family: "Quicksand", sans-serif !important;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      line-height: 1.6;
     }
 
-    /* GARANTE QUE O H1 MANTÉM A FONTE ORIGINAL */
+    /* MANTER O TÍTULO PRINCIPAL (H1) COMO ESTAVA */
     header h1 {
       font-family: inherit !important;
     }
@@ -56,10 +56,7 @@
 
       <!-- Título + Menu -->
       <div class="title-nav">
-        <!-- TÍTULO PRINCIPAL: NÃO MUDA -->
         <h1>Axion Lab 3D</h1>
-
-        <!-- MENU: USA AMATIC SC -->
         <nav>
           <a href="accueil.html">Accueil</a>
           <a href="produits.html">Produits</a>
@@ -85,4 +82,25 @@
           <img src="images/mail.png" alt="Email" class="contact-icon">
         </a>
 
-        <a href="https://www.facebook.com/share/17ZhNB5WXv/"
+        <a href="https://www.facebook.com/share/17ZhNB5WXv/" target="_blank" aria-label="Facebook" class="contact-link">
+          <img src="images/facebook.png" alt="Facebook" class="contact-icon">
+        </a>
+
+        <a href="https://www.instagram.com/axion3d.lab?igsh=MXZhaHRwbmw0dnpvcA==" target="_blank" aria-label="Instagram" class="contact-link">
+          <img src="images/instagram.png" alt="Instagram" class="contact-icon">
+        </a>
+
+        <a href="https://www.tiktok.com/@axion.3d.lab?_r=1&_t=ZG-91280r5CDEu" target="_blank" aria-label="TikTok" class="contact-link">
+          <img src="images/tik-tok.png" alt="TikTok" class="contact-icon">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
+  </footer>
+
+</body>
+</html>

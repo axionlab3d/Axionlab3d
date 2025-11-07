@@ -23,7 +23,7 @@
   --grid-features: 3;
   --grid-gallery: 4;
 
-  /* fonte para menu + títulos (exceto h1) */
+  /* NOVO: fonte para menu + títulos (exceto h1) */
   --font-heading-menu: "Amatic SC", cursive;
 }
 
@@ -101,7 +101,7 @@ nav a {
   font-weight: bold;
   transition: 0.2s ease;
 
-  /* fonte do menu */
+  /* NOVO: fonte do menu */
   font-family: var(--font-heading-menu);
 }
 
@@ -124,7 +124,7 @@ main {
   margin: 0 auto;
 }
 
-/* ===== HERO (para futuras secções, se quiseres) ===== */
+/* ===== HERO (para futuras secções) ===== */
 .hero {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
@@ -345,33 +345,37 @@ html, body {
 
   header .header-content nav a {
     padding: 0.2em 0.1em !important;   /* retira espaço interno */
-    font-size: 0.82em !important;      /* corrigido o !important */
+    font-size: 0.82em !important;      /* corrigido: estava truncado */
   }
 }
 
-/* ==========================================================
-   CORREÇÃO DO H1 (ESPESSURA) APENAS NA ACCUEIL
-   ========================================================== */
+/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
+.accueil-page p,
+.accueil-page footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.05em !important;            /* quase nenhum espaço entre links */
+    justify-content: center !important;
+    flex-wrap: nowrap !important;      /* impede quebra de linha */
+  }
 
-.accueil header .title-nav h1,
-body.accueil header .title-nav h1,
-html body.accueil header .title-nav h1 {
-  font-weight: normal !important;  /* 🔹 mesma “grossura” das outras */
+  header .header-content nav a {
+    padding: 0.2em 0.1em !important;   /* retira espaço interno */
+    font-size: 0.82em !important;      /* aqui estava truncado */
+  }
 }
 
-/* ==========================================================
-   FORÇAR O H1 DA PÁGINA ACCUEIL
-   (mesmo tamanho/estilo que as outras páginas)
-   ========================================================== */
-
-.accueil header .title-nav h1,
-body.accueil header .title-nav h1,
-html body.accueil header .title-nav h1 {
-  font-size: 6em !important;        /* mesmo tamanho das outras */
-  letter-spacing: 0.12em !important;
-  line-height: 1.1 !important;
-  margin: 0 !important;
-  font-family: inherit !important;  /* usa a mesma fonte base */
-  font-weight: normal !important;   /* tira o "super bold" */
+/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
+.accueil-page p,
+.accueil-page footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
 }
-

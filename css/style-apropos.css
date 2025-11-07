@@ -136,7 +136,7 @@ main {
 }
 
 .bio p {
-  font-size: var(--size-p);
+  font-size: 1.5em;
   line-height: 1.6;
   letter-spacing: 0.01em;
   margin: 0 auto 1em;

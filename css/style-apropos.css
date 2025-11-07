@@ -10,10 +10,10 @@
    ========================================================== */
 :root {
   /* TIPOGRAFIA */
-  --size-h1: 6em;
+  --size-h1: 6em;   /* igual à accueil */
   --size-menu: 2em;
   --size-h2: 3em;
-  --size-p: 1.5em; /* 🔹 Texto mais pequeno */
+  --size-p: 1.5em;  /* texto menor */
 
   /* LOGOS / HEADER */
   --logo-w: 12em;
@@ -54,7 +54,6 @@ header {
   max-width: var(--max-content);
   margin: 0 auto;
   padding: 0 1em;
-
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
@@ -78,14 +77,16 @@ header {
 }
 
 .title-nav h1 {
-  font-size: var(--size-h1);
-  letter-spacing: 0.1em;
+  font-size: var(--size-h1);   /* mesmo valor da accueil */
+  letter-spacing: 0.12em;      /* igual à accueil */
   line-height: 1.1;
   margin: 0;
-  /* Mantém a fonte original */
+  font-family: inherit;        /* mantém a fonte base */
 }
 
-/* MENU */
+/* ==========================================================
+   MENU
+   ========================================================== */
 nav {
   grid-area: nav;
   margin-top: var(--nav-gap-top);
@@ -129,7 +130,6 @@ main {
   font-size: var(--size-h2);
   margin: 0 0 0.8em;
   text-align: center;
-
   font-family: var(--font-heading-menu);
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -168,27 +168,25 @@ footer {
 /* Tablet (601–1000px) */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 3em;
+    --size-h1: 4em;   /* igual à accueil */
     --size-menu: 1em;
     --size-h2: 2.2em;
     --size-p: 1.1em;
-    --logo-w: 6em;
+    --logo-w: 8em;
     --header-padding-y: 0.9em;
   }
 
-  .header-content {
-    gap: 0.25em;
-  }
+  .header-content { gap: 0.25em; }
 }
 
 /* Telemóveis (≤600px) */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2em;
+    --size-h1: 2.5em;  /* igual à accueil */
     --size-menu: 0.9em;
     --size-h2: 1.6em;
     --size-p: 1em;
-    --logo-w: 4.5em;
+    --logo-w: 6em;
     --header-padding-y: 0.6em;
   }
 
@@ -199,78 +197,3 @@ footer {
   .header-content {
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
-      "logoL title logoR"
-      "nav   nav   nav";
-    gap: 0.2em;
-  }
-
-  nav a {
-    padding: 0.3em 0.25em;
-  }
-
-  main {
-    padding: 1.8em 1em;
-  }
-}
-
-/* Esconde o logo direito só em telemóveis verticais */
-@media (max-width: 600px) and (orientation: portrait) {
-  .right-logo {
-    display: none;
-  }
-}
-
-/* Menu com 4 palavras em telemóveis na vertical */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.1em !important;
-    justify-content: center !important;
-    flex-wrap: nowrap !important;
-  }
-
-  header .header-content nav a {
-    padding: 0.25em 0.18em !important;
-    font-size: 0.8em !important;
-    letter-spacing: 0 !important;
-  }
-}
-
-/* ==========================================================
-   ACESSIBILIDADE
-   ========================================================== */
-:where(a, button, .btn):focus-visible {
-  outline: 0.1em dashed var(--color-accent);
-  outline-offset: 0.1em;
-}
-
-nav a,
-nav a:hover {
-  text-decoration: none;
-}
-
-/* ==========================================================
-   FONTES GERAIS (GARANTIA)
-   ========================================================== */
-.apropos-page header nav a,
-.apropos-page h2,
-.apropos-page h3,
-.apropos-page h4,
-.apropos-page h5,
-.apropos-page h6 {
-  font-family: "Amatic SC", cursive;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.apropos-page p,
-.apropos-page footer p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-}
-
-.apropos-page header h1 {
-  font-family: inherit;
-  letter-spacing: 0.1em;
-}

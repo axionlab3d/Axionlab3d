@@ -1,8 +1,7 @@
 /* ==========================================================
    ACCUEIL (HOME)
-   - Desktop mantém o aspeto atual.
-   - Tablet e Telemóvel ajustam tamanhos.
-   - SEM hambúrguer: menu por palavras SEMPRE visível.
+   - Header igual às outras páginas (h1, menu, logos).
+   - Menu sempre visível (sem hamburguer).
    ========================================================== */
 
 /* ===== VARIÁVEIS BASE (Desktop) ===== */
@@ -23,21 +22,21 @@
   --grid-features: 3;
   --grid-gallery: 4;
 
-  /* NOVO: fonte para menu + títulos (exceto h1) */
   --font-heading-menu: "Amatic SC", cursive;
 }
 
-/* ===== LAYOUT GLOBAL (SEM GRID NO BODY) ===== */
+/* ===== LAYOUT GLOBAL ===== */
 body {
   margin: 0;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
 
-/* Se um dia usares .accueil no <body>, não força grid nem altura fixa */
-.accueil {}
-
-/* ===== TITULOS (EXCETO H1) USAM A NOVA FONTE ===== */
+/* Títulos secundários usam Amatic SC */
 h2, h3, h4, h5, h6 {
   font-family: var(--font-heading-menu);
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 /* ===== HEADER ===== */
@@ -75,12 +74,14 @@ header {
   align-self: center;
 }
 
+/* H1 (igual às outras páginas) */
 .title-nav h1 {
   font-size: var(--size-h1);
   letter-spacing: 0.12em;
   line-height: 1.1;
   margin: 0;
-  /* NÃO mexemos na font-family: mantém a fonte original do site */
+  font-family: inherit;
+  font-weight: normal;
 }
 
 /* ===== MENU ===== */
@@ -100,9 +101,8 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
-
-  /* NOVO: fonte do menu */
   font-family: var(--font-heading-menu);
+  letter-spacing: 0.05em;
 }
 
 nav a:hover {
@@ -124,7 +124,7 @@ main {
   margin: 0 auto;
 }
 
-/* ===== HERO (para futuras secções) ===== */
+/* ===== HERO ===== */
 .hero {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
@@ -133,20 +133,18 @@ main {
   margin-block: 2.5em;
 }
 
-.hero h2 {
+.hero-text h2 {
   font-size: var(--size-hero-h2);
   margin: 0 0 0.3em;
 }
 
-.hero p {
+.hero-text p {
   font-size: var(--size-hero-p);
   max-width: 60ch;
   margin: 0 0 0.9em;
   line-height: 1.6;
   letter-spacing: 0.06em;
 }
-
-.hero .cta-group { display: none; }
 
 .hero-media {
   width: 100%;
@@ -163,7 +161,7 @@ main {
   object-fit: cover;
 }
 
-/* ===== DESTAQUES ===== */
+/* ===== FEATURES (se quiseres usar) ===== */
 .features {
   margin-top: 2.5em;
   display: grid;
@@ -187,7 +185,7 @@ main {
   font-size: var(--size-feature-p);
 }
 
-/* ===== GALERIA ===== */
+/* ===== GALERIA (se quiseres usar) ===== */
 .gallery {
   margin-top: 2.5em;
   display: grid;
@@ -231,7 +229,7 @@ footer p {
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
     --size-h1: 4em;
-    --size-menu: 0.9em;
+    --size-menu: 1em;
     --logo-w: 8em;
   }
   .header-content { gap: 0.2em; }
@@ -258,10 +256,7 @@ footer p {
     gap: 0.3em;
   }
 
-  .left-logo {
-    display: block;
-  }
-
+  .left-logo,
   .right-logo {
     display: block;
   }
@@ -293,7 +288,7 @@ footer p {
   }
 }
 
-/* Opcional: esconder só o logo direito em telemóveis MUITO estreitos */
+/* Esconder só o logo direito em telemóveis MUITO estreitos */
 @media (max-width: 480px) {
   .header-content {
     grid-template-columns: auto 1fr;
@@ -307,8 +302,23 @@ footer p {
   }
 }
 
+/* Ajuste do menu para 4 palavras em telemóveis na vertical */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.05em !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  header .header-content nav a {
+    padding: 0.2em 0.1em !important;
+    font-size: 0.82em !important;
+    letter-spacing: 0 !important;
+  }
+}
+
 /* ==========================================================
-   DETALHES VISUAIS / ACESSIBILIDADE
+   ACESSIBILIDADE / DETALHES
    ========================================================== */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
@@ -326,56 +336,9 @@ nav a:hover {
   text-decoration: none;
 }
 
-/* ==========================================================
-   RESET FORTE: garantir que NENHUM CSS força o footer ao fundo
-   ========================================================== */
+/* Reset forte para não forçar footer ao fundo */
 html, body {
   min-height: auto !important;
   height: auto !important;
   display: block !important;
-}
-
-/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.05em !important;            /* quase nenhum espaço entre links */
-    justify-content: center !important;
-    flex-wrap: nowrap !important;      /* impede quebra de linha */
-  }
-
-  header .header-content nav a {
-    padding: 0.2em 0.1em !important;   /* retira espaço interno */
-    font-size: 0.82em !important;      /* corrigido: estava truncado */
-  }
-}
-
-/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
-.accueil-page p,
-.accueil-page footer p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-}
-/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.05em !important;            /* quase nenhum espaço entre links */
-    justify-content: center !important;
-    flex-wrap: nowrap !important;      /* impede quebra de linha */
-  }
-
-  header .header-content nav a {
-    padding: 0.2em 0.1em !important;   /* retira espaço interno */
-    font-size: 0.82em !important;      /* aqui estava truncado */
-  }
-}
-
-/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
-.accueil-page p,
-.accueil-page footer p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
 }

@@ -21,7 +21,7 @@
 
   --color-border-soft: rgba(255,255,255,0.08);
 
-  /* NOVO: fonte decorativa para menu + títulos secundários */
+  /* Fonte decorativa para menu + títulos secundários */
   --font-heading-menu: "Amatic SC", cursive;
 }
 
@@ -62,7 +62,7 @@ header {
   font-size: var(--size-h1);
   letter-spacing: 0.1em;
   margin: 0;
-  /* Mantém a fonte original */
+  /* Mantém a fonte original do site (definida noutro CSS) */
 }
 
 /* ===== MENU ===== */
@@ -81,7 +81,6 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
-  /* NOVO: aplica Amatic SC */
   font-family: var(--font-heading-menu);
   letter-spacing: 0.05em;
 }
@@ -106,12 +105,13 @@ main h2 {
   font-size: var(--size-h2);
   text-align: center;
   margin-bottom: 0.6em;
-  /* NOVO: aplica Amatic SC */
   font-family: var(--font-heading-menu);
   font-weight: 700;
   letter-spacing: 0.03em;
 }
 
+/* Texto corrido: tamanho e layout;
+   (a fonte em si vamos definir no bloco final em Quicksand 300) */
 main p {
   font-size: var(--size-p);
   text-align: justify;
@@ -212,16 +212,12 @@ footer {
   outline-offset: 0.1em;
 }
 
-/* ===== FONTE BASE PARA TEXTOS ===== */
-body.contacts-page,
+/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
+/* Aplica-se só ao conteúdo textual da página de contactos */
 .contacts-page p,
-.contacts-page footer,
-.contacts-page button,
-.contacts-page a.contact-link {
-  font-family: "Quicksand", sans-serif !important;
-  font-weight: 400;
+.contacts-page footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
   letter-spacing: 0.01em;
   line-height: 1.6;
 }
-
-

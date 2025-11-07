@@ -207,3 +207,35 @@ html body.accueil-page header .title-nav h1 {
     font-size: 2.5em !important;
   }
 }
+/* ==========================================================
+   FORÇAR H1 DA PÁGINA ACCUEIL IGUAL AO DAS OUTRAS PÁGINAS
+   ========================================================== */
+
+.accueil header .title-nav h1,
+body.accueil header .title-nav h1,
+html body.accueil header .title-nav h1 {
+  font-size: 6em !important;                 /* Desktop */
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  font-family: "Quicksand", sans-serif !important;
+  font-weight: 300 !important;               /* Fino, como nas outras */
+}
+
+/* Tablet */
+@media (max-width: 1000px) and (min-width: 601px) {
+  .accueil header .title-nav h1,
+  body.accueil header .title-nav h1,
+  html body.accueil header .title-nav h1 {
+    font-size: 4em !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .accueil header .title-nav h1,
+  body.accueil header .title-nav h1,
+  html body.accueil header .title-nav h1 {
+    font-size: 2.5em !important;
+  }
+}

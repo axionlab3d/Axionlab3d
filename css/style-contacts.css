@@ -7,7 +7,7 @@
 
 /* ===== VARIÁVEIS ===== */
 :root {
-  --size-h1: 6em;            /* título "Axion Lab 3D" */
+  --size-h1: 6em;            /* título "Axion Lab 3D" (desktop) */
   --size-menu: 2em;          /* tamanho dos links do menu */
   --size-h2: 3em;            /* título "Suivez-nous..." */
   --size-p: 2em;             /* texto dos parágrafos */
@@ -60,7 +60,8 @@ header {
 
 .title-nav h1 {
   font-size: var(--size-h1);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;  /* 🔹 igual às outras páginas (antes 0.1em) */
+  line-height: 1.1;        /* 🔹 igual às outras páginas */
   margin: 0;
   /* Mantém a fonte original do site (definida noutro CSS) */
 }
@@ -159,11 +160,11 @@ footer {
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 1000px) {
   :root {
-    --size-h1: 3em;
+    --size-h1: 4em;        /* 🔹 igual às outras páginas (antes 3em) */
     --size-menu: 1em;
     --size-h2: 2em;
     --size-p: 1.1em;
-    --logo-w: 6em;
+    --logo-w: 8em;         /* 🔹 igual às outras páginas (antes 6em) */
     --size-icon: 3em;
   }
   .header-content { gap: 0.3em; }
@@ -171,11 +172,11 @@ footer {
 
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2em;
+    --size-h1: 2.5em;      /* 🔹 igual às outras páginas (antes 2em) */
     --size-menu: 0.85em;
     --size-h2: 1.6em;
     --size-p: 1em;
-    --logo-w: 4.5em;
+    --logo-w: 6em;         /* 🔹 igual às outras páginas (antes 4.5em) */
     --size-icon: 2.5em;
   }
 

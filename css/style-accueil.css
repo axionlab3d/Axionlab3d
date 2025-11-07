@@ -342,3 +342,14 @@ html, body {
   height: auto !important;
   display: block !important;
 }
+
+/* ==========================================================
+   FORÇAR H1 DA PÁGINA ACCUEIL (espessura igual às outras)
+   ========================================================== */
+
+.accueil header .title-nav h1,
+body.accueil header .title-nav h1,
+html body.accueil header .title-nav h1 {
+  font-weight: 300 !important;   /* 🔹 mais fino (igual ao resto) */
+  font-family: "Quicksand", sans-serif !important;
+}

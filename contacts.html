@@ -13,15 +13,29 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style-contacts.css">
 
-  <!-- ===== GOOGLE FONTS =====
-       Italianno (se quiseres usar noutros locais)
-       Amatic SC = letra dos menus/títulos (tipo Quinta da Quintã)
-  -->
+  <!-- ===== GOOGLE FONTS ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Italianno&display=swap"
-    rel="stylesheet">
+  <!-- Troca "Amatic+SC" pela fonte que escolheste, se for outra -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ===== FORÇAR FONTE NO MENU E TÍTULOS (EXCETO H1) ===== -->
+  <style>
+    /* MENU (links dentro do header) */
+    header nav a {
+      font-family: "Amatic SC", cursive !important;
+    }
+
+    /* TÍTULOS SECUNDÁRIOS EM TODA A PÁGINA (h2–h6) */
+    h2, h3, h4, h5, h6 {
+      font-family: "Amatic SC", cursive !important;
+    }
+
+    /* GARANTIR QUE O H1 CONTINUA COM A FONTE ANTIGA (herdada do CSS) */
+    header h1 {
+      font-family: inherit !important;
+    }
+  </style>
 </head>
 
 <body class="contacts-page">
@@ -34,10 +48,10 @@
 
       <!-- Título + Menu -->
       <div class="title-nav">
-        <!-- TÍTULO PRINCIPAL: mantém a fonte antiga (definida no CSS global) -->
+        <!-- TÍTULO PRINCIPAL: NÃO MUDA -->
         <h1>Axion Lab 3D</h1>
 
-        <!-- MENU: vai usar Amatic SC via CSS -->
+        <!-- MENU: VAI USAR A FONTE NOVA -->
         <nav>
           <a href="accueil.html">Accueil</a>
           <a href="produits.html">Produits</a>
@@ -54,7 +68,7 @@
   <!-- ===== MAIN ===== -->
   <main>
     <section class="contacts-section">
-      <!-- TÍTULO SECUNDÁRIO: vai usar Amatic SC via CSS -->
+      <!-- ESTE H2 JÁ VAI USAR A FONTE NOVA -->
       <h2>Suivez-nous et contactez-nous</h2>
       <p>Rejoignez Axion Lab 3D sur nos réseaux et entrez en contact avec notre équipe.</p>
 

@@ -358,3 +358,20 @@ body.accueil header .title-nav h1,
 html body.accueil header .title-nav h1 {
   font-weight: normal !important;  /* 🔹 mesma “grossura” das outras */
 }
+
+/* ==========================================================
+   FORÇAR O H1 DA PÁGINA ACCUEIL
+   (mesmo tamanho/estilo que as outras páginas)
+   ========================================================== */
+
+.accueil header .title-nav h1,
+body.accueil header .title-nav h1,
+html body.accueil header .title-nav h1 {
+  font-size: 6em !important;        /* mesmo tamanho das outras */
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  font-family: inherit !important;  /* usa a mesma fonte base */
+  font-weight: normal !important;   /* tira o "super bold" */
+}
+

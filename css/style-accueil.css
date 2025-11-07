@@ -357,3 +357,25 @@ html, body {
   letter-spacing: 0.01em;
   line-height: 1.6;
 }
+/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.05em !important;            /* quase nenhum espaço entre links */
+    justify-content: center !important;
+    flex-wrap: nowrap !important;      /* impede quebra de linha */
+  }
+
+  header .header-content nav a {
+    padding: 0.2em 0.1em !important;   /* retira espaço interno */
+    font-size: 0.82em !important;      /* aqui estava truncado */
+  }
+}
+
+/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
+.accueil-page p,
+.accueil-page footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}

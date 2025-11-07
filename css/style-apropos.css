@@ -13,7 +13,7 @@
   --size-h1: 6em;
   --size-menu: 2em;
   --size-h2: 3em;
-  --size-p: 1.5em;
+  --size-p: 1.5em; /* 🔹 Texto mais pequeno */
 
   /* LOGOS / HEADER */
   --logo-w: 12em;
@@ -78,7 +78,7 @@ header {
 }
 
 .title-nav h1 {
-  font-size: --`size-h1;
+  font-size: var(--size-h1);
   letter-spacing: 0.1em;
   line-height: 1.1;
   margin: 0;
@@ -96,7 +96,7 @@ nav {
 }
 
 nav a {
-  font-size: 1.5em;
+  font-size: var(--size-menu);
   padding: 0.4em 0.3em;
   color: var(--color-fg);
   font-weight: bold;
@@ -136,7 +136,7 @@ main {
 }
 
 .bio p {
-  font-size: 1.5em;
+  font-size: var(--size-p);
   line-height: 1.6;
   letter-spacing: 0.01em;
   margin: 0 auto 1em;

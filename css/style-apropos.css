@@ -13,7 +13,7 @@
   --size-h1: 6em;
   --size-menu: 2em;
   --size-h2: 3em;
-  --size-p: 0.5em;
+  --size-p: 1.5em;
 
   /* LOGOS / HEADER */
   --logo-w: 12em;
@@ -96,7 +96,7 @@ nav {
 }
 
 nav a {
-  font-size: var(--size-menu);
+  font-size: 1.5em;
   padding: 0.4em 0.3em;
   color: var(--color-fg);
   font-weight: bold;

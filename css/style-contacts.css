@@ -10,8 +10,8 @@
   --size-h1: 6em;            /* título "Axion Lab 3D" */
   --size-menu: 2em;          /* tamanho dos links do menu */
   --size-h2: 3em;            /* título "Suivez-nous..." */
-  --size-p:2em;           /* texto dos parágrafos */
-  --size-icon: 4em;        /* tamanho dos ícones de contacto */
+  --size-p: 2em;             /* texto dos parágrafos */
+  --size-icon: 4em;          /* tamanho dos ícones de contacto */
 
   --logo-w: 12em;
   --header-padding-y: 1.2em;
@@ -20,6 +20,9 @@
   --max-content: 80em;
 
   --color-border-soft: rgba(255,255,255,0.08);
+
+  /* NOVO: fonte decorativa para menu + títulos secundários */
+  --font-heading-menu: "Amatic SC", cursive;
 }
 
 /* ===== HEADER ===== */
@@ -59,8 +62,10 @@ header {
   font-size: var(--size-h1);
   letter-spacing: 0.1em;
   margin: 0;
+  /* Mantém a fonte original */
 }
 
+/* ===== MENU ===== */
 nav {
   grid-area: nav;
   margin-top: var(--nav-gap-top);
@@ -76,6 +81,9 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
+  /* NOVO: aplica Amatic SC */
+  font-family: var(--font-heading-menu);
+  letter-spacing: 0.05em;
 }
 
 nav a:hover {
@@ -98,6 +106,10 @@ main h2 {
   font-size: var(--size-h2);
   text-align: center;
   margin-bottom: 0.6em;
+  /* NOVO: aplica Amatic SC */
+  font-family: var(--font-heading-menu);
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 main p {
@@ -179,20 +191,26 @@ footer {
   .right-logo { display: none; }
 }
 
+/* ===== MENU 4 PALAVRAS (TELEMÓVEL VERTICAL) ===== */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.1em !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  header .header-content nav a {
+    padding: 0.25em 0.18em !important;
+    font-size: 0.8em !important;
+    letter-spacing: 0 !important;
+  }
+}
+
 /* ===== ACESSIBILIDADE ===== */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
-/* Ajuste do menu para 4 palavras em telemóveis na vertical */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.1em !important;          /* aproxima as palavras */
-  }
 
-  header .header-content nav a {
-    padding: 0.25em 0.18em !important; /* menos espaço lateral */
-    font-size: 0.8em !important;      /* ligeiramente menor */
-  }
 
 

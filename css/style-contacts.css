@@ -222,3 +222,32 @@ footer {
   letter-spacing: 0.01em;
   line-height: 1.6;
 }
+/* ==========================================================
+   FORÇAR H1 IGUAL AO DA PÁGINA À PROPOS
+   ========================================================== */
+
+.contacts-page header .title-nav h1,
+body.contacts-page header .title-nav h1,
+html body.contacts-page header .title-nav h1 {
+  font-size: 6em !important;        /* mesmo tamanho desktop */
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  font-family: inherit !important;
+  font-weight: normal !important;   /* mais fino */
+}
+
+/* Tablet */
+@media (max-width: 1000px) and (min-width: 601px) {
+  .contacts-page header .title-nav h1 {
+    font-size: 4em !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .contacts-page header .title-nav h1 {
+    font-size: 2.5em !important;
+  }
+}
+

@@ -1,11 +1,10 @@
 /* ==========================================================
-/* ==========================================================
    PAGE : À PROPOS
    ========================================================== */
 :root {
-  --size-h1: 6em;
+  --size-h1: 6em;   /* igual à ACCUEIL */
   --size-menu: 2em;
-  --size-h2: 3.5em; /* 🔹 igual ao da Accueil */
+  --size-h2: 3em;
   --size-p: 1.5em;
 
   --logo-w: 12em;
@@ -13,12 +12,17 @@
   --nav-gap-top: 0.15em;
   --max-content: 80em;
   --gap: 1em;
+
   --color-border-soft: rgba(255,255,255,0.08);
   --font-heading-menu: "Amatic SC", cursive;
 }
 
-/* ===== HEADER ===== */
+/* ==========================================================
+   HEADER
+   ========================================================== */
 header {
+  position: static;
+  top: auto;
   border-bottom: 0.05em solid var(--color-border-soft);
   padding: var(--header-padding-y) 0;
 }
@@ -35,12 +39,13 @@ header {
   gap: 0.2em;
 }
 
-.left-logo { grid-area: logoL; }
+.left-logo  { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
 .logo {
   width: var(--logo-w);
   height: auto;
+  margin: 0;
 }
 
 .title-nav {
@@ -48,15 +53,19 @@ header {
   align-self: center;
 }
 
+/* 🔹 H1 igual à ACCUEIL */
 .title-nav h1 {
-  font-size: var(--size-h1);
-  letter-spacing: 0.12em;
-  line-height: 1.1;
+  font-size: 6em !important;   /* força o mesmo tamanho */
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
   margin: 0;
-  font-family: inherit;
+  font-family: inherit !important;
+  font-weight: normal !important;
 }
 
-/* ===== MENU ===== */
+/* ==========================================================
+   MENU
+   ========================================================== */
 nav {
   grid-area: nav;
   margin-top: var(--nav-gap-top);
@@ -86,7 +95,9 @@ nav a.active {
   color: var(--color-fg);
 }
 
-/* ===== MAIN ===== */
+/* ==========================================================
+   MAIN
+   ========================================================== */
 main {
   padding: 2.5em 1em;
   max-width: var(--max-content);
@@ -113,7 +124,9 @@ main {
   font-weight: 300;
 }
 
-/* ===== FOOTER ===== */
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 footer {
   border-top: 0.05em solid var(--color-border-soft);
   padding: 1em;
@@ -124,52 +137,82 @@ footer {
   font-weight: 300;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 4em;
     --size-menu: 1em;
-    --size-h2: 2.4em;
+    --size-h2: 2.2em;
     --size-p: 1.1em;
     --logo-w: 8em;
+  }
+
+  .title-nav h1 {
+    font-size: 4em !important; /* igual à Accueil */
   }
 }
 
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2.5em;
     --size-menu: 0.9em;
-    --size-h2: 1.8em;
+    --size-h2: 1.6em;
     --size-p: 1em;
     --logo-w: 6em;
   }
+
+  .title-nav h1 {
+    font-size: 2.5em !important; /* igual à Accueil */
+  }
+
+  header {
+    padding: 0.6em 0;
+  }
+
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logoL title logoR"
+      "nav   nav   nav";
+    gap: 0.2em;
+  }
+
+  nav a {
+    padding: 0.3em 0.25em;
+  }
+
+  main {
+    padding: 1.8em 1em;
+  }
 }
 
-/* Esconde logo direito no mobile */
+/* ==========================================================
+   AJUSTES VISUAIS
+   ========================================================== */
 @media (max-width: 600px) and (orientation: portrait) {
-  .right-logo { display: none; }
+  .right-logo {
+    display: none;
+  }
 }
 
-/* ===== ACESSIBILIDADE ===== */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.1em !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  header .header-content nav a {
+    padding: 0.25em 0.18em !important;
+    font-size: 0.8em !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
-
-nav a, nav a:hover { text-decoration: none; }
-
-/* ===== FONTES GERAIS ===== */
-.apropos-page header nav a,
-.apropos-page h2,
-.apropos-page h3,
-.apropos-page h4,
-.apropos-page h5,
-.apropos-page h6 {
-  font-family: "Amatic SC", cursive;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.apropos-page p,
-.apropos-page footer p {
-  font-family: "Quic

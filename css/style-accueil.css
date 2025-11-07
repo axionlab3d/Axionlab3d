@@ -22,16 +22,23 @@
 
   --grid-features: 3;
   --grid-gallery: 4;
+
+  /* NOVO: fonte para menu + títulos (exceto h1) */
+  --font-heading-menu: "Amatic SC", cursive;
 }
 
 /* ===== LAYOUT GLOBAL (SEM GRID NO BODY) ===== */
-/* Deixamos o fluxo normal: header -> main -> footer */
 body {
   margin: 0;
 }
 
 /* Se um dia usares .accueil no <body>, não força grid nem altura fixa */
 .accueil {}
+
+/* ===== TITULOS (EXCETO H1) USAM A NOVA FONTE ===== */
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-menu);
+}
 
 /* ===== HEADER ===== */
 header {
@@ -73,6 +80,7 @@ header {
   letter-spacing: 0.12em;
   line-height: 1.1;
   margin: 0;
+  /* NÃO mexemos na font-family: mantém a fonte original do site */
 }
 
 /* ===== MENU ===== */
@@ -92,6 +100,9 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
+
+  /* NOVO: fonte do menu */
+  font-family: var(--font-heading-menu);
 }
 
 nav a:hover {
@@ -323,43 +334,15 @@ html, body {
   height: auto !important;
   display: block !important;
 }
-/* Ajuste do menu para 4 palavras em telemóveis na vertical */
+
+/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
-    gap: 0.15em !important;          /* aproxima as palavras */
-  }
-
-  header .header-content nav a {
-    padding: 0.25em 0.18em !important; /* menos espaço lateral */
-    font-size: 0.85em !important;      /* ligeiramente menor */
-  }
-
-   /* ===== CORREÇÃO DO MENU EM TELEMÓVEIS (4 palavras alinhadas) ===== */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.1em !important;            /* reduz espaço entre palavras */
+    gap: 0.05em !important;            /* quase nenhum espaço entre links */
     justify-content: center !important;
     flex-wrap: nowrap !important;      /* impede quebra de linha */
   }
 
   header .header-content nav a {
-    padding: 0.25em 0.18em !important; /* reduz margem lateral */
-    font-size: 0.8em !important;      /* ligeiramente menor */
-    letter-spacing: 0 !important;      /* texto mais compacto */
-  }
-
-/* ===== CORREÇÃO FINAL — MENU 4 PALAVRAS (TELEMÓVEL VERTICAL) ===== */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.05em !important;           /* quase nenhum espaço entre links */
-    justify-content: center !important;
-    flex-wrap: nowrap !important;     /* impede quebra de linha */
-  }
-
-  header .header-content nav a {
-    padding: 0.2em 0.1em !important;  /* retira espaço interno */
-    font-size: 0.82em !important;     /* ligeiramente menor */
-    letter-spacing: -0.02em !important; /* aproxima as letras */
-    word-spacing: -0.1em !important;  /* aproxima as palavras */
-  }
-
+    padding: 0.2em 0.1em !important;   /* retira espaço interno */
+    font-size: 0.82em !important;

@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Axion Lab 3D</title>
+  <title>Axion Lab 3D - Accueil</title>
 
-  <!-- FAVICON: apenas PNG -->
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
-
-  <!-- Ícone para Android (Chrome em ecrã inicial) -->
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#000000">
 
@@ -23,45 +21,24 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Quicksand:wght@300;400&display=swap"
     rel="stylesheet">
-
-  <!-- FONTES ESPECÍFICAS PARA ESTA PÁGINA (igual à contacts) -->
-  <style>
-    /* MENU: Amatic SC, fininho como na contacts */
-    header nav a {
-      font-family: "Amatic SC", cursive !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.05em;
-    }
-
-    /* TÍTULOS SECUNDÁRIOS (h2–h6) em Amatic SC (igual contacts) */
-    h2, h3, h4, h5, h6 {
-      font-family: "Amatic SC", cursive !important;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-
-    /* TÍTULO PRINCIPAL: mantém a fonte original, só com letter-spacing do CSS */
-    header h1 {
-      font-family: inherit !important;
-    }
-  </style>
 </head>
 
-<body class="accueil-page">
+<body class="accueil">
 
-  <!-- ====== HEADER ====== -->
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="header-content">
       <!-- Logo esquerdo -->
       <img src="images/logo.jpg" alt="Logo gauche" class="logo left-logo">
 
+      <!-- Título + Menu -->
       <div class="title-nav">
         <h1>Axion Lab 3D</h1>
         <nav>
-          <a href="accueil.html">Accueil</a>
+          <a href="accueil.html" class="active">Accueil</a>
           <a href="produits.html">Produits</a>
           <a href="apropos.html">À propos</a>
-          <a href="contacts.html">Contact</a>
+          <a href="contacts.html">Contacts</a>
         </nav>
       </div>
 
@@ -70,21 +47,32 @@
     </div>
   </header>
 
-  <!-- ====== MAIN ====== -->
+  <!-- ===== MAIN ===== -->
   <main>
-    <h2>Découvrez notre contenu</h2>
+    <div class="main-inner">
+      <section class="hero">
+        <div class="hero-text">
+          <h2>Découvrez notre contenu</h2>
 
-    <p>🔬 Bienvenue sur le site officiel d’Axion Lab 3D — exploration, innovation et design en impression 3D.</p>
+          <p>🔬 Bienvenue sur le site officiel d’Axion Lab 3D — exploration, innovation et design en impression 3D.</p>
+          <p>⚙️ Transformer les idées en réalité, une couche à la fois.</p>
+          <p>💡 Vos besoins sont notre raison d’exister.</p>
+        </div>
+        <div class="hero-media">
+          <!-- Se quiseres, podes pôr aqui uma imagem: -->
+          <!-- <img src="images/hero.jpg" alt="Impression 3D"> -->
+        </div>
+      </section>
 
-    <p>⚙️ Transformer les idées en réalité, une couche à la fois.</p>
-
-    <p>💡 Vos besoins sont notre raison d’exister.</p>
+      <!-- Podes depois acrescentar secções .features e .gallery se quiseres -->
+    </div>
   </main>
 
-  <!-- ====== FOOTER ====== -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
   </footer>
 
 </body>
 </html>
+

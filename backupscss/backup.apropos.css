@@ -1,72 +1,44 @@
 /* ==========================================================
    PAGE : À PROPOS
-   - Mesmo estilo base da página ACCUEIL.
-   - Menu sempre visível, sem hambúrguer.
-   - Logo direito escondido em telemóveis na vertical.
-   - Tamanhos fáceis de ajustar via variáveis.
    ========================================================== */
-
-/* ==========================================================
-   🔧 VARIÁVEIS GERAIS
-   (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
-   ========================================================== */
-
 :root {
-  /* ===== TIPOGRAFIA ===== */
-  --size-h1: 6em;      /* Título "Axion Lab 3D" no header (igual à accueil) */
-  --size-menu: 2em;    /* Tamanho do texto do menu */
-  --size-h2: 3em;      /* Título principal da página (À propos de nous) */
-  --size-p: 2em;     /* Parágrafos */
+  --size-h1: 6em;   /* igual à ACCUEIL */
+  --size-menu: 2em;
+  --size-h2: 3em;
+  --size-p: 1.5em;
 
-  /* ===== LOGOS / HEADER ===== */
-  --logo-w: 12em;            /* Largura dos logos esquerdo/direito */
-  --header-padding-y: 1.2em; /* Espaço vertical do header */
-  --nav-gap-top: 0.15em;     /* Distância entre o título e o menu */
+  --logo-w: 12em;
+  --header-padding-y: 1.2em;
+  --nav-gap-top: 0.15em;
+  --max-content: 80em;
+  --gap: 1em;
 
-  /* ===== LAYOUT ===== */
-  --max-content: 80em;       /* Largura máx. da área central */
-  --gap: 1em;                /* Espaçamento genérico */
-
-  /* ===== CORES AUXILIARES (herdam de base.css) ===== */
-  --color-border-soft: rgba(255,255,255,0.08); /* linhas discretas */
+  --color-border-soft: rgba(255,255,255,0.08);
+  --font-heading-menu: "Amatic SC", cursive;
 }
 
 /* ==========================================================
-   LAYOUT GLOBAL
+   HEADER
    ========================================================== */
-
-body,
-.apropos-page {
-  margin: 0;
-  display: block;  /* fluxo normal: header → main → footer */
-}
-
-/* ==========================================================
-   HEADER + LOGOS + MENU
-   ========================================================== */
-
 header {
-  position: static; /* rola com a página */
+  position: static;
   top: auto;
   border-bottom: 0.05em solid var(--color-border-soft);
   padding: var(--header-padding-y) 0;
 }
 
-/* Grelha do header: logo esquerdo | título/menu | logo direito */
 .header-content {
   max-width: var(--max-content);
   margin: 0 auto;
   padding: 0 1em;
-
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.5em; /* igual à accueil/contacts */
+  gap: 0.2em;
 }
 
-/* Mapeamento das áreas do grid */
 .left-logo  { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
@@ -76,23 +48,27 @@ header {
   margin: 0;
 }
 
-/* Título do site */
 .title-nav {
   grid-area: title;
   align-self: center;
 }
 
+/* 🔹 H1 igual à ACCUEIL */
 .title-nav h1 {
-  font-size: var(--size-h1);
-  letter-spacing: 0.1em;
-  line-height: 1.1;
+  font-size: 6em !important;   /* força o mesmo tamanho */
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
   margin: 0;
+  font-family: inherit !important;
+  font-weight: normal !important;
 }
 
-/* ===== MENU (sempre visível, sem hambúrguer) ===== */
+/* ==========================================================
+   MENU
+   ========================================================== */
 nav {
   grid-area: nav;
-  margin-top: var(--nav-gap-top);   /* distância entre título e menu */
+  margin-top: var(--nav-gap-top);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -106,6 +82,8 @@ nav a {
   font-weight: bold;
   text-decoration: none;
   transition: 0.2s ease;
+  font-family: var(--font-heading-menu);
+  letter-spacing: 0.05em;
 }
 
 nav a:hover {
@@ -118,83 +96,77 @@ nav a.active {
 }
 
 /* ==========================================================
-   MAIN — CONTEÚDO DE TEXTO
+   MAIN
    ========================================================== */
-
 main {
   padding: 2.5em 1em;
   max-width: var(--max-content);
   margin: 0 auto;
 }
 
-/* Secção bio */
 .bio h2 {
   font-size: var(--size-h2);
   margin: 0 0 0.8em;
   text-align: center;
+  font-family: var(--font-heading-menu);
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
-/* Parágrafo principal da bio
-   → volta a usar a fonte Italianno como tinhas antes */
 .bio p {
   font-size: var(--size-p);
   line-height: 1.6;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
   margin: 0 auto 1em;
   max-width: 100ch;
   text-align: justify;
-
-  font-family: "Italianno", cursive;  /* força a usar a Italianno */
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
-
-/* Se quiseres aplicar só quando tiver a classe, também podes:
-   .bio p.italianno-regular { ... } */
 
 /* ==========================================================
    FOOTER
    ========================================================== */
-
 footer {
   border-top: 0.05em solid var(--color-border-soft);
   padding: 1em;
   text-align: center;
   font-size: calc(var(--size-p) * 0.9);
   opacity: 0.85;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
 
 /* ==========================================================
    RESPONSIVIDADE
    ========================================================== */
-
-/* ===== Tablet (601px – 1000px) ===== */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 3em;
     --size-menu: 1em;
     --size-h2: 2.2em;
     --size-p: 1.1em;
-    --logo-w: 6em;
-    --header-padding-y: 0.9em;
+    --logo-w: 8em;
   }
 
-  .header-content {
-    gap: 0.25em;
+  .title-nav h1 {
+    font-size: 4em !important; /* igual à Accueil */
   }
 }
 
-/* ===== Telemóveis (≤ 600px) ===== */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2em;
     --size-menu: 0.9em;
     --size-h2: 1.6em;
     --size-p: 1em;
-    --logo-w: 4.5em;
-    --header-padding-y: 0.6em;
+    --logo-w: 6em;
+  }
+
+  .title-nav h1 {
+    font-size: 2.5em !important; /* igual à Accueil */
   }
 
   header {
-    padding: var(--header-padding-y) 0;
+    padding: 0.6em 0;
   }
 
   .header-content {
@@ -214,25 +186,61 @@ footer {
   }
 }
 
-/* ===== Esconder logo direito APENAS em telemóveis na vertical ===== */
+/* ==========================================================
+   AJUSTES VISUAIS
+   ========================================================== */
 @media (max-width: 600px) and (orientation: portrait) {
   .right-logo {
     display: none;
   }
 }
 
-/* ==========================================================
-   ACESSIBILIDADE E DETALHES VISUAIS
-   ========================================================== */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.1em !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+  }
 
-/* Foco visível em links/botões */
+  header .header-content nav a {
+    padding: 0.25em 0.18em !important;
+    font-size: 0.8em !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
+/* ==========================================================
+   FORÇAR H1 IGUAL AO DA ACCUEIL
+   ========================================================== */
 
-/* Menu sem sublinhado por defeito, só no hover */
-nav a,
-nav a:hover {
-  text-decoration: none;
+/* Força total: mesmo que o base.css tente alterar */
+.apropos-page header .title-nav h1,
+body.apropos-page header .title-nav h1,
+html body.apropos-page header .title-nav h1 {
+  font-size: 6em !important;          /* igual ao accueil */
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
+  font-family: inherit !important;
+  font-weight: normal !important;
+  margin: 0 !important;
+}
+
+/* Ajustes responsivos idênticos aos da Accueil */
+@media (max-width: 1000px) and (min-width: 601px) {
+  .apropos-page header .title-nav h1 {
+    font-size: 4em !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .apropos-page header .title-nav h1 {
+    font-size: 2.5em !important;
+  }
 }

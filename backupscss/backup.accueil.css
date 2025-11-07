@@ -17,21 +17,28 @@
 
   --logo-w: 12em;
   --gap: 1em;
-  --gap-menu-x: 0.5em;
+  --gap-menu-x: 0.2em;
   --max-content: 80em;
 
   --grid-features: 3;
   --grid-gallery: 4;
+
+  /* NOVO: fonte para menu + títulos (exceto h1) */
+  --font-heading-menu: "Amatic SC", cursive;
 }
 
 /* ===== LAYOUT GLOBAL (SEM GRID NO BODY) ===== */
-/* Deixamos o fluxo normal: header -> main -> footer */
 body {
   margin: 0;
 }
 
 /* Se um dia usares .accueil no <body>, não força grid nem altura fixa */
 .accueil {}
+
+/* ===== TITULOS (EXCETO H1) USAM A NOVA FONTE ===== */
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-menu);
+}
 
 /* ===== HEADER ===== */
 header {
@@ -73,6 +80,7 @@ header {
   letter-spacing: 0.12em;
   line-height: 1.1;
   margin: 0;
+  /* NÃO mexemos na font-family: mantém a fonte original do site */
 }
 
 /* ===== MENU ===== */
@@ -92,6 +100,9 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
+
+  /* NOVO: fonte do menu */
+  font-family: var(--font-heading-menu);
 }
 
 nav a:hover {
@@ -322,4 +333,49 @@ html, body {
   min-height: auto !important;
   height: auto !important;
   display: block !important;
+}
+
+/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.05em !important;            /* quase nenhum espaço entre links */
+    justify-content: center !important;
+    flex-wrap: nowrap !important;      /* impede quebra de linha */
+  }
+
+  header .header-content nav a {
+    padding: 0.2em 0.1em !important;   /* retira espaço interno */
+    font-size: 0.82em !important;      /* corrigido: estava truncado */
+  }
+}
+
+/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
+.accueil-page p,
+.accueil-page footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+/* ===== AJUSTE DO MENU PARA 4 PALAVRAS EM TELEMÓVEIS NA VERTICAL ===== */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.05em !important;            /* quase nenhum espaço entre links */
+    justify-content: center !important;
+    flex-wrap: nowrap !important;      /* impede quebra de linha */
+  }
+
+  header .header-content nav a {
+    padding: 0.2em 0.1em !important;   /* retira espaço interno */
+    font-size: 0.82em !important;      /* aqui estava truncado */
+  }
+}
+
+/* ===== FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) ===== */
+.accueil-page p,
+.accueil-page footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
 }

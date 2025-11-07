@@ -212,5 +212,16 @@ footer {
   outline-offset: 0.1em;
 }
 
+/* ===== FONTE BASE PARA TEXTOS ===== */
+body.contacts-page,
+.contacts-page p,
+.contacts-page footer,
+.contacts-page button,
+.contacts-page a.contact-link {
+  font-family: "Quicksand", sans-serif !important;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
 
 

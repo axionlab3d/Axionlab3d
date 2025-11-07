@@ -1,6 +1,6 @@
 /* ==========================================================
    PAGE : CONTACTS
-   - Header igual à ACCUEIL.
+   - Igual à ACCUEIL.
    - Ícones clicáveis (sem texto).
    - Logo direito escondido no mobile vertical.
    ========================================================== */
@@ -241,4 +241,37 @@ footer {
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
+}
+
+/* ==========================================================
+   FORÇAR H1 DA PÁGINA CONTACTS IGUAL AO DAS OUTRAS PÁGINAS
+   ========================================================== */
+
+.contacts-page header .title-nav h1,
+body.contacts-page header .title-nav h1,
+html body.contacts-page header .title-nav h1 {
+  font-size: 6em !important;         /* Desktop */
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  font-family: inherit !important;   /* mesma fonte base */
+  font-weight: normal !important;    /* mesmo peso que nas outras */
+}
+
+/* Tablet – força tamanho do h1 */
+@media (max-width: 1000px) and (min-width: 601px) {
+  .contacts-page header .title-nav h1,
+  body.contacts-page header .title-nav h1,
+  html body.contacts-page header .title-nav h1 {
+    font-size: 4em !important;
+  }
+}
+
+/* Mobile – força tamanho do h1 */
+@media (max-width: 600px) {
+  .contacts-page header .title-nav h1,
+  body.contacts-page header .title-nav h1,
+  html body.contacts-page header .title-nav h1 {
+    font-size: 2.5em !important;
+  }
 }

@@ -23,6 +23,9 @@
   --max-content: 80em;
   --gap: 1.2em;
 
+  /* NOVO: espaçamento horizontal entre links do menu (igual Accueil) */
+  --gap-menu-x: 0.2em;
+
   /* Cores auxiliares */
   --color-border-soft: rgba(255,255,255,0.08);
   --color-card-bg: rgba(255,255,255,0.03);
@@ -91,7 +94,7 @@ header nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5em;
+  gap: var(--gap-menu-x); /* 🔹 igual Accueil/Contacts/Apropos */
 }
 
 header nav a {
@@ -145,7 +148,7 @@ main {
 }
 
 /* MENU INTERNO DE CATEGORIAS */
-.products-nav {
+products-nav {
   margin-top: 1em;
   display: flex;
   flex-wrap: wrap;

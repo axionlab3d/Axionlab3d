@@ -74,7 +74,7 @@ header {
   align-self: center;
 }
 
-/* H1 igual à Accueil */
+/* H1 (igual à Accueil/Apropos) */
 .title-nav h1 {
   font-size: var(--size-h1);
   letter-spacing: 0.12em;
@@ -346,4 +346,46 @@ header nav a:hover {
   }
 }
 
+/* ==========================================================
+   FONTES GERAIS (GARANTIA, IGUAL ÀS OUTRAS PÁGINAS)
+   ========================================================== */
+.page-produits header nav a,
+.page-produits h2,
+.page-produits h3,
+.page-produits h4 {
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
 
+.page-produits p,
+.page-produits footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+/* Força h1 se o base.css estiver a chatear */
+.page-produits header .title-nav h1,
+body.page-produits header .title-nav h1,
+html body.page-produits header .title-nav h1 {
+  font-size: 6em !important;
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  font-family: inherit !important;
+  font-weight: normal !important;
+}
+
+@media (max-width: 1000px) and (min-width: 601px) {
+  .page-produits header .title-nav h1 {
+    font-size: 4em !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-produits header .title-nav h1 {
+    font-size: 2.5em !important;
+  }
+}

@@ -8,51 +8,49 @@
 
 /* ==========================================================
    🔧 VARIÁVEIS GERAIS
-   (AJUSTA AQUI OS TAMANHOS PRINCIPAIS)
    ========================================================== */
-
 :root {
   /* ===== TIPOGRAFIA ===== */
-  --size-h1: 6em;      /* Título "Axion Lab 3D" no header (igual à accueil) */
+  --size-h1: 6em;      /* Título "Axion Lab 3D" */
   --size-menu: 2em;    /* Tamanho do texto do menu */
-  --size-h2: 3em;      /* Título principal da página (À propos de nous) */
-  --size-p: 2em;     /* Parágrafos */
+  --size-h2: 3em;      /* Título principal da página */
+  --size-p: 2em;       /* Parágrafos */
 
   /* ===== LOGOS / HEADER ===== */
-  --logo-w: 12em;            /* Largura dos logos esquerdo/direito */
-  --header-padding-y: 1.2em; /* Espaço vertical do header */
-  --nav-gap-top: 0.15em;     /* Distância entre o título e o menu */
+  --logo-w: 12em;
+  --header-padding-y: 1.2em;
+  --nav-gap-top: 0.15em;
 
   /* ===== LAYOUT ===== */
-  --max-content: 80em;       /* Largura máx. da área central */
-  --gap: 1em;                /* Espaçamento genérico */
+  --max-content: 80em;
+  --gap: 1em;
 
-  /* ===== CORES AUXILIARES (herdam de base.css) ===== */
-  --color-border-soft: rgba(255,255,255,0.08); /* linhas discretas */
+  /* ===== CORES ===== */
+  --color-border-soft: rgba(255,255,255,0.08);
+
+  /* ===== FONTES ===== */
+  --font-heading-menu: "Amatic SC", cursive;
 }
 
 /* ==========================================================
    LAYOUT GLOBAL
    ========================================================== */
-
 body,
 .apropos-page {
   margin: 0;
-  display: block;  /* fluxo normal: header → main → footer */
+  display: block;
 }
 
 /* ==========================================================
    HEADER + LOGOS + MENU
    ========================================================== */
-
 header {
-  position: static; /* rola com a página */
+  position: static;
   top: auto;
   border-bottom: 0.05em solid var(--color-border-soft);
   padding: var(--header-padding-y) 0;
 }
 
-/* Grelha do header: logo esquerdo | título/menu | logo direito */
 .header-content {
   max-width: var(--max-content);
   margin: 0 auto;
@@ -63,10 +61,9 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.2em; /* igual à accueil/contacts */
+  gap: 0.2em;
 }
 
-/* Mapeamento das áreas do grid */
 .left-logo  { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
@@ -76,7 +73,6 @@ header {
   margin: 0;
 }
 
-/* Título do site */
 .title-nav {
   grid-area: title;
   align-self: center;
@@ -87,12 +83,13 @@ header {
   letter-spacing: 0.1em;
   line-height: 1.1;
   margin: 0;
+  /* Mantém a fonte original */
 }
 
-/* ===== MENU (sempre visível, sem hambúrguer) ===== */
+/* ===== MENU ===== */
 nav {
   grid-area: nav;
-  margin-top: var(--nav-gap-top);   /* distância entre título e menu */
+  margin-top: var(--nav-gap-top);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -106,6 +103,10 @@ nav a {
   font-weight: bold;
   text-decoration: none;
   transition: 0.2s ease;
+
+  /* NOVO: aplica Amatic SC */
+  font-family: var(--font-heading-menu);
+  letter-spacing: 0.05em;
 }
 
 nav a:hover {
@@ -120,53 +121,55 @@ nav a.active {
 /* ==========================================================
    MAIN — CONTEÚDO DE TEXTO
    ========================================================== */
-
 main {
   padding: 2.5em 1em;
   max-width: var(--max-content);
   margin: 0 auto;
 }
 
-/* Secção bio */
 .bio h2 {
   font-size: var(--size-h2);
   margin: 0 0 0.8em;
   text-align: center;
+
+  /* Fonte dos títulos secundários */
+  font-family: var(--font-heading-menu);
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
-/* Parágrafo principal da bio
-   → volta a usar a fonte Italianno como tinhas antes */
 .bio p {
   font-size: var(--size-p);
   line-height: 1.6;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
   margin: 0 auto 1em;
   max-width: 100ch;
   text-align: justify;
 
-  font-family: "Italianno", cursive;  /* força a usar a Italianno */
+  /* Texto com Quicksand Light 300 */
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
-
-/* Se quiseres aplicar só quando tiver a classe, também podes:
-   .bio p.italianno-regular { ... } */
 
 /* ==========================================================
    FOOTER
    ========================================================== */
-
 footer {
   border-top: 0.05em solid var(--color-border-soft);
   padding: 1em;
   text-align: center;
   font-size: calc(var(--size-p) * 0.9);
   opacity: 0.85;
+
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
 
 /* ==========================================================
    RESPONSIVIDADE
    ========================================================== */
 
-/* ===== Tablet (601px – 1000px) ===== */
+/* ===== Tablet (601–1000px) ===== */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
     --size-h1: 3em;
@@ -182,7 +185,7 @@ footer {
   }
 }
 
-/* ===== Telemóveis (≤ 600px) ===== */
+/* ===== Telemóvel (≤600px) ===== */
 @media (max-width: 600px) {
   :root {
     --size-h1: 2em;
@@ -214,7 +217,7 @@ footer {
   }
 }
 
-/* ===== Esconder logo direito APENAS em telemóveis na vertical ===== */
+/* ===== Esconde o logo direito em telemóveis verticais ===== */
 @media (max-width: 600px) and (orientation: portrait) {
   .right-logo {
     display: none;
@@ -222,28 +225,58 @@ footer {
 }
 
 /* ==========================================================
+   MENU AJUSTE PARA 4 PALAVRAS EM TELEMÓVEL VERTICAL
+   ========================================================== */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0.1em !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  header .header-content nav a {
+    padding: 0.25em 0.18em !important;
+    font-size: 0.8em !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+/* ==========================================================
    ACESSIBILIDADE E DETALHES VISUAIS
    ========================================================== */
-
-/* Foco visível em links/botões */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
 
-/* Menu sem sublinhado por defeito, só no hover */
 nav a,
 nav a:hover {
   text-decoration: none;
 }
-/* Ajuste do menu para 4 palavras em telemóveis na vertical */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0.1em !important;          /* aproxima as palavras */
-  }
 
-  header .header-content nav a {
-    padding: 0.25em 0.18em !important; /* menos espaço lateral */
-    font-size: 0.8em !important;      /* ligeiramente menor */
-  }
+/* ==========================================================
+   FONTES GERAIS - IGUAL À CONTACTS E ACCUEIL
+   ========================================================== */
+.apropos-page header nav a,
+.apropos-page h2,
+.apropos-page h3,
+.apropos-page h4,
+.apropos-page h5,
+.apropos-page h6 {
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
 
+.apropos-page p,
+.apropos-page footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+.apropos-page header h1 {
+  font-family: inherit;
+  letter-spacing: 0.1em;
+}

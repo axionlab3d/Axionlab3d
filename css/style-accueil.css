@@ -212,11 +212,14 @@ html body.accueil header .title-nav h1 {
     font-size: 2.5em !important;
   }
 }
+
 /* ==========================================================
-   FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300) — Igual às outras páginas
+   FONTE BASE PARA TEXTOS (QUICKSAND LIGHT 300)
+   — Igual às outras páginas (Contacts, Apropos, Produits)
    ========================================================== */
-.accueil-page p,
-.accueil-page footer p {
+
+.accueil p,
+.accueil footer p {
   font-family: "Quicksand", sans-serif !important;
   font-weight: 300 !important;
   letter-spacing: 0.01em;

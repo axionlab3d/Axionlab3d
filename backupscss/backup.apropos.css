@@ -53,7 +53,7 @@ header {
   align-self: center;
 }
 
-/* 🔹 H1 igual à ACCUEIL */
+/* 🔹 H1 base */
 .title-nav h1 {
   font-size: 6em !important;   /* força o mesmo tamanho */
   letter-spacing: 0.12em !important;
@@ -153,20 +153,22 @@ footer {
   }
 }
 
+/* 🔹 TELEMÓVEIS – MESMO COMPORTAMENTO QUE CONTACTS */
 @media (max-width: 600px) {
   :root {
-    --size-menu: 0.9em;
+    --size-h1: 2.5em;         /* igual Contacts */
+    --size-menu: 0.85em;      /* igual Contacts */
     --size-h2: 1.6em;
     --size-p: 1em;
-    --logo-w: 6em;
+    --logo-w: 6em;            /* igual Contacts */
   }
 
   .title-nav h1 {
-    font-size: 2.5em !important; /* igual à Accueil */
+    font-size: 2.5em !important; /* igual Contacts/Accueil */
   }
 
   header {
-    padding: 0.6em 0;
+    padding: 0.5em 0;          /* igual Contacts */
   }
 
   .header-content {
@@ -177,8 +179,8 @@ footer {
     gap: 0.2em;
   }
 
-  nav a {
-    padding: 0.3em 0.25em;
+  header nav a {
+    padding: 0.3em 0.25em;     /* igual Contacts */
   }
 
   main {
@@ -189,23 +191,25 @@ footer {
 /* ==========================================================
    AJUSTES VISUAIS
    ========================================================== */
+/* Esconde logo direito em telemóveis verticais (igual Contacts) */
 @media (max-width: 600px) and (orientation: portrait) {
   .right-logo {
     display: none;
   }
 }
 
+/* Menu mais compacto em telemóveis na vertical (igual Contacts) */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
-    gap: 0.1em !important;
+    gap: 0 !important; /* sem espaço entre links */
     justify-content: center !important;
     flex-wrap: nowrap !important;
   }
 
   header .header-content nav a {
-    padding: 0.25em 0.18em !important;
+    padding: 0.25em 0.08em !important; /* menos padding horizontal */
     font-size: 0.8em !important;
-    letter-spacing: 0 !important;
+    letter-spacing: -0.03em !important; /* letras mais juntinhas */
   }
 }
 
@@ -216,15 +220,14 @@ footer {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
-/* ==========================================================
-   FORÇAR H1 IGUAL AO DA ACCUEIL
-   ========================================================== */
 
-/* Força total: mesmo que o base.css tente alterar */
+/* ==========================================================
+   FORÇAR H1 IGUAL AO DA ACCUEIL (VERSÃO À PROPOS)
+   ========================================================== */
 .apropos-page header .title-nav h1,
 body.apropos-page header .title-nav h1,
 html body.apropos-page header .title-nav h1 {
-  font-size: 6em !important;          /* igual ao accueil */
+  font-size: 6em !important;          /* Desktop */
   letter-spacing: 0.12em !important;
   line-height: 1.1 !important;
   font-family: inherit !important;
@@ -232,13 +235,14 @@ html body.apropos-page header .title-nav h1 {
   margin: 0 !important;
 }
 
-/* Ajustes responsivos idênticos aos da Accueil */
+/* Tablet – igual Contacts/Accueil */
 @media (max-width: 1000px) and (min-width: 601px) {
   .apropos-page header .title-nav h1 {
     font-size: 4em !important;
   }
 }
 
+/* Mobile – igual Contacts/Accueil */
 @media (max-width: 600px) {
   .apropos-page header .title-nav h1 {
     font-size: 2.5em !important;

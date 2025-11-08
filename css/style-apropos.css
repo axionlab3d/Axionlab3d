@@ -53,7 +53,7 @@ header {
   align-self: center;
 }
 
-/* H1 base (refinado depois com .apropos-page) */
+/* H1 base (igual às outras páginas) */
 .title-nav h1 {
   font-size: var(--size-h1);
   letter-spacing: 0.12em !important;
@@ -141,38 +141,40 @@ footer {
    RESPONSIVIDADE
    ========================================================== */
 
-/* Tablet (601–1000px) */
+/* Tablet (601–1000px) – igual ACCUEIL / CONTACTS */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 4em;     /* igual Contacts */
+    --size-h1: 4em;
     --size-menu: 1em;
     --size-h2: 2.2em;
     --size-p: 1.1em;
     --logo-w: 8em;
   }
 
-  .header-content {
-    gap: 0.2em;
+  .header-content { gap: 0.2em; }
+
+  /* Força título igual às outras páginas */
+  .apropos-page header .title-nav h1 {
+    font-size: 4em !important;
   }
 }
 
-/* Telemóveis (≤ 600px) – alinhado com CONTACTS */
+/* Telemóveis (≤ 600px) – igual ACCUEIL / CONTACTS */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2.5em;        /* igual Contacts */
-    --size-menu: 0.85em;     /* igual Contacts */
+    --size-h1: 2.5em;        /* igual Accueil */
+    --size-menu: 0.85em;     /* igual Accueil */
     --size-h2: 1.6em;
     --size-p: 1em;
-    --logo-w: 6em;           /* igual Contacts */
+    --logo-w: 6em;           /* igual Accueil */
   }
 
-  .title-nav h1 {
-    font-size: 2.5em !important; /* igual Contacts/Accueil */
+  .title-nav h1,
+  .apropos-page header .title-nav h1 {
+    font-size: 2.5em !important; /* mesmo tamanho Accueil */
   }
 
-  header {
-    padding: 0.5em 0;        /* igual Contacts */
-  }
+  header { padding: 0.5em 0; }
 
   .header-content {
     grid-template-columns: auto 1fr auto;
@@ -183,7 +185,7 @@ footer {
   }
 
   header nav a {
-    padding: 0.3em 0.25em;   /* igual Contacts */
+    padding: 0.3em 0.25em;
   }
 
   main {
@@ -202,7 +204,7 @@ footer {
   }
 }
 
-/* Menu mais compacto em telemóveis na vertical – igual Contacts (ajustado) */
+/* Menu mais compacto em telemóveis na vertical – igual Contacts */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
     gap: 0 !important; /* sem espaço entre links */
@@ -233,7 +235,7 @@ footer {
 .apropos-page header .title-nav h1,
 body.apropos-page header .title-nav h1,
 html body.apropos-page header .title-nav h1 {
-  font-size: 6em !important;          /* igual Accueil/Contacts (desktop) */
+  font-size: 6em !important;          /* igual Accueil / Contacts */
   letter-spacing: 0.12em !important;
   line-height: 1.1 !important;
   font-family: inherit !important;
@@ -241,14 +243,14 @@ html body.apropos-page header .title-nav h1 {
   margin: 0 !important;
 }
 
-/* Tablet – igual Contacts/Accueil */
+/* Tablet – igual Accueil / Contacts */
 @media (max-width: 1000px) and (min-width: 601px) {
   .apropos-page header .title-nav h1 {
     font-size: 4em !important;
   }
 }
 
-/* Mobile – igual Contacts/Accueil */
+/* Mobile – igual Accueil / Contacts */
 @media (max-width: 600px) {
   .apropos-page header .title-nav h1 {
     font-size: 2.5em !important;

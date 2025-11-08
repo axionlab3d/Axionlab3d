@@ -2,7 +2,7 @@
    PAGE : À PROPOS
    ========================================================== */
 :root {
-  --size-h1: 6em;   /* igual à ACCUEIL */
+  --size-h1: 6em;   /* igual à ACCUEIL / CONTACTS */
   --size-menu: 2em;
   --size-h2: 3em;
   --size-p: 1.5em;
@@ -53,9 +53,9 @@ header {
   align-self: center;
 }
 
-/* 🔹 H1 igual à ACCUEIL */
+/* H1 base (refinado depois com .apropos-page) */
 .title-nav h1 {
-  font-size: 6em !important;   /* força o mesmo tamanho */
+  font-size: var(--size-h1);
   letter-spacing: 0.12em !important;
   line-height: 1.1 !important;
   margin: 0;
@@ -140,33 +140,38 @@ footer {
 /* ==========================================================
    RESPONSIVIDADE
    ========================================================== */
+
+/* Tablet (601–1000px) */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
+    --size-h1: 4em;     /* igual Contacts */
     --size-menu: 1em;
     --size-h2: 2.2em;
     --size-p: 1.1em;
     --logo-w: 8em;
   }
 
-  .title-nav h1 {
-    font-size: 4em !important; /* igual à Accueil */
+  .header-content {
+    gap: 0.2em;
   }
 }
 
+/* Telemóveis (≤ 600px) – alinhado com CONTACTS */
 @media (max-width: 600px) {
   :root {
-    --size-menu: 0.9em;
+    --size-h1: 2.5em;        /* igual Contacts */
+    --size-menu: 0.85em;     /* igual Contacts */
     --size-h2: 1.6em;
     --size-p: 1em;
-    --logo-w: 6em;
+    --logo-w: 6em;           /* igual Contacts */
   }
 
   .title-nav h1 {
-    font-size: 2.5em !important; /* igual à Accueil */
+    font-size: 2.5em !important; /* igual Contacts/Accueil */
   }
 
   header {
-    padding: 0.6em 0;
+    padding: 0.5em 0;        /* igual Contacts */
   }
 
   .header-content {
@@ -177,8 +182,8 @@ footer {
     gap: 0.2em;
   }
 
-  nav a {
-    padding: 0.3em 0.25em;
+  header nav a {
+    padding: 0.3em 0.25em;   /* igual Contacts */
   }
 
   main {
@@ -189,23 +194,26 @@ footer {
 /* ==========================================================
    AJUSTES VISUAIS
    ========================================================== */
+
+/* Esconde o logo direito em telemóveis verticais – igual Contacts */
 @media (max-width: 600px) and (orientation: portrait) {
   .right-logo {
     display: none;
   }
 }
 
+/* Menu mais compacto em telemóveis na vertical – igual Contacts (ajustado) */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
-    gap: 0.1em !important;
+    gap: 0 !important; /* sem espaço entre links */
     justify-content: center !important;
     flex-wrap: nowrap !important;
   }
 
   header .header-content nav a {
-    padding: 0.25em 0.18em !important;
+    padding: 0.25em 0.08em !important;   /* menos padding horizontal */
     font-size: 0.8em !important;
-    letter-spacing: 0 !important;
+    letter-spacing: -0.03em !important;  /* letras mais juntas */
   }
 }
 
@@ -216,15 +224,16 @@ footer {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
+
 /* ==========================================================
-   FORÇAR H1 IGUAL AO DA ACCUEIL
+   FORÇAR H1 IGUAL AO DA ACCUEIL / CONTACTS
    ========================================================== */
 
-/* Força total: mesmo que o base.css tente alterar */
+/* Desktop */
 .apropos-page header .title-nav h1,
 body.apropos-page header .title-nav h1,
 html body.apropos-page header .title-nav h1 {
-  font-size: 6em !important;          /* igual ao accueil */
+  font-size: 6em !important;          /* igual Accueil/Contacts (desktop) */
   letter-spacing: 0.12em !important;
   line-height: 1.1 !important;
   font-family: inherit !important;
@@ -232,13 +241,14 @@ html body.apropos-page header .title-nav h1 {
   margin: 0 !important;
 }
 
-/* Ajustes responsivos idênticos aos da Accueil */
+/* Tablet – igual Contacts/Accueil */
 @media (max-width: 1000px) and (min-width: 601px) {
   .apropos-page header .title-nav h1 {
     font-size: 4em !important;
   }
 }
 
+/* Mobile – igual Contacts/Accueil */
 @media (max-width: 600px) {
   .apropos-page header .title-nav h1 {
     font-size: 2.5em !important;

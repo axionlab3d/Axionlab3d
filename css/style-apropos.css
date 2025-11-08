@@ -2,7 +2,7 @@
    PAGE : À PROPOS
    ========================================================== */
 :root {
-  --size-h1: 6em;   /* igual à ACCUEIL / CONTACTS */
+  --size-h1: 6em;   /* igual à ACCUEIL / CONTACTS (desktop) */
   --size-menu: 2em;
   --size-h2: 3em;
   --size-p: 1.5em;
@@ -36,7 +36,7 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.2em;
+  gap: 0.5em; /* igual Contacts */
 }
 
 .left-logo  { grid-area: logoL; }
@@ -53,14 +53,14 @@ header {
   align-self: center;
 }
 
-/* H1 base (igual às outras páginas) */
+/* H1 base (refinado mais abaixo pelas regras .apropos-page) */
 .title-nav h1 {
   font-size: var(--size-h1);
-  letter-spacing: 0.12em !important;
-  line-height: 1.1 !important;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
   margin: 0;
-  font-family: inherit !important;
-  font-weight: normal !important;
+  font-family: inherit;
+  font-weight: normal;
 }
 
 /* ==========================================================
@@ -72,7 +72,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5em;
+  gap: 0.2em;
 }
 
 nav a {
@@ -151,10 +151,10 @@ footer {
     --logo-w: 8em;
   }
 
-  .header-content { gap: 0.2em; }
+  .header-content { gap: 0.3em; }
 
-  /* Força título igual às outras páginas */
-  .apropos-page header .title-nav h1 {
+  /* h1 igual às outras páginas no tablet */
+  html body.apropos-page header .header-content .title-nav h1 {
     font-size: 4em !important;
   }
 }
@@ -162,19 +162,23 @@ footer {
 /* Telemóveis (≤ 600px) – igual ACCUEIL / CONTACTS */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2.5em;        /* igual Accueil */
-    --size-menu: 0.85em;     /* igual Accueil */
+    --size-h1: 2.5em;        /* mesmo valor que Accueil/Contacts */
+    --size-menu: 0.85em;
     --size-h2: 1.6em;
     --size-p: 1em;
-    --logo-w: 6em;           /* igual Accueil */
+    --logo-w: 6em;
   }
 
-  .title-nav h1,
-  .apropos-page header .title-nav h1 {
-    font-size: 2.5em !important; /* mesmo tamanho Accueil */
+  /* h1 IGUAL ao da Accueil/Contacts no mobile */
+  html body.apropos-page header .header-content .title-nav h1 {
+    font-size: 2.5em !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.1 !important;
   }
 
-  header { padding: 0.5em 0; }
+  header {
+    padding: 0.5em 0;
+  }
 
   .header-content {
     grid-template-columns: auto 1fr auto;

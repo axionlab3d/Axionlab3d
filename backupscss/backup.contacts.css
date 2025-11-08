@@ -210,7 +210,11 @@ footer {
     --size-icon: 2.5em;
   }
 
-  header { padding: 0.5em 0; }
+    header nav a {
+    padding: 0.25em 0.1em;      /* menos espaço lateral */
+    letter-spacing: -0.03em;    /* letras mais juntas */
+  }
+
 
   header nav a { padding: 0.3em 0.25em; }
 

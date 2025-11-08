@@ -225,17 +225,18 @@ footer {
 /* Ajuste do menu para 4 palavras em telemóveis na vertical */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
-    gap: 0.05em !important;
+    gap: 0 !important; /* sem espaço entre links */
     justify-content: center !important;
     flex-wrap: nowrap !important;
   }
 
   header .header-content nav a {
-    padding: 0.2em 0.1em !important;
+    padding: 0.25em 0.08em !important; /* menos padding horizontal */
     font-size: 0.8em !important;
-    letter-spacing: 0 !important;
+    letter-spacing: -0.03em !important; /* letras mais juntinhas */
   }
 }
+
 
 /* ===== ACESSIBILIDADE ===== */
 :where(a, button, .btn):focus-visible {

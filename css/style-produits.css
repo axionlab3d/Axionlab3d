@@ -394,7 +394,7 @@ html body.page-produits header .title-nav h1 {
 /* ===== AJUSTE DO TAMANHO DOS VÍDEOS ===== */
 .product-card video {
   width: 100%;
-  aspect-ratio: 4 / 3;   /* formato normal, podes mudar para 16/9 se quiseres */
+  aspect-ratio: 8 / 3;   /* formato normal, podes mudar para 16/9 se quiseres */
   object-fit: cover;
   border-radius: 0.6em;
   display: block;

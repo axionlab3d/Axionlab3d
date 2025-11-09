@@ -196,7 +196,7 @@ footer {
     --size-icon: 3em;
   }
 
-  .header-content { gap: 0.2em; }
+  .header-content { gap: 0.3em; }
 }
 
 /* Telemóveis (≤ 600px) */
@@ -210,11 +210,7 @@ footer {
     --size-icon: 2.5em;
   }
 
-    header nav a {
-    padding: 0.25em 0.1em;      /* menos espaço lateral */
-    letter-spacing: -0.03em;    /* letras mais juntas */
-  }
-
+  header { padding: 0.5em 0; }
 
   header nav a { padding: 0.3em 0.25em; }
 
@@ -229,18 +225,17 @@ footer {
 /* Ajuste do menu para 4 palavras em telemóveis na vertical */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
-    gap: 0 !important; /* sem espaço entre links */
+    gap: 0.1em !important;
     justify-content: center !important;
     flex-wrap: nowrap !important;
   }
 
   header .header-content nav a {
-    padding: 0.25em 0.08em !important; /* menos padding horizontal */
+    padding: 0.25em 0.18em !important;
     font-size: 0.8em !important;
-    letter-spacing: -0.03em !important; /* letras mais juntinhas */
+    letter-spacing: 0 !important;
   }
 }
-
 
 /* ===== ACESSIBILIDADE ===== */
 :where(a, button, .btn):focus-visible {

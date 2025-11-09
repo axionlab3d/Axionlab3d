@@ -18,12 +18,7 @@
      "description": "Idéal pour la maison ou le bureau, disponible en plusieurs couleurs.",
    
   },
-  {
-    "categorie": "voitures",
-    "image": "images/produits/voiture1.jpg",
-    "titre": "Support de téléphone pour voiture",
-    "description": "Accessoire personnalisé adapté au tableau de bord de votre véhicule."
-  },
+ 
   {
     "categorie": "autres",
     "image": "images/produits/autre1.jpg",

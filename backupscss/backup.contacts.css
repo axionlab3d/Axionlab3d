@@ -1,33 +1,35 @@
 /* ==========================================================
    PAGE : CONTACTS
-   - Igual à ACCUEIL.
+   - Header / menu / footer alinhados com À PROPOS
    - Ícones clicáveis (sem texto).
    - Logo direito escondido no mobile vertical.
    ========================================================== */
 
-/* ===== VARIÁVEIS ===== */
+/* ===== VARIÁVEIS COMUNS (iguais À PROPOS) ===== */
 :root {
-  --size-h1: 6em;            /* título "Axion Lab 3D" */
-  --size-menu: 2em;          /* tamanho dos links do menu */
-  --size-h2: 3em;            /* título "Suivez-nous..." */
-  --size-p: 2em;             /* texto dos parágrafos */
-  --size-icon: 4em;          /* tamanho dos ícones de contacto */
+  --size-h1: 6em;        /* título "Axion Lab 3D" */
+  --size-menu: 2em;      /* tamanho dos links do menu */
+  --size-h2: 3em;        /* títulos de secção */
+  --size-p: 1.5em;       /* texto corrido */
+
+  --size-icon: 4em;      /* ícones de contacto */
 
   --logo-w: 12em;
   --header-padding-y: 1.2em;
   --nav-gap-top: 0.15em;
-  --gap: 1em;
   --max-content: 80em;
+  --gap: 1em;
 
   --color-border-soft: rgba(255,255,255,0.08);
-
-  /* Fonte decorativa para menu + títulos secundários */
   --font-heading-menu: "Amatic SC", cursive;
 }
 
-/* ===== HEADER ===== */
+/* ==========================================================
+   HEADER (copiado da À PROPOS)
+   ========================================================== */
 header {
   position: static;
+  top: auto;
   border-bottom: 0.05em solid var(--color-border-soft);
   padding: var(--header-padding-y) 0;
 }
@@ -41,10 +43,10 @@ header {
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.5em;
+  gap: 0.5em; /* igual Apropos */
 }
 
-.left-logo { grid-area: logoL; }
+.left-logo  { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
 .logo {
@@ -58,17 +60,20 @@ header {
   align-self: center;
 }
 
+/* H1 base (o tamanho é refinado mais abaixo com !important) */
 .title-nav h1 {
   font-size: var(--size-h1);
   letter-spacing: 0.12em;
   line-height: 1.1;
   margin: 0;
-  font-family: inherit;  /* mesma fonte base das outras páginas */
+  font-family: inherit;
   font-weight: normal;
 }
 
-/* ===== MENU ===== */
-header nav {
+/* ==========================================================
+   MENU (copiado da À PROPOS)
+   ========================================================== */
+nav {
   grid-area: nav;
   margin-top: var(--nav-gap-top);
   display: flex;
@@ -77,28 +82,29 @@ header nav {
   gap: 0.2em;
 }
 
-header nav a {
+nav a {
   font-size: var(--size-menu);
   padding: 0.4em 0.3em;
   color: var(--color-fg);
   font-weight: bold;
   text-decoration: none;
   transition: 0.2s ease;
-
   font-family: var(--font-heading-menu);
   letter-spacing: 0.05em;
 }
 
-header nav a:hover {
+nav a:hover {
   color: var(--color-accent);
   text-decoration: underline;
 }
 
-header nav a.active {
+nav a.active {
   color: var(--color-fg);
 }
 
-/* ===== MAIN ===== */
+/* ==========================================================
+   MAIN
+   ========================================================== */
 main {
   padding: 2.5em 1em;
   max-width: var(--max-content);
@@ -120,6 +126,9 @@ main {
   line-height: 1.6;
   margin: 0 auto 1.5em;
   max-width: 80ch;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
 }
 
 /* ===== ÍCONES DE CONTACTO ===== */
@@ -149,20 +158,23 @@ main {
   object-fit: contain;
 }
 
-/* ===== FOOTER ===== */
+/* ==========================================================
+   FOOTER (copiado da À PROPOS)
+   ========================================================== */
 footer {
   border-top: 0.05em solid var(--color-border-soft);
   padding: 1em;
   text-align: center;
   font-size: calc(var(--size-p) * 0.9);
   opacity: 0.85;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
 
 /* ==========================================================
-   FONTES PARA ESTA PÁGINA
+   FONTES ESPECÍFICAS PARA CONTACTS
+   (mantém o comportamento que já tinhas)
    ========================================================== */
-
-/* Títulos e menu: Amatic SC */
 .contacts-page header nav a,
 .contacts-page h2,
 .contacts-page h3,
@@ -172,7 +184,6 @@ footer {
   letter-spacing: 0.05em;
 }
 
-/* Texto corrido: Quicksand Light 300 */
 .contacts-page p,
 .contacts-page footer p {
   font-family: "Quicksand", sans-serif;
@@ -185,24 +196,29 @@ footer {
    RESPONSIVIDADE
    ========================================================== */
 
-/* Tablet (601–1000px) */
+/* Tablet (601–1000px) – igual À PROPOS, com ícones ajustados */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
     --size-h1: 4em;
     --size-menu: 1em;
-    --size-h2: 2em;
-    --size-p: 1.2em;
+    --size-h2: 2.2em;
+    --size-p: 1.1em;
     --logo-w: 8em;
     --size-icon: 3em;
   }
 
   .header-content { gap: 0.3em; }
+
+  /* h1 igual às outras páginas no tablet */
+  html body.contacts-page header .header-content .title-nav h1 {
+    font-size: 4em !important;
+  }
 }
 
-/* Telemóveis (≤ 600px) */
+/* Telemóveis (≤ 600px) – igual À PROPOS */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2.5em;
+    --size-h1: 2.5em;        /* mesmo valor que Accueil/Contacts/Apropos */
     --size-menu: 0.85em;
     --size-h2: 1.6em;
     --size-p: 1em;
@@ -210,68 +226,90 @@ footer {
     --size-icon: 2.5em;
   }
 
-  header { padding: 0.5em 0; }
+  /* h1 IGUAL ao da Accueil/Apropos no mobile */
+  html body.contacts-page header .header-content .title-nav h1 {
+    font-size: 2.5em !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.1 !important;
+  }
 
-  header nav a { padding: 0.3em 0.25em; }
+  header {
+    padding: 0.5em 0;
+  }
 
-  .contacts-icons { gap: 1.5em; }
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logoL title logoR"
+      "nav   nav   nav";
+    gap: 0.2em;
+  }
+
+  header nav a {
+    padding: 0.3em 0.25em;
+  }
+
+  main {
+    padding: 1.8em 1em;
+  }
 }
 
-/* Esconde o logo direito apenas em telemóveis verticais */
+/* Esconde o logo direito em telemóveis verticais – igual À PROPOS */
 @media (max-width: 600px) and (orientation: portrait) {
-  .right-logo { display: none; }
+  .right-logo {
+    display: none;
+  }
 }
 
-/* Ajuste do menu para 4 palavras em telemóveis na vertical */
+/* Menu mais compacto em telemóveis na vertical – exatamente igual À PROPOS */
 @media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
-    gap: 0.1em !important;
+    gap: 0 !important; /* sem espaço entre links */
     justify-content: center !important;
     flex-wrap: nowrap !important;
   }
 
   header .header-content nav a {
-    padding: 0.25em 0.18em !important;
+    padding: 0.25em 0.08em !important;   /* menos padding horizontal */
     font-size: 0.8em !important;
-    letter-spacing: 0 !important;
+    letter-spacing: -0.03em !important;  /* letras mais juntas */
   }
 }
 
-/* ===== ACESSIBILIDADE ===== */
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
 :where(a, button, .btn):focus-visible {
   outline: 0.1em dashed var(--color-accent);
   outline-offset: 0.1em;
 }
 
 /* ==========================================================
-   FORÇAR H1 DA PÁGINA CONTACTS IGUAL AO DAS OUTRAS PÁGINAS
+   FORÇAR H1 IGUAL AO DA ACCUEIL / À PROPOS
    ========================================================== */
 
+/* Desktop */
 .contacts-page header .title-nav h1,
 body.contacts-page header .title-nav h1,
 html body.contacts-page header .title-nav h1 {
-  font-size: 6em !important;         /* Desktop */
+  font-size: 6em !important;          /* igual Accueil / À propos */
   letter-spacing: 0.12em !important;
   line-height: 1.1 !important;
+  font-family: inherit !important;
+  font-weight: normal !important;
   margin: 0 !important;
-  font-family: inherit !important;   /* mesma fonte base */
-  font-weight: normal !important;    /* mesmo peso que nas outras */
 }
 
-/* Tablet – força tamanho do h1 */
+/* Tablet – igual Accueil / À propos */
 @media (max-width: 1000px) and (min-width: 601px) {
-  .contacts-page header .title-nav h1,
-  body.contacts-page header .title-nav h1,
-  html body.contacts-page header .title-nav h1 {
+  .contacts-page header .title-nav h1 {
     font-size: 4em !important;
   }
 }
 
-/* Mobile – força tamanho do h1 */
+/* Mobile – igual Accueil / À propos */
 @media (max-width: 600px) {
-  .contacts-page header .title-nav h1,
-  body.contacts-page header .title-nav h1,
-  html body.contacts-page header .title-nav h1 {
+  .contacts-page header .title-nav h1 {
     font-size: 2.5em !important;
   }
 }

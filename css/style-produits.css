@@ -1,20 +1,19 @@
 /* ==========================================================
    PAGE : PRODUITS
-   - Mesmo estilo base (header/menu/logos/footer) das outras páginas.
-   - Menu de categorias dentro da página.
-   - Grelha de produtos (cartões).
+   - Mesmo estilo (header/menu/logos/footer) da página À PROPOS.
+   - Menu de categorias e grelha de produtos mantidos.
    ========================================================== */
 
 /* ===== VARIÁVEIS ===== */
 :root {
   /* Tipografia */
-  --size-h1: 6em;            /* título "Axion Lab 3D" no header (desktop) */
-  --size-menu: 2em;          /* links do menu principal */
-  --size-h2: 3em;            /* "Nos produits" */
-  --size-h3: 2em;            /* títulos de categoria (Cadeaux, etc.) */
-  --size-h4: 1.4em;          /* título de cada produto */
-  --size-p: 1.5em;           /* textos gerais */
-  --size-card-text: 1.05em;  /* texto dentro dos cartões */
+  --size-h1: 6em;
+  --size-menu: 2em;
+  --size-h2: 3em;
+  --size-h3: 2em;
+  --size-h4: 1.4em;
+  --size-p: 1.5em;
+  --size-card-text: 1.05em;
 
   /* Layout */
   --logo-w: 12em;
@@ -23,10 +22,10 @@
   --max-content: 80em;
   --gap: 1.2em;
 
-  /* Espaço horizontal entre links do menu (igual às outras) */
+  /* Espaço horizontal entre links do menu */
   --gap-menu-x: 0.2em;
 
-  /* Cores auxiliares */
+  /* Cores */
   --color-border-soft: rgba(255,255,255,0.08);
   --color-card-bg: rgba(255,255,255,0.03);
   --color-card-border: rgba(255,255,255,0.12);
@@ -36,14 +35,8 @@
 }
 
 /* ==========================================================
-   LAYOUT GLOBAL / HEADER – ALINHADO COM À PROPOS
+   HEADER – IGUAL À PÁGINA À PROPOS
    ========================================================== */
-body,
-.page-produits {
-  margin: 0;
-  display: block;
-}
-
 header {
   position: static;
   top: auto;
@@ -55,16 +48,15 @@ header {
   max-width: var(--max-content);
   margin: 0 auto;
   padding: 0 1em;
-
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
     "logoL title logoR"
     "nav   nav   nav";
-  gap: 0.5em; /* igual À propos / Contacts */
+  gap: 0.5em;
 }
 
-.left-logo  { grid-area: logoL; }
+.left-logo { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
 .logo {
@@ -78,7 +70,6 @@ header {
   align-self: center;
 }
 
-/* H1 (igual à Accueil / À propos) */
 .title-nav h1 {
   font-size: var(--size-h1);
   letter-spacing: 0.12em;
@@ -88,7 +79,7 @@ header {
   font-weight: normal;
 }
 
-/* MENU PRINCIPAL (topo) – igual À PROPOS */
+/* ===== MENU ===== */
 nav {
   grid-area: nav;
   margin-top: var(--nav-gap-top);
@@ -105,7 +96,6 @@ nav a {
   font-weight: bold;
   text-decoration: none;
   transition: 0.2s ease;
-
   font-family: var(--font-heading-menu);
   letter-spacing: 0.05em;
 }
@@ -175,7 +165,7 @@ main {
 }
 
 /* ==========================================================
-   SECÇÕES DE PRODUTOS POR CATEGORIA
+   SECÇÕES DE PRODUTOS
    ========================================================== */
 .products-section {
   margin-top: 3em;
@@ -206,7 +196,7 @@ main {
   gap: var(--gap);
 }
 
-/* CARTÃO INDIVIDUAL DE PRODUTO */
+/* CARTÕES DE PRODUTO */
 .product-card {
   border-radius: 0.9em;
   background: var(--color-card-bg);
@@ -230,7 +220,174 @@ main {
   display: block;
 }
 
-/* VÍDEO DENTRO DO CARTÃO – METADE DA ALTURA VISUAL DAS IMAGENS */
 .product-card video {
   width: 100%;
-  aspect-ratio: 8 / 3;   /* metade da altura visual comparado às imagens (4/3) */
+  aspect-ratio: 8 / 3;
+  object-fit: cover;
+  border-radius: 0.6em;
+  display: block;
+}
+
+.product-card h4 {
+  font-size: var(--size-h4);
+  margin: 0 0 0.2em;
+  font-family: var(--font-heading-menu);
+}
+
+.product-card p {
+  font-size: var(--size-card-text);
+  margin: 0;
+  line-height: 1.5;
+  font-family: "Quicksand", sans-serif;
+}
+
+/* ==========================================================
+   FOOTER – IGUAL À PROPOS
+   ========================================================== */
+footer {
+  border-top: 0.05em solid var(--color-border-soft);
+  padding: 1em;
+  text-align: center;
+  font-size: calc(var(--size-p) * 0.9);
+  opacity: 0.85;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE (AJUSTADO À À PROPOS)
+   ========================================================== */
+
+/* Tablet (601–1000px) */
+@media (max-width: 1000px) and (min-width: 601px) {
+  :root {
+    --size-h1: 4em;
+    --size-menu: 1em;
+    --size-h2: 2.2em;
+    --size-h3: 1.7em;
+    --size-h4: 1.3em;
+    --size-p: 1.1em;
+    --logo-w: 8em;
+  }
+
+  .header-content { gap: 0.3em; }
+
+  html body.page-produits header .header-content .title-nav h1 {
+    font-size: 4em !important;
+  }
+}
+
+/* Telemóveis (≤ 600px) */
+@media (max-width: 600px) {
+  :root {
+    --size-h1: 2.5em;
+    --size-menu: 0.85em;
+    --size-h2: 1.6em;
+    --size-h3: 1.4em;
+    --size-h4: 1.2em;
+    --size-p: 1em;
+    --logo-w: 6em;
+  }
+
+  header {
+    padding: 0.5em 0;
+  }
+
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logoL title logoR"
+      "nav   nav   nav";
+    gap: 0.2em;
+  }
+
+  nav a {
+    padding: 0.3em 0.25em;
+  }
+
+  main {
+    padding: 1.8em 1em 1.5em;
+  }
+
+  html body.page-produits header .header-content .title-nav h1 {
+    font-size: 2.5em !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Esconde logo direito em mobile vertical */
+@media (max-width: 600px) and (orientation: portrait) {
+  .right-logo {
+    display: none;
+  }
+}
+
+/* Menu compacto em mobile vertical */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0 !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  header .header-content nav a {
+    padding: 0.25em 0.08em !important;
+    font-size: 0.8em !important;
+    letter-spacing: -0.03em !important;
+  }
+}
+
+/* ==========================================================
+   FONTES E DETALHES
+   ========================================================== */
+.page-produits nav a,
+.page-produits h2,
+.page-produits h3,
+.page-produits h4 {
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.page-produits p,
+.page-produits footer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   FORÇAR H1 IGUAL À À PROPOS (desktop + breakpoints)
+   ========================================================== */
+.page-produits header .title-nav h1,
+body.page-produits header .title-nav h1,
+html body.page-produits header .title-nav h1 {
+  font-size: 6em !important;
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  font-family: inherit !important;
+  font-weight: normal !important;
+}
+
+@media (max-width: 1000px) and (min-width: 601px) {
+  .page-produits header .title-nav h1 {
+    font-size: 4em !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-produits header .title-nav h1 {
+    font-size: 2.5em !important;
+  }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+:where(a, button, .btn):focus-visible {
+  outline: 0.1em dashed var(--color-accent);
+  outline-offset: 0.1em;
+}

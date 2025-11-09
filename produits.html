@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style-produits.css">
 
-  <!-- GOOGLE FONTS: Amatic SC (títulos/menu) + Quicksand (texto) -->
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -26,10 +26,8 @@
   <!-- ===== HEADER ===== -->
   <header>
     <div class="header-content">
-      <!-- Logo esquerdo -->
       <img src="images/logo.jpg" alt="Logo gauche" class="logo left-logo">
 
-      <!-- Título + Menu -->
       <div class="title-nav">
         <h1>Axion Lab 3D</h1>
         <nav>
@@ -40,104 +38,42 @@
         </nav>
       </div>
 
-      <!-- Logo direito -->
       <img src="images/logo.jpg" alt="Logo droite" class="logo right-logo">
     </div>
   </header>
 
   <!-- ===== MAIN ===== -->
-  <main>
-    <section class="products-intro">
-      <h2>Nos produits</h2>
-      <p>
-        Découvrez nos créations personnalisées, adaptées à vos besoins : cadeaux uniques, solutions industrielles,
-        pièces pour l’automobile et projets sur mesure.
-      </p>
+  <main style="text-align: center; max-width: 80em; margin: 0 auto; padding: 3em 1em;">
+    <h2 style="font-family: 'Amatic SC', cursive; font-size: 3em; margin-bottom: 0.3em;">
+      Nos produits
+    </h2>
+    <p style="font-family: 'Quicksand', sans-serif; font-size: 1.3em; max-width: 60ch; margin: 0 auto 2em; line-height: 1.6;">
+      Découvrez nos créations personnalisées, adaptées à vos besoins : cadeaux uniques, solutions industrielles,
+      pièces pour l’automobile et projets sur mesure.
+    </p>
 
-      <!-- MENU DE CATEGORIAS DENTRO DA PÁGINA -->
-      <nav class="products-nav">
-        <a href="#cadeaux">Cadeaux</a>
-        <a href="#industrie">Industrie</a>
-        <a href="#voitures">Voitures</a>
-        <a href="#autres">Autres</a>
-      </nav>
-    </section>
-
-
+    <!-- ===== VÍDEO ===== -->
+    <div style="display: flex; justify-content: center;">
+      <video
+        src="VIDEOS/produit-demo.mp4"
+        controls
+        muted
+        playsinline
+        style="
+          width: 80%;
+          height: 350px;
+          object-fit: cover;
+          border-radius: 0.8em;
+          box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        "
+      ></video>
+    </div>
   </main>
 
   <!-- ===== FOOTER ===== -->
   <footer>
     <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
   </footer>
-
-  <!-- ===== SCRIPT PARA CARREGAR OS PRODUTOS DO JSON (IMAGENS + VÍDEOS) ===== -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const grids = {
-        cadeaux: document.getElementById('grid-cadeaux'),
-        industrie: document.getElementById('grid-industrie'),
-        voitures: document.getElementById('grid-voitures'),
-        autres: document.getElementById('grid-autres')
-      };
-
-      fetch('produits.json')
-        .then(response => {
-          if (!response.ok) throw new Error('Erreur lors du chargement de produits.json');
-          return response.json();
-        })
-        .then(produits => {
-          produits.forEach(p => {
-            const grid = grids[p.categorie];
-            if (!grid) return;
-
-            // Decide se mostra vídeo ou imagem
-            let mediaHTML = '';
-
-            if (p.video) {
-              // Produto com vídeo local (ex: .mp4)
-              mediaHTML = `
-                <video
-                  src="${p.video}"
-                  controls
-                  muted
-                  playsinline
-                  style="
-                    width: 100%;
-                    max-height: 300px;
-                    object-fit: cover;
-                    display: block;
-                    border-radius: 0.6em;
-                  "
-                ></video>
-              `;
-            } else if (p.image) {
-              // Produto com imagem
-              mediaHTML = `
-                <img src="${p.image}" alt="${p.titre}">
-              `;
-            } else {
-              // Se não tiver nem video nem image, não mostra nada
-              return;
-            }
-
-            const article = document.createElement('article');
-            article.className = 'product-card';
-            article.innerHTML = `
-              <figure>
-                ${mediaHTML}
-                <figcaption>
-                  <h4>${p.titre}</h4>
-                  <p>${p.description}</p>
-                </figcaption>
-              </figure>
-            `;
-            grid.appendChild(article);
-          });
-        })
-        .catch(console.error);
-    });
-  </script>
 
 </body>
 </html>

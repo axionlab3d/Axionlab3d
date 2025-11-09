@@ -1,49 +1,280 @@
 /* ==========================================================
-   FORÇAR H1 DA PÁGINA ACCUEIL IGUAL AO DA "À PROPOS"
-   (DESKTOP, TABLET, MOBILE)
+   ACCUEIL (HOME)
+   - Header / menu / logos / footer alinhados com À PROPOS.
+   - Menu sempre visível (sem hambúrguer).
+   ========================================================== */
+
+/* ===== VARIÁVEIS BASE ===== */
+:root {
+  --size-h1: 6em;          /* título Axion Lab 3D (desktop) */
+  --size-menu: 2em;        /* links do menu principal */
+
+  /* Para textos / secções internas, se quiseres usar */
+  --size-h2: 3em;
+  --size-hero-h2: 3em;
+  --size-hero-p: 1.3em;
+  --size-feature-h3: 1.5em;
+  --size-feature-p: 1.1em;
+  --size-p: 1.5em;
+
+  --logo-w: 12em;
+  --header-padding-y: 1.2em;
+  --nav-gap-top: 0.15em;
+  --gap: 1em;
+  --gap-menu-x: 0.2em;
+  --max-content: 80em;
+
+  --grid-features: 3;
+  --grid-gallery: 4;
+
+  --color-border-soft: rgba(255,255,255,0.08);
+
+  /* Fonte decorativa para títulos/menus (exceto h1 que herda) */
+  --font-heading-menu: "Amatic SC", cursive;
+}
+
+/* ===== LAYOUT GLOBAL ===== */
+body {
+  margin: 0;
+}
+
+/* Títulos (exceto h1) com Amatic */
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-menu);
+}
+
+/* ==========================================================
+   HEADER – CÓPIA DA À PROPOS (adaptado para Accueil)
+   ========================================================== */
+
+header {
+  position: static;
+  top: auto;
+  border-bottom: 0.05em solid var(--color-border-soft);
+  padding: var(--header-padding-y) 0;
+}
+
+.header-content {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 1em;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "logoL title logoR"
+    "nav   nav   nav";
+  gap: 0.5em;
+}
+
+.left-logo  { grid-area: logoL; }
+.right-logo { grid-area: logoR; }
+
+.logo {
+  width: var(--logo-w);
+  height: auto;
+  margin: 0;
+}
+
+.title-nav {
+  grid-area: title;
+  align-self: center;
+}
+
+/* H1 base (mesma lógica da À PROPOS) */
+.title-nav h1 {
+  font-size: var(--size-h1);
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  margin: 0;
+  font-family: inherit;
+  font-weight: normal;
+}
+
+/* ==========================================================
+   MENU – IGUAL À PROPOS
+   ========================================================== */
+nav {
+  grid-area: nav;
+  margin-top: var(--nav-gap-top);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-menu-x);
+}
+
+nav a {
+  font-size: var(--size-menu);
+  padding: 0.4em 0.3em;
+  color: var(--color-fg);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s ease;
+  font-family: var(--font-heading-menu);
+  letter-spacing: 0.05em;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   MAIN
+   ========================================================== */
+main {
+  padding: 2.5em 1em;
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+/* (o resto do conteúdo da Accueil – herói, features, etc. –
+   fica controlado por outras classes ou por base.css) */
+
+/* ==========================================================
+   FOOTER – IGUAL À PROPOS
+   ========================================================== */
+footer {
+  border-top: 0.05em solid var(--color-border-soft);
+  padding: 1em;
+  text-align: center;
+  font-size: calc(var(--size-p) * 0.9);
+  opacity: 0.85;
+}
+
+footer p {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE – COPIADO DA À PROPOS
+   ========================================================== */
+
+/* Tablet (601–1000px) – igual À PROPOS */
+@media (max-width: 1000px) and (min-width: 601px) {
+  :root {
+    --size-h1: 4em;
+    --size-menu: 1em;
+    --size-h2: 2.2em;
+    --size-p: 1.1em;
+    --logo-w: 8em;
+  }
+
+  .header-content { gap: 0.3em; }
+
+  /* h1 igual às outras páginas no tablet */
+  html body.accueil header .header-content .title-nav h1 {
+    font-size: 4em !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Telemóveis (≤ 600px) – igual À PROPOS */
+@media (max-width: 600px) {
+  :root {
+    --size-h1: 2.5em;        /* mesmo valor que À PROPOS / CONTACTS / PRODUITS */
+    --size-menu: 0.85em;
+    --size-h2: 1.6em;
+    --size-p: 1em;
+    --logo-w: 6em;
+  }
+
+  header {
+    padding: 0.5em 0;
+  }
+
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logoL title logoR"
+      "nav   nav   nav";
+    gap: 0.2em;
+  }
+
+  nav a {
+    padding: 0.3em 0.25em;
+  }
+
+  main {
+    padding: 1.8em 1em;
+  }
+
+  /* h1 IGUAL ao da À PROPOS no mobile */
+  html body.accueil header .header-content .title-nav h1 {
+    font-size: 2.5em !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Esconde o logo direito em telemóveis verticais – igual À PROPOS */
+@media (max-width: 600px) and (orientation: portrait) {
+  .right-logo {
+    display: none;
+  }
+}
+
+/* Menu mais compacto em telemóveis na vertical – IGUAL À PROPOS */
+@media (max-width: 800px) and (orientation: portrait) {
+  header .header-content nav {
+    gap: 0 !important; /* sem espaço entre links */
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  header .header-content nav a {
+    padding: 0.25em 0.08em !important;   /* menos padding horizontal */
+    font-size: 0.8em !important;
+    letter-spacing: -0.03em !important;  /* letras mais juntas */
+  }
+}
+
+/* ==========================================================
+   FORÇAR H1 IGUAL AO DA À PROPOS (DESKTOP + BREAKPOINTS)
    ========================================================== */
 
 /* Desktop */
 .accueil header .title-nav h1,
 body.accueil header .title-nav h1,
-html body.accueil header .title-nav h1,
-.accueil-page header .title-nav h1,
-body.accueil-page header .title-nav h1,
-html body.accueil-page header .title-nav h1 {
-  font-size: 6em !important;          /* exatamente como À PROPOS */
+html body.accueil header .title-nav h1 {
+  font-size: 6em !important;          /* igual Accueil / Contacts / À PROPOS / Produits */
   letter-spacing: 0.12em !important;
   line-height: 1.1 !important;
   font-family: inherit !important;
   font-weight: normal !important;
-  text-transform: none !important;
   margin: 0 !important;
 }
 
-/* Tablet – 601–1000px */
+/* Tablet – igual às outras páginas */
 @media (max-width: 1000px) and (min-width: 601px) {
   .accueil header .title-nav h1,
   body.accueil header .title-nav h1,
-  html body.accueil header .title-nav h1,
-  .accueil-page header .title-nav h1,
-  body.accueil-page header .title-nav h1,
-  html body.accueil-page header .title-nav h1 {
-    font-size: 4em !important;        /* mesmo valor da À PROPOS */
-    letter-spacing: 0.12em !important;
-    line-height: 1.1 !important;
+  html body.accueil header .title-nav h1 {
+    font-size: 4em !important;
   }
 }
 
-/* Mobile – ≤ 600px */
+/* Mobile – igual às outras páginas */
 @media (max-width: 600px) {
   .accueil header .title-nav h1,
   body.accueil header .title-nav h1,
-  html body.accueil header .title-nav h1,
-  .accueil-page header .title-nav h1,
-  body.accueil-page header .title-nav h1,
-  html body.accueil-page header .title-nav h1 {
-    font-size: 2.5em !important;      /* igual À PROPOS */
-    letter-spacing: 0.12em !important;
-    line-height: 1.1 !important;
-    text-transform: none !important;
+  html body.accueil header .title-nav h1 {
+    font-size: 2.5em !important;
   }
+}
+
+/* ==========================================================
+   FONTE BASE PARA TEXTOS DA ACCUEIL
+   ========================================================== */
+
+.accueil p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
 }

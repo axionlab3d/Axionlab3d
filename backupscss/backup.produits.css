@@ -94,7 +94,7 @@ header nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--gap-menu-x); /* 🔹 igual Accueil/Contacts/Apropos */
+  gap: var(--gap-menu-x); /* igual Accueil/Contacts/Apropos */
 }
 
 header nav a {
@@ -148,7 +148,7 @@ main {
 }
 
 /* MENU INTERNO DE CATEGORIAS */
-products-nav {
+.products-nav {
   margin-top: 1em;
   display: flex;
   flex-wrap: wrap;
@@ -224,6 +224,15 @@ products-nav {
 .product-card img {
   width: 100%;
   aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.6em;
+  display: block;
+}
+
+/* VÍDEO DENTRO DO CARTÃO – METADE DA ALTURA VISUAL DAS IMAGENS */
+.product-card video {
+  width: 100%;
+  aspect-ratio: 8 / 3;   /* metade da altura visual comparado às imagens (4/3) */
   object-fit: cover;
   border-radius: 0.6em;
   display: block;

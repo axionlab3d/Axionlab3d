@@ -1,7 +1,7 @@
 [
   {
     "categorie": "cadeaux",
-    "image": "images/produits/cadeau1.jpg",
+    "image": "PHOTOS/FRASCOSS.jpg",
     "titre": "Porte-clés personnalisé",
     "description": "Un cadeau unique imprimé en 3D, personnalisable avec un prénom ou un message."
   },
@@ -13,9 +13,9 @@
   },
   {
     "categorie": "industrie",
-    "image": "images/produits/industrie1.jpg",
-    "titre": "Prototype technique",
-    "description": "Pièce de test conçue pour des essais mécaniques et fonctionnels."
+    "image": "PHOTOS/FRASCOS.jpg",
+    "titre": "PIECE DEMMANDE PAR NOTRE CLIENT",
+    "description": "Pièce Fonctionnel pour les besoin de notre client."
   },
   {
     "categorie": "voitures",

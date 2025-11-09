@@ -1,20 +1,19 @@
 /* ==========================================================
    PAGE : PRODUITS
-   - Mesmo estilo base (header/menu/logos) das outras páginas.
-   - Menu de categorias dentro da página.
-   - Grelha de produtos (cartões).
+   - Mesmo estilo (header/menu/logos/footer) da página À PROPOS.
+   - Menu de categorias e grelha de produtos mantidos.
    ========================================================== */
 
 /* ===== VARIÁVEIS ===== */
 :root {
   /* Tipografia */
-  --size-h1: 6em;            /* título "Axion Lab 3D" no header (desktop) */
-  --size-menu: 2em;          /* links do menu principal */
-  --size-h2: 3em;            /* "Nos produits" */
-  --size-h3: 2em;            /* títulos de categoria (Cadeaux, etc.) */
-  --size-h4: 1.4em;          /* título de cada produto */
-  --size-p: 1.5em;           /* textos gerais */
-  --size-card-text: 1.05em;  /* texto dentro dos cartões */
+  --size-h1: 6em;
+  --size-menu: 2em;
+  --size-h2: 3em;
+  --size-h3: 2em;
+  --size-h4: 1.4em;
+  --size-p: 1.5em;
+  --size-card-text: 1.05em;
 
   /* Layout */
   --logo-w: 12em;
@@ -23,10 +22,10 @@
   --max-content: 80em;
   --gap: 1.2em;
 
-  /* NOVO: espaçamento horizontal entre links do menu (igual Accueil) */
+  /* Espaço horizontal entre links do menu */
   --gap-menu-x: 0.2em;
 
-  /* Cores auxiliares */
+  /* Cores */
   --color-border-soft: rgba(255,255,255,0.08);
   --color-card-bg: rgba(255,255,255,0.03);
   --color-card-border: rgba(255,255,255,0.12);
@@ -36,16 +35,11 @@
 }
 
 /* ==========================================================
-   LAYOUT GLOBAL / HEADER
+   HEADER – IGUAL À PÁGINA À PROPOS
    ========================================================== */
-body,
-.page-produits {
-  margin: 0;
-  display: block;
-}
-
 header {
   position: static;
+  top: auto;
   border-bottom: 0.05em solid var(--color-border-soft);
   padding: var(--header-padding-y) 0;
 }
@@ -54,7 +48,6 @@ header {
   max-width: var(--max-content);
   margin: 0 auto;
   padding: 0 1em;
-
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
@@ -63,7 +56,7 @@ header {
   gap: 0.5em;
 }
 
-.left-logo  { grid-area: logoL; }
+.left-logo { grid-area: logoL; }
 .right-logo { grid-area: logoR; }
 
 .logo {
@@ -77,7 +70,6 @@ header {
   align-self: center;
 }
 
-/* H1 (igual à Accueil/Apropos) */
 .title-nav h1 {
   font-size: var(--size-h1);
   letter-spacing: 0.12em;
@@ -87,34 +79,33 @@ header {
   font-weight: normal;
 }
 
-/* MENU PRINCIPAL (topo) */
-header nav {
+/* ===== MENU ===== */
+nav {
   grid-area: nav;
   margin-top: var(--nav-gap-top);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--gap-menu-x); /* igual Accueil/Contacts/Apropos */
+  gap: var(--gap-menu-x);
 }
 
-header nav a {
+nav a {
   font-size: var(--size-menu);
   padding: 0.4em 0.3em;
   color: var(--color-fg);
   font-weight: bold;
   text-decoration: none;
   transition: 0.2s ease;
-
   font-family: var(--font-heading-menu);
   letter-spacing: 0.05em;
 }
 
-header nav a:hover {
+nav a:hover {
   color: var(--color-accent);
   text-decoration: underline;
 }
 
-header nav a.active {
+nav a.active {
   color: var(--color-fg);
 }
 
@@ -174,7 +165,7 @@ main {
 }
 
 /* ==========================================================
-   SECÇÕES DE PRODUTOS POR CATEGORIA
+   SECÇÕES DE PRODUTOS
    ========================================================== */
 .products-section {
   margin-top: 3em;
@@ -205,7 +196,7 @@ main {
   gap: var(--gap);
 }
 
-/* CARTÃO INDIVIDUAL DE PRODUTO */
+/* CARTÕES DE PRODUTO */
 .product-card {
   border-radius: 0.9em;
   background: var(--color-card-bg);
@@ -229,10 +220,9 @@ main {
   display: block;
 }
 
-/* VÍDEO DENTRO DO CARTÃO – METADE DA ALTURA VISUAL DAS IMAGENS */
 .product-card video {
   width: 100%;
-  aspect-ratio: 8 / 3;   /* metade da altura visual comparado às imagens (4/3) */
+  aspect-ratio: 8 / 3;
   object-fit: cover;
   border-radius: 0.6em;
   display: block;
@@ -252,7 +242,7 @@ main {
 }
 
 /* ==========================================================
-   FOOTER
+   FOOTER – IGUAL À PROPOS
    ========================================================== */
 footer {
   border-top: 0.05em solid var(--color-border-soft);
@@ -265,44 +255,42 @@ footer {
 }
 
 /* ==========================================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE (AJUSTADO À À PROPOS)
    ========================================================== */
 
 /* Tablet (601–1000px) */
 @media (max-width: 1000px) and (min-width: 601px) {
   :root {
-    --size-h1: 4em;          /* igual à accueil/apropos */
+    --size-h1: 4em;
     --size-menu: 1em;
     --size-h2: 2.2em;
     --size-h3: 1.7em;
-    --size-p: 1.1em;
     --size-h4: 1.3em;
-    --size-card-text: 1em;
+    --size-p: 1.1em;
     --logo-w: 8em;
-    --header-padding-y: 0.9em;
   }
 
-  .header-content {
-    gap: 0.25em;
+  .header-content { gap: 0.3em; }
+
+  html body.page-produits header .header-content .title-nav h1 {
+    font-size: 4em !important;
   }
 }
 
-/* Telemóveis (≤600px) */
+/* Telemóveis (≤ 600px) */
 @media (max-width: 600px) {
   :root {
-    --size-h1: 2.5em;        /* igual à accueil/apropos */
+    --size-h1: 2.5em;
     --size-menu: 0.85em;
-    --size-h2: 1.7em;
+    --size-h2: 1.6em;
     --size-h3: 1.4em;
-    --size-p: 1em;
     --size-h4: 1.2em;
-    --size-card-text: 0.95em;
+    --size-p: 1em;
     --logo-w: 6em;
-    --header-padding-y: 0.6em;
   }
 
   header {
-    padding: var(--header-padding-y) 0;
+    padding: 0.5em 0;
   }
 
   .header-content {
@@ -313,7 +301,7 @@ footer {
     gap: 0.2em;
   }
 
-  header nav a {
+  nav a {
     padding: 0.3em 0.25em;
   }
 
@@ -321,47 +309,39 @@ footer {
     padding: 1.8em 1em 1.5em;
   }
 
-  .products-grid {
-    gap: 0.9em;
+  html body.page-produits header .header-content .title-nav h1 {
+    font-size: 2.5em !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.1 !important;
   }
 }
 
-/* Esconde logo direito apenas em telemóveis na vertical */
+/* Esconde logo direito em mobile vertical */
 @media (max-width: 600px) and (orientation: portrait) {
   .right-logo {
     display: none;
   }
 }
 
-/* ==========================================================
-   ACESSIBILIDADE / DETALHES
-   ========================================================== */
-:where(a, button, .btn):focus-visible {
-  outline: 0.1em dashed var(--color-accent);
-  outline-offset: 0.1em;
-}
-
-header nav a,
-header nav a:hover {
-  text-decoration: none;
-}
-
-/* Ajuste do menu para 4 palavras em telemóveis na vertical */
-@media (max-width: 600px) and (orientation: portrait) {
+/* Menu compacto em mobile vertical */
+@media (max-width: 800px) and (orientation: portrait) {
   header .header-content nav {
-    gap: 0.15em !important;
+    gap: 0 !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
   }
 
   header .header-content nav a {
-    padding: 0.25em 0.18em !important;
-    font-size: 0.85em !important;
+    padding: 0.25em 0.08em !important;
+    font-size: 0.8em !important;
+    letter-spacing: -0.03em !important;
   }
 }
 
 /* ==========================================================
-   FONTES GERAIS (GARANTIA, IGUAL ÀS OUTRAS PÁGINAS)
+   FONTES E DETALHES
    ========================================================== */
-.page-produits header nav a,
+.page-produits nav a,
 .page-produits h2,
 .page-produits h3,
 .page-produits h4 {
@@ -378,7 +358,9 @@ header nav a:hover {
   line-height: 1.6;
 }
 
-/* Força h1 se o base.css estiver a chatear */
+/* ==========================================================
+   FORÇAR H1 IGUAL À À PROPOS (desktop + breakpoints)
+   ========================================================== */
 .page-produits header .title-nav h1,
 body.page-produits header .title-nav h1,
 html body.page-produits header .title-nav h1 {
@@ -400,4 +382,12 @@ html body.page-produits header .title-nav h1 {
   .page-produits header .title-nav h1 {
     font-size: 2.5em !important;
   }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+:where(a, button, .btn):focus-visible {
+  outline: 0.1em dashed var(--color-accent);
+  outline-offset: 0.1em;
 }

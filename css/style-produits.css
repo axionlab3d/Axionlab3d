@@ -401,4 +401,14 @@ html body.page-produits header .title-nav h1 {
   /* 🔹 reduz a altura para metade visualmente */
   max-height: 150px;     /* <-- ajusta este valor até ficar como queres */
 }
-   }
+ 
+/* ===== REDUZIR ALTURA DOS VÍDEOS PARA METADE ===== */
+.product-card video {
+  width: 100%;
+  height: 50% !important;   /* força a altura a metade do container */
+  object-fit: cover;
+  border-radius: 0.6em;
+  display: block;
+}
+
+   

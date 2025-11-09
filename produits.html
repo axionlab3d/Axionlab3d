@@ -55,17 +55,20 @@
     <!-- ===== VÍDEO ===== -->
     <div style="display: flex; justify-content: center;">
       <video
-        src="videos/axionlab3d.mp4"
-        controls
-        muted
-        playsinline
-        style="
-          width: 90%;
-          height: 500px;
-          object-fit: cover;
-          border-radius: 1em;
-          box-shadow: 0 0 25px rgba(0,0,0,0.4);
-        "
+  src="videos/axionlab3d.mp4"
+  controls
+  muted
+  playsinline
+  style="
+    width: 90%;
+    max-width: 1000px;       /* largura máxima do vídeo */
+    height: 650px;           /* aumenta a altura da janela */
+    max-height: 80vh;        /* não passa de 80% da altura do ecrã */
+    object-fit: contain;     /* mostra o vídeo inteiro, sem cortar */
+    background: #000;        /* barras pretas se sobrar espaço */
+    border-radius: 1em;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  "
       ></video>
     </div>
   </main>

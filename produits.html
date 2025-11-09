@@ -105,7 +105,7 @@
     <p>© 2025 Axion Lab 3D. Tous droits réservés.</p>
   </footer>
 
-  <!-- ===== SCRIPT PARA CARREGAR OS PRODUTOS DO JSON ===== -->
+  <!-- ===== SCRIPT PARA CARREGAR OS PRODUTOS DO JSON (IMAGENS + VÍDEOS) ===== -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const grids = {
@@ -125,11 +125,29 @@
             const grid = grids[p.categorie];
             if (!grid) return;
 
+            // Decide se mostra vídeo ou imagem
+            let mediaHTML = '';
+
+            if (p.video) {
+              // Produto com vídeo local (ex: .mp4)
+              mediaHTML = `
+                <video src="${p.video}" controls muted playsinline></video>
+              `;
+            } else if (p.image) {
+              // Produto com imagem
+              mediaHTML = `
+                <img src="${p.image}" alt="${p.titre}">
+              `;
+            } else {
+              // Se não tiver nem video nem image, não mostra nada
+              return;
+            }
+
             const article = document.createElement('article');
             article.className = 'product-card';
             article.innerHTML = `
               <figure>
-                <img src="${p.image}" alt="${p.titre}">
+                ${mediaHTML}
                 <figcaption>
                   <h4>${p.titre}</h4>
                   <p>${p.description}</p>

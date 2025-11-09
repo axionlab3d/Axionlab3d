@@ -7,31 +7,3 @@
   }
 ]
 
-
-[
-  {
-    "categorie": "cadeaux",
-    "image": "PHOTOS/FRASCOSS.jpg",
-    "titre": "Porte-clés personnalisé",
-    "description": "Un cadeau unique imprimé en 3D, personnalisable avec un prénom ou un message."
-  },
-  {
-    "categorie": "cadeaux",
-    "image": "PHOTOS/industrie s marca.png",
-    "titre": "Petit objet décoratif",
-    "description": "Idéal pour la maison ou le bureau, disponible en plusieurs couleurs."
-  },
-  {
-    "categorie": "industrie",
-    "image": "PHOTOS/industrie s marca.png",
-    "titre": "Pièce fonctionnelle pour les besoins de notre client.",
-    "description": "Idéal pour la maison ou le bureau, disponible en plusieurs couleurs."
-  },
-    
-  {
-    "categorie": "autres",
-    "image": "images/produits/autre1.jpg",
-    "titre": "Décoration événementielle",
-    "description": "Création 3D pour mariages, événements ou vitrines."
-  }
-]

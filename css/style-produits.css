@@ -391,4 +391,14 @@ html body.page-produits header .title-nav h1 {
   .page-produits header .title-nav h1 {
     font-size: 2.5em !important;
   }
+/* ===== AJUSTE DO TAMANHO DOS VÍDEOS ===== */
+.product-card video {
+  width: 100%;
+  aspect-ratio: 4 / 3;   /* formato normal, podes mudar para 16/9 se quiseres */
+  object-fit: cover;
+  border-radius: 0.6em;
+  display: block;
+
+  /* 🔹 reduz a altura para metade visualmente */
+  max-height: 150px;     /* <-- ajusta este valor até ficar como queres */
 }

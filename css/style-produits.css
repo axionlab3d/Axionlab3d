@@ -385,7 +385,6 @@ html body.page-produits header .title-nav h1 {
   .page-produits header .title-nav h1 {
     font-size: 4em !important;
   }
-}
 
 @media (max-width: 600px) {
   .page-produits header .title-nav h1 {
@@ -402,3 +401,4 @@ html body.page-produits header .title-nav h1 {
   /* 🔹 reduz a altura para metade visualmente */
   max-height: 150px;     /* <-- ajusta este valor até ficar como queres */
 }
+   }

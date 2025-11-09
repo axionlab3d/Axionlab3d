@@ -1,249 +1,49 @@
 /* ==========================================================
-   ACCUEIL (HOME)
-   - Header / menu / logos / footer alinhados com À PROPOS.
-   - Menu sempre visível (sem hambúrguer).
+   FORÇAR H1 DA PÁGINA ACCUEIL IGUAL AO DA "À PROPOS"
+   (DESKTOP, TABLET, MOBILE)
    ========================================================== */
 
-/* ===== VARIÁVEIS BASE (Desktop) ===== */
-:root {
-  --size-h1: 6em;
-  --size-menu: 2em;
-
-  --size-hero-h2: 3em;
-  --size-hero-p: 1.3em;
-  --size-feature-h3: 1.5em;
-  --size-feature-p: 1.1em;
-
-  --size-p: 1.5em;              /* usado para textos + footer, igual às outras páginas */
-  --size-footer-text: 1.5em;    /* se quiseres usar algures */
-
-  --logo-w: 12em;
-  --gap: 1em;
-  --gap-menu-x: 0.2em;
-  --max-content: 80em;
-
-  --grid-features: 3;
-  --grid-gallery: 4;
-
-  --header-padding-y: 1.2em;
-  --nav-gap-top: 0.15em;
-
-  --color-border-soft: rgba(255,255,255,0.08);
-
-  /* Fonte decorativa para menu + títulos (exceto h1) */
-  --font-heading-menu: "Amatic SC", cursive;
-}
-
-/* ===== LAYOUT GLOBAL ===== */
-body {
-  margin: 0;
-}
-
-/* ===== TÍTULOS (EXCETO H1) ===== */
-h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading-menu);
-}
-
-/* ==========================================================
-   HEADER – IGUAL À PÁGINA À PROPOS
-   ========================================================== */
-header {
-  position: static;
-  top: auto;
-  border-bottom: 0.05em solid var(--color-border-soft);
-  padding: var(--header-padding-y) 0;
-}
-
-.header-content {
-  max-width: var(--max-content);
-  margin: 0 auto;
-  padding: 0 1em;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas:
-    "logoL title logoR"
-    "nav   nav   nav";
-  gap: 0.5em;
-}
-
-.left-logo  { grid-area: logoL; }
-.right-logo { grid-area: logoR; }
-
-.logo {
-  width: var(--logo-w);
-  height: auto;
-}
-
-.title-nav {
-  grid-area: title;
-  align-self: center;
-}
-
-.title-nav h1 {
-  font-size: var(--size-h1);
-  letter-spacing: 0.12em;
-  line-height: 1.1;
-  margin: 0;
-}
-
-/* ===== MENU (igual À PROPOS) ===== */
-nav {
-  grid-area: nav;
-  margin-top: var(--nav-gap-top);
-  display: flex;
-  gap: var(--gap-menu-x);
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-nav a {
-  font-size: var(--size-menu);
-  padding: 0.4em 0.3em;
-  color: var(--color-fg);
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.2s ease;
-  font-family: var(--font-heading-menu);
-}
-
-nav a:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
-}
-
-/* ===== MAIN ===== */
-main {
-  padding: 2.5em 1em;
-}
-
-/* ==========================================================
-   FOOTER – IGUAL À PROPOS
-   ========================================================== */
-footer {
-  border-top: 0.05em solid var(--color-border-soft);
-  padding: 1em;
-  text-align: center;
-  font-size: calc(var(--size-p) * 0.9);
-  opacity: 0.85;
-}
-
-footer p {
-  max-width: var(--max-content);
-  margin: 0 auto;
-  font-family: "Quicksand", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-}
-
-/* ==========================================================
-   RESPONSIVIDADE
-   ========================================================== */
-
-/* Tablet horizontal (1200–1000px) – leve redução do header */
-@media (max-width: 1200px) and (min-width: 1000px) {
-  :root {
-    --size-h1: 4em;
-    --size-menu: 1em;
-    --logo-w: 8em;
-  }
-
-  .header-content { gap: 0.2em; }
-}
-
-/* Tablet vertical (1000–601px) – igual À PROPOS */
-@media (max-width: 1000px) and (min-width: 601px) {
-  :root {
-    --size-h1: 4em;
-    --size-menu: 1em;
-    --size-hero-h2: 2.2em;
-    --size-hero-p: 1.1em;
-    --size-feature-h3: 1.3em;
-    --size-feature-p: 1em;
-    --size-p: 1.1em;
-    --logo-w: 8em;
-  }
-
-  .header-content { gap: 0.3em; }
-
-  /* h1 igual ao das outras páginas no tablet */
-  html body.accueil header .header-content .title-nav h1 {
-    font-size: 4em !important;
-    letter-spacing: 0.12em !important;
-    line-height: 1.1 !important;
-  }
-}
-
-/* Telemóvel (≤ 600px) – igual À PROPOS */
-@media (max-width: 600px) {
-  :root {
-    --size-h1: 2.5em;
-    --size-menu: 0.85em;
-    --size-hero-h2: 1.8em;
-    --size-hero-p: 1em;
-    --size-feature-h3: 1.3em;
-    --size-feature-p: 0.95em;
-    --size-p: 1em;
-    --logo-w: 6em;
-  }
-
-  header { padding: 0.5em 0; }
-
-  .header-content {
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas:
-      "logoL title logoR"
-      "nav   nav   nav";
-    gap: 0.3em;
-  }
-
-  nav a {
-    padding: 0.3em 0.25em;
-  }
-
-  main {
-    padding: 1.8em 1em 1.2em;
-  }
-
-  /* h1 igual ao das outras páginas no mobile */
-  html body.accueil header .header-content .title-nav h1 {
-    font-size: 2.5em !important;
-    letter-spacing: 0.12em !important;
-    line-height: 1.1 !important;
-  }
-}
-
-/* Esconder o logo direito em ecrãs muito estreitos – alinhado às restantes */
-@media (max-width: 480px) {
-  .header-content {
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      "logoL title"
-      "nav   nav";
-  }
-  .right-logo { display: none; }
-}
-
-/* Menu mais compacto em telemóveis na vertical – igual às outras páginas */
-@media (max-width: 800px) and (orientation: portrait) {
-  header .header-content nav {
-    gap: 0 !important;
-    justify-content: center !important;
-    flex-wrap: nowrap !important;
-  }
-
-  header .header-content nav a {
-    padding: 0.25em 0.08em !important;
-    font-size: 0.8em !important;
-    letter-spacing: -0.03em !important;
-  }
-}
-
-/* ==========================================================
-   FORÇAR H1 DA PÁGINA ACCUEIL IGUAL AO DAS OUTRAS PÁGINAS
-   ========================================================== */
-
+/* Desktop */
 .accueil header .title-nav h1,
 body.accueil header .title-nav h1,
-html body.accueil header .title-nav h1 {
-  font-size: 6em !important;         /* Desktop */
+html body.accueil header .title-nav h1,
+.accueil-page header .title-nav h1,
+body.accueil-page header .title-nav h1,
+html body.accueil-page header .title-nav h1 {
+  font-size: 6em !important;          /* exatamente como À PROPOS */
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
+  font-family: inherit !important;
+  font-weight: normal !important;
+  text-transform: none !important;
+  margin: 0 !important;
+}
+
+/* Tablet – 601–1000px */
+@media (max-width: 1000px) and (min-width: 601px) {
+  .accueil header .title-nav h1,
+  body.accueil header .title-nav h1,
+  html body.accueil header .title-nav h1,
+  .accueil-page header .title-nav h1,
+  body.accueil-page header .title-nav h1,
+  html body.accueil-page header .title-nav h1 {
+    font-size: 4em !important;        /* mesmo valor da À PROPOS */
+    letter-spacing: 0.12em !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Mobile – ≤ 600px */
+@media (max-width: 600px) {
+  .accueil header .title-nav h1,
+  body.accueil header .title-nav h1,
+  html body.accueil header .title-nav h1,
+  .accueil-page header .title-nav h1,
+  body.accueil-page header .title-nav h1,
+  html body.accueil-page header .title-nav h1 {
+    font-size: 2.5em !important;      /* igual À PROPOS */
+    letter-spacing: 0.12em !important;
+    line-height: 1.1 !important;
+    text-transform: none !important;
+  }
+}

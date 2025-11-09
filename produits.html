@@ -131,7 +131,19 @@
             if (p.video) {
               // Produto com vídeo local (ex: .mp4)
               mediaHTML = `
-                <video src="${p.video}" controls muted playsinline></video>
+                <video
+                  src="${p.video}"
+                  controls
+                  muted
+                  playsinline
+                  style="
+                    width: 100%;
+                    max-height: 150px;
+                    object-fit: cover;
+                    display: block;
+                    border-radius: 0.6em;
+                  "
+                ></video>
               `;
             } else if (p.image) {
               // Produto com imagem

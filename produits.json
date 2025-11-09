@@ -1,6 +1,16 @@
 [
   {
     "categorie": "cadeaux",
+    "video": "VIDEOS/axionlab3d.mp4",
+    "titre": "Apresentation des divers services fait chez nous",
+    "description": "Vous pouvez discutir avec nous les pieces que besoin pour trouver une solution sur mesure."
+  }
+]
+
+
+[
+  {
+    "categorie": "cadeaux",
     "image": "PHOTOS/FRASCOSS.jpg",
     "titre": "Porte-clés personnalisé",
     "description": "Un cadeau unique imprimé en 3D, personnalisable avec un prénom ou un message."

@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Redirecionar SEM www para COM www
+RewriteCond %{HTTP_HOST} !^www\.axionlab3d\.ch$ [NC]
+RewriteRule ^(.*)$ https://www.axionlab3d.ch/$1 [L,R=301]
